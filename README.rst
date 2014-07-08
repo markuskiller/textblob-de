@@ -10,7 +10,7 @@ textblob-de
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
 
-German language support for `TextBlob`_.
+**EXPERIMENTAL** German language support for `TextBlob`_.
 
 Features
 --------
