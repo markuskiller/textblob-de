@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+**DUMMY** SUBJECTIVITY LEXICON FOR GERMAN ADJECTIVES.
+
+TODO: extract/compute/compile German Subjectivity Lexicon from publicly available resources.
+
+Possible sources:
+
+.. _pattern-de: http://www.clips.ua.ac.be/pages/pattern-de
+.. _German Polarity Lexicon: http://bics.sentimental.li/index.php/downloads/
+.. _IGGSA: https://sites.google.com/site/iggsahome/
+.. _GermanPolarityClues: http://www.ulliwaltinger.de/sentiment/
+
+Adjectives have a polarity (negative/positive, -1.0 to +1.0) and a subjectivity (objective/subjective, +0.0 to +1.0).
+The reliability specifies if an adjective was hand-tagged (1.0) or inferred (0.7).
+The part-of-speech tags (pos) use the Penn Treebank II tag set: NN = noun, JJ = adjective, ...
+
+-->
+<sentiment language="de" version="0.1" author="Markus Killer" license="unknown">
+<word form="schön" pos="JJ" polarity="0.80" subjectivity="0.80" intensity="1.0" confidence="1.0" />
+<word form="schöne" pos="JJ" polarity="0.80" subjectivity="0.80" intensity="1.0" confidence="1.0" />
+<word form="schönes" pos="JJ" polarity="0.80" subjectivity="0.80" intensity="1.0" confidence="1.0" />
+<word form="schöner" pos="JJ" polarity="0.80" subjectivity="0.80" intensity="1.0" confidence="1.0" />
+<word form="schrecklich" pos="JJ" polarity="-0.70" subjectivity="0.60" intensity="1.0" confidence="1.0" />
+<word form="schreckliche" pos="JJ" polarity="-0.70" subjectivity="0.60" intensity="1.0" confidence="1.0" />
+<word form="schreckliches" pos="JJ" polarity="-0.70" subjectivity="0.60" intensity="1.0" confidence="1.0" />
+<word form="schrecklicher" pos="JJ" polarity="-0.70" subjectivity="0.60" intensity="1.0" confidence="1.0" />
+</sentiment>

@@ -15,7 +15,7 @@ See the NOTICE file for license information.
 
 ####################################################################################################
 # German linguistical tools using fast regular expressions.
-
+from __future__ import absolute_import
 import os
 import sys
 
@@ -28,7 +28,7 @@ sys.path.insert(0, os.path.join(MODULE, "..", "..", "..", ".."))
 
 # Import parser base classes.
 from textblob_de._text import (
-    Lexicon, Model, Morphology, Context, Parser as _Parser, ngrams, pprint, commandline,
+    Lexicon, Morphology, Context, Parser as _Parser,
     PUNCTUATION
 )
 # Import parser universal tagset.
@@ -38,16 +38,17 @@ from textblob_de._text import (
     NOUN, VERB, ADJ, ADV, PRON, DET, PREP, ADP, NUM, CONJ, INTJ, PRT, PUNC, X
 )
 # Import parse tree base classes.
-from pattern.text.tree import (
+from textblob_de._tree import (
     Tree, Text, Sentence, Slice, Chunk, PNPChunk, Chink, Word, table,
     SLASH, WORD, POS, CHUNK, PNP, REL, ANCHOR, LEMMA, AND, OR
 )
 # Import sentiment analysis base classes.
-from pattern.text import (
-    Sentiment, NOUN, VERB, ADJECTIVE, ADVERB
+from textblob_de._text import (
+    Sentiment as _Sentiment, 
+    NOUN, VERB, ADJECTIVE, ADVERB
 )
 # Import verb tenses.
-from pattern.text import (
+from textblob_de._text import (
     INFINITIVE, PRESENT, PAST, FUTURE,
     FIRST, SECOND, THIRD,
     SINGULAR, PLURAL, SG, PL,
@@ -56,7 +57,7 @@ from pattern.text import (
     PARTICIPLE, GERUND
 )
 # Import inflection functions.
-from pattern.text.de.inflect import (
+from textblob_de.inflect import (
     article, referenced, DEFINITE, INDEFINITE,
     pluralize, singularize, NOUN, VERB, ADJECTIVE,
     grade, comparative, superlative, COMPARATIVE, SUPERLATIVE,
@@ -66,7 +67,7 @@ from pattern.text.de.inflect import (
             NOMINATIVE, ACCUSATIVE, DATIVE, GENITIVE, SUBJECT, OBJECT, INDIRECT, PROPERTY
 )
 # Import all submodules.
-from pattern.text.de import inflect
+#from textblob_de import inflect
 
 sys.path.pop(0)
 
@@ -222,11 +223,47 @@ class Parser(_Parser):
         tokens_ss = _Parser.find_tags(self, tokens_ss, **kwargs)
         return [[w] + tokens_ss[i][1:] for i, w in enumerate(tokens)]
 
+
+class Sentiment(_Sentiment):
+
+    def load(self, path=None):
+        _Sentiment.load(self, path)
+        # Map "précaire" to "precaire" (without diacritics, +1% accuracy).
+        if not path:
+            for w, pos in list(self.items()):
+                w0 = w
+                if not w.endswith((u"à", u"è", u"é", u"ê", u"ï")):
+                    w = w.replace(u"à", "a")
+                    w = w.replace(u"é", "e")
+                    w = w.replace(u"è", "e")
+                    w = w.replace(u"ê", "e")
+                    w = w.replace(u"ï", "i")
+                if w != w0:
+                    for pos, (p, s, i) in pos.items():
+                        self.annotate(w, pos, p, s, i)
+
+lexicon = Lexicon(
+        path = os.path.join(MODULE, "de-lexicon.txt"),
+  morphology = os.path.join(MODULE, "de-morphology.txt"),
+     context = os.path.join(MODULE, "de-context.txt"),
+    language = "de"
+)
+
 parser = Parser(
      lexicon = os.path.join(MODULE, "de-lexicon.txt"), 
-  morphology = os.path.join(MODULE, "de-morphology.txt"), 
-     context = os.path.join(MODULE, "de-context.txt"),
+#    morphology = os.path.join(MODULE, "de-morphology.txt"), 
+#    context = os.path.join(MODULE, "de-context.txt"),
      default = ("NN", "NE", "CARDNUM"),
+    language = "de"
+)
+
+sentiment = Sentiment(
+        path = os.path.join(MODULE, "de-sentiment.xml"),
+      synset = None,
+   negations = ("nicht", "ohne", "nie", "nein", "kein", "keiner", "keine", "nichts", ),
+   modifiers = ("RB",),
+   modifier  = lambda w: w.endswith("lich"),
+   tokenizer = parser.find_tokens,
     language = "de"
 )
 
