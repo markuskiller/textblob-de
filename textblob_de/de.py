@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 '''Code adapted from the pattern.de library.
 
+:repo: `https://github.com/clips/pattern`_
+:source: pattern/text/de/__init__.py
+:version: 2014-05-10 (eb98cd722e)
+
 :modified: July 2014 <m.killer@langui.ch>
 
 See the NOTICE file for license information.
@@ -20,15 +24,17 @@ import os
 import sys
 
 try:
-    MODULE = os.path.dirname(os.path.abspath(__file__))
+    MODULE = os.path.dirname(os.path.realpath(__file__))
 except:
     MODULE = ""
 
 sys.path.insert(0, os.path.join(MODULE, "..", "..", "..", ".."))
 
+from textblob_de.compat import text_type, string_types, basestring, imap, unicode
+
 # Import parser base classes.
 from textblob_de._text import (
-    Lexicon, Morphology, Context, Parser as _Parser,
+    Lexicon, Model, Morphology, Context, Parser as _Parser, ngrams, pprint, commandline,
     PUNCTUATION
 )
 # Import parser universal tagset.
@@ -64,10 +70,10 @@ from textblob_de.inflect import (
     verbs, conjugate, lemma, lexeme, tenses,
     predicative, attributive,
     gender, MASCULINE, MALE, FEMININE, FEMALE, NEUTER, NEUTRAL, PLURAL, M, F, N, PL,
-            NOMINATIVE, ACCUSATIVE, DATIVE, GENITIVE, SUBJECT, OBJECT, INDIRECT, PROPERTY
+    NOMINATIVE, ACCUSATIVE, DATIVE, GENITIVE, SUBJECT, OBJECT, INDIRECT, PROPERTY
 )
 # Import all submodules.
-#from textblob_de import inflect
+from textblob_de import inflect
 
 sys.path.pop(0)
 
@@ -82,47 +88,47 @@ sys.path.pop(0)
 # https://files.ifi.uzh.ch/cl/tagger/UIS-STTS-Diffs.html
 STTS = "stts"
 stts = tagset = {
-      "ADJ": "JJ",
-     "ADJA": "JJ",   # das große Haus
-     "ADJD": "JJ",   # er ist schnell
-      "ADV": "RB",   # schon
-     "APPR": "IN",   # in der Stadt
-  "APPRART": "IN",   # im Haus
-     "APPO": "IN",   # der Sache wegen
-     "APZR": "IN",   # von jetzt an
-      "ART": "DT",   # der, die, eine
-   "ARTDEF": "DT",   # der, die
-   "ARTIND": "DT",   # eine
-     "CARD": "CD",   # zwei
-  "CARDNUM": "CD",   # 3
-     "KOUI": "IN",   # [um] zu leben
-     "KOUS": "IN",   # weil, damit, ob
-      "KON": "CC",   # und, oder, aber
+    "ADJ": "JJ",
+    "ADJA": "JJ",   # das große Haus
+    "ADJD": "JJ",   # er ist schnell
+    "ADV": "RB",   # schon
+    "APPR": "IN",   # in der Stadt
+    "APPRART": "IN",   # im Haus
+    "APPO": "IN",   # der Sache wegen
+    "APZR": "IN",   # von jetzt an
+    "ART": "DT",   # der, die, eine
+    "ARTDEF": "DT",   # der, die
+    "ARTIND": "DT",   # eine
+    "CARD": "CD",   # zwei
+    "CARDNUM": "CD",   # 3
+    "KOUI": "IN",   # [um] zu leben
+    "KOUS": "IN",   # weil, damit, ob
+    "KON": "CC",   # und, oder, aber
     "KOKOM": "IN",   # als, wie
-     "KONS": "IN",   # usw.
-       "NN": "NN",   # Tisch, Herr
-      "NNS": "NNS",  # Tischen, Herren
-       "NE": "NNP",  # Hans, Hamburg
-      "PDS": "DT",   # dieser, jener
-     "PDAT": "DT",   # jener Mensch
-      "PIS": "DT",   # keiner, viele, niemand
-     "PIAT": "DT",   # kein Mensch
+    "KONS": "IN",   # usw.
+    "NN": "NN",   # Tisch, Herr
+    "NNS": "NNS",  # Tischen, Herren
+    "NE": "NNP",  # Hans, Hamburg
+    "PDS": "DT",   # dieser, jener
+    "PDAT": "DT",   # jener Mensch
+    "PIS": "DT",   # keiner, viele, niemand
+    "PIAT": "DT",   # kein Mensch
     "PIDAT": "DT",   # die beiden Brüder
-     "PPER": "PRP",  # ich, er, ihm, mich, dir
-     "PPOS": "PRP$", # meins, deiner
-   "PPOSAT": "PRP$", # mein Buch, deine Mutter
+    "PPER": "PRP",  # ich, er, ihm, mich, dir
+    "PPOS": "PRP$", # meins, deiner
+    "PPOSAT": "PRP$", # mein Buch, deine Mutter
     "PRELS": "WDT",  # der Hund, [der] bellt
-   "PRELAT": "WDT",  # der Mann, [dessen] Hund bellt
-      "PRF": "PRP",  # erinnere [dich]
-      "PWS": "WP",   # wer
-     "PWAT": "WP",   # wessen, welche
-     "PWAV": "WRB",  # warum, wo, wann
-      "PAV": "RB",   # dafur, dabei, deswegen, trotzdem
+    "PRELAT": "WDT",  # der Mann, [dessen] Hund bellt
+    "PRF": "PRP",  # erinnere [dich]
+    "PWS": "WP",   # wer
+    "PWAT": "WP",   # wessen, welche
+    "PWAV": "WRB",  # warum, wo, wann
+    "PAV": "RB",   # dafur, dabei, deswegen, trotzdem
     "PTKZU": "TO",   # zu gehen, zu sein
-   "PTKNEG": "RB",   # nicht
+    "PTKNEG": "RB",   # nicht
     "PTKVZ": "RP",   # pass [auf]!
-   "PTKANT": "UH",   # ja, nein, danke, bitte
-     "PTKA": "RB",   # am schönsten, zu schnell 
+    "PTKANT": "UH",   # ja, nein, danke, bitte
+    "PTKA": "RB",   # am schönsten, zu schnell 
     "VVFIN": "VB",   # du [gehst], wir [kommen] an
     "VAFIN": "VB",   # du [bist], wir [werden]
     "VVINF": "VB",   # gehen, ankommen
@@ -130,27 +136,27 @@ stts = tagset = {
     "VVIZU": "VB",   # anzukommen
     "VVIMP": "VB",   # [komm]!
     "VAIMP": "VB",   # [sei] ruhig!
-     "VVPP": "VBN",  # gegangen, angekommen
-     "VAPP": "VBN",  # gewesen
+    "VVPP": "VBN",  # gegangen, angekommen
+    "VAPP": "VBN",  # gewesen
     "VMFIN": "MD",   # dürfen
     "VMINF": "MD",   # wollen
-     "VMPP": "MD",   # gekonnt
-     "SGML": "SYM",  #
-       "FM": "FW",   #
-      "ITJ": "UH",   # ach, tja
-       "XY": "NN",   #
-       "XX": "NN",   #
+    "VMPP": "MD",   # gekonnt
+    "SGML": "SYM",  #
+    "FM": "FW",   #
+    "ITJ": "UH",   # ach, tja
+    "XY": "NN",   #
+    "XX": "NN",   #
     "LINUM": "LS",   # 1.
-        "C": ",",    # ,
-       "Co": ":",    # :
-       "Ex": ".",    # ! 
-       "Pc": ")",    # )
-       "Po": "(",    # (
-        "Q": ".",    # ?
-      "QMc": "\"",   # "
-      "QMo": "\"",   # "
-        "S": ".",    # .
-       "Se": ":",    # ;
+    "C": ",",    # ,
+    "Co": ":",    # :
+    "Ex": ".",    # ! 
+    "Pc": ")",    # )
+    "Po": "(",    # (
+    "Q": ".",    # ?
+    "QMc": "\"",   # "
+    "QMo": "\"",   # "
+    "S": ".",    # .
+    "Se": ":",    # ;
 }
 
 def stts2penntreebank(token, tag):
@@ -158,7 +164,7 @@ def stts2penntreebank(token, tag):
         For example: ohne/APPR => ohne/IN
     """
     return (token, stts.get(tag, tag))
-    
+
 def stts2universal(token, tag):
     """ Converts an STTS tag to a universal tag.
         For example: ohne/APPR => ohne/PREP
@@ -199,17 +205,17 @@ def find_lemmata(tokens):
             lemma = conjugate(word, INFINITIVE) or word
         token.append(lemma.lower())
     return tokens
-    
+
 class Parser(_Parser):
-    
+
     def find_tokens(self, tokens, **kwargs):
         kwargs.setdefault("abbreviations", ABBREVIATIONS)
         kwargs.setdefault("replace", {})
         return _Parser.find_tokens(self, tokens, **kwargs)
-        
+
     def find_lemmata(self, tokens, **kwargs):
         return find_lemmata(tokens)
-        
+
     def find_tags(self, tokens, **kwargs):
         if kwargs.get("tagset") in (PENN, None):
             kwargs.setdefault("map", lambda token, tag: stts2penntreebank(token, tag))
@@ -223,47 +229,12 @@ class Parser(_Parser):
         tokens_ss = _Parser.find_tags(self, tokens_ss, **kwargs)
         return [[w] + tokens_ss[i][1:] for i, w in enumerate(tokens)]
 
-
-class Sentiment(_Sentiment):
-
-    def load(self, path=None):
-        _Sentiment.load(self, path)
-        # Map "précaire" to "precaire" (without diacritics, +1% accuracy).
-        if not path:
-            for w, pos in list(self.items()):
-                w0 = w
-                if not w.endswith((u"à", u"è", u"é", u"ê", u"ï")):
-                    w = w.replace(u"à", "a")
-                    w = w.replace(u"é", "e")
-                    w = w.replace(u"è", "e")
-                    w = w.replace(u"ê", "e")
-                    w = w.replace(u"ï", "i")
-                if w != w0:
-                    for pos, (p, s, i) in pos.items():
-                        self.annotate(w, pos, p, s, i)
-
-lexicon = Lexicon(
-        path = os.path.join(MODULE, "de-lexicon.txt"),
-  morphology = os.path.join(MODULE, "de-morphology.txt"),
-     context = os.path.join(MODULE, "de-context.txt"),
-    language = "de"
-)
-
 parser = Parser(
-     lexicon = os.path.join(MODULE, "de-lexicon.txt"), 
-#    morphology = os.path.join(MODULE, "de-morphology.txt"), 
-#    context = os.path.join(MODULE, "de-context.txt"),
-     default = ("NN", "NE", "CARDNUM"),
-    language = "de"
-)
-
-sentiment = Sentiment(
-        path = os.path.join(MODULE, "de-sentiment.xml"),
-      synset = None,
-   negations = ("nicht", "ohne", "nie", "nein", "kein", "keiner", "keine", "nichts", ),
-   modifiers = ("RB",),
-   modifier  = lambda w: w.endswith("lich"),
-   tokenizer = parser.find_tokens,
+    lexicon = os.path.join(MODULE, "de-lexicon.txt"),
+    frequency = os.path.join(MODULE, "de-frequency.txt"),
+    morphology = os.path.join(MODULE, "de-morphology.txt"),
+    context = os.path.join(MODULE, "de-context.txt"),
+    default = ("NN", "NE", "CARDNUM"),
     language = "de"
 )
 
@@ -284,19 +255,58 @@ def parsetree(s, *args, **kwargs):
     """
     return Text(parse(s, *args, **kwargs))
 
-def split(s, token=[WORD, POS, CHUNK, PNP]):
+def tree(s, token=[WORD, POS, CHUNK, PNP, REL, LEMMA]):
     """ Returns a parsed Text from the given parsed string.
     """
     return Text(s, token)
-    
-def tag(s, tokenize=True, encoding="utf-8"):
+
+def tag(s, tokenize=True, encoding="utf-8", **kwargs):
     """ Returns a list of (token, tag)-tuples from the given string.
     """
     tags = []
-    for sentence in parse(s, tokenize, True, False, False, False, encoding).split():
+    for sentence in parse(s, tokenize, True, False, False, False, encoding, **kwargs).split():
         for token in sentence:
             tags.append((token[0], token[1]))
     return tags
+
+def keywords(s, top=10, **kwargs):
+    """ Returns a sorted list of keywords in the given string.
+    """
+    return parser.find_keywords(s, top=top, frequency=parser.frequency)
+
+split = tree # Backwards compatibility.
+
+
+#################### SENTIMENT DETECTION ##################################
+# copied from 'textblob_fr.fr.py', needs to be adapted when 
+class Sentiment(_Sentiment):
+
+    def load(self, path=None):
+        _Sentiment.load(self, path)
+        # Map "précaire" to "precaire" (without diacritics, +1% accuracy).
+        if not path:
+            for w, pos in list(self.items()):
+                w0 = w
+                if not w.endswith((u"à", u"è", u"é", u"ê", u"ï")):
+                    w = w.replace(u"à", "a")
+                    w = w.replace(u"é", "e")
+                    w = w.replace(u"è", "e")
+                    w = w.replace(u"ê", "e")
+                    w = w.replace(u"ï", "i")
+                if w != w0:
+                    for pos, (p, s, i) in pos.items():
+                        self.annotate(w, pos, p, s, i)
+
+
+sentiment = Sentiment(
+        path = os.path.join(MODULE, "de-sentiment.xml"),
+      synset = None,
+   negations = ("nicht", "ohne", "nie", "nein", "kein", "keiner", "keine", "nichts"),
+   modifiers = ("RB",),
+   modifier  = lambda w: w.endswith("ment"),
+   tokenizer = parser.find_tokens,
+    language = "de"
+)
 
 def polarity(s, **kwargs):
     """ Returns the sentence polarity (positive/negative) between -1.0 and 1.0.
@@ -312,3 +322,5 @@ def positive(s, threshold=0.1, **kwargs):
     """ Returns True if the given sentence has a positive sentiment (polarity >= threshold).
     """
     return polarity(s, **kwargs) >= threshold
+
+#################### END SENTIMENT DETECTION ##################################
