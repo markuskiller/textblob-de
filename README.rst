@@ -36,7 +36,7 @@ Usage
     >>> text = u"Was für ein schöner Morgen!"
     >>> blob = TextBlob(text, pos_tagger=PatternTagger())
     >>> blob.tags
-    [(u'Was', u'DT'), (u'für', u'DT'), (u'ein', u'DT'), (u'schöner', u'JJ'), //
+    [(u'Was', u'DT'), (u'für', u'DT'), (u'ein', u'DT'), (u'schöner', u'JJ'),\
     (u'Morgen', u'NN'), (u'!', u'PUNC')]
 
 
