@@ -15,7 +15,6 @@ textblob-de
 Features
 --------
 
-* Tokenization (adapted from English PatternTokenizer)
 * Part-of-speech tagging (``PatternTagger``)
 * Supports Python 2 and 3
 
@@ -33,11 +32,10 @@ Usage
 
     >>> from textblob import TextBlob
     >>> from textblob_de import PatternTagger
-    >>> text = u"Was für ein schöner Morgen!"
+    >>> text = u"Das ist ein schönes Auto."
     >>> blob = TextBlob(text, pos_tagger=PatternTagger())
     >>> blob.tags
-    [(u'Was', u'DT'), (u'für', u'DT'), (u'ein', u'DT'), (u'schöner', u'JJ'),\
-    (u'Morgen', u'NN'), (u'!', u'PUNC')]
+    [('Das', 'DT'), ('ist', 'VB'), ('ein', 'DT'), ('schönes', 'JJ'), ('Auto', 'NN')]
 
 
 Requirements
@@ -48,6 +46,8 @@ Requirements
 TODO
 ----
 
+- Fix handling of sentence final punctuation
+- German Tokenization (adapt from English PatternTokenizer)
 - NLTK tagging
 - Parsing
 - Sentiment analysis (no subjectivity lexicon in `pattern-de`_)

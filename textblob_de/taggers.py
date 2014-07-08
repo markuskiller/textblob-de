@@ -15,11 +15,3 @@ class PatternTagger(BaseTagger):
     def tag(self, sentence, tokenize=True):
         '''Tag a string `sentence`.'''
         return pattern_tag(sentence, tokenize)
-
-if __name__ == "__main__":
-    #s1 = "Was für ein schöner Tag!"
-    #tagger = PatternTagger()
-    #tagger.tag(s1)
-    from textblob_de._text import Lexicon
-    L = Lexicon("de-lexicon.txt")
-    print(L)
