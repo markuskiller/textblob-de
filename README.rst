@@ -22,7 +22,7 @@ Features
 Installing/Upgrading
 --------------------
 
-If you have `pip <http://www.pip-installer.org/>`_ installed (you should), run ::
+If you have `pip`_ installed (you should), run ::
 
     $ pip install -U textblob
     $ pip install -U git+https://github.com/markuskiller/textblob-de.git
@@ -58,5 +58,6 @@ License
 
 MIT licensed. See the bundled `LICENSE <https://github.com/markuskiller/textblob-de/blob/master/LICENSE>`_ file for more details.
 
+.. _pip: https://pip.pypa.io/en/latest/installing.html
 .. _TextBlob: https://textblob.readthedocs.org/
 .. _pattern-de: http://www.clips.ua.ac.be/pages/pattern-de
