@@ -1,20 +1,17 @@
 Changelog
 ---------
 
-0.1.2 (09/07/2014)
+0.1.3 (09/07/2014)
 ++++++++++++++++++
 
 * First release on PyPi
 
-0.1.1 (09/07/2014)
-++++++++++++++++++
-
-* Adapted version badges, tests & travis-ci config
-
-0.1.0 (09/07/2014)
-++++++++++++++++++
+0.1.0 - 0.1.2 (09/07/2014)
+++++++++++++++++++++++++++
 
 * First release on github
+* A number of experimental releases for testing purposes
+* Adapted version badges, tests & travis-ci config
 * Code adapted from sample extension `textblob-fr`_
 * Language specific linguistic resources copied from `pattern-de`_
 

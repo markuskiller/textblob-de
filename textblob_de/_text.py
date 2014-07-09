@@ -2226,7 +2226,6 @@ class Sentiment(lazydict):
         # A string of words.
         # Sentiment("a horrible movie") => (-0.6, 1.0)
         elif isinstance(s, basestring):
-            print("\n{}\n".format(s))
             a = self.assessments(
                 ((w.lower(),
                   None) for w in " ".join(
