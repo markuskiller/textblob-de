@@ -10,7 +10,16 @@ textblob-de
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
 
-German language support for `TextBlob`_.
+.. image:: https://pypip.in/d/textblob-de/badge.png
+    :target: https://crate.io/packages/textblob-de/
+    :alt: Number of PyPI downloads
+
+
+German language support for `TextBlob <https://textblob.readthedocs.org/>`_.
+
+This python package is being developed as a ``TextBlob`` **Language Extension**.
+See `Extension Guidelines <https://textblob.readthedocs.org/en/dev/contributing.html>`_ for details.
+
 
 Features
 --------
@@ -18,10 +27,10 @@ Features
 * Part-of-speech tagging (``PatternTagger``)
 * Supports Python 2 and 3
 
+
 Installing/Upgrading
 --------------------
-
-If you have `pip`_ installed (you should), run ::
+::
 
     $ pip install -U textblob-de
     
@@ -32,8 +41,9 @@ Or the latest development release::
 
 .. note::
 
-    `TextBlob`_ will be installed and updated automatically by running the 
-    above commands.
+   ``TextBlob`` will be installed and updated automatically by running the 
+   above commands.
+
 
 Usage
 -----
@@ -50,7 +60,8 @@ Usage
 .. note::
 
     Make sure that you use unicode strings on Python2 if your input contains
-    non-ascii charachters (e.g. ``word = u"schönes"``)
+    non-ascii characters (e.g. ``word = u"schönes"``)
+
 
 Requirements
 ------------
@@ -64,15 +75,10 @@ TODO
 - German Tokenization (adapt English ``PatternTokenizer``)
 - NLTK tagging
 - Parsing
-- Sentiment analysis (no subjectivity lexicon in `pattern-de`_)
+- Sentiment analysis (no subjectivity lexicon readily available in ``pattern-de``)
 
 
 License
 -------
 
-MIT licensed. See the bundled `LICENSE`_  file for more details.
-
-.. _pip: https://pip.pypa.io/en/latest/installing.html
-.. _TextBlob: https://textblob.readthedocs.org/
-.. _pattern-de: http://www.clips.ua.ac.be/pages/pattern-de
-.. _LICENSE: https://github.com/markuskiller/textblob-de/blob/master/LICENSE
+MIT licensed. See the bundled ``LICENSE``  file for more details.
