@@ -2,7 +2,7 @@
 textblob-de
 ===========
 
-.. image:: https://badge.fury.io/gh/markuskiller%2Ftextblob-de.svg
+.. image:: https://badge.fury.io/gh/markuskiller%2Ftextblob-de.png
     :target: http://badge.fury.io/gh/markuskiller%2Ftextblob-de
     :alt: Latest version
 
