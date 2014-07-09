@@ -68,7 +68,7 @@ setup(
     version=__version__,
     description='German language support for TextBlob.',
     long_description=(read("README.rst") + '\n\n' +
-                        read("HISTORY.rst")),
+                      read("HISTORY.rst")),
     author='Markus Killer',
     author_email='m.killer@langui.ch',
     url='https://github.com/markuskiller/textblob-de',
@@ -86,7 +86,7 @@ setup(
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
-        'Natural Language :: English',
+        'Natural Language :: German',
         "Programming Language :: Python :: 2",
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',

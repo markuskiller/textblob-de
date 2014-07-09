@@ -4,7 +4,7 @@
 .. todo::
 
        extract/compute/compile German Subjectivity Lexicon from
-       publicly available resources. 
+       publicly available resources.
        
        Possible sources:
        
@@ -38,5 +38,5 @@ class PatternAnalyzer(BaseSentimentAnalyzer):
         """Return the sentiment as a tuple of the form:
         ``(polarity, subjectivity)``
         """
-        raise NotImplementedError
-        #return pattern_sentiment(text)
+        #raise NotImplementedError
+        return pattern_sentiment(text)

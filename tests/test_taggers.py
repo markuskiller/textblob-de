@@ -12,7 +12,7 @@ class TestPatternTagger(unittest.TestCase):
 
     def setUp(self):
         self.tagger = PatternTagger()
-        self.text = u"Guten Tag allerseits"
+        self.text = u"Das ist ein schönes Auto"
 
     def test_tag(self):
         tags = self.tagger.tag(self.text)
