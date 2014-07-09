@@ -71,7 +71,9 @@ def encode_string(v, encoding="utf-8"):
 decode_utf8 = decode_string
 encode_utf8 = encode_string
 
-PUNCTUATION = ".,;:!?()[]{}`'\"@#$^&*+-|=~_"
+#: >>> string.punctuation
+#: '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+PUNCTUATION = string.punctuation
 
 
 def ngrams(string, n=3, punctuation=PUNCTUATION, continuous=False):
@@ -804,7 +806,7 @@ class Parser(object):
                            punctuation=kwargs.get("punctuation", PUNCTUATION),
                            abbreviations=kwargs.get(
                                "abbreviations",
-                               ABBREVIATIONS),
+                               ABBREVIATIONS_DE),
                            replace=kwargs.get("replace", replacements),
                            linebreak=r"\n{2,}")
 
@@ -1017,15 +1019,23 @@ def penntreebank2universal(token, tag):
 TOKEN = re.compile(r"(\S+)\s")
 
 # Handle common punctuation marks.
-PUNCTUATION = \
-    punctuation = ".,;:!?()[]{}`''\"@#$^&*+-|=~_"
+# 
+# already assigned in section ``STRING FUNCTIONS`` above
+#
+#PUNCTUATION = \
+    #punctuation = ".,;:!?()[]{}`''\"@#$^&*+-|=~_"
 
 # Handle common abbreviations.
-ABBREVIATIONS = abbreviations = set((
-    "a.", "adj.", "adv.", "al.", "a.m.", "art.", "c.", "capt.", "cert.", "cf.", "col.", "Col.",
-    "comp.", "conf.", "def.", "Dep.", "Dept.", "Dr.", "dr.", "ed.", "e.g.", "esp.", "etc.", "ex.",
-    "f.", "fig.", "gen.", "id.", "i.e.", "int.", "l.", "m.", "Med.", "Mil.", "Mr.", "n.", "n.q.",
-    "orig.", "pl.", "pred.", "pres.", "p.m.", "ref.", "v.", "vs.", "w/"
+ABBREVIATIONS_DE = set((
+    "Abs.", "Abt.", "Ass.", "Br.", "Ch.", "Chr.", "Cie.", "Co.", "Dept.", "Diff.",
+    "Dr.", "Eidg.", "Exp.", "Fam.", "Fr.", "Hrsg.", "Inc.", "Inv.", "Jh.", "Jt.", "Kt.",
+    "Mio.", "Mrd.", "Mt.", "Mte.", "Nr.", "Nrn.", "Ord.", "Ph.", "Phil.", "Pkt.",
+    "Prof.", "Pt.", " S.", "St.", "Stv.", "Tit.", "VII.", "al.", "begr.", "bzw.",
+    "chem.", "dent.", "dipl.", "e.g.", "ehem.", "etc.", "excl.", "exkl.", "hum.",
+    "i.e.", "incl.", "ing.", "inkl.", "int.", "iur.", "lic.", "med.", "no.", "oec.",
+    "phil.", "phys.", "pp.", "psych.", "publ.", "rer.", "sc.", "soz.", "spez.", "stud.",
+    "theol.", "usw.", "vet.", "vgl.", "vol.", "wiss.",
+    "d.h.", "h.c.", u"o.ä.", "u.a.", "z.B.", "z.T.", "z.Zt."
 ))
 
 RE_ABBR1 = re.compile("^[A-Za-z]\.$")       # single letter, "T. De Smedt"
@@ -1055,13 +1065,7 @@ RE_SARCASM = re.compile(r"\( ?\! ?\)")
 
 # Handle common contractions.
 replacements = {
-    "'d": " 'd",
-    "'m": " 'm",
-    "'s": " 's",
-    "'ll": " 'll",
-    "'re": " 're",
-    "'ve": " 've",
-    "n't": " n't"
+    "'s": " 's", # e.g. gibt's 
 }
 
 # Handle paragraph line breaks (\n\n marks end of sentence).
@@ -1069,7 +1073,7 @@ EOS = "END-OF-SENTENCE"
 
 
 def find_tokens(string, punctuation=PUNCTUATION,
-                abbreviations=ABBREVIATIONS, replace=replacements, linebreak=r"\n{2,}"):
+                abbreviations=ABBREVIATIONS_DE, replace=replacements, linebreak=r"\n{2,}"):
     """ Returns a list of sentences. Each sentence is a space-separated string of tokens (words).
         Handles common cases of abbreviations (e.g., etc., ...).
         Punctuation marks are split from other words. Periods (or ?!) mark the end of a sentence.

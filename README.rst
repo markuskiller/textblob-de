@@ -2,11 +2,11 @@
 textblob-de
 ===========
 
-.. image:: https://badge.fury.io/gh/markuskiller%2Ftextblob-de.png
-    :target: http://badge.fury.io/gh/markuskiller%2Ftextblob-de
+.. image:: https://badge.fury.io/py/textblob-de.png
+    :target: http://badge.fury.io/py/textblob-de
     :alt: Latest version
 
-.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=master
+.. image:: https://travis-ci.org/markuskiller/textblob-de.png
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
 
@@ -61,7 +61,7 @@ TODO
 ----
 
 - Fix handling of sentence final punctuation
-- German Tokenization (adapt from English PatternTokenizer)
+- German Tokenization (adapt English ``PatternTokenizer``)
 - NLTK tagging
 - Parsing
 - Sentiment analysis (no subjectivity lexicon in `pattern-de`_)

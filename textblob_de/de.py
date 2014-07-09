@@ -35,7 +35,7 @@ from textblob_de.compat import text_type, string_types, basestring, imap, unicod
 # Import parser base classes.
 from textblob_de._text import (
     Lexicon, Model, Morphology, Context, Parser as _Parser, ngrams, pprint, commandline,
-    PUNCTUATION
+    PUNCTUATION, ABBREVIATIONS_DE
 )
 # Import parser universal tagset.
 from textblob_de._text import (
@@ -182,17 +182,7 @@ def stts2universal(token, tag):
         return (token, PRON)
     return penntreebank2universal(*stts2penntreebank(token, tag))
 
-ABBREVIATIONS = set((
-    "Abs.", "Abt.", "Ass.", "Br.", "Ch.", "Chr.", "Cie.", "Co.", "Dept.", "Diff.",
-    "Dr.", "Eidg.", "Exp.", "Fam.", "Fr.", "Hrsg.", "Inc.", "Inv.", "Jh.", "Jt.", "Kt.",
-    "Mio.", "Mrd.", "Mt.", "Mte.", "Nr.", "Nrn.", "Ord.", "Ph.", "Phil.", "Pkt.",
-    "Prof.", "Pt.", " S.", "St.", "Stv.", "Tit.", "VII.", "al.", "begr.", "bzw.",
-    "chem.", "dent.", "dipl.", "e.g.", "ehem.", "etc.", "excl.", "exkl.", "hum.",
-    "i.e.", "incl.", "ing.", "inkl.", "int.", "iur.", "lic.", "med.", "no.", "oec.",
-    "phil.", "phys.", "pp.", "psych.", "publ.", "rer.", "sc.", "soz.", "spez.", "stud.",
-    "theol.", "usw.", "vet.", "vgl.", "vol.", "wiss.",
-    "d.h.", "h.c.", u"o.ä.", "u.a.", "z.B.", "z.T.", "z.Zt."
-))
+
 
 
 def find_lemmata(tokens):
@@ -214,7 +204,7 @@ def find_lemmata(tokens):
 class Parser(_Parser):
 
     def find_tokens(self, tokens, **kwargs):
-        kwargs.setdefault("abbreviations", ABBREVIATIONS)
+        kwargs.setdefault("abbreviations", ABBREVIATIONS_DE)
         kwargs.setdefault("replace", {})
         return _Parser.find_tokens(self, tokens, **kwargs)
 
