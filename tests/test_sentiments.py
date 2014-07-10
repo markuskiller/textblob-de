@@ -10,10 +10,10 @@ class TestPatternAnalyzer(unittest.TestCase):
 
     def setUp(self):
         self.analyzer = DeAnalyzer()
-        self.neg1 = u"Das ist ein schreckliches Auto."
-        self.pos1 = u"Das ist ein schönes Auto."
-        self.pos2 = u"Das ist eine schöne Katze."
-        self.neg2 = u"Diese Anlage ist nicht schön."
+        self.neg1 = u"Das Auto ist schrecklich."
+        self.pos1 = u"Das Auto ist schön."
+        self.pos2 = u"Die Katze ist nicht böse."
+        self.neg2 = u"Dieser Hund ist nicht nett."
 
     def test_analyze(self):
         pos_sentiment = self.analyzer.analyze(self.pos1)

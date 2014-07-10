@@ -79,7 +79,7 @@ setup(
         "textblob_de": ["*.txt", "*.xml"]
     },
     install_requires=requires,
-    license=read("LICENSE"),
+    license='\n\n' + read("LICENSE") + '\n\n',
     zip_safe=False,
     keywords='textblob_de',
     classifiers=[

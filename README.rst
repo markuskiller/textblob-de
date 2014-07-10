@@ -25,7 +25,10 @@ Features
 --------
 
 * Part-of-speech tagging (``PatternTagger``)
+* Parsing (``PatternParser``)
+* Polarity detection (``PatternAnalyzer``) **EXPERIMENTAL!** (only recognises uninflected word forms and does not have information on subjectivity)
 * Supports Python 2 and 3
+* See `working features overview <http://langui.ch/nlp/python/textblob-de-dev/>`_ for details
 
 
 Installing/Upgrading
@@ -50,17 +53,27 @@ Usage
 .. code-block:: python
 
     >>> from textblob import TextBlob
-    >>> from textblob_de import PatternTagger
-    >>> text = "Das ist ein schönes Auto."
-    >>> blob = TextBlob(text, pos_tagger=PatternTagger())
+    >>> from textblob_de import PatternTagger, PatternParser, PatternAnalyzer
+    >>> text = "Das Auto ist sehr schön."
+    >>> blob = TextBlob(text, pos_tagger=PatternTagger(),
+                        parser=PatternParser(), analyzer=PatternAnalyzer())
     >>> blob.tags
-    [('Das', 'DT'), ('ist', 'VB'), ('ein', 'DT'), ('schönes', 'JJ'), ('Auto', 'NN')]
+    [('Das', 'DT'), ('Auto', 'NN'), ('ist', 'VB'), ('sehr', 'RB'), ('schön', 'JJ')]
+    >>> blob.parse()
+    'Das/DT/B-NP/O Auto/NN/I-NP/O ist/VB/B-VP/O sehr/RB/B-ADJP/O schön/JJ/I-ADJP/O'
+    >>> blob.sentiment
+    (1.0, 0.0)
+    >>> text = "Das Auto ist hässlich."
+    >>> blob = TextBlob(text, pos_tagger=PatternTagger(),
+                        parser=PatternParser(), analyzer=PatternAnalyzer())     
+    >>> blob.sentiment
+    (-1.0, 0.0)
 
 
 .. note::
 
     Make sure that you use unicode strings on Python2 if your input contains
-    non-ascii characters (e.g. ``word = u"schönes"``)
+    non-ascii characters (e.g. ``word = u"schön"``)
 
 
 Requirements
