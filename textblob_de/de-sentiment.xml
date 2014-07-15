@@ -6645,6 +6645,9 @@ Important note on PoS tags: the source did not specify part-of-speech tags. The 
   <word confidence="1.0" form="schätzen" intensity="1.0" polarity="1.0" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="schäumen" intensity="1.0" polarity="-1.0" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="schön" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
+  <word confidence="1.0" form="schöne" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
+  <word confidence="1.0" form="schönes" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
+  <word confidence="1.0" form="schöner" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="schönreden" intensity="1.0" polarity="-1.0" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="schöpferisch" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="schüchtern" intensity="1.0" polarity="-0.7" pos="VB" subjectivity="0.0"/>
