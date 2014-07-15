@@ -183,8 +183,6 @@ def stts2universal(token, tag):
     return penntreebank2universal(*stts2penntreebank(token, tag))
 
 
-
-
 def find_lemmata(tokens):
     """ Annotates the tokens with lemmata for plural nouns and conjugated verbs,
         where each token is a [word, part-of-speech] list.

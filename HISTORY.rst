@@ -5,6 +5,10 @@ Changelog
 ++++++++++++++++++
 
 * tyding up
+* tox tests passing for py26, py27, py33 and py34
+* Parsing (``PatternParser``) plus ``test_parsers.py``
+* **EXPERIMENTAL!** implementation of Polarity detection (``PatternAnalyzer``)
+* first attempt at extracting German Polarity clues into ``de-sentiment.xml``
 
 0.1.3 (09/07/2014)
 ++++++++++++++++++

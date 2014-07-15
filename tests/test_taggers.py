@@ -4,7 +4,7 @@ import unittest
 import logging
 from nose.tools import *  # PEP8 asserts
 
-from text.blob import TextBlob
+from textblob import TextBlob
 from textblob_de import PatternTagger
 
 

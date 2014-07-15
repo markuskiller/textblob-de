@@ -72,7 +72,7 @@ decode_utf8 = decode_string
 encode_utf8 = encode_string
 
 #: >>> string.punctuation
-#: '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+# : '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
 PUNCTUATION = string.punctuation
 
 
@@ -1019,11 +1019,11 @@ def penntreebank2universal(token, tag):
 TOKEN = re.compile(r"(\S+)\s")
 
 # Handle common punctuation marks.
-# 
+#
 # already assigned in section ``STRING FUNCTIONS`` above
 #
-#PUNCTUATION = \
-    #punctuation = ".,;:!?()[]{}`''\"@#$^&*+-|=~_"
+# PUNCTUATION = \
+# punctuation = ".,;:!?()[]{}`''\"@#$^&*+-|=~_"
 
 # Handle common abbreviations.
 ABBREVIATIONS_DE = set((
@@ -1065,7 +1065,7 @@ RE_SARCASM = re.compile(r"\( ?\! ?\)")
 
 # Handle common contractions.
 replacements = {
-    "'s": " 's", # e.g. gibt's 
+    "'s": " 's",  # e.g. gibt's
 }
 
 # Handle paragraph line breaks (\n\n marks end of sentence).

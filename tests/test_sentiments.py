@@ -3,8 +3,9 @@
 import unittest
 from nose.tools import *  # PEP8 asserts
 
-from text.blob import TextBlob
+from textblob import TextBlob
 from textblob_de import PatternAnalyzer as DeAnalyzer
+
 
 class TestPatternAnalyzer(unittest.TestCase):
 

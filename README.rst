@@ -36,16 +36,19 @@ Installing/Upgrading
 ::
 
     $ pip install -U textblob-de
+    $ python -m textblob.download_corpora
     
 Or the latest development release::
 
     $ pip install -U git+https://github.com/markuskiller/textblob-de.git@dev
+    $ python -m textblob.download_corpora
 
 
 .. note::
 
-   ``TextBlob`` will be installed and updated automatically by running the 
-   above commands.
+   ``TextBlob`` will be installed/upgraded automatically when running 
+   ``pip install``. The second line (``python -m textblob.download_corpora``) 
+   downloads/updates nltk corpora and language models used in ``TextBlob``.
 
 
 Usage
@@ -70,10 +73,15 @@ Usage
     (-1.0, 0.0)
 
 
+.. warning::
+
+    **WORK IN PROGRESS:** The German polarity lexicon contains only uninflected
+      forms and there are no subjectivity scores yet.
+
 .. note::
 
     Make sure that you use unicode strings on Python2 if your input contains
-    non-ascii characters (e.g. ``word = u"schön"``)
+    non-ascii characters (e.g. ``word = u"schön"``).
 
 
 Requirements
@@ -84,11 +92,11 @@ Requirements
 TODO
 ----
 
-- Fix handling of sentence final punctuation
-- German Tokenization (adapt English ``PatternTokenizer``)
-- NLTK tagging
-- Parsing
-- Sentiment analysis (no subjectivity lexicon readily available in ``pattern-de``)
+- Simplify invocation by providing a ``TextBlobDE`` class with German defaults
+- Proper German Tokenization (``NLTKTokenizer``, ``PatternTokenizer``)
+- Additional POS Tagging Options NLTK tagging (``NLTKTagger``)
+- Parsing (make keyword arguments of ``PatternParser.parse()`` accessible to make use of built-in lemmatization)
+- Improve Sentiment analysis (find suitable subjectivity scores and look up lemmas rather than word forms)
 
 
 License
