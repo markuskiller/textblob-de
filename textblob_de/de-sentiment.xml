@@ -43,7 +43,6 @@ Important note on PoS tags: the source did not specify part-of-speech tags. The 
 %% limitations under the License.
 %% 
 -->
-
 <sentiment language="de" version="0.1" author="Polarity Values: Klenner et al. (2010) / XML format by Markus Killer" license="Apache License, v2.0">
   <word confidence="1.0" form="AIDS" intensity="1.0" polarity="-1.0" pos="NN" subjectivity="0.0"/>
   <word confidence="1.0" form="Abart" intensity="1.0" polarity="-0.7" pos="NN" subjectivity="0.0"/>
@@ -4989,7 +4988,7 @@ Important note on PoS tags: the source did not specify part-of-speech tags. The 
   <word confidence="1.0" form="exkulpieren" intensity="1.0" polarity="1.0" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="explodieren" intensity="1.0" polarity="-0.7" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="expressiv" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
-  <word confidence="1.0" form="extrem" intensity="2.0" polarity="0.0" pos="JJ" subjectivity="1.0"/>
+  <word confidence="1.0" form="extrem" intensity="2.0" polarity="0.0" pos="RB" subjectivity="1.0"/>
   <word confidence="1.0" form="extremistisch" intensity="1.0" polarity="-1.0" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="exzellent" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="exzentrisch" intensity="1.0" polarity="-0.7" pos="JJ" subjectivity="0.0"/>
@@ -5178,6 +5177,7 @@ Important note on PoS tags: the source did not specify part-of-speech tags. The 
   <word confidence="1.0" form="gallenkrank" intensity="1.0" polarity="-1.0" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="gammelig" intensity="1.0" polarity="-1.0" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="gammlig" intensity="1.0" polarity="-1.0" pos="JJ" subjectivity="0.0"/>
+  <word confidence="1.0" form="gar" intensity="2.0" polarity="0.0" pos="RB" subjectivity="0.8"/>
   <word confidence="1.0" form="garantieren" intensity="1.0" polarity="0.7" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="geachtet" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="gebeutelt" intensity="1.0" polarity="-0.7" pos="JJ" subjectivity="0.0"/>
@@ -6028,7 +6028,7 @@ Important note on PoS tags: the source did not specify part-of-speech tags. The 
   <word confidence="1.0" form="maximal" intensity="1.0" polarity="0.7" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="meckern" intensity="1.0" polarity="-1.0" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="mediterran" intensity="1.0" polarity="0.7" pos="JJ" subjectivity="0.0"/>
-  <word confidence="1.0" form="mehr" intensity="2.0" polarity="0.0" pos="JJ" subjectivity="1.0"/>
+  <word confidence="1.0" form="mehr" intensity="2.0" polarity="0.0" pos="RB" subjectivity="1.0"/>
   <word confidence="1.0" form="mehrheitsfähig" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="meisterhaft" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="meisterlich" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
@@ -6645,9 +6645,6 @@ Important note on PoS tags: the source did not specify part-of-speech tags. The 
   <word confidence="1.0" form="schätzen" intensity="1.0" polarity="1.0" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="schäumen" intensity="1.0" polarity="-1.0" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="schön" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
-  <word confidence="1.0" form="schöne" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
-  <word confidence="1.0" form="schönes" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
-  <word confidence="1.0" form="schöner" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="schönreden" intensity="1.0" polarity="-1.0" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="schöpferisch" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="schüchtern" intensity="1.0" polarity="-0.7" pos="VB" subjectivity="0.0"/>
@@ -7622,7 +7619,7 @@ Important note on PoS tags: the source did not specify part-of-speech tags. The 
   <word confidence="1.0" form="veröden" intensity="1.0" polarity="-0.7" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="verübeln" intensity="1.0" polarity="-1.0" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="verüben" intensity="1.0" polarity="-1.0" pos="VB" subjectivity="0.0"/>
-  <word confidence="1.0" form="viel" intensity="2.0" polarity="0.0" pos="JJ" subjectivity="1.0"/>
+  <word confidence="1.0" form="viel" intensity="2.0" polarity="0.0" pos="RB" subjectivity="1.0"/>
   <word confidence="1.0" form="vielbeschworen" intensity="1.0" polarity="0.7" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="vielfältig" intensity="1.0" polarity="0.7" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="vielgepriesen" intensity="1.0" polarity="1.0" pos="VB" subjectivity="0.0"/>
@@ -7732,7 +7729,7 @@ Important note on PoS tags: the source did not specify part-of-speech tags. The 
   <word confidence="1.0" form="weltmännisch" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="weltoffen" intensity="1.0" polarity="1.0" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="wendig" intensity="1.0" polarity="0.7" pos="JJ" subjectivity="0.0"/>
-  <word confidence="1.0" form="wenig" intensity="0.5" polarity="0.0" pos="JJ" subjectivity="1.0"/>
+  <word confidence="1.0" form="wenig" intensity="0.5" polarity="0.0" pos="RB" subjectivity="1.0"/>
   <word confidence="1.0" form="wertgestellt" intensity="1.0" polarity="0.7" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="wertlos" intensity="1.0" polarity="-0.7" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="wertschätzen" intensity="1.0" polarity="1.0" pos="VB" subjectivity="0.0"/>
@@ -7974,6 +7971,7 @@ Important note on PoS tags: the source did not specify part-of-speech tags. The 
   <word confidence="1.0" form="übergehen" intensity="1.0" polarity="-0.7" pos="VB" subjectivity="0.0"/>
   <word confidence="1.0" form="übergewichtig" intensity="1.0" polarity="-0.7" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="überglücklich" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
+  <word confidence="1.0" form="überhaupt" intensity="2.0" polarity="0.0" pos="RB" subjectivity="0.8"/>
   <word confidence="1.0" form="überheblich" intensity="1.0" polarity="-0.7" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="überhöht" intensity="1.0" polarity="-1.0" pos="JJ" subjectivity="0.0"/>
   <word confidence="1.0" form="überkandidelt" intensity="1.0" polarity="-1.0" pos="JJ" subjectivity="0.0"/>
