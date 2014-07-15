@@ -15,7 +15,7 @@ Approximation to 'pattern' project format by Markus Killer (Version 0.1 2014/07/
 Adjectives, Nouns and Verbs have a polarity (negative/positive, -1.0 to +1.0) 
 
 The source does not offer any information on subjectivity (objective/subjective, +0.0 to +1.0). 
-The initial subjectivity value is set to 0.0. In a second stage subjectivity scores could be extracted 
+The initial subjectivity value is set to 0.0. In a second step, subjectivity scores could be extracted 
 from translated subjectivity lexicons (e.g. those in the pattern project). The confidence value specifies 
 if any values have been derived from translated resources: German resource (1.0) / translated lexicons (0.7) 
 

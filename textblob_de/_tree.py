@@ -1,3 +1,14 @@
+# -*- coding: utf-8 -*-
+'''Code adapted from the pattern library.
+
+:repo: `https://github.com/clips/pattern`_
+:source: pattern/text/tree.py
+:version: 2014-04-02 (6e4695fa5d)
+
+:modified: July 2014 <m.killer@langui.ch>
+
+See the NOTICE file for license information.
+'''
 #### PATTERN | EN | PARSE TREE ###########################################
 # Copyright (c) 2010 University of Antwerp, Belgium
 # Author: Tom De Smedt <tom@organisms.be>

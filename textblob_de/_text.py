@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-'''Code adapted from the pattern.text library.
+'''Code adapted from the pattern library.
+
+:repo: `https://github.com/clips/pattern`_
+:source: pattern/text/__init__.py
+:version: 2014-05-10 (2f944cbb8d)
 
 :modified: July 2014 <m.killer@langui.ch>
 

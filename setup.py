@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+'''Code imported from textblob-fr sample extension.
+
+:repo: `https://github.com/sloria/textblob-fr`_
+:source: run_tests.py
+:version: 2013-10-28 (5c6329d209)
+
+:modified: July 2014 <m.killer@langui.ch>
+
+'''
 import sys
 import subprocess
 import re

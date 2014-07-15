@@ -1,5 +1,14 @@
 #!/usr/bin/env
 # -*- coding: utf-8 -*-
+'''Code imported from textblob-fr sample extension.
+
+:repo: `https://github.com/sloria/textblob-fr`_
+:source: tests/test_sentiments.py
+:version: 2013-09-18 (1a8438b5ea)
+
+:modified: July 2014 <m.killer@langui.ch>
+
+'''
 import unittest
 from nose.tools import *  # PEP8 asserts
 

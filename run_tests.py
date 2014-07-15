@@ -10,6 +10,13 @@ Usage: ::
 Skip slow tests: ::
 
     python run_tests.py fast
+    
+Code imported from textblob-fr sample extension.
+
+:repo: `https://github.com/sloria/textblob-fr`_
+:source: run_tests.py
+:version: 2013-09-18 (1a8438b5ea)
+
 '''
 from __future__ import unicode_literals
 import nose
