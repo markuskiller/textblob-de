@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''Code adapted from the pattern library.
+'''Code adapted from the ``pattern`` library.
 
 :repo: `https://github.com/clips/pattern`_
 :source: pattern/vector/__init__.py

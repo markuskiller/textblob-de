@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''Various tokenizer implementations.
 
-Code adapted from textblob main package.
+Code adapted from ``textblob`` main package.
 
 :repo: `https://github.com/sloria/TextBlob`_
 :source: textblob/tokenizers.py
@@ -11,6 +11,9 @@ Code adapted from textblob main package.
 
 '''
 from __future__ import absolute_import
+
+import re
+
 from itertools import chain
 
 from textblob.packages import nltk
@@ -18,65 +21,145 @@ from textblob.utils import strip_punc
 from textblob.base import BaseTokenizer
 from textblob.decorators import requires_nltk_corpus
 
+from textblob_de.compat import basestring
+from textblob_de._text import find_tokens as find_sentences
+from textblob_de._text import replacements, ABBREVIATIONS_DE, PUNCTUATION
 
-class WordTokenizer(BaseTokenizer):
 
-    '''NLTK's recommended word tokenizer (currently the TreeBankTokenizer).
-    Uses regular expressions to tokenize text. Assumes text has already been
-    segmented into sentences.
+def get_tokenizer():
+    tokenizer = getattr(get_tokenizer, "tokenizer")
+    return tokenizer
 
-    Performs the following steps:
-
-    * split standard contractions, e.g. don't -> do n't
-    * split commas and single quotes
-    * separate periods that appear at the end of line
-    '''
+class NLTKPunktTokenizer(BaseTokenizer):
+    """Tokenizer included in ``nltk.tokenize.punkt`` package
+    
+    This is the default tokenizer in ``textblob-de``
+    
+    PROs: 
+    ^^^^^
+    * trained model available for German
+    * deals with many abbreviations and common German tokenization problems oob
+    
+    CONs
+    ^^^^
+    
+    * not very flexible (model has to be re-trained on your own corpus)
+    
+    """
+    def __init__(self):
+        self.tokens = []
+        self.sent_tok = nltk.tokenize.load('tokenizers/punkt/german.pickle')
+        self.word_tok = nltk.tokenize.punkt.PunktWordTokenizer()
+        
 
     def tokenize(self, text, include_punc=True):
         '''Return a list of word tokens.
-
+        
         :param text: string of text.
         :param include_punc: (optional) whether to include punctuation as separate tokens. Default to True.
-        '''
-        tokens = nltk.tokenize.word_tokenize(text)
+        '''        
+        for s in self.sent_tokenize(text):
+            self.tokens.append(self.word_tokenize(s, include_punc))
+        
+        return self.tokens
+
+    @requires_nltk_corpus
+    def sent_tokenize(self, text, **kwargs):
+        '''NLTK's sentence tokenizer (currently PunktSentenceTokenizer).
+        Uses an unsupervised algorithm to build a model for abbreviation words,
+        collocations, and words that start sentences, then uses that to find 
+        sentence boundaries.
+        '''        
+        sentences = self.sent_tok.tokenize(text, realign_boundaries=True)
+        print("NLTKPunktTok-snts: ", sentences)
+        return sentences
+    
+    
+    def word_tokenize(self, text, include_punc=True):
+        '''NLTK's PunktWordTokenizer uses a regular expression to divide 
+        a text into tokens, leaving all periods attached to words, 
+        but separating off other punctuation.
+        '''        
+        _tokens = self.word_tok.tokenize(text)
         if include_punc:
-            return tokens
+            last_word = _tokens[-1]
+            if last_word.endswith('.'):
+                _tokens = _tokens[:-1] + [last_word[:-1], '.']
+            return _tokens
         else:
             # Return each word token
             # Strips punctuation unless the word comes from a contraction
-            # e.g. "Let's" => ["Let", "'s"]
-            # e.g. "Can't" => ["Ca", "n't"]
+            # e.g. "gibt's" => ["gibt", "'s"] in "Heute gibt's viel zu tun!"
+            # e.g. "hat's" => ["hat", "'s"]
             # e.g. "home." => ['home']
-            return [word if word.startswith("'") else strip_punc(word, all=False)
-                    for word in tokens if strip_punc(word, all=False)]
+            words = [word if word.startswith("'") else strip_punc(word, all=False)
+                                for word in _tokens if strip_punc(word, all=False)]            
+            return list(words)
 
 
 
-class SentenceTokenizer(BaseTokenizer):
-
-    '''NLTK's sentence tokenizer (currently PunkSentenceTokenizer).
-    Uses an unsupervised algorithm to build a model for abbreviation words,
-    collocations, and words that start sentences,
-    then uses that to find sentence boundaries.
-    '''
-
-    @requires_nltk_corpus
-    def tokenize(self, text):
-        '''Return a list of sentences.'''
-        return nltk.tokenize.sent_tokenize(text)
-
-#: Convenience function for tokenizing sentences
-sent_tokenize = SentenceTokenizer().itokenize
-
-_word_tokenizer = WordTokenizer()  # Singleton word tokenizer
-def word_tokenize(text, include_punc=True, *args, **kwargs):
-    """Convenience function for tokenizing text into words.
-
-    NOTE: NLTK's word tokenizer expects sentences as input, so the text will be
-    tokenized to sentences before being tokenized to words.
+class PatternTokenizer(BaseTokenizer):
+    """Tokenizer included in ``pattern.de`` package
+    
+    PROs: 
+    ^^^^^
+    * handling of emoticons
+    * flexible implementations of abbreviations
+    * can be adapted very easily
+    
+    CONs
+    ^^^^
+    
+    * ordinal numbers cause sentence breaks
+    * indices of Sentence() objects cannot be computed
+    
     """
-    words = chain.from_iterable(
-        _word_tokenizer.itokenize(sentence, include_punc=include_punc,
-                                *args, **kwargs)
-        for sentence in sent_tokenize(text))
-    return words
+    def __init__(self):
+        self.tokens = []    
+
+    
+    def tokenize(self, text, include_punc=True):
+        '''Return a list of word tokens.
+        
+        :param text: string of text.
+        :param include_punc: (optional) whether to include punctuation as separate tokens. Default to True.
+        '''        
+        for s in self.sent_tokenize(text):
+            self.tokens.append(self.word_tokenize(s, include_punc))
+        return self.tokens        
+    
+    
+    def sent_tokenize(self, text, **kwargs):
+        """Returns a list of sentences. Each sentence is a space-separated string of tokens (words).
+        Handles common cases of abbreviations (e.g., etc., ...).
+        Punctuation marks are split from other words. Periods (or ?!) mark the end of a sentence.
+        Headings without an ending period are inferred by line breaks.
+        """
+        
+        sentences = find_sentences(text, 
+                    punctuation=kwargs.get("punctuation", PUNCTUATION),
+                    abbreviations=kwargs.get("abbreviations", ABBREVIATIONS_DE),
+                    replace=kwargs.get("replace", replacements),
+                    linebreak=r"\n{2,}")
+        print("PatternTok-snts: ", sentences)
+        return sentences
+    
+    def word_tokenize(self, sentences, include_punc=True):
+        
+        _tokens = sentences.split(" ")
+        
+        if include_punc:
+            return _tokens
+        else:
+            # Return each word token
+            # Strips punctuation unless the word comes from a contraction
+            # e.g. "gibt's" => ["gibt", "'s"] in "Heute gibt's viel zu tun!"
+            # e.g. "hat's" => ["hat", "'s"]
+            # e.g. "home." => ['home']
+            words = [word if word.startswith("'") else strip_punc(word, all=False)
+                                for word in _tokens if strip_punc(word, all=False)]            
+            return list(words)
+
+    
+        
+    

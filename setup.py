@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''Code imported from textblob-fr sample extension.
+'''Code imported from ``textblob-fr`` sample extension.
 
 :repo: `https://github.com/sloria/textblob-fr`_
 :source: run_tests.py

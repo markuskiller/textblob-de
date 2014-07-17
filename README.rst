@@ -24,6 +24,9 @@ See `Extension Guidelines <https://textblob.readthedocs.org/en/dev/contributing.
 Features
 --------
 
+* ``TextBlobDE`` class with initialized default models for German
+* Improved German sentence boundary detection (``NLTKPunktTokenizer``)
+* Consistent use of specified tokenizer for all tools (``NLTKPunktTokenizer`` and ``PatternTokenizer``)
 * Part-of-speech tagging (``PatternTagger``)
 * Parsing (``PatternParser``)
 * Polarity detection (``PatternAnalyzer``) **EXPERIMENTAL!** (only recognises uninflected word forms and does not have information on subjectivity)
@@ -55,11 +58,9 @@ Usage
 -----
 .. code-block:: python
 
-    >>> from textblob import TextBlob
-    >>> from textblob_de import PatternTagger, PatternParser, PatternAnalyzer
+    >>> from textblob_de import TextBlobDE as TextBlob
     >>> text = "Das Auto ist sehr schön."
-    >>> blob = TextBlob(text, pos_tagger=PatternTagger(),
-                        parser=PatternParser(), analyzer=PatternAnalyzer())
+    >>> blob = TextBlob(text)
     >>> blob.tags
     [('Das', 'DT'), ('Auto', 'NN'), ('ist', 'VB'), ('sehr', 'RB'), ('schön', 'JJ')]
     >>> blob.parse()
@@ -92,8 +93,6 @@ Requirements
 TODO
 ----
 
-- Simplify invocation by providing a ``TextBlobDE`` class with German defaults
-- Proper German Tokenization (``NLTKTokenizer``, ``PatternTokenizer``)
 - Additional POS Tagging Options NLTK tagging (``NLTKTagger``)
 - Parsing (make keyword arguments of ``PatternParser.parse()`` accessible to make use of built-in lemmatization)
 - Improve Sentiment analysis (find suitable subjectivity scores and look up lemmas rather than word forms)

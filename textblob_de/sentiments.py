@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """German sentiment analysis implementations.
 
-Code adapted from textblob-fr sample extension.
+Code adapted from ``textblob-fr`` sample extension.
 
 :repo: `https://github.com/sloria/textblob-fr`_
 :source: textblob_fr/sentiments.py
@@ -34,6 +34,7 @@ Main resource for ``de-sentiment.xml``:
 """
 from __future__ import absolute_import
 from textblob.base import BaseSentimentAnalyzer, CONTINUOUS
+from textblob_de.tokenizers import get_tokenizer
 from textblob_de.de import sentiment as pattern_sentiment
 
 
@@ -52,4 +53,5 @@ class PatternAnalyzer(BaseSentimentAnalyzer):
         ``(polarity, subjectivity)``
         """
         #raise NotImplementedError
+        print("been here, done that")
         return pattern_sentiment(text)

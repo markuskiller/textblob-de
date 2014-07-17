@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''Code imported from textblob main package.
+'''Code imported from ``textblob`` main package.
 
 :repo: `https://github.com/sloria/TextBlob`_
 :source: textblob/en/parsers.py
@@ -11,14 +11,17 @@
 from __future__ import absolute_import
 from textblob.base import BaseParser
 from textblob_de.de import parse as pattern_parse
+from textblob_de.tokenizers import get_tokenizer
 
 
 class PatternParser(BaseParser):
 
     '''Parser that uses the implementation in Tom de Smedt's pattern library.
     http://www.clips.ua.ac.be/pages/pattern-de#parser
-    '''
+    ''' 
 
     def parse(self, text):
+   # for future implementations (needs to be changed in BaseBlob and BaseParser)
+   #def parse(self, text, tokenizer):
         '''Parses the text.'''
-        return pattern_parse(text)
+        return pattern_parse(text, get_tokenizer())
