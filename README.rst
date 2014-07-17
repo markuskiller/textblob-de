@@ -68,8 +68,7 @@ Usage
     >>> blob.sentiment
     (1.0, 0.0)
     >>> text = "Das Auto ist hässlich."
-    >>> blob = TextBlob(text, pos_tagger=PatternTagger(),
-                        parser=PatternParser(), analyzer=PatternAnalyzer())     
+    >>> blob = TextBlob(text)     
     >>> blob.sentiment
     (-1.0, 0.0)
 
