@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''Code adapted from the pattern.de library.
+'''Code adapted from the ``pattern.de`` library.
 
 :repo: `https://github.com/clips/pattern`_
 :source: pattern/text/de/__init__.py
@@ -31,6 +31,7 @@ except:
 sys.path.insert(0, os.path.join(MODULE, "..", "..", "..", ".."))
 
 from textblob_de.compat import text_type, string_types, basestring, imap, unicode
+from textblob_de.tokenizers import get_arg_tokenizer
 
 # Import parser base classes.
 from textblob_de._text import (
@@ -183,8 +184,6 @@ def stts2universal(token, tag):
     return penntreebank2universal(*stts2penntreebank(token, tag))
 
 
-
-
 def find_lemmata(tokens):
     """ Annotates the tokens with lemmata for plural nouns and conjugated verbs,
         where each token is a [word, part-of-speech] list.
@@ -203,10 +202,11 @@ def find_lemmata(tokens):
 
 class Parser(_Parser):
 
-    def find_tokens(self, tokens, **kwargs):
+    def find_tokens(self, tokens, tokenizer, **kwargs):
         kwargs.setdefault("abbreviations", ABBREVIATIONS_DE)
         kwargs.setdefault("replace", {})
-        return _Parser.find_tokens(self, tokens, **kwargs)
+        # return _Parser.find_tokens(self, tokens, **kwargs)
+        return tokenizer.sent_tokenize(tokens, **kwargs)
 
     def find_lemmata(self, tokens, **kwargs):
         return find_lemmata(tokens)
@@ -252,10 +252,10 @@ def tokenize(s, *args, **kwargs):
     return parser.find_tokens(s, *args, **kwargs)
 
 
-def parse(s, *args, **kwargs):
+def parse(s, tokenizer, *args, **kwargs):
     """ Returns a tagged Unicode string.
     """
-    return parser.parse(s, *args, **kwargs)
+    return parser.parse(s, tokenizer, *args, **kwargs)
 
 
 def parsetree(s, *args, **kwargs):
@@ -270,11 +270,11 @@ def tree(s, token=[WORD, POS, CHUNK, PNP, REL, LEMMA]):
     return Text(s, token)
 
 
-def tag(s, tokenize=True, encoding="utf-8", **kwargs):
+def tag(s, tokenizer, tokenize=True, encoding="utf-8", **kwargs):
     """ Returns a list of (token, tag)-tuples from the given string.
     """
     tags = []
-    for sentence in parse(s, tokenize, True, False, False, False, encoding, **kwargs).split():
+    for sentence in parse(s, tokenizer, tokenize, True, False, False, False, encoding, **kwargs).split():
         for token in sentence:
             tags.append((token[0], token[1]))
     return tags
@@ -309,23 +309,25 @@ class Sentiment(_Sentiment):
                         self.annotate(w, pos, p, s, i)
 
 
-sentiment = Sentiment(
-    path=os.path.join(MODULE, "de-sentiment.xml"),
-    synset=None,
-    negations=(
-        "nicht",
-        "ohne",
-        "nie",
-        "nein",
-        "kein",
-        "keiner",
-        "keine",
-        "nichts"),
-    modifiers = ("RB", "JJ"),
-    modifier = lambda w: w.endswith("lich"),
-    tokenizer = parser.find_tokens,
-    language = "de"
-)
+def sentiment(text):
+    s = Sentiment(
+        path=os.path.join(MODULE, "de-sentiment.xml"),
+        synset=None,
+        negations=(
+            "nicht",
+            "ohne",
+            "nie",
+            "nein",
+            "kein",
+            "keiner",
+            "keine",
+            "nichts"),
+        modifiers = ("RB", "JJ"),
+        modifier = lambda w: w.endswith("lich"),
+        tokenizer = get_arg_tokenizer(),
+        language = "de"
+    )
+    return s(text)
 
 
 def polarity(s, **kwargs):

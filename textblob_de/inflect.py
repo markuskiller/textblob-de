@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-'''Code adapted from the pattern.de library.
+'''Code adapted from the ``pattern.de`` library.
+
+:repo: `https://github.com/clips/pattern`_
+:source: pattern/text/de/inflect.py
+:version: 2014-05-10 (eb98cd722e)
 
 :modified: July 2014 <m.killer@langui.ch>
 

@@ -10,14 +10,34 @@ Usage: ::
 Skip slow tests: ::
 
     python run_tests.py fast
+    
+Code imported from ``textblob-fr`` sample extension.
+
+:repo: `https://github.com/sloria/textblob-fr`_
+:source: run_tests.py
+:version: 2013-09-18 (1a8438b5ea)
+
 '''
 from __future__ import unicode_literals
 import nose
 import sys
+
 from textblob_de.compat import PY2, PY26
+from textblob.packages import nltk
+from textblob import download_corpora
+
+
+def check_for_nltk_data():
+    try:
+        nltk.tokenize.load('tokenizers/punkt/german.pickle')
+        return True
+    except LookupError:
+        return False
 
 
 def main():
+    if not check_for_nltk_data():
+        download_corpora.download_all()
     args = get_argv()
     success = nose.run(argv=args)
     sys.exit(0) if success else sys.exit(1)

@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-'''Code adapted from the pattern.text library.
+'''Code adapted from the ``pattern`` library.
+
+:repo: `https://github.com/clips/pattern`_
+:source: pattern/text/__init__.py
+:version: 2014-05-10 (2f944cbb8d)
 
 :modified: July 2014 <m.killer@langui.ch>
 
@@ -72,7 +76,7 @@ decode_utf8 = decode_string
 encode_utf8 = encode_string
 
 #: >>> string.punctuation
-#: '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+# : '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
 PUNCTUATION = string.punctuation
 
 
@@ -282,7 +286,6 @@ def _read(path, encoding="utf-8", comment=";;;"):
                 line,
                 str) else line
             line = line.strip()
-            # print(line)
             line = decode_utf8(line, encoding)
             if not line or (comment and line.startswith(comment)):
                 continue
@@ -797,18 +800,12 @@ class Parser(object):
                              frequency=kwargs.pop("frequency", {}), **kwargs
                              )
 
-    def find_tokens(self, string, **kwargs):
+    def find_tokens(self, string, tokenizer, **kwargs):
         """ Returns a list of sentences from the given string.
             Punctuation marks are separated from each word by a space.
         """
         # "The cat purs." => ["The cat purs ."]
-        return find_tokens(string,
-                           punctuation=kwargs.get("punctuation", PUNCTUATION),
-                           abbreviations=kwargs.get(
-                               "abbreviations",
-                               ABBREVIATIONS_DE),
-                           replace=kwargs.get("replace", replacements),
-                           linebreak=r"\n{2,}")
+        return tokenizer.sent_tokenize(string, **kwargs)
 
     def find_tags(self, tokens, **kwargs):
         """ Annotates the given list of tokens with part-of-speech tags.
@@ -850,7 +847,7 @@ class Parser(object):
         """
         return [token + [token[0].lower()] for token in tokens]
 
-    def parse(self, s, tokenize=True, tags=True, chunks=True,
+    def parse(self, s, tokenizer, tokenize=True, tags=True, chunks=True,
               relations=False, lemmata=False, encoding="utf-8", **kwargs):
         """ Takes a string (sentences) and returns a tagged Unicode string (TaggedString).
             Sentences in the output are separated by newlines.
@@ -863,12 +860,23 @@ class Parser(object):
             the tokenizer, tagger, chunker, labeler and lemmatizer.
         """
         # Tokenizer.
+
+        # Sentence splitter
+        # --> [['sentence1'], ['sentence2'], ...]
         if tokenize is True:
-            s = self.find_tokens(s, **kwargs)
+            s = self.find_tokens(s, tokenizer, **kwargs)
+        _sents = []
+        # Tokenize sentences from lists/tuples
+        # --> [sentence1['tok1', 'tok2', ...], sentence2['tok1', 'tok2']]
         if isinstance(s, (list, tuple)):
-            s = [isinstance(s, basestring) and s.split(" ") or s for s in s]
+            for _s in s:
+                _sents.append(tokenizer.word_tokenize(_s))
+        # Tokenize sentences from strings
+        # --> [sentence1['tok1', 'tok2', ...], sentence2['tok1', 'tok2']]
         if isinstance(s, basestring):
-            s = [s.split(" ") for s in s.split("\n")]
+            for _s in s.split('\n'):
+                _sents.append(tokenizer.word_tokenize(_s))
+        s = _sents
         # Unicode.
         for i in range(len(s)):
             for j in range(len(s[i])):
@@ -876,6 +884,7 @@ class Parser(object):
                     s[i][j] = decode_string(s[i][j], encoding)
             # Tagger (required by chunker, labeler & lemmatizer).
             if tags or chunks or relations or lemmata:
+                #print("s-i: ", s[i])
                 s[i] = self.find_tags(s[i], **kwargs)
             else:
                 s[i] = [[w] for w in s[i]]
@@ -1019,11 +1028,11 @@ def penntreebank2universal(token, tag):
 TOKEN = re.compile(r"(\S+)\s")
 
 # Handle common punctuation marks.
-# 
+#
 # already assigned in section ``STRING FUNCTIONS`` above
 #
-#PUNCTUATION = \
-    #punctuation = ".,;:!?()[]{}`''\"@#$^&*+-|=~_"
+# PUNCTUATION = \
+# punctuation = ".,;:!?()[]{}`''\"@#$^&*+-|=~_"
 
 # Handle common abbreviations.
 ABBREVIATIONS_DE = set((
@@ -1065,7 +1074,7 @@ RE_SARCASM = re.compile(r"\( ?\! ?\)")
 
 # Handle common contractions.
 replacements = {
-    "'s": " 's", # e.g. gibt's 
+    "'s": " 's",  # e.g. gibt's
 }
 
 # Handle paragraph line breaks (\n\n marks end of sentence).
@@ -2228,8 +2237,7 @@ class Sentiment(lazydict):
         elif isinstance(s, basestring):
             a = self.assessments(
                 ((w.lower(),
-                  None) for w in " ".join(
-                    self.tokenizer(s)).split()),
+                  None) for w in self.tokenizer.tokenize(s)),
                 negation)
         # A pattern.en.Text.
         elif hasattr(s, "sentences"):
@@ -2479,88 +2487,88 @@ class Spelling(lazydict):
 # print(parse("The cat sat on the mat.", language="en"))
 # print(parse("De kat zat op de mat.", language="nl"))
 
-LANGUAGES = ["en", "es", "de", "fr", "it", "nl"]
+#LANGUAGES = ["en", "es", "de", "fr", "it", "nl"]
 
-_modules = {}
-
-
-def _module(language):
-    """ Returns the given language module (e.g., "en" => pattern.en).
-    """
-    return _modules.setdefault(
-        language, __import__(language, globals(), {}, [], -1))
+#_modules = {}
 
 
-def _multilingual(function, *args, **kwargs):
-    """ Returns the value from the function with the given name in the given language module.
-        By default, language="en".
-    """
-    return getattr(_module(kwargs.pop("language", "en")), function)(
-        *args, **kwargs)
+# def _module(language):
+    #""" Returns the given language module (e.g., "en" => pattern.en).
+    #"""
+    # return _modules.setdefault(
+        # language, __import__(language, globals(), {}, [], -1))
 
 
-def language(s):
-    """ Returns a (language, confidence)-tuple for the given string.
-    """
-    s = decode_utf8(s)
-    s = set(w.strip(PUNCTUATION) for w in s.replace("'", "' ").split())
-    n = float(len(s) or 1)
-    p = {}
-    for xx in LANGUAGES:
-        lexicon = _module(xx).__dict__["lexicon"]
-        p[xx] = sum(1 for w in s if w in lexicon) / n
-    return max(p.items(), key=lambda kv: (kv[1], int(kv[0] == "en")))
-
-lang = language
+# def _multilingual(function, *args, **kwargs):
+    #""" Returns the value from the function with the given name in the given language module.
+        # By default, language="en".
+    #"""
+    # return getattr(_module(kwargs.pop("language", "en")), function)(
+        #*args, **kwargs)
 
 
-def tokenize(*args, **kwargs):
-    return _multilingual("tokenize", *args, **kwargs)
+# def language(s):
+    #""" Returns a (language, confidence)-tuple for the given string.
+    #"""
+    #s = decode_utf8(s)
+    #s = set(w.strip(PUNCTUATION) for w in s.replace("'", "' ").split())
+    #n = float(len(s) or 1)
+    #p = {}
+    # for xx in LANGUAGES:
+        #lexicon = _module(xx).__dict__["lexicon"]
+        #p[xx] = sum(1 for w in s if w in lexicon) / n
+    # return max(p.items(), key=lambda kv: (kv[1], int(kv[0] == "en")))
+
+#lang = language
 
 
-def parse(*args, **kwargs):
-    return _multilingual("parse", *args, **kwargs)
+# def tokenize(*args, **kwargs):
+    # return _multilingual("tokenize", *args, **kwargs)
 
 
-def parsetree(*args, **kwargs):
-    return _multilingual("parsetree", *args, **kwargs)
+# def parse(*args, **kwargs):
+    # return _multilingual("parse", *args, **kwargs)
 
 
-def split(*args, **kwargs):
-    return _multilingual("split", *args, **kwargs)
+# def parsetree(*args, **kwargs):
+    # return _multilingual("parsetree", *args, **kwargs)
 
 
-def tag(*args, **kwargs):
-    return _multilingual("tag", *args, **kwargs)
+# def split(*args, **kwargs):
+    # return _multilingual("split", *args, **kwargs)
 
 
-def keywords(*args, **kwargs):
-    return _multilingual("keywords", *args, **kwargs)
+# def tag(*args, **kwargs):
+    # return _multilingual("tag", *args, **kwargs)
 
 
-def suggest(*args, **kwargs):
-    return _multilingual("suggest", *args, **kwargs)
+# def keywords(*args, **kwargs):
+    # return _multilingual("keywords", *args, **kwargs)
 
 
-def sentiment(*args, **kwargs):
-    return _multilingual("sentiment", *args, **kwargs)
+# def suggest(*args, **kwargs):
+    # return _multilingual("suggest", *args, **kwargs)
 
 
-def singularize(*args, **kwargs):
-    return _multilingual("singularize", *args, **kwargs)
+# def sentiment(*args, **kwargs):
+    # return _multilingual("sentiment", *args, **kwargs)
 
 
-def pluralize(*args, **kwargs):
-    return _multilingual("pluralize", *args, **kwargs)
+# def singularize(*args, **kwargs):
+    # return _multilingual("singularize", *args, **kwargs)
 
 
-def conjugate(*args, **kwargs):
-    return _multilingual("conjugate", *args, **kwargs)
+# def pluralize(*args, **kwargs):
+    # return _multilingual("pluralize", *args, **kwargs)
 
 
-def predicative(*args, **kwargs):
-    return _multilingual("predicative", *args, **kwargs)
+# def conjugate(*args, **kwargs):
+    # return _multilingual("conjugate", *args, **kwargs)
 
 
-def suggest(*args, **kwargs):
-    return _multilingual("suggest", *args, **kwargs)
+# def predicative(*args, **kwargs):
+    # return _multilingual("predicative", *args, **kwargs)
+
+
+# def suggest(*args, **kwargs):
+    # return _multilingual("suggest", *args, **kwargs)

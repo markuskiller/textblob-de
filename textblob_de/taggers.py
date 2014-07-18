@@ -1,8 +1,19 @@
 # -*- coding: utf-8 -*-
+'''Code adapted from ``textblob-fr`` sample extension.
+
+:repo: `https://github.com/sloria/textblob-fr`_
+:source: textblob_fr/taggers.py
+:version: 2013-10-28 (5c6329d209)
+
+:modified: July 2014 <m.killer@langui.ch>
+'''
+
 from __future__ import absolute_import
 
 from textblob.base import BaseTagger
 from textblob_de.de import tag as pattern_tag
+
+from textblob_de.tokenizers import get_arg_tokenizer
 
 
 class PatternTagger(BaseTagger):
@@ -14,4 +25,6 @@ class PatternTagger(BaseTagger):
 
     def tag(self, sentence, tokenize=True):
         '''Tag a string `sentence`.'''
-        return pattern_tag(sentence, tokenize)
+        # for future implementations (needs to be changed in BaseBlob and BaseTagger)
+        # def tag(self, sentence, tokenizer, tokenize=True)
+        return pattern_tag(sentence, get_arg_tokenizer(), tokenize)

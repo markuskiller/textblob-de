@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+'''Code imported from ``textblob-fr`` sample extension.
+
+:repo: `https://github.com/sloria/textblob-fr`_
+:source: run_tests.py
+:version: 2013-10-28 (5c6329d209)
+
+:modified: July 2014 <m.killer@langui.ch>
+
+'''
 import sys
 import subprocess
 import re
@@ -79,7 +89,7 @@ setup(
         "textblob_de": ["*.txt", "*.xml"]
     },
     install_requires=requires,
-    license=read("LICENSE"),
+    license='\n\n' + read("LICENSE") + '\n\n',
     zip_safe=False,
     keywords='textblob_de',
     classifiers=[

@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-'''Code adapted from the pattern.vector library.
+'''Code adapted from the ``pattern`` library.
+
+:repo: `https://github.com/clips/pattern`_
+:source: pattern/vector/__init__.py
+:version: 2014-05-10 (8df54e58fa)
 
 :modified: July 2014 <m.killer@langui.ch>
 
