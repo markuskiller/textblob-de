@@ -52,6 +52,4 @@ class PatternAnalyzer(BaseSentimentAnalyzer):
         """Return the sentiment as a tuple of the form:
         ``(polarity, subjectivity)``
         """
-        #raise NotImplementedError
-        print("been here, done that")
         return pattern_sentiment(text)

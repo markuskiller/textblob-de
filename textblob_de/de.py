@@ -277,7 +277,6 @@ def tag(s, tokenizer, tokenize=True, encoding="utf-8", **kwargs):
     for sentence in parse(s, tokenizer, tokenize, True, False, False, False, encoding, **kwargs).split():
         for token in sentence:
             tags.append((token[0], token[1]))
-    print("tags: ", tags)
     return tags
 
 

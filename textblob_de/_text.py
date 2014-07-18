@@ -286,7 +286,6 @@ def _read(path, encoding="utf-8", comment=";;;"):
                 line,
                 str) else line
             line = line.strip()
-            # print(line)
             line = decode_utf8(line, encoding)
             if not line or (comment and line.startswith(comment)):
                 continue
@@ -861,12 +860,11 @@ class Parser(object):
             the tokenizer, tagger, chunker, labeler and lemmatizer.
         """
         # Tokenizer. 
-        print("s: ", s)
+        
         # Sentence splitter 
         # --> [['sentence1'], ['sentence2'], ...]
         if tokenize is True:
             s = self.find_tokens(s, tokenizer, **kwargs)
-            print("s-tok:", s)
         _sents = []
         # Tokenize sentences from lists/tuples
         # --> [sentence1['tok1', 'tok2', ...], sentence2['tok1', 'tok2']]        
@@ -879,7 +877,6 @@ class Parser(object):
             for _s in s.split('\n'):
                 _sents.append(tokenizer.word_tokenize(_s))
         s = _sents
-        print("s-unicode:", s)
         # Unicode.
         for i in range(len(s)):
             for j in range(len(s[i])):
@@ -2238,17 +2235,10 @@ class Sentiment(lazydict):
         # A string of words.
         # Sentiment("a horrible movie") => (-0.6, 1.0)
         elif isinstance(s, basestring):
-            _w = []
             print(len(self.tokenizer.tokenize(s)))
-            
-            for _s in self.tokenizer.tokenize(s):
-                _w = [w for w in _s]
-            print(_w)
-            print(list((w.lower(),
-                  None) for w in _w))
             a = self.assessments(
                 ((w.lower(),
-                  None) for w in _w),
+                  None) for w in self.tokenizer.tokenize(s)),
                 negation)
         # A pattern.en.Text.
         elif hasattr(s, "sentences"):

@@ -6,7 +6,7 @@ textblob-de
     :target: http://badge.fury.io/py/textblob-de
     :alt: Latest version
 
-.. image:: https://travis-ci.org/markuskiller/textblob-de.png
+.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=dev
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
 

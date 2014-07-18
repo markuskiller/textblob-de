@@ -52,16 +52,18 @@ class NLTKPunktTokenizer(BaseTokenizer):
         self.word_tok = nltk.tokenize.punkt.PunktWordTokenizer()
         
 
-    def tokenize(self, text, include_punc=True):
+    def tokenize(self, text, include_punc=True, nested=False):
         '''Return a list of word tokens.
         
         :param text: string of text.
         :param include_punc: (optional) whether to include punctuation as separate tokens. Default to True.
-        '''        
-        for s in self.sent_tokenize(text):
-            self.tokens.append(self.word_tokenize(s, include_punc))
-        
-        return self.tokens
+        :param nested: (optional) whether to return tokens as nested lists of sentences. Default to False.
+        '''
+        self.tokens = [w for w in (self.word_tokenize(s, include_punc) for s in self.sent_tokenize(text))]
+        if nested:
+            return self.tokens
+        else:
+            return list(chain.from_iterable(self.tokens))
 
     @requires_nltk_corpus
     def sent_tokenize(self, text, **kwargs):
@@ -71,7 +73,6 @@ class NLTKPunktTokenizer(BaseTokenizer):
         sentence boundaries.
         '''        
         sentences = self.sent_tok.tokenize(text, realign_boundaries=True)
-        print("NLTKPunktTok-snts: ", sentences)
         return sentences
     
     
@@ -118,15 +119,17 @@ class PatternTokenizer(BaseTokenizer):
         self.tokens = []    
 
     
-    def tokenize(self, text, include_punc=True):
+    def tokenize(self, text, include_punc=True, nested=False):
         '''Return a list of word tokens.
         
         :param text: string of text.
         :param include_punc: (optional) whether to include punctuation as separate tokens. Default to True.
         '''        
-        for s in self.sent_tokenize(text):
-            self.tokens.append(self.word_tokenize(s, include_punc))
-        return self.tokens        
+        self.tokens = [w for w in (self.word_tokenize(s, include_punc) for s in self.sent_tokenize(text))]
+        if nested:
+            return self.tokens
+        else:
+            return list(chain.from_iterable(self.tokens))       
     
     
     def sent_tokenize(self, text, **kwargs):
@@ -141,7 +144,6 @@ class PatternTokenizer(BaseTokenizer):
                     abbreviations=kwargs.get("abbreviations", ABBREVIATIONS_DE),
                     replace=kwargs.get("replace", replacements),
                     linebreak=r"\n{2,}")
-        print("PatternTok-snts: ", sentences)
         return sentences
     
     def word_tokenize(self, sentences, include_punc=True):
@@ -157,7 +159,7 @@ class PatternTokenizer(BaseTokenizer):
             # e.g. "hat's" => ["hat", "'s"]
             # e.g. "home." => ['home']
             words = [word if word.startswith("'") else strip_punc(word, all=False)
-                                for word in _tokens if strip_punc(word, all=False)]            
+                                for word in _tokens if strip_punc(word, all=False)]
             return list(words)
 
     

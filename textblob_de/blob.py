@@ -86,8 +86,6 @@ class TextBlobDE(TextBlob):
         #: get to using the same tokenizer across all different tools.
         #: Possible solution: add tokenizer as mandatory argument to
         #: :py:meth:`tag` and :py:meth:`parse` in :py:class:`BaseBlob`.
-        print("blob.tokenizer", self.tokenizer)
-        print("blob.analyzer", self.analyzer)
         setattr(get_tokenizer, "tokenizer", self.tokenizer)
         
 
@@ -130,7 +128,6 @@ class TextBlobDE(TextBlob):
             sentences = self.tokenizer.sent_tokenize(self.raw)
             char_index = 0  # Keeps track of character index within the blob
             for sent in sentences:
-                print("Sentence_snt: ", sent)
                 # Compute the start and end indices of the sentence
                 # within the blob. This only works if the sentence splitter
                 # does not perform any character replacements or changes to
