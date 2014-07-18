@@ -1,14 +1,14 @@
 Changelog
 ---------
 
-0.2.0 (unreleased)¶
+0.2.0 (18/07/2014)
 ++++++++++++++++++
 
 * vastly improved tokenization (``NLTKPunktTokenizer`` and ``PatternTokenizer`` with tests)
 * consistent use of specified tokenizer for all tools
-* :py:class:`TextBlobDE` with initialized default models for German
+* ``TextBlobDE`` with initialized default models for German
 * Parsing (``PatternParser``) plus ``test_parsers.py``
-* **EXPERIMENTAL!** implementation of Polarity detection (``PatternAnalyzer``)
+* **EXPERIMENTAL** implementation of Polarity detection (``PatternAnalyzer``)
 * first attempt at extracting German Polarity clues into ``de-sentiment.xml``
 * tox tests passing for py26, py27, py33 and py34
 
