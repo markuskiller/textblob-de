@@ -321,7 +321,7 @@ sentiment = Sentiment(
         "keiner",
         "keine",
         "nichts"),
-    modifiers = ("RB",),
+    modifiers = ("RB", "JJ"),
     modifier = lambda w: w.endswith("lich"),
     tokenizer = parser.find_tokens,
     language = "de"

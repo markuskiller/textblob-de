@@ -6,7 +6,7 @@ textblob-de
     :target: http://badge.fury.io/py/textblob-de
     :alt: Latest version
 
-.. image:: https://travis-ci.org/markuskiller/textblob-de.png
+.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=master
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
 
@@ -26,6 +26,7 @@ Features
 
 * Part-of-speech tagging (``PatternTagger``)
 * Supports Python 2 and 3
+* See `working features overview <http://langui.ch/nlp/python/textblob-de/>`_ for details
 
 
 Installing/Upgrading
