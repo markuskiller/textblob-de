@@ -31,7 +31,6 @@ Features
 * Parsing (``PatternParser``)
 * Polarity detection (``PatternAnalyzer``) **EXPERIMENTAL!** (only recognises uninflected word forms and does not have information on subjectivity)
 * Supports Python 2 and 3
-<<<<<<< HEAD
 * See `working features overview <http://langui.ch/nlp/python/textblob-de/>`_ for details
 
 
