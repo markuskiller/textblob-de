@@ -56,6 +56,7 @@ class TestNLTKPunktTokenizer(unittest.TestCase):
 
     def test_itokenize(self):
         gen = self.tokenizer.itokenize(self.text)
+        assert_true(is_generator(gen))
         assert_equal(next(gen), ['Heute', 'ist', 'der', '3.', 'Mai', '2014', 
                                  'und', 'Dr.', 'Meier', 'hat', 'seinen', 
                                  '43.', 'Geburtstag', '.'])
@@ -101,7 +102,7 @@ class TestPatternTokenizer(unittest.TestCase):
 
     def test_itokenize(self):
         gen = self.tokenizer.itokenize(self.text)
-        assert(is_generator(gen), True)
+        assert_true(is_generator(gen))
         assert_equal(next(gen), ['Heute','ist', 'der', '3', '.'])
         assert_equal(next(gen), ['Mai', '2014', 'und', 'Dr.', 'Meier', 
                                  'hat', 'seinen', '43', '.'])
