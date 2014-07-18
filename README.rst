@@ -59,27 +59,37 @@ Usage
 .. code-block:: python
 
     >>> from textblob_de import TextBlobDE as TextBlob
-    >>> text = "Das Auto ist sehr schön."
+    >>> text = '''Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 
+    43. Geburtstag. Ich muss unbedingt daran denken, Mehl, usw. für
+    einen Kuchen einzukaufen. Aber leider habe ich nur noch
+    EUR 18.50 in meiner Brieftasche.'''
     >>> blob = TextBlob(text)
+    >>> blob.sentences
+    [Sentence("Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 43. Geburtstag."),
+     Sentence("Ich muss unbedingt daran denken, Mehl, usw. für einen Kuchen einzukaufen."),
+     Sentence("Aber leider habe ich nur noch EUR 18.50 in meiner Brieftasche.")]
+    >>> blob.tokens
+    WordList(['Heute', 'ist', 'der', '3.', 'Mai', ...]
     >>> blob.tags
-    [('Das', 'DT'), ('Auto', 'NN'), ('ist', 'VB'), ('sehr', 'RB'), ('schön', 'JJ')]
+    [('Heute', 'RB'), ('ist', 'VB'), ('der', 'DT'), ('3.', 'LS'), ('Mai', 'NN'), ('2014', 'CD'), ...]
+
 
 
 .. code-block:: python
 
+    >>> blob = TextBlob("Das Auto ist sehr schön.")
     >>> blob.parse()
     'Das/DT/B-NP/O Auto/NN/I-NP/O ist/VB/B-VP/O sehr/RB/B-ADJP/O schön/JJ/I-ADJP/O'
     >>> blob = TextBlob(text, parser_show_lemmata=True)
-    'Das/DT/B-NP/O/das Auto/NN/I-NP/O/auto ist/VB/B-VP/O/sein sehr/RB/B-ADJP/O/sehr 
-    schön/JJ/I-ADJP/O/schön ././O/O/.'
+    'Das/DT/B-NP/O/das Auto/NN/I-NP/O/auto ist/VB/B-VP/O/sein sehr/RB/B-ADJP/O/sehr schön/JJ/I-ADJP/O/schön ././O/O/.'
 
 
 .. code-block:: python
-
+    
+    >>> blob = TextBlob("Das Auto ist sehr schön.")
     >>> blob.sentiment
     (1.0, 0.0)
-    >>> text = "Das Auto ist hässlich."
-    >>> blob = TextBlob(text)     
+    >>> blob = TextBlob("Das Auto ist hässlich.")     
     >>> blob.sentiment
     (-1.0, 0.0)
 
