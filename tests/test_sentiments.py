@@ -14,7 +14,7 @@ from nose.tools import *  # PEP8 asserts
 
 from textblob_de import TextBlobDE as TextBlob
 from textblob_de import PatternAnalyzer as DeAnalyzer
-from textblob_de.tokenizers import get_tokenizer, PatternTokenizer
+from textblob_de.tokenizers import get_arg_tokenizer, PatternTokenizer
 
 
 class TestPatternAnalyzer(unittest.TestCase):
@@ -27,10 +27,10 @@ class TestPatternAnalyzer(unittest.TestCase):
         self.pos2 = u"Die Katze ist nicht böse."
         self.neg2 = u"Dieser Hund ist nicht nett."
         
-        setattr(get_tokenizer, 'tokenizer', self.tokenizer)
+        setattr(get_arg_tokenizer, 'tokenizer', self.tokenizer)
         
     def tearDown(self):
-        delattr(get_tokenizer, 'tokenizer')          
+        delattr(get_arg_tokenizer, 'tokenizer')          
 
     def test_analyze(self):
         pos_sentiment = self.analyzer.analyze(self.pos1)

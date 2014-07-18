@@ -34,7 +34,7 @@ Main resource for ``de-sentiment.xml``:
 """
 from __future__ import absolute_import
 from textblob.base import BaseSentimentAnalyzer, CONTINUOUS
-from textblob_de.tokenizers import get_tokenizer
+from textblob_de.tokenizers import get_arg_tokenizer
 from textblob_de.de import sentiment as pattern_sentiment
 
 

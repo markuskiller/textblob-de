@@ -11,8 +11,8 @@
 import unittest
 from nose.tools import *  # PEP8 asserts
 
-from textblob_de import PatternParser
-from textblob_de.tokenizers import PatternTokenizer, NLTKPunktTokenizer, get_tokenizer
+from textblob_de.parsers import get_kwarg_lemmata, PatternParser
+from textblob_de.tokenizers import PatternTokenizer, NLTKPunktTokenizer, get_arg_tokenizer
 from textblob_de.de import parse as pattern_parse
 
 
@@ -24,10 +24,12 @@ class TestPatternParserWithNLTKTok(unittest.TestCase):
         self.text = u"Das Auto ist sehr schön."
         self.expected = u"Das/DT/B-NP/O Auto/NN/I-NP/O ist/VB/B-VP/O " \
                         u"sehr/RB/B-ADJP/O schön/JJ/I-ADJP/O ././O/O"
-        setattr(get_tokenizer, 'tokenizer', self.tokenizer)
+        setattr(get_arg_tokenizer, 'tokenizer', self.tokenizer)
+        setattr(get_kwarg_lemmata, "lemmata", False)
         
     def tearDown(self):
-        delattr(get_tokenizer, 'tokenizer')
+        delattr(get_arg_tokenizer, 'tokenizer')
+        delattr(get_kwarg_lemmata, "lemmata")
 
     def test_parse(self):
         #print(self.parser.parse(self.text))
@@ -45,11 +47,13 @@ class TestPatternParserWithPatternTok(unittest.TestCase):
         self.text = u"Das Auto ist sehr schön."
         self.expected = u"Das/DT/B-NP/O Auto/NN/I-NP/O ist/VB/B-VP/O " \
                         u"sehr/RB/B-ADJP/O schön/JJ/I-ADJP/O ././O/O"
-        setattr(get_tokenizer, 'tokenizer', self.tokenizer)
+        setattr(get_arg_tokenizer, 'tokenizer', self.tokenizer)
+        setattr(get_kwarg_lemmata, "lemmata", False)
         
     def tearDown(self):
-        delattr(get_tokenizer, 'tokenizer')
-
+        delattr(get_arg_tokenizer, 'tokenizer')
+        delattr(get_kwarg_lemmata, "lemmata")
+        
     def test_parse(self):
         #print(self.parser.parse(self.text))
         assert_equal(self.parser.parse(self.text), pattern_parse(self.text, self.tokenizer))

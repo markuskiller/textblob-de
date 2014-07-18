@@ -14,7 +14,7 @@ import logging
 from nose.tools import *  # PEP8 asserts
 
 from textblob_de import TextBlobDE as TextBlob
-from textblob_de.tokenizers import PatternTokenizer, NLTKPunktTokenizer, get_tokenizer
+from textblob_de.tokenizers import PatternTokenizer, NLTKPunktTokenizer, get_arg_tokenizer
 from textblob_de import PatternTagger
 
 
@@ -25,10 +25,10 @@ class TestPatternTaggerWithNLTKTok(unittest.TestCase):
         self.tagger = PatternTagger()
         self.text = u"Das ist ein schönes Auto"
         
-        setattr(get_tokenizer, 'tokenizer', self.tokenizer)
+        setattr(get_arg_tokenizer, 'tokenizer', self.tokenizer)
         
     def tearDown(self):
-        delattr(get_tokenizer, 'tokenizer')        
+        delattr(get_arg_tokenizer, 'tokenizer')        
 
     def test_tag(self):
         tags = self.tagger.tag(self.text)
@@ -52,10 +52,10 @@ class TestPatternTaggerWithPatternTok(unittest.TestCase):
         self.tagger = PatternTagger()
         self.text = u"Das ist ein schönes Auto"
         
-        setattr(get_tokenizer, 'tokenizer', self.tokenizer)
+        setattr(get_arg_tokenizer, 'tokenizer', self.tokenizer)
         
     def tearDown(self):
-        delattr(get_tokenizer, 'tokenizer')        
+        delattr(get_arg_tokenizer, 'tokenizer')        
 
     def test_tag(self):
         tags = self.tagger.tag(self.text)

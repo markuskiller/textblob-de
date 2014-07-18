@@ -7,7 +7,7 @@ from textblob_de.parsers import PatternParser
 from textblob_de.sentiments import PatternAnalyzer
 
 
-__version__ = '0.2.0a1'
+__version__ = '0.2.0a2'
 __author__ = 'Markus Killer'
 __license__ = "MIT"
 

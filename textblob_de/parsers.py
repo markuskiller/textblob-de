@@ -11,8 +11,13 @@
 from __future__ import absolute_import
 from textblob.base import BaseParser
 from textblob_de.de import parse as pattern_parse
-from textblob_de.tokenizers import get_tokenizer
+from textblob_de.tokenizers import get_arg_tokenizer
 
+
+def get_kwarg_lemmata():
+    # getattr(object, "attr_name", default value)
+    lemmata = getattr(get_kwarg_lemmata, "lemmata", False)
+    return lemmata
 
 class PatternParser(BaseParser):
 
@@ -22,6 +27,6 @@ class PatternParser(BaseParser):
 
     def parse(self, text):
    # for future implementations (needs to be changed in BaseBlob and BaseParser)
-   #def parse(self, text, tokenizer):
+   #def parse(self, text, tokenizer, lemmata=True):
         '''Parses the text.'''
-        return pattern_parse(text, get_tokenizer())
+        return pattern_parse(text, get_arg_tokenizer(), lemmata=get_kwarg_lemmata())

@@ -31,7 +31,7 @@ except:
 sys.path.insert(0, os.path.join(MODULE, "..", "..", "..", ".."))
 
 from textblob_de.compat import text_type, string_types, basestring, imap, unicode
-from textblob_de.tokenizers import get_tokenizer
+from textblob_de.tokenizers import get_arg_tokenizer
 
 # Import parser base classes.
 from textblob_de._text import (
@@ -324,7 +324,7 @@ def sentiment(text):
         "nichts"),
     modifiers = ("RB", "JJ"),
     modifier = lambda w: w.endswith("lich"),
-    tokenizer = get_tokenizer(),
+    tokenizer = get_arg_tokenizer(),
     language = "de"
 )
     return s(text)
