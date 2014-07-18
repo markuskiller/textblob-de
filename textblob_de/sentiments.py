@@ -25,7 +25,7 @@ Main resource for ``de-sentiment.xml``:
        
        Possible sources:
        
-       * `Pattern Projext <http://www.clips.ua.ac.be/pages/pattern>`_ 
+       * `Pattern Projext <http://www.clips.ua.ac.be/pages/pattern>`_
        
            * fr-sentiment.xml / en-sentiment.xml / nl-sentiment.xml
            

@@ -26,5 +26,5 @@ class PatternTagger(BaseTagger):
     def tag(self, sentence, tokenize=True):
         '''Tag a string `sentence`.'''
         # for future implementations (needs to be changed in BaseBlob and BaseTagger)
-        #def tag(self, sentence, tokenizer, tokenize=True)
+        # def tag(self, sentence, tokenizer, tokenize=True)
         return pattern_tag(sentence, get_arg_tokenizer(), tokenize)

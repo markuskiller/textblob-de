@@ -26,13 +26,13 @@ from textblob_de.compat import PY2, PY26
 from textblob.packages import nltk
 from textblob import download_corpora
 
+
 def check_for_nltk_data():
     try:
         nltk.tokenize.load('tokenizers/punkt/german.pickle')
         return True
     except LookupError:
         return False
-        
 
 
 def main():

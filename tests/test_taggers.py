@@ -24,11 +24,11 @@ class TestPatternTaggerWithNLTKTok(unittest.TestCase):
         self.tokenizer = NLTKPunktTokenizer()
         self.tagger = PatternTagger()
         self.text = u"Das ist ein schönes Auto"
-        
+
         setattr(get_arg_tokenizer, 'tokenizer', self.tokenizer)
-        
+
     def tearDown(self):
-        delattr(get_arg_tokenizer, 'tokenizer')        
+        delattr(get_arg_tokenizer, 'tokenizer')
 
     def test_tag(self):
         tags = self.tagger.tag(self.text)
@@ -38,12 +38,16 @@ class TestPatternTaggerWithNLTKTok(unittest.TestCase):
             assert_equal(word_tag[0], words[i])
 
     def test_tag_blob(self):
-        blob = TextBlob(self.text, pos_tagger=self.tagger, tokenizer=self.tokenizer)
+        blob = TextBlob(
+            self.text,
+            pos_tagger=self.tagger,
+            tokenizer=self.tokenizer)
         tags = blob.tags
         logging.debug("tags: {0}".format(tags))
         words = self.text.split()
         for i, word_tag in enumerate(tags):
             assert_equal(word_tag[0], words[i])
+
 
 class TestPatternTaggerWithPatternTok(unittest.TestCase):
 
@@ -51,11 +55,11 @@ class TestPatternTaggerWithPatternTok(unittest.TestCase):
         self.tokenizer = PatternTokenizer()
         self.tagger = PatternTagger()
         self.text = u"Das ist ein schönes Auto"
-        
+
         setattr(get_arg_tokenizer, 'tokenizer', self.tokenizer)
-        
+
     def tearDown(self):
-        delattr(get_arg_tokenizer, 'tokenizer')        
+        delattr(get_arg_tokenizer, 'tokenizer')
 
     def test_tag(self):
         tags = self.tagger.tag(self.text)
@@ -65,7 +69,10 @@ class TestPatternTaggerWithPatternTok(unittest.TestCase):
             assert_equal(word_tag[0], words[i])
 
     def test_tag_blob(self):
-        blob = TextBlob(self.text, pos_tagger=self.tagger, tokenizer=self.tokenizer)
+        blob = TextBlob(
+            self.text,
+            pos_tagger=self.tagger,
+            tokenizer=self.tokenizer)
         tags = blob.tags
         logging.debug("tags: {0}".format(tags))
         words = self.text.split()

@@ -205,7 +205,7 @@ class Parser(_Parser):
     def find_tokens(self, tokens, tokenizer, **kwargs):
         kwargs.setdefault("abbreviations", ABBREVIATIONS_DE)
         kwargs.setdefault("replace", {})
-        #return _Parser.find_tokens(self, tokens, **kwargs)
+        # return _Parser.find_tokens(self, tokens, **kwargs)
         return tokenizer.sent_tokenize(tokens, **kwargs)
 
     def find_lemmata(self, tokens, **kwargs):
@@ -311,22 +311,22 @@ class Sentiment(_Sentiment):
 
 def sentiment(text):
     s = Sentiment(
-    path=os.path.join(MODULE, "de-sentiment.xml"),
-    synset=None,
-    negations=(
-        "nicht",
-        "ohne",
-        "nie",
-        "nein",
-        "kein",
-        "keiner",
-        "keine",
-        "nichts"),
-    modifiers = ("RB", "JJ"),
-    modifier = lambda w: w.endswith("lich"),
-    tokenizer = get_arg_tokenizer(),
-    language = "de"
-)
+        path=os.path.join(MODULE, "de-sentiment.xml"),
+        synset=None,
+        negations=(
+            "nicht",
+            "ohne",
+            "nie",
+            "nein",
+            "kein",
+            "keiner",
+            "keine",
+            "nichts"),
+        modifiers = ("RB", "JJ"),
+        modifier = lambda w: w.endswith("lich"),
+        tokenizer = get_arg_tokenizer(),
+        language = "de"
+    )
     return s(text)
 
 

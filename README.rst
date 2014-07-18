@@ -25,8 +25,8 @@ Features
 --------
 
 * ``TextBlobDE`` class with initialized default models for German
-* Improved German sentence boundary detection (``NLTKPunktTokenizer``)
-* Consistent use of specified tokenizer for all tools (``NLTKPunktTokenizer`` and ``PatternTokenizer``)
+* German sentence boundary detection (``NLTKPunktTokenizer``)
+* Consistent use of specified tokenizer for all tools (``NLTKPunktTokenizer`` or ``PatternTokenizer``)
 * Part-of-speech tagging (``PatternTagger``)
 * Parsing (``PatternParser``)
 * Polarity detection (``PatternAnalyzer``) **EXPERIMENTAL!** (only recognises uninflected word forms and does not have information on subjectivity)
@@ -63,8 +63,19 @@ Usage
     >>> blob = TextBlob(text)
     >>> blob.tags
     [('Das', 'DT'), ('Auto', 'NN'), ('ist', 'VB'), ('sehr', 'RB'), ('schön', 'JJ')]
+
+
+.. code-block:: python
+
     >>> blob.parse()
     'Das/DT/B-NP/O Auto/NN/I-NP/O ist/VB/B-VP/O sehr/RB/B-ADJP/O schön/JJ/I-ADJP/O'
+    >>> blob = TextBlob(text, parser_show_lemmata=True)
+    'Das/DT/B-NP/O/das Auto/NN/I-NP/O/auto ist/VB/B-VP/O/sein sehr/RB/B-ADJP/O/sehr 
+    schön/JJ/I-ADJP/O/schön ././O/O/.'
+
+
+.. code-block:: python
+
     >>> blob.sentiment
     (1.0, 0.0)
     >>> text = "Das Auto ist hässlich."
@@ -76,7 +87,7 @@ Usage
 .. warning::
 
     **WORK IN PROGRESS:** The German polarity lexicon contains only uninflected
-      forms and there are no subjectivity scores yet.
+    forms and there are no subjectivity scores yet.
 
 .. note::
 
@@ -92,10 +103,9 @@ Requirements
 TODO
 ----
 
+- Implement German noun phrase extractor
 - Additional POS Tagging Options NLTK tagging (``NLTKTagger``)
-- Parsing (make keyword arguments of ``PatternParser.parse()`` accessible to make use of built-in lemmatization)
 - Improve Sentiment analysis (find suitable subjectivity scores and look up lemmas rather than word forms)
-
 
 License
 -------

@@ -19,14 +19,16 @@ def get_kwarg_lemmata():
     lemmata = getattr(get_kwarg_lemmata, "lemmata", False)
     return lemmata
 
+
 class PatternParser(BaseParser):
 
     '''Parser that uses the implementation in Tom de Smedt's pattern library.
     http://www.clips.ua.ac.be/pages/pattern-de#parser
-    ''' 
+    '''
 
     def parse(self, text):
-   # for future implementations (needs to be changed in BaseBlob and BaseParser)
-   #def parse(self, text, tokenizer, lemmata=True):
+       # for future implementations (needs to be changed in BaseBlob and BaseParser)
+       # def parse(self, text, tokenizer, lemmata=True):
         '''Parses the text.'''
-        return pattern_parse(text, get_arg_tokenizer(), lemmata=get_kwarg_lemmata())
+        return pattern_parse(
+            text, get_arg_tokenizer(), lemmata=get_kwarg_lemmata())

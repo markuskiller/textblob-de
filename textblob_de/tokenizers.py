@@ -31,36 +31,42 @@ def get_arg_tokenizer():
     tokenizer = getattr(get_arg_tokenizer, "tokenizer", NLTKPunktTokenizer())
     return tokenizer
 
+
 class NLTKPunktTokenizer(BaseTokenizer):
+
     """Tokenizer included in ``nltk.tokenize.punkt`` package
-    
+
     This is the default tokenizer in ``textblob-de``
-    
-    PROs: 
+
+    PROs:
     ^^^^^
     * trained model available for German
     * deals with many abbreviations and common German tokenization problems oob
-    
+
     CONs
     ^^^^
-    
+
     * not very flexible (model has to be re-trained on your own corpus)
-    
+
     """
+
     def __init__(self):
         self.tokens = []
         self.sent_tok = nltk.tokenize.load('tokenizers/punkt/german.pickle')
         self.word_tok = nltk.tokenize.punkt.PunktWordTokenizer()
-        
 
     def tokenize(self, text, include_punc=True, nested=False):
         '''Return a list of word tokens.
-        
+
         :param text: string of text.
         :param include_punc: (optional) whether to include punctuation as separate tokens. Default to True.
         :param nested: (optional) whether to return tokens as nested lists of sentences. Default to False.
         '''
-        self.tokens = [w for w in (self.word_tokenize(s, include_punc) for s in self.sent_tokenize(text))]
+        self.tokens = [
+            w for w in (
+                self.word_tokenize(
+                    s,
+                    include_punc) for s in self.sent_tokenize(text))]
         if nested:
             return self.tokens
         else:
@@ -70,18 +76,17 @@ class NLTKPunktTokenizer(BaseTokenizer):
     def sent_tokenize(self, text, **kwargs):
         '''NLTK's sentence tokenizer (currently PunktSentenceTokenizer).
         Uses an unsupervised algorithm to build a model for abbreviation words,
-        collocations, and words that start sentences, then uses that to find 
+        collocations, and words that start sentences, then uses that to find
         sentence boundaries.
-        '''        
+        '''
         sentences = self.sent_tok.tokenize(text, realign_boundaries=True)
         return sentences
-    
-    
+
     def word_tokenize(self, text, include_punc=True):
-        '''NLTK's PunktWordTokenizer uses a regular expression to divide 
-        a text into tokens, leaving all periods attached to words, 
+        '''NLTK's PunktWordTokenizer uses a regular expression to divide
+        a text into tokens, leaving all periods attached to words,
         but separating off other punctuation.
-        '''        
+        '''
         _tokens = self.word_tok.tokenize(text)
         if include_punc:
             last_word = _tokens[-1]
@@ -95,62 +100,69 @@ class NLTKPunktTokenizer(BaseTokenizer):
             # e.g. "hat's" => ["hat", "'s"]
             # e.g. "home." => ['home']
             words = [word if word.startswith("'") else strip_punc(word, all=False)
-                                for word in _tokens if strip_punc(word, all=False)]            
+                     for word in _tokens if strip_punc(word, all=False)]
             return list(words)
 
 
-
 class PatternTokenizer(BaseTokenizer):
+
     """Tokenizer included in ``pattern.de`` package
-    
-    PROs: 
+
+    PROs:
     ^^^^^
     * handling of emoticons
     * flexible implementations of abbreviations
     * can be adapted very easily
-    
+
     CONs
     ^^^^
-    
+
     * ordinal numbers cause sentence breaks
     * indices of Sentence() objects cannot be computed
-    
-    """
-    def __init__(self):
-        self.tokens = []    
 
-    
+    """
+
+    def __init__(self):
+        self.tokens = []
+
     def tokenize(self, text, include_punc=True, nested=False):
         '''Return a list of word tokens.
-        
+
         :param text: string of text.
         :param include_punc: (optional) whether to include punctuation as separate tokens. Default to True.
-        '''        
-        self.tokens = [w for w in (self.word_tokenize(s, include_punc) for s in self.sent_tokenize(text))]
+        '''
+        self.tokens = [
+            w for w in (
+                self.word_tokenize(
+                    s,
+                    include_punc) for s in self.sent_tokenize(text))]
         if nested:
             return self.tokens
         else:
-            return list(chain.from_iterable(self.tokens))       
-    
-    
+            return list(chain.from_iterable(self.tokens))
+
     def sent_tokenize(self, text, **kwargs):
         """Returns a list of sentences. Each sentence is a space-separated string of tokens (words).
         Handles common cases of abbreviations (e.g., etc., ...).
         Punctuation marks are split from other words. Periods (or ?!) mark the end of a sentence.
         Headings without an ending period are inferred by line breaks.
         """
-        
-        sentences = find_sentences(text, 
-                    punctuation=kwargs.get("punctuation", PUNCTUATION),
-                    abbreviations=kwargs.get("abbreviations", ABBREVIATIONS_DE),
-                    replace=kwargs.get("replace", replacements),
-                    linebreak=r"\n{2,}")
+
+        sentences = find_sentences(text,
+                                   punctuation=kwargs.get(
+                                       "punctuation",
+                                       PUNCTUATION),
+                                   abbreviations=kwargs.get(
+                                       "abbreviations",
+                                       ABBREVIATIONS_DE),
+                                   replace=kwargs.get("replace", replacements),
+                                   linebreak=r"\n{2,}")
         return sentences
-    
+
     def word_tokenize(self, sentences, include_punc=True):
-        
+
         _tokens = sentences.split(" ")
-        
+
         if include_punc:
             return _tokens
         else:
@@ -160,9 +172,5 @@ class PatternTokenizer(BaseTokenizer):
             # e.g. "hat's" => ["hat", "'s"]
             # e.g. "home." => ['home']
             words = [word if word.startswith("'") else strip_punc(word, all=False)
-                                for word in _tokens if strip_punc(word, all=False)]
+                     for word in _tokens if strip_punc(word, all=False)]
             return list(words)
-
-    
-        
-    

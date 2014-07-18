@@ -26,11 +26,11 @@ class TestPatternAnalyzer(unittest.TestCase):
         self.pos1 = u"Das Auto ist schön."
         self.pos2 = u"Die Katze ist nicht böse."
         self.neg2 = u"Dieser Hund ist nicht nett."
-        
+
         setattr(get_arg_tokenizer, 'tokenizer', self.tokenizer)
-        
+
     def tearDown(self):
-        delattr(get_arg_tokenizer, 'tokenizer')          
+        delattr(get_arg_tokenizer, 'tokenizer')
 
     def test_analyze(self):
         pos_sentiment = self.analyzer.analyze(self.pos1)
