@@ -6,7 +6,7 @@ textblob-de
     :target: http://badge.fury.io/py/textblob-de
     :alt: Latest version
 
-.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=master
+.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=dev
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
 
@@ -31,7 +31,7 @@ Features
 * Parsing (``PatternParser``)
 * Polarity detection (``PatternAnalyzer``) **EXPERIMENTAL** (only recognises uninflected word forms and does not have information on subjectivity)
 * Supports Python 2 and 3
-* See `working features overview <http://langui.ch/nlp/python/textblob-de/>`_ for details
+* See `working features overview <http://langui.ch/nlp/python/textblob-de-dev/>`_ for details
 
 
 Installing/Upgrading
