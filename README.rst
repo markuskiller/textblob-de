@@ -15,7 +15,7 @@ textblob-de
     :alt: Number of PyPI downloads
 
 
-German language support for `TextBlob <https://textblob.readthedocs.org/>`_.
+German language support for `TextBlob <https://textblob.readthedocs.org/>`_ by Steven Loria.
 
 This python package is being developed as a ``TextBlob`` **Language Extension**.
 See `Extension Guidelines <https://textblob.readthedocs.org/en/dev/contributing.html>`_ for details.
@@ -61,10 +61,9 @@ Usage
 .. code-block:: python
 
     >>> from textblob_de import TextBlobDE as TextBlob
-    >>> text = '''Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 
-    43. Geburtstag. Ich muss unbedingt daran denken, Mehl, usw. für
-    einen Kuchen einzukaufen. Aber leider habe ich nur noch
-    EUR 18.50 in meiner Brieftasche.'''
+    >>> text = '''Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 43. Geburtstag. 
+    Ich muss unbedingt daran denken, Mehl, usw. für einen Kuchen einzukaufen. Aber leider 
+    habe ich nur noch EUR 18.50 in meiner Brieftasche.'''
     >>> blob = TextBlob(text)
     >>> blob.sentences
     [Sentence("Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 43. Geburtstag."),
@@ -73,7 +72,8 @@ Usage
     >>> blob.tokens
     WordList(['Heute', 'ist', 'der', '3.', 'Mai', ...]
     >>> blob.tags
-    [('Heute', 'RB'), ('ist', 'VB'), ('der', 'DT'), ('3.', 'LS'), ('Mai', 'NN'), ('2014', 'CD'), ...]
+    [('Heute', 'RB'), ('ist', 'VB'), ('der', 'DT'), ('3.', 'LS'), ('Mai', 'NN'), 
+    ('2014', 'CD'), ...]
 
 
 
@@ -83,7 +83,8 @@ Usage
     >>> blob.parse()
     'Das/DT/B-NP/O Auto/NN/I-NP/O ist/VB/B-VP/O sehr/RB/B-ADJP/O schön/JJ/I-ADJP/O'
     >>> blob = TextBlob(text, parser_show_lemmata=True)
-    'Das/DT/B-NP/O/das Auto/NN/I-NP/O/auto ist/VB/B-VP/O/sein sehr/RB/B-ADJP/O/sehr schön/JJ/I-ADJP/O/schön ././O/O/.'
+    'Das/DT/B-NP/O/das Auto/NN/I-NP/O/auto ist/VB/B-VP/O/sein sehr/RB/B-ADJP/O/sehr' \ 
+    'schön/JJ/I-ADJP/O/schön ././O/O/.'
 
 
 .. code-block:: python
@@ -116,8 +117,8 @@ TODO
 ----
 
 - Implement German noun phrase extractor
-- Additional POS Tagging Options NLTK tagging (``NLTKTagger``)
-- Improve Sentiment analysis (find suitable subjectivity scores and look up lemmas rather than word forms)
+- Additional PoS tagging options NLTK tagging (``NLTKTagger``)
+- Improve sentiment analysis (find suitable subjectivity scores and look up lemmas rather than word forms)
 
 License
 -------
