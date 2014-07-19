@@ -290,6 +290,12 @@ def _read(path, encoding="utf-8", comment=";;;"):
             if not line or (comment and line.startswith(comment)):
                 continue
             yield line
+    # avoid nose's open resource warnings
+    try:
+        f.close()
+    except AttributeError:
+        # f is not an open file
+        pass
     raise StopIteration
 
 

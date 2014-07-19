@@ -116,9 +116,9 @@ Requirements
 TODO
 ----
 
-- Implement German noun phrase extractor
 - Additional PoS tagging options NLTK tagging (``NLTKTagger``)
 - Improve sentiment analysis (find suitable subjectivity scores and look up lemmas rather than word forms)
+- Improve functionality of ``Sentence()`` and ``Word()`` objects
 
 License
 -------

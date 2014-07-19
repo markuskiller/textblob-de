@@ -4,7 +4,7 @@ Changelog
 0.2.1 (unreleased)
 ++++++++++++++++++
 
-* 
+* Noun Phrase Extraction: ``PatternParserNPExtractor()`` extracts NPs from Parser output
 
 0.2.0 (18/07/2014)
 ++++++++++++++++++

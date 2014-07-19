@@ -18,6 +18,7 @@ from textblob_de.compat import unicode
 from textblob_de.tokenizers import get_arg_tokenizer, NLTKPunktTokenizer, PatternTokenizer
 from textblob_de.taggers import PatternTagger
 from textblob_de.parsers import get_kwarg_lemmata, PatternParser
+from textblob_de.np_extractors import PatternParserNPExtractor
 from textblob_de.sentiments import PatternAnalyzer
 
 
@@ -50,13 +51,15 @@ class TextBlobDE(TextBlob):
                  classifier=None,
                  clean_html=False,
                  parser_show_lemmata=False):
-        '''Initialize TextBlob() with German default values.'''
+        '''Initialize TextBlob() with German default models/values.'''
 
         self.tokenizer = tokenizer if tokenizer else NLTKPunktTokenizer()
         self.pos_tagger = pos_tagger if pos_tagger else PatternTagger()
+        self.np_extractor = np_extractor if np_extractor else PatternParserNPExtractor()
+        self.analyzer = analyzer if analyzer else PatternAnalyzer()
         self.parser = parser if parser else PatternParser()
         self.parser_show_lemmata = True if parser_show_lemmata else False
-        self.analyzer = analyzer if analyzer else PatternAnalyzer()
+        self.clean_html = clean_html if clean_html else False #depricated in BaseBlob()
         self.classifier = classifier if classifier else None
 
         from textblob.utils import lowerstrip
@@ -106,6 +109,13 @@ class TextBlobDE(TextBlob):
         """
         p = parser if parser is not None else self.parser
         return p.parse(self.raw)
+    
+    @cached_property
+    def noun_phrases(self):
+        '''Returns a list of noun phrases for this blob.'''
+        return WordList([phrase.strip()
+                        for phrase in self.np_extractor.extract(self.raw)
+                        if len(phrase.split()) > 1])    
 
     def _create_sentence_objects(self):
         '''Returns a list of Sentence objects from the raw text.
