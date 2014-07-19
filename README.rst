@@ -29,6 +29,7 @@ Features
 * Consistent use of specified tokenizer for all tools (``NLTKPunktTokenizer`` or ``PatternTokenizer``)
 * Part-of-speech tagging (``PatternTagger``)
 * Parsing (``PatternParser``)
+* Noun Phrase Extraction (``PatternParserNPExtractor``)
 * Polarity detection (``PatternAnalyzer``) **EXPERIMENTAL** (only recognises uninflected word forms and does not have information on subjectivity)
 * Supports Python 2 and 3
 * See `working features overview <http://langui.ch/nlp/python/textblob-de-dev/>`_ for details
