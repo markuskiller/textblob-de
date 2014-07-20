@@ -76,10 +76,11 @@ Usage
     >>> blob.tags
     [('Heute', 'RB'), ('ist', 'VB'), ('der', 'DT'), ('3.', 'LS'), ('Mai', 'NN'), 
     ('2014', 'CD'), ...]
+    # not perfect, but a start (relies heavily on parser accuracy)
     >>> blob.noun_phrases
+    WordList(['Mai 2014', 'Dr. Meier', 'seinen 43. Geburtstag', 'Kuchen einzukaufen', 
+    'meiner Brieftasche'])
     
-
-
 
 .. code-block:: python
 
