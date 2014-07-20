@@ -9,6 +9,7 @@
 :modified: July 2014 <m.killer@langui.ch>
 
 '''
+from __future__ import unicode_literals
 import unittest
 from nose.tools import *  # PEP8 asserts
 
@@ -20,10 +21,10 @@ from textblob_de import NLTKPunktTokenizer, PatternTokenizer
 class TestPatternAnalyzer(unittest.TestCase):
 
     def setUp(self):
-        self.neg1 = u"Das Auto ist schrecklich."
-        self.pos1 = u"Das Auto ist schön."
-        self.pos2 = u"Die Katze ist nicht böse."
-        self.neg2 = u"Dieser Hund ist nicht nett."
+        self.neg1 = "Das Auto ist schrecklich."
+        self.pos1 = "Das Auto ist schön."
+        self.pos2 = "Die Katze ist nicht böse."
+        self.neg2 = "Dieser Hund ist nicht nett."
 
 
     def test_analyze_nltk_tok(self):

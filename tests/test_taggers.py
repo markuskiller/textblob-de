@@ -9,6 +9,7 @@
 :modified: July 2014 <m.killer@langui.ch>
 
 '''
+from __future__ import unicode_literals
 import unittest
 import logging
 from nose.tools import *  # PEP8 asserts
@@ -21,7 +22,7 @@ from textblob_de import PatternTagger
 class TestPatternTagger(unittest.TestCase):
 
     def setUp(self):
-        self.text = u"Das ist ein schönes Auto"
+        self.text = "Das ist ein schönes Auto"
         
 
     def test_tag_nltk_tok(self):
