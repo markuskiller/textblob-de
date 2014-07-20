@@ -125,6 +125,7 @@ TODO
 - Additional PoS tagging options NLTK tagging (``NLTKTagger``)
 - Improve sentiment analysis (find suitable subjectivity scores and look up lemmas rather than word forms)
 - Improve functionality of ``Sentence()`` and ``Word()`` objects
+- Adapt more tests from ``textblob`` main package (esp. ``test_blob.py``)
 
 License
 -------

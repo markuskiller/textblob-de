@@ -8,6 +8,6 @@ from textblob_de.np_extractors import PatternParserNPExtractor
 from textblob_de.sentiments import PatternAnalyzer
 
 
-__version__ = '0.2.1a2'
+__version__ = '0.2.1'
 __author__ = 'Markus Killer'
 __license__ = "MIT"
