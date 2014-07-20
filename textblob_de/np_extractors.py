@@ -15,7 +15,7 @@ INSIGNIFICANT = ['der', 'die', 'das', 'des', 'dem', 'ein', 'eine', 'einer', 'ein
 
 START_NEW_NP = ['der', 'des']
 
-class PatternParserNPExtractor():
+class PatternParserNPExtractor(BaseNPExtractor):
     """Extract noun phrases (NP) from PatternParser() output."""
     def __init__(self):
         self.verb_lexicon = Verbs()
