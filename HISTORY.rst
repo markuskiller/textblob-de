@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+0.2.1 (20/07/2014)
+++++++++++++++++++
+
+* Noun Phrase Extraction: ``PatternParserNPExtractor()`` extracts NPs from Parser output
+* Refactored the way ``TextBlobDE()`` passes on arguments and keyword arguments to individual tools
+* *Backwards-incompatible*: Deprecate ``parser_show_lemmata=True`` keyword in ``TextBlob()``. Use ``parser=PatternParser(lemmata=True)`` instead.
+
 0.2.0 (18/07/2014)
 ++++++++++++++++++
 

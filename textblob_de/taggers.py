@@ -13,7 +13,7 @@ from __future__ import absolute_import
 from textblob.base import BaseTagger
 from textblob_de.de import tag as pattern_tag
 
-from textblob_de.tokenizers import get_arg_tokenizer
+from textblob_de.tokenizers import PatternTokenizer
 
 
 class PatternTagger(BaseTagger):
@@ -22,9 +22,11 @@ class PatternTagger(BaseTagger):
     Tom de Smedt's pattern library
     (http://www.clips.ua.ac.be/pattern).
     '''
+    def __init__(self, tokenizer=None):
+        self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
 
     def tag(self, sentence, tokenize=True):
         '''Tag a string `sentence`.'''
         # for future implementations (needs to be changed in BaseBlob and BaseTagger)
         # def tag(self, sentence, tokenizer, tokenize=True)
-        return pattern_tag(sentence, get_arg_tokenizer(), tokenize)
+        return pattern_tag(sentence, self.tokenizer, tokenize)

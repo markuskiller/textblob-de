@@ -31,7 +31,6 @@ except:
 sys.path.insert(0, os.path.join(MODULE, "..", "..", "..", ".."))
 
 from textblob_de.compat import text_type, string_types, basestring, imap, unicode
-from textblob_de.tokenizers import get_arg_tokenizer
 
 # Import parser base classes.
 from textblob_de._text import (
@@ -309,7 +308,7 @@ class Sentiment(_Sentiment):
                         self.annotate(w, pos, p, s, i)
 
 
-def sentiment(text):
+def sentiment(text, _tokenizer):
     s = Sentiment(
         path=os.path.join(MODULE, "de-sentiment.xml"),
         synset=None,
@@ -324,7 +323,7 @@ def sentiment(text):
             "nichts"),
         modifiers = ("RB", "JJ"),
         modifier = lambda w: w.endswith("lich"),
-        tokenizer = get_arg_tokenizer(),
+        tokenizer = _tokenizer,
         language = "de"
     )
     return s(text)

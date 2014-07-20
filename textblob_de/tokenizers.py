@@ -26,12 +26,6 @@ from textblob_de._text import find_tokens as find_sentences
 from textblob_de._text import replacements, ABBREVIATIONS_DE, PUNCTUATION
 
 
-def get_arg_tokenizer():
-    # getattr(object, "attr_name", default value)
-    tokenizer = getattr(get_arg_tokenizer, "tokenizer", NLTKPunktTokenizer())
-    return tokenizer
-
-
 class NLTKPunktTokenizer(BaseTokenizer):
 
     """Tokenizer included in ``nltk.tokenize.punkt`` package

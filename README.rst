@@ -6,7 +6,7 @@ textblob-de
     :target: http://badge.fury.io/py/textblob-de
     :alt: Latest version
 
-.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=master
+.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=dev
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
 
@@ -29,9 +29,10 @@ Features
 * Consistent use of specified tokenizer for all tools (``NLTKPunktTokenizer`` or ``PatternTokenizer``)
 * Part-of-speech tagging (``PatternTagger``)
 * Parsing (``PatternParser``)
+* Noun Phrase Extraction (``PatternParserNPExtractor``)
 * Polarity detection (``PatternAnalyzer``) **EXPERIMENTAL** (only recognises uninflected word forms and does not have information on subjectivity)
 * Supports Python 2 and 3
-* See `working features overview <http://langui.ch/nlp/python/textblob-de/>`_ for details
+* See `working features overview <http://langui.ch/nlp/python/textblob-de-dev/>`_ for details
 
 
 Installing/Upgrading
@@ -75,15 +76,19 @@ Usage
     >>> blob.tags
     [('Heute', 'RB'), ('ist', 'VB'), ('der', 'DT'), ('3.', 'LS'), ('Mai', 'NN'), 
     ('2014', 'CD'), ...]
-
-
+    # not perfect, but a start (relies heavily on parser accuracy)
+    >>> blob.noun_phrases
+    WordList(['Mai 2014', 'Dr. Meier', 'seinen 43. Geburtstag', 'Kuchen einzukaufen', 
+    'meiner Brieftasche'])
+    
 
 .. code-block:: python
 
     >>> blob = TextBlob("Das Auto ist sehr schön.")
     >>> blob.parse()
     'Das/DT/B-NP/O Auto/NN/I-NP/O ist/VB/B-VP/O sehr/RB/B-ADJP/O schön/JJ/I-ADJP/O'
-    >>> blob = TextBlob(text, parser_show_lemmata=True)
+    >>> from textblob_de import PatternParser
+    >>> blob = TextBlob(text, parser=PatternParser(lemmata=True))
     'Das/DT/B-NP/O/das Auto/NN/I-NP/O/auto ist/VB/B-VP/O/sein sehr/RB/B-ADJP/O/sehr' \ 
     'schön/JJ/I-ADJP/O/schön ././O/O/.'
 
@@ -117,9 +122,10 @@ Requirements
 TODO
 ----
 
-- Implement German noun phrase extractor
 - Additional PoS tagging options NLTK tagging (``NLTKTagger``)
 - Improve sentiment analysis (find suitable subjectivity scores and look up lemmas rather than word forms)
+- Improve functionality of ``Sentence()`` and ``Word()`` objects
+- Adapt more tests from ``textblob`` main package (esp. ``test_blob.py``)
 
 License
 -------
