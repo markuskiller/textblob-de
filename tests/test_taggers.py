@@ -14,65 +14,42 @@ import logging
 from nose.tools import *  # PEP8 asserts
 
 from textblob_de import TextBlobDE as TextBlob
-from textblob_de.tokenizers import PatternTokenizer, NLTKPunktTokenizer, get_arg_tokenizer
+from textblob_de import PatternTokenizer, NLTKPunktTokenizer
 from textblob_de import PatternTagger
 
 
-class TestPatternTaggerWithNLTKTok(unittest.TestCase):
+class TestPatternTagger(unittest.TestCase):
 
     def setUp(self):
-        self.tokenizer = NLTKPunktTokenizer()
-        self.tagger = PatternTagger()
         self.text = u"Das ist ein schönes Auto"
+        
 
-        setattr(get_arg_tokenizer, 'tokenizer', self.tokenizer)
-
-    def tearDown(self):
-        delattr(get_arg_tokenizer, 'tokenizer')
-
-    def test_tag(self):
-        tags = self.tagger.tag(self.text)
+    def test_tag_nltk_tok(self):
+        _tagger = PatternTagger(tokenizer=NLTKPunktTokenizer())
+        tags = _tagger.tag(self.text)
         logging.debug("tags: {0}".format(tags))
         words = self.text.split()
         for i, word_tag in enumerate(tags):
             assert_equal(word_tag[0], words[i])
 
-    def test_tag_blob(self):
-        blob = TextBlob(
-            self.text,
-            pos_tagger=self.tagger,
-            tokenizer=self.tokenizer)
+    def test_tag_blob_nltk_tok(self):
+        blob = TextBlob(self.text, tokenizer=NLTKPunktTokenizer(), pos_tagger=PatternTagger())
         tags = blob.tags
         logging.debug("tags: {0}".format(tags))
         words = self.text.split()
         for i, word_tag in enumerate(tags):
             assert_equal(word_tag[0], words[i])
 
-
-class TestPatternTaggerWithPatternTok(unittest.TestCase):
-
-    def setUp(self):
-        self.tokenizer = PatternTokenizer()
-        self.tagger = PatternTagger()
-        self.text = u"Das ist ein schönes Auto"
-
-        setattr(get_arg_tokenizer, 'tokenizer', self.tokenizer)
-
-    def tearDown(self):
-        delattr(get_arg_tokenizer, 'tokenizer')
-
-    def test_tag(self):
-        tags = self.tagger.tag(self.text)
+    def test_tag_pattern_tok(self):
+        _tagger = PatternTagger(tokenizer=PatternTokenizer())
+        tags = _tagger.tag(self.text)
         logging.debug("tags: {0}".format(tags))
         words = self.text.split()
         for i, word_tag in enumerate(tags):
             assert_equal(word_tag[0], words[i])
 
-    def test_tag_blob(self):
-        blob = TextBlob(
-            self.text,
-            pos_tagger=self.tagger,
-            tokenizer=self.tokenizer)
+    def test_tag_blob_pattern_tok(self):
+        blob = TextBlob(self.text, tokenizer=PatternTokenizer(), pos_tagger=PatternTagger())
         tags = blob.tags
         logging.debug("tags: {0}".format(tags))
         words = self.text.split()

@@ -76,6 +76,8 @@ Usage
     >>> blob.tags
     [('Heute', 'RB'), ('ist', 'VB'), ('der', 'DT'), ('3.', 'LS'), ('Mai', 'NN'), 
     ('2014', 'CD'), ...]
+    >>> blob.noun_phrases
+    
 
 
 
@@ -84,7 +86,8 @@ Usage
     >>> blob = TextBlob("Das Auto ist sehr schön.")
     >>> blob.parse()
     'Das/DT/B-NP/O Auto/NN/I-NP/O ist/VB/B-VP/O sehr/RB/B-ADJP/O schön/JJ/I-ADJP/O'
-    >>> blob = TextBlob(text, parser_show_lemmata=True)
+    >>> from textblob_de import PatternParser
+    >>> blob = TextBlob(text, parser=PatternParser(lemmata=True))
     'Das/DT/B-NP/O/das Auto/NN/I-NP/O/auto ist/VB/B-VP/O/sein sehr/RB/B-ADJP/O/sehr' \ 
     'schön/JJ/I-ADJP/O/schön ././O/O/.'
 

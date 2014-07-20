@@ -12,7 +12,7 @@ import unittest
 from nose.plugins.attrib import attr
 from nose.tools import *  # PEP8 asserts
 
-from textblob_de.tokenizers import NLTKPunktTokenizer, PatternTokenizer
+from textblob_de import NLTKPunktTokenizer, PatternTokenizer
 from textblob.compat import PY2
 
 

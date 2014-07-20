@@ -15,9 +15,9 @@ from textblob.decorators import cached_property
 from textblob.utils import PUNCTUATION_REGEX
 
 from textblob_de.compat import unicode
-from textblob_de.tokenizers import get_arg_tokenizer, NLTKPunktTokenizer, PatternTokenizer
+from textblob_de.tokenizers import NLTKPunktTokenizer, PatternTokenizer
 from textblob_de.taggers import PatternTagger
-from textblob_de.parsers import get_kwarg_lemmata, PatternParser
+from textblob_de.parsers import PatternParser
 from textblob_de.np_extractors import PatternParserNPExtractor
 from textblob_de.sentiments import PatternAnalyzer
 
@@ -49,16 +49,15 @@ class TextBlobDE(TextBlob):
                  analyzer=None,
                  parser=None,
                  classifier=None,
-                 clean_html=False,
-                 parser_show_lemmata=False):
+                 clean_html=False,):
         '''Initialize TextBlob() with German default models/values.'''
 
         self.tokenizer = tokenizer if tokenizer else NLTKPunktTokenizer()
-        self.pos_tagger = pos_tagger if pos_tagger else PatternTagger()
-        self.np_extractor = np_extractor if np_extractor else PatternParserNPExtractor()
-        self.analyzer = analyzer if analyzer else PatternAnalyzer()
-        self.parser = parser if parser else PatternParser()
-        self.parser_show_lemmata = True if parser_show_lemmata else False
+        self.pos_tagger = pos_tagger if pos_tagger else PatternTagger(tokenizer=self.tokenizer)
+        self.np_extractor = np_extractor if np_extractor \
+            else PatternParserNPExtractor(tokenizer=self.tokenizer)
+        self.analyzer = analyzer if analyzer else PatternAnalyzer(tokenizer=self.tokenizer)
+        self.parser = parser if parser else PatternParser(tokenizer=self.tokenizer)
         self.clean_html = clean_html if clean_html else False #depricated in BaseBlob()
         self.classifier = classifier if classifier else None
 
@@ -66,21 +65,6 @@ class TextBlobDE(TextBlob):
         self.raw = self.string = text
         self.stripped = lowerstrip(self.raw, all=True)
 
-        #: Temporary workarounds until ``TextBlob.parse`` and ``TextBlob.tag``
-        #: methods accept ``*args, **kwargs``
-        #:
-        #: Make tokenizer accessible for PatternParser/PatternTagger/PatternAnalyzer
-        #: This will probably not work if there are mixed calls to two or more
-        #: different  TextBlob instances. But it is as close as we can
-        #: get to using the same tokenizer across all different tools.
-        #: Possible long-term solution: add tokenizer as mandatory argument to
-        #: :py:meth:`tag` and :py:meth:`parse` in :py:class:`BaseBlob`.
-        setattr(get_arg_tokenizer, "tokenizer", self.tokenizer)
-        if self.parser_show_lemmata:
-            setattr(get_kwarg_lemmata, "lemmata", True)
-        else:
-            if hasattr(get_kwarg_lemmata, "lemmata"):
-                delattr(get_kwarg_lemmata, "lemmata")
 
     @cached_property
     def words(self):

@@ -34,7 +34,7 @@ Main resource for ``de-sentiment.xml``:
 """
 from __future__ import absolute_import
 from textblob.base import BaseSentimentAnalyzer, CONTINUOUS
-from textblob_de.tokenizers import get_arg_tokenizer
+from textblob_de.tokenizers import PatternTokenizer
 from textblob_de.de import sentiment as pattern_sentiment
 
 
@@ -45,11 +45,11 @@ class PatternAnalyzer(BaseSentimentAnalyzer):
 
     ``(polarity, subjectivity)``
     '''
-
-    kind = CONTINUOUS
-
+    def __init__(self, tokenizer=None):
+        self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
+    
     def analyze(self, text):
         """Return the sentiment as a tuple of the form:
         ``(polarity, subjectivity)``
         """
-        return pattern_sentiment(text)
+        return pattern_sentiment(text, self.tokenizer)
