@@ -18,11 +18,21 @@ class PatternParser(BaseParser):
 
     '''Parser that uses the implementation in Tom de Smedt's pattern library.
     http://www.clips.ua.ac.be/pages/pattern-de#parser
+    
+    
+    :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
+        :class:`PatternTokenizer() <textblob_de.tokenizers.PatternTokenizer>`.
+    :param lemmata: (optional) Keyword argument of PatternParser's ``parse`` method.
+        Defaults to ``False``. If ``True`` lowercase lemma will be shown for all
+        tokens.
     '''
     def __init__(self, tokenizer=None, lemmata=False):
         self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
         self.lemmata = lemmata if lemmata else False
 
     def parse(self, text):
-        '''Parses the text.'''
+        '''Parses the text.
+        
+        :param str text: A string.
+        '''
         return pattern_parse(text, self.tokenizer, lemmata=self.lemmata)

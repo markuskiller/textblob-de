@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
-from textblob_de.blob import TextBlobDE
+from textblob_de.blob import TextBlobDE, Word, WordList, Sentence
 from textblob_de.tokenizers import NLTKPunktTokenizer, PatternTokenizer
 from textblob_de.taggers import PatternTagger
 from textblob_de.parsers import PatternParser

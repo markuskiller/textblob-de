@@ -179,7 +179,9 @@ class WordTokenizer(BaseTokenizer):
     Default: NLTKPunktTokenizer().word_tokenize(text, include_punc=True)
     
     Aim: Not to break core API of ``textblob`` main package.
-
+    
+    :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
+        :class:`NLTKPunktTokenizer() <textblob_de.tokenizers.NLTKPunktTokenizer>`.
     '''
     def __init__(self, tokenizer=None, *args, **kwargs):
         # make sure that tokenizer is not referring to this class
@@ -204,15 +206,12 @@ class SentenceTokenizer(BaseTokenizer):
 
     '''Generic sentence tokenization class, using tokenizer specified in TextBlobDE() instance.
     
-    You can also submit the tokenizer as keyword argument: 
-    ``SentenceTokenizer(tokenizer=NLTKPunktTokenizer())``
-    
     Enables SentenceTokenizer().itokenize generator that would be lost otherwise.
     
-    Default: NLTKPunktTokenizer().sent_tokenize(text)
-    
     Aim: Not to break core API of ``textblob`` main package.
-
+    
+    :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
+        :class:`NLTKPunktTokenizer() <textblob_de.tokenizers.NLTKPunktTokenizer>`.
     '''
     def __init__(self, tokenizer=None, *args, **kwargs):
         # make sure that tokenizer is not referring to this class
@@ -232,7 +231,7 @@ class SentenceTokenizer(BaseTokenizer):
         return self.tokenize(text, **kwargs)
 
 
-def get_sentences_generator(text, tokenizer=None):
+def sent_tokenize(text, tokenizer=None):
         """Convenience function for tokenizing sentences (not iterable).
         
         If tokenizer is not specified, the default tokenizer NLTKPunktTokenizer()
@@ -241,13 +240,8 @@ def get_sentences_generator(text, tokenizer=None):
         This function returns the sentences as a generator object
         """
         _tokenizer = tokenizer if tokenizer else NLTKPunktTokenizer()        
-        sentence_generator = SentenceTokenizer(tokenizer=_tokenizer).itokenize
-        return sentence_generator
+        return SentenceTokenizer(tokenizer=_tokenizer).itokenize(text)
 
-#: Convenience function for tokenizing sentences (iterable), which always uses 
-#: the default tokenizer (same behaviour as in ``textblob`` main package).
-#: returns a generator 
-sent_tokenize = SentenceTokenizer(tokenizer=NLTKPunktTokenizer()).itokenize
 
 def word_tokenize(text, tokenizer=None, include_punc=True, *args, **kwargs):
     """Convenience function for tokenizing text into words.

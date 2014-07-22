@@ -22,10 +22,6 @@ try:
 except:
     MODULE = ""
 
-# determiners, relative pronouns, reflexive pronouns
-# In general, pronouns are not useful, as you need context to know what they refer to.
-# Most of the pronouns, however, are filtered out by blob.noun_phrase method's 
-# np length (>1) filter
 INSIGNIFICANT = ['der', 'die', 'das', 'des', 'dem', 'ein', 'eine', 'einer', 'einen', 'eines', 
                  'welcher', 'welche', 'welches', 'und', 'oder', 'mich', 'dich', 'sich', 'uns', 'euch', 'ihnen']
 
@@ -51,13 +47,19 @@ class PatternParserNPExtractor(BaseNPExtractor):
     * get parser output
     * try to correct as many obvious parser errors as you can (e.g. eliminate wrongly tagged verbs)
     * filter insignificant words
+    
+    :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
+        :class:`PatternTokenizer() <textblob_de.tokenizers.PatternTokenizer>`.
     """
     def __init__(self, tokenizer=None):
         self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
         self.verb_morphology = Verbs()      
     
     def extract(self, text):
-        '''Return a list of noun phrases (strings) for a body of text.''' 
+        '''Return a list of noun phrases (strings) for a body of text.
+        
+        :param str text: A string.
+        ''' 
         parsed_sentences = self._parse_text(text)
         _extracted = []
         for s in parsed_sentences:
@@ -84,6 +86,16 @@ class PatternParserNPExtractor(BaseNPExtractor):
     
     
     def _filter_extracted(self, extracted_list):
+        """Filter insignificant words for key noun phrase extraction.
+        
+        determiners, relative pronouns, reflexive pronouns
+        In general, pronouns are not useful, as you need context to know what they refer to.
+        Most of the pronouns, however, are filtered out by blob.noun_phrase method's 
+        np length (>1) filter
+        
+        :param list extracted_list: A list of noun phrases extracted from parser output.
+        
+        """
         _filtered = []
         for np in extracted_list:
             _np = np.split()
@@ -105,8 +117,10 @@ class PatternParserNPExtractor(BaseNPExtractor):
         """Parse text (string) and return list of parsed sentences (strings).
         
         Each sentence consists of space separated token elements and the
-        token format returned by the PatternParser is WORD/TAG/PHRASE/ROLE/LEMMA
+        token format returned by the PatternParser is WORD/TAG/PHRASE/ROLE/(LEMMA)
         (separated by a forward slash '/')
+        
+        :param str text: A string.
         """
         parsed_text = pattern_parse(text, self.tokenizer, lemmata=False)
         return parsed_text.split('\n')
