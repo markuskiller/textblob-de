@@ -1021,60 +1021,61 @@ class WordTest(TestCase):
         #assert_equal(word.synsets[0].lemmas[0], lemma)
 
 
-#class BlobberTest(TestCase):
+class BlobberTest(TestCase):
 
-    #def setUp(self):
-        #self.blobber = tb.Blobber()  # The default blobber
+    def setUp(self):
+        self.blobber = tb.BlobberDE()  # The default blobber
 
-    #def test_creates_blobs(self):
-        #blob1 = self.blobber("this is one blob")
-        #assert_true(isinstance(blob1, tb.TextBlobDE))
-        #blob2 = self.blobber("another blob")
-        #assert_equal(blob1.pos_tagger, blob2.pos_tagger)
+    def test_creates_blobs(self):
+        blob1 = self.blobber("Das ist ein Blob")
+        assert_true(isinstance(blob1, tb.TextBlobDE))
+        blob2 = self.blobber("ein anderer Blob")
+        assert_equal(blob1.pos_tagger, blob2.pos_tagger)
 
-    #def test_default_tagger(self):
-        #blob = self.blobber("Some text")
-        #assert_true(isinstance(blob.pos_tagger, PatternTagger))
+    def test_default_tagger(self):
+        blob = self.blobber("Etwas Text")
+        assert_true(isinstance(blob.pos_tagger, PatternTagger))
 
-    #def test_default_np_extractor(self):
-        #blob = self.blobber("Some text")
-        #assert_true(isinstance(blob.np_extractor, FastNPExtractor))
+    def test_default_np_extractor(self):
+        blob = self.blobber("Etwas Text")
+        assert_true(isinstance(blob.np_extractor, PatternParserNPExtractor))
 
-    #def test_default_tokenizer(self):
-        #blob = self.blobber("Some text")
-        #assert_true(isinstance(blob.tokenizer, WordTokenizer))
+    def test_default_tokenizer(self):
+        blob = self.blobber("Etwas Text")
+        assert_true(isinstance(blob.tokenizer, NLTKPunktTokenizer))
 
-    #def test_str_and_repr(self):
-        #expected = "Blobber(tokenizer=WordTokenizer(), pos_tagger=PatternTagger(), np_extractor=FastNPExtractor(), analyzer=PatternAnalyzer(), parser=PatternParser(), classifier=None)"
-        #assert_equal(repr(self.blobber), expected)
-        #assert_equal(str(self.blobber), repr(self.blobber))
+    def test_str_and_repr(self):
+        expected = "Blobber(tokenizer=NLTKPunktTokenizer(), pos_tagger=PatternTagger(), np_extractor=PatternParserNPExtractor(), analyzer=PatternAnalyzer(), parser=PatternParser(), classifier=None)"
+        assert_equal(repr(self.blobber), expected)
+        assert_equal(str(self.blobber), repr(self.blobber))
 
-    #def test_overrides(self):
-        #b = tb.Blobber(tokenizer=SentenceTokenizer(),
-                        #np_extractor=ConllExtractor())
-        #blob = b("How now? Brown cow?")
-        #assert_true(isinstance(blob.tokenizer, SentenceTokenizer))
-        #assert_equal(blob.tokens, tb.WordList(["How now?", "Brown cow?"]))
-        #blob2 = b("Another blob")
-        ## blobs have the same tokenizer
-        #assert_true(blob.tokenizer is blob2.tokenizer)
-        ## but aren't the same object
-        #assert_not_equal(blob, blob2)
+    def test_overrides(self):
+        b = tb.BlobberDE(tokenizer=SentenceTokenizer())
+        blob = b("Was nun? Dumme Kuh?")
+        assert_true(isinstance(blob.tokenizer, SentenceTokenizer))
+        assert_equal(blob.tokens, tb.WordList(["Was nun?", "Dumme Kuh?"]))
+        blob2 = b("Ein anderer Blob")
+        # blobs have the same tokenizer
+        assert_true(blob.tokenizer is blob2.tokenizer)
+        # but aren't the same object
+        assert_not_equal(blob, blob2)
 
-    #def test_override_analyzer(self):
-        #b = tb.Blobber(analyzer=NaiveBayesAnalyzer())
-        #blob = b("How now?")
-        #blob2 = b("Brown cow")
-        #assert_true(isinstance(blob.analyzer, NaiveBayesAnalyzer))
-        #assert_true(blob.analyzer is blob2.analyzer)
+    @expected_failure
+    def test_override_analyzer(self):
+        b = tb.BlobberDE(analyzer=NaiveBayesAnalyzer())
+        blob = b("How now?")
+        blob2 = b("Brown cow")
+        assert_true(isinstance(blob.analyzer, NaiveBayesAnalyzer))
+        assert_true(blob.analyzer is blob2.analyzer)
 
-    #def test_overrider_classifier(self):
-        #b = tb.Blobber(classifier=classifier)
-        #blob = b("I am so amazing")
-        #assert_equal(blob.classify(), 'pos')
+    @expected_failure
+    def test_overrider_classifier(self):
+        b = tb.BlobberDE(classifier=classifier)
+        blob = b("I am so amazing")
+        assert_equal(blob.classify(), 'pos')
 
-#def is_blob(obj):
-    #return isinstance(obj, tb.TextBlobDE)
+def is_blob(obj):
+    return isinstance(obj, tb.TextBlobDE)
 
 if __name__ == '__main__':
     main()

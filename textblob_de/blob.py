@@ -474,10 +474,6 @@ class Sentence(BaseBlob):
                         a TextBlob. If not given, defaults to the
                         length of the sentence - 1.
     '''
-    '''sent, start_index=start_index, end_index=end_index,
-                             tokenizer=self.tokenizer, np_extractor=self.np_extractor,
-                             pos_tagger=self.pos_tagger, analyzer=self.analyzer,
-                             parser=self.parser, classifier=self.classifier'''
     def __init__(self, sentence, start_index=0, end_index=None,
                  *args, **kwargs):
         super(Sentence, self).__init__(sentence, *args, **kwargs)
@@ -507,7 +503,7 @@ class TextBlobDE(BaseBlob):
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`NLTKPunktTokenizer() <textblob_de.tokenizers.NLTKPunktTokenizer>`.
     :param np_extractor: (optional) An NPExtractor instance. If ``None``,
-        defaults to :class:`FastNPExtractor() <textblob.en.np_extractors.FastNPExtractor>`.
+        defaults to :class:`PatternParserNPExtractor() <textblob_de.np_extractors.PatternParserNPExtractor>`.
     :param pos_tagger: (optional) A Tagger instance. If ``None``, defaults to
         :class:`PatternTagger <textblob_de.taggers.PatternTagger>`.
     :param analyzer: (optional) A sentiment analyzer. If ``None``, defaults to
@@ -585,3 +581,76 @@ class TextBlobDE(BaseBlob):
                 parser=self.parser, classifier=self.classifier)
             sentence_objects.append(s)
         return sentence_objects
+
+
+class BlobberDE(object):
+
+    '''A factory for TextBlobs that all share the same tagger,
+    tokenizer, parser, classifier, and np_extractor.
+
+    Usage:
+
+        >>> from textblob_de import BlobberDE
+        >>> from textblob_de.taggers import PatternTagger
+        >>> from textblob.tokenizers import PatternTokenizer
+        >>> tb = Blobber(pos_tagger=PatternTagger(), tokenizer=PatternTokenizer())
+        >>> blob1 = tb("Das ist ein Blob.")
+        >>> blob2 = tb("Dieser Blob benutzt die selben Tagger und Tokenizer.")
+        >>> blob1.pos_tagger is blob2.pos_tagger
+        True
+
+    :param str text: A string.
+    :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
+        :class:`NLTKPunktTokenizer() <textblob_de.tokenizers.NLTKPunktTokenizer>`.
+    :param np_extractor: (optional) An NPExtractor instance. If ``None``,
+        defaults to :class:`PatternParserNPExtractor() <textblob_de.np_extractors.PatternParserNPExtractor>`.
+    :param pos_tagger: (optional) A Tagger instance. If ``None``, defaults to
+        :class:`PatternTagger <textblob_de.taggers.PatternTagger>`.
+    :param analyzer: (optional) A sentiment analyzer. If ``None``, defaults to
+        :class:`PatternAnalyzer <textblob_de.sentiments.PatternAnalyzer>`.
+    :param classifier: (optional) A classifier.
+
+    .. versionadded:: 0.4.0
+    '''
+    def __init__(self, 
+                 tokenizer=None, 
+                 pos_tagger=None, 
+                 np_extractor=None,
+                 analyzer=None, 
+                 parser=None, 
+                 classifier=None):
+        
+        self.tokenizer = tokenizer if tokenizer else NLTKPunktTokenizer()
+        self.pos_tagger = pos_tagger if pos_tagger else PatternTagger(tokenizer=self.tokenizer)
+        self.np_extractor = np_extractor if np_extractor \
+            else PatternParserNPExtractor(tokenizer=self.tokenizer)
+        self.analyzer = analyzer if analyzer else PatternAnalyzer(tokenizer=self.tokenizer)
+        self.parser = parser if parser else PatternParser(tokenizer=self.tokenizer)
+        self.classifier = classifier if classifier else None        
+        
+        _initialize_models(self, self.tokenizer, self.pos_tagger, self.np_extractor, self.analyzer,
+                            self.parser, self.classifier)
+
+    def __call__(self, text):
+        '''Return a new TextBlob object with this Blobber's ``np_extractor``,
+        ``pos_tagger``, ``tokenizer``, ``analyzer``, and ``classifier``.
+
+        :returns: A new :class:`TextBlob <TextBlob>`.
+        '''
+        return TextBlobDE(text, tokenizer=self.tokenizer, pos_tagger=self.pos_tagger,
+                        np_extractor=self.np_extractor, analyzer=self.analyzer,
+                        parser=self.parser,
+                        classifier=self.classifier)
+
+    def __repr__(self):
+        classifier_name = self.classifier.__class__.__name__ + "()" if self.classifier else "None"
+        return ("Blobber(tokenizer={0}(), pos_tagger={1}(), "
+                    "np_extractor={2}(), analyzer={3}(), parser={4}(), classifier={5})")\
+                    .format(self.tokenizer.__class__.__name__,
+                            self.pos_tagger.__class__.__name__,
+                            self.np_extractor.__class__.__name__,
+                            self.analyzer.__class__.__name__,
+                            self.parser.__class__.__name__,
+                            classifier_name)
+
+    __str__ = __repr__
