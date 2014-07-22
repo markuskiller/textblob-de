@@ -8,6 +8,7 @@
 :modified: July 2014 <m.killer@langui.ch>
 
 '''
+from __future__ import unicode_literals
 import unittest
 from nose.tools import *  # PEP8 asserts
 
@@ -18,15 +19,15 @@ from textblob_de.de import parse as pattern_parse
 class TestPatternParser(unittest.TestCase):
 
     def setUp(self):
-        self.text = u"Das Auto ist sehr schön."
+        self.text = "Das Auto ist sehr schön."
 
-        self.expected = u"Das/DT/B-NP/O Auto/NN/I-NP/O ist/VB/B-VP/O " \
-                        u"sehr/RB/B-ADJP/O schön/JJ/I-ADJP/O ././O/O"
+        self.expected = "Das/DT/B-NP/O Auto/NN/I-NP/O ist/VB/B-VP/O " \
+                        "sehr/RB/B-ADJP/O schön/JJ/I-ADJP/O ././O/O"
 
         self.expected_with_lemmata = \
-            u'Das/DT/B-NP/O/das Auto/NN/I-NP/O/auto ' \
-            u'ist/VB/B-VP/O/sein sehr/RB/B-ADJP/O/sehr ' \
-            u'schön/JJ/I-ADJP/O/schön ././O/O/.'
+            'Das/DT/B-NP/O/das Auto/NN/I-NP/O/auto ' \
+            'ist/VB/B-VP/O/sein sehr/RB/B-ADJP/O/sehr ' \
+            'schön/JJ/I-ADJP/O/schön ././O/O/.'
 
 
     def test_parse(self):

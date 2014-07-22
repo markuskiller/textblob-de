@@ -31,6 +31,8 @@ Main resource for ``de-sentiment.xml``:
            
        * `IGGSA <https://sites.google.com/site/iggsahome/>`_
 
+    :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
+        :class:`PatternTokenizer() <textblob_de.tokenizers.PatternTokenizer>`.
 """
 from __future__ import absolute_import
 from textblob.base import BaseSentimentAnalyzer, CONTINUOUS
@@ -51,5 +53,7 @@ class PatternAnalyzer(BaseSentimentAnalyzer):
     def analyze(self, text):
         """Return the sentiment as a tuple of the form:
         ``(polarity, subjectivity)``
+        
+        :param str text: A string.
         """
         return pattern_sentiment(text, self.tokenizer)

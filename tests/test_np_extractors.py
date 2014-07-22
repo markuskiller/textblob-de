@@ -12,16 +12,16 @@ class TestPatternParserNPExtractor(unittest.TestCase):
 
     def setUp(self):
         self.extractor = PatternParserNPExtractor(tokenizer=NLTKPunktTokenizer())
-        self.text = u"Peter hat ein schönes Auto. Er wohnt in Zürich. " \
-                    u"Seine zwei Katzen heissen Tim und Struppi."
+        self.text = "Peter hat ein schönes Auto. Er wohnt in Zürich. " \
+                    "Seine zwei Katzen heissen Tim und Struppi."
 
         self.parsed_sentences_expected = [
-            u'Peter/NNP/B-NP/O hat/VB/B-VP/O ein/DT/B-NP/O ' \
-            u'schönes/JJ/I-NP/O Auto/NN/I-NP/O ././O/O', 
-            u'Er/PRP/B-NP/O wohnt/NN/I-NP/O in/IN/B-PP/B-PNP ' \
-            u'Zürich/NNP/B-NP/I-PNP ././O/O', 'Seine/PRP$/B-NP/O '\
-            u'zwei/CD/I-NP/O Katzen/NNS/I-NP/O heissen/VB/B-VP/O '\
-            u'Tim/NNP/B-NP/O und/CC/I-NP/O Struppi/NNP/I-NP/O ././O/O']
+            'Peter/NNP/B-NP/O hat/VB/B-VP/O ein/DT/B-NP/O ' \
+            'schönes/JJ/I-NP/O Auto/NN/I-NP/O ././O/O', 
+            'Er/PRP/B-NP/O wohnt/NN/I-NP/O in/IN/B-PP/B-PNP ' \
+            'Zürich/NNP/B-NP/I-PNP ././O/O', 'Seine/PRP$/B-NP/O '\
+            'zwei/CD/I-NP/O Katzen/NNS/I-NP/O heissen/VB/B-VP/O '\
+            'Tim/NNP/B-NP/O und/CC/I-NP/O Struppi/NNP/I-NP/O ././O/O']
 
     def test_parse_text(self):
         assert_equal(self.extractor._parse_text(self.text), self.parsed_sentences_expected)
@@ -29,12 +29,12 @@ class TestPatternParserNPExtractor(unittest.TestCase):
     def test_extract(self):
         noun_phrases = self.extractor.extract(self.text)
         assert_true("Peter" in noun_phrases)
-        assert_true(u"schönes Auto" in noun_phrases)
+        assert_true("schönes Auto" in noun_phrases)
         # only words tagged as nouns are capitalized other words are normalised
-        assert_true(u"er" in noun_phrases)
-        assert_true(u"Zürich" in noun_phrases)
+        assert_true("er" in noun_phrases)
+        assert_true("Zürich" in noun_phrases)
         # added 'und'/'oder' to noun phrase splitters and insignificant
-        assert_false(u"Tim und Struppi" in noun_phrases)
+        assert_false("Tim und Struppi" in noun_phrases)
 
 if __name__ == '__main__':
     unittest.main()

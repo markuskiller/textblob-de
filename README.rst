@@ -24,11 +24,11 @@ See `Extension Guidelines <https://textblob.readthedocs.org/en/dev/contributing.
 Features
 --------
 
-* ``TextBlobDE`` class with initialized default models for German
-* German sentence boundary detection (``NLTKPunktTokenizer``)
+* ``TextBlobDE/BlobberDE/Sentence/WordList/Word``classes with initialized default models for German
+* German sentence boundary detection and tokenization (``NLTKPunktTokenizer``)
 * Consistent use of specified tokenizer for all tools (``NLTKPunktTokenizer`` or ``PatternTokenizer``)
-* Part-of-speech tagging (``PatternTagger``)
-* Parsing (``PatternParser``)
+* Part-of-speech tagging (``PatternTagger``) with keyword ``include_punc=True`` (defaults to ``False``)
+* Parsing (``PatternParser``) with keyword ``lemmata=True`` (defaults to ``False``)
 * Noun Phrase Extraction (``PatternParserNPExtractor``)
 * Polarity detection (``PatternAnalyzer``) **EXPERIMENTAL** (only recognises uninflected word forms and does not have information on subjectivity)
 * Supports Python 2 and 3
@@ -91,6 +91,10 @@ Usage
     >>> blob = TextBlob(text, parser=PatternParser(lemmata=True))
     'Das/DT/B-NP/O/das Auto/NN/I-NP/O/auto ist/VB/B-VP/O/sein sehr/RB/B-ADJP/O/sehr' \ 
     'schön/JJ/I-ADJP/O/schön ././O/O/.'
+    >>> from textblob_de import PatternTagger
+    >>> blob = TextBlob(text, pos_tagger=PatternTagger(include_punc=True))
+    [('Das', 'DT'), ('Auto', 'NN'), ('ist', 'VB'), ('sehr', 'RB'), ('schön', 'JJ'), ('.', '.')]
+
 
 
 .. code-block:: python
@@ -125,7 +129,7 @@ TODO
 - Additional PoS tagging options NLTK tagging (``NLTKTagger``)
 - Improve sentiment analysis (find suitable subjectivity scores and look up lemmas rather than word forms)
 - Improve functionality of ``Sentence()`` and ``Word()`` objects
-- Adapt more tests from ``textblob`` main package (esp. ``test_blob.py``)
+- Adapt more tests from ``textblob`` main package (esp. for ``TextBlobDE()`` in ``test_blob.py``)
 
 License
 -------
