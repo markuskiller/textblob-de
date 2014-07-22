@@ -24,7 +24,8 @@ See `Extension Guidelines <https://textblob.readthedocs.org/en/dev/contributing.
 Features
 --------
 
-* ``TextBlobDE/BlobberDE/Sentence/WordList/Word``classes with initialized default models for German
+* All directly accessible ``textblob_de`` classes (e.g. ``Sentence()`` or ``Word()``) are now initialized with default models for German
+* Properties or methods that do not yet work for German now raise a ``NotImplementedError``
 * German sentence boundary detection and tokenization (``NLTKPunktTokenizer``)
 * Consistent use of specified tokenizer for all tools (``NLTKPunktTokenizer`` or ``PatternTokenizer``)
 * Part-of-speech tagging (``PatternTagger``) with keyword ``include_punc=True`` (defaults to ``False``)

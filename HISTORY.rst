@@ -1,10 +1,10 @@
 Changelog
 ---------
 
-0.2.2 (unreleased)
+0.2.2 (22/07/2014)
 ++++++++++++++++++
 
-* Include punctuation (optional) in ``tags``/``pos_tags`` properties (``b = TextBlobDE(text, tagger=PatternTagger(include_punc=True))``)
+* Option: Include punctuation in ``tags``/``pos_tags`` properties (``b = TextBlobDE(text, tagger=PatternTagger(include_punc=True))``)
 * Added ``BlobberDE()`` class initialized with German models
 * ``TextBlobDE()``, ``Sentence()``, ``WordList()`` and ``Word()`` classes are now all initialized with German models
 * Restored complete API compatibility with ``textblob.tokenizers`` module of ``textblob`` main package
