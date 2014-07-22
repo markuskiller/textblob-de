@@ -41,9 +41,7 @@ class PatternTagger(BaseTagger):
         '''       
         _tagged = pattern_tag(sentence, self.tokenizer, tokenize)
         if self.include_punc:
-            print("tag_include: ", _tagged)
             return _tagged
         else:
             _tagged = [(word, t) for word, t in _tagged if not PUNCTUATION_REGEX.match(unicode(t))]
-            print("tag_no_punc: ", _tagged)
             return _tagged
