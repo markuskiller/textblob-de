@@ -376,7 +376,9 @@ class BaseBlob(_BaseBlob):
         '''
         return [(Word(word, pos_tag=t), unicode(t))
                 for word, t in self.pos_tagger.tag(self.raw)
-                if not PUNCTUATION_REGEX.match(unicode(t))]
+                # new keyword PatternTagger(include_punc=False)
+                #if not PUNCTUATION_REGEX.match(unicode(t))
+                ]
 
     tags = pos_tags
 
