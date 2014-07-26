@@ -4,7 +4,7 @@ Changelog
 0.2.4 (unreleased)
 ++++++++++++++++++
 
-* 
+* Make ``pattern.de.pprint`` function and all parser keywords accessible
 
 0.2.3 (26/07/2014)
 ++++++++++++++++++
