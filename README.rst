@@ -6,7 +6,7 @@ textblob-de
     :target: http://badge.fury.io/py/textblob-de
     :alt: Latest version
 
-.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=dev
+.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=master
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
 
@@ -34,7 +34,7 @@ Features
 * Lemmatization (``PatternParserLemmatizer``)
 * Polarity detection (``PatternAnalyzer``) - Still **EXPERIMENTAL**, does not yet have information on subjectivity
 * Supports Python 2 and 3
-* See `working features overview <http://langui.ch/nlp/python/textblob-de-dev/>`_ for details
+* See `working features overview <http://langui.ch/nlp/python/textblob-de/>`_ for details
 
 
 Installing/Upgrading
@@ -106,8 +106,6 @@ Usage
     >>> blob = TextBlob("Das ist ein hässliches Auto.")     
     >>> blob.sentiment
     (-1.0, 0.0)
-    >>> blob.words.lemmatize()
-    WordList(['das', 'sein', 'ein', 'hässlich', 'Auto'])
 
 
 .. warning::
@@ -146,7 +144,7 @@ TODO
 - **TextBlob Extension:** ``textblob-rftagger`` (wrapper class for ``RFTagger``)
 - **TextBlob Extension:** ``textblob-stanfordparser`` (wrapper class for ``StanfordParser`` via NLTK)
 - **TextBlob Extension:** ``textblob-berkeleyparser`` (wrapper class for ``BerkeleyParser``)
-- **TextBlob Extension:** ``textblob-align`` (sentence alignment for parallel TextBlobs)
+- **TextBlob Extension:** ``textblob-sent-align`` (sentence alignment for parallel TextBlobs)
 - **TextBlob Extension:** ``textblob-converters`` (various input and output conversions)
 - Additional PoS tagging options, e.g. NLTK tagging (``NLTKTagger``)
 - Improve noun phrase extraction (e.g. based on ``RFTagger`` output)

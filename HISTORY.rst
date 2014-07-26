@@ -1,7 +1,7 @@
 Changelog
 ---------
 
-0.2.3 (unreleased)
+0.2.3 (26/07/2014)
 ++++++++++++++++++
 
 * Lemmatizer: ``PatternParserLemmatizer()`` extracts lemmas from Parser output
