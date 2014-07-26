@@ -31,7 +31,8 @@ Features
 * Part-of-speech tagging (``PatternTagger``) with keyword ``include_punc=True`` (defaults to ``False``)
 * Parsing (``PatternParser``) with keyword ``lemmata=True`` (defaults to ``False``)
 * Noun Phrase Extraction (``PatternParserNPExtractor``)
-* Polarity detection (``PatternAnalyzer``) **EXPERIMENTAL** (only recognises uninflected word forms and does not have information on subjectivity)
+* Lemmatization (``PatternParserLemmatizer``)
+* Polarity detection (``PatternAnalyzer``) - Still **EXPERIMENTAL**, does not yet have information on subjectivity
 * Supports Python 2 and 3
 * See `working features overview <http://langui.ch/nlp/python/textblob-de-dev/>`_ for details
 
@@ -97,21 +98,35 @@ Usage
     [('Das', 'DT'), ('Auto', 'NN'), ('ist', 'VB'), ('sehr', 'RB'), ('schön', 'JJ'), ('.', '.')]
 
 
-
 .. code-block:: python
     
     >>> blob = TextBlob("Das Auto ist sehr schön.")
     >>> blob.sentiment
     (1.0, 0.0)
-    >>> blob = TextBlob("Das Auto ist hässlich.")     
+    >>> blob = TextBlob("Das ist ein hässliches Auto.")     
     >>> blob.sentiment
     (-1.0, 0.0)
+    >>> blob.words.lemmatize()
+    WordList(['das', 'sein', 'ein', 'hässlich', 'Auto'])
 
 
 .. warning::
 
     **WORK IN PROGRESS:** The German polarity lexicon contains only uninflected
-    forms and there are no subjectivity scores yet.
+    forms and there are no subjectivity scores yet. As of version 0.2.3, lemmatized
+    word forms are submitted to the ``PatternAnalyzer``, increasing the accuracy
+    of polarity values.
+
+
+.. code-block:: python
+
+    >>> blob.words.lemmatize()
+    WordList(['das', 'sein', 'ein', 'hässlich', 'Auto'])
+    >>> from textblob_de.lemmatizers import PatternParserLemmatizer
+    >>> _lemmatizer = PatternParserLemmatizer()
+    >>> _lemmatizer.lemmatize("Das ist ein hässliches Auto.")
+    [('das', 'DT'), ('sein', 'VB'), ('ein', 'DT'), ('hässlich', 'JJ'), ('Auto', 'NN')]
+
 
 .. note::
 
@@ -127,8 +142,15 @@ Requirements
 TODO
 ----
 
-- Additional PoS tagging options NLTK tagging (``NLTKTagger``)
-- Improve sentiment analysis (find suitable subjectivity scores and look up lemmas rather than word forms)
+- **TextBlob Extension:** ``textblob-cmd`` (command-line wrapper for ``TextBlob``, basically TextBlob for files 
+- **TextBlob Extension:** ``textblob-rftagger`` (wrapper class for ``RFTagger``)
+- **TextBlob Extension:** ``textblob-stanfordparser`` (wrapper class for ``StanfordParser`` via NLTK)
+- **TextBlob Extension:** ``textblob-berkeleyparser`` (wrapper class for ``BerkeleyParser``)
+- **TextBlob Extension:** ``textblob-align`` (sentence alignment for parallel TextBlobs)
+- **TextBlob Extension:** ``textblob-converters`` (various input and output conversions)
+- Additional PoS tagging options, e.g. NLTK tagging (``NLTKTagger``)
+- Improve noun phrase extraction (e.g. based on ``RFTagger`` output)
+- Improve sentiment analysis (find suitable subjectivity scores)
 - Improve functionality of ``Sentence()`` and ``Word()`` objects
 - Adapt more tests from ``textblob`` main package (esp. for ``TextBlobDE()`` in ``test_blob.py``)
 

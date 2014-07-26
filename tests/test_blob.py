@@ -204,7 +204,7 @@ class SentenceTest(TestCase):
         assert_equal(sentence_dict, {
         'raw': self.raw_sentence,
         'start_index': 0,
-        'polarity': 0.0,
+        'polarity': 1.0,
         'subjectivity': 0.0,
         'end_index': len(self.raw_sentence) - 1,
         'stripped': 'peter mag restaurants die belgisches bier servieren',
@@ -993,7 +993,6 @@ class WordTest(TestCase):
         w = tb.Word("Krake")
         assert_true(len(w.definitions) > 0)
         for definition in w.definitions:
-            print(type(definition))
             assert_true(isinstance(definition, basestring))
 
     @expected_failure

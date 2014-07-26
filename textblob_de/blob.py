@@ -13,20 +13,21 @@ from __future__ import absolute_import
 import json
 import sys
 
-from collections import defaultdict
+from collections import defaultdict, namedtuple
 
-from textblob.blob import _initialize_models, BaseBlob as _BaseBlob
+from textblob.blob import _initialize_models
 from textblob.decorators import cached_property, requires_nltk_corpus
 from textblob.translate import Translator
 from textblob.utils import PUNCTUATION_REGEX, lowerstrip
 
-
+from textblob_de.base import BaseBlob as _BaseBlob
 from textblob_de.compat import unicode, basestring
 from textblob_de.tokenizers import NLTKPunktTokenizer, PatternTokenizer
 from textblob_de.tokenizers import word_tokenize, sent_tokenize
 from textblob_de.taggers import PatternTagger
 from textblob_de.parsers import PatternParser
 from textblob_de.np_extractors import PatternParserNPExtractor
+from textblob_de.lemmatizers import PatternParserLemmatizer
 from textblob_de.sentiments import PatternAnalyzer
 from textblob_de.inflect import singularize as _singularize
 from textblob_de.inflect import pluralize as _pluralize
@@ -69,7 +70,7 @@ class Word(unicode):
         '''Translate the word to another language using Google's
         Translate API.
 
-        .. versionadded:: 0.5.0
+        .. versionadded:: 0.5.0 (``textblob``)
         '''
         if from_lang is None:
             from_lang = self.translator.detect(self.string)
@@ -79,7 +80,7 @@ class Word(unicode):
     def detect_language(self):
         '''Detect the word's language using Google's Translate API.
 
-        .. versionadded:: 0.5.0
+        .. versionadded:: 0.5.0 (``textblob``)
         '''
         return self.translator.detect(self.string)
 
@@ -90,7 +91,7 @@ class Word(unicode):
         (http://norvig.com/spell-correct.html) as implemented in the pattern
         library.
 
-        .. versionadded:: 0.6.0
+        .. versionadded:: 0.6.0 (``textblob``)
         '''
         #return suggest(self.string)
         raise NotImplementedError
@@ -99,14 +100,13 @@ class Word(unicode):
         '''Correct the spelling of the word. Returns the word with the highest
         confidence using the spelling corrector.
 
-        .. versionadded:: 0.6.0
+        .. versionadded:: 0.6.0 (``textblob``)
         '''
         #return Word(self.spellcheck()[0][0])
         raise NotImplementedError
     
 
     @cached_property
-    @requires_nltk_corpus
     def lemma(self):
         """Return the lemma of this word using Wordnet's morphy function.
         """
@@ -121,7 +121,7 @@ class Word(unicode):
         :param pos: Part of speech to filter upon. If `None`, defaults to
             ``_wordnet.NOUN``.
 
-        .. versionadded:: 0.8.1
+        .. versionadded:: 0.8.1 (``textblob``)
         """
         #if pos is None:
             #pos = _wordnet.NOUN
@@ -135,7 +135,7 @@ class Word(unicode):
 
         :rtype: list of Synsets
 
-        .. versionadded:: 0.7.0
+        .. versionadded:: 0.7.0 (``textblob``)
         """
         #return self.get_synsets(pos=None)
         raise NotImplementedError
@@ -146,7 +146,7 @@ class Word(unicode):
         """The list of definitions for this word. Each definition corresponds
         to a synset.
 
-        .. versionadded:: 0.7.0
+        .. versionadded:: 0.7.0 (``textblob``)
         """
         #return self.define(pos=None)
         raise NotImplementedError
@@ -159,7 +159,7 @@ class Word(unicode):
 
         :rtype: list of Synsets
 
-        .. versionadded:: 0.7.0
+        .. versionadded:: 0.7.0 (``textblob``)
         '''
         #return _wordnet.synsets(self.string, pos)
         raise NotImplementedError
@@ -172,7 +172,7 @@ class Word(unicode):
             for all parts of speech will be loaded.
         :rtype: List of strings
 
-        .. versionadded:: 0.7.0
+        .. versionadded:: 0.7.0 (``textblob``)
         '''
         #return [syn.definition for syn in self.get_synsets(pos=pos)]
         raise NotImplementedError
@@ -258,8 +258,18 @@ class WordList(list):
         return self.__class__([word.pluralize() for word in self])
 
     def lemmatize(self):
-        """Return the lemma of each word in this WordList."""
-        return self.__class__([word.lemmatize() for word in self])
+        """Return the lemma of each word in this WordList.
+        
+        Currently using NLTKPunktTokenizer() for all lemmatization
+        tasks. This might cause slightly different tokenization results
+        compared to the TextBlob.words property.
+        """
+        _lemmatizer = PatternParserLemmatizer(tokenizer=NLTKPunktTokenizer())
+        # WordList object --> Sentence.string
+        # add a period (improves parser accuracy)
+        _raw = " ".join(self) + "."
+        _lemmas = _lemmatizer.lemmatize(_raw)
+        return self.__class__([Word(l, t) for l, t in _lemmas])
 
 
 class BaseBlob(_BaseBlob):
@@ -338,13 +348,25 @@ class BaseBlob(_BaseBlob):
         t = tokenizer if tokenizer is not None else self.tokenizer
         return WordList(t.tokenize(self.raw))
 
+
+    @cached_property
+    def sentiment(self):
+        """Return a tuple of form (polarity, subjectivity ) where polarity
+        is a float within the range [-1.0, 1.0] and subjectivity is a float
+        within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is
+        very subjective.
+
+        :rtype: namedtuple of the form ``Sentiment(polarity, subjectivity)``
+        """
+        return self.analyzer.analyze(self.raw)
+    
     @cached_property
     def polarity(self):
         """Return the polarity score as a float within the range [-1.0, 1.0]
 
         :rtype: float
         """
-        return self.analyzer.analyze(self.raw)[0]
+        return self.sentiment[0]
 
     @cached_property
     def subjectivity(self):
@@ -353,7 +375,7 @@ class BaseBlob(_BaseBlob):
 
         :rtype: float
         '''
-        return self.analyzer.analyze(self.raw)[1]
+        return self.sentiment[1]
 
     @cached_property
     def noun_phrases(self):
@@ -414,7 +436,7 @@ class BaseBlob(_BaseBlob):
     def correct(self):
         """Attempt to correct the spelling of a blob.
 
-        .. versionadded:: 0.6.0
+        .. versionadded:: 0.6.0 (``textblob``)
 
         :rtype: :class:`BaseBlob <BaseBlob>`
         """
@@ -482,6 +504,37 @@ class Sentence(BaseBlob):
         #: The end index within a textBlob
         self.end = self.end_index = end_index or len(sentence) - 1
         
+    #@cached_property
+    #def sentiment(self):
+        #"""Return a tuple of form (polarity, subjectivity ) where polarity
+        #is a float within the range [-1.0, 1.0] and subjectivity is a float
+        #within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is
+        #very subjective.
+
+        #:rtype: tuple of the form ``(polarity, subjectivity)``
+        #"""
+        #_wl = self.words
+        #_lemmas = _wl.lemmatize()  
+        #_string = " ".join(_lemmas)
+        #return self.analyzer.analyze(_string)  
+
+    #@cached_property
+    #def polarity(self):
+        #"""Return the polarity score as a float within the range [-1.0, 1.0]
+
+        #:rtype: float
+        #"""
+        #return self.sentiment[0]
+
+    #@cached_property
+    #def subjectivity(self):
+        #'''Return the subjectivity score as a float within the range [0.0, 1.0]
+        #where 0.0 is very objective and 1.0 is very subjective.
+
+        #:rtype: float
+        #'''
+        #return self.sentiment[1]
+
     @property
     def dict(self):
         '''The dict representation of this sentence.'''
@@ -531,6 +584,42 @@ class TextBlobDE(BaseBlob):
         """List of strings, the raw sentences in the blob."""
         return [sentence.raw for sentence in self.sentences]
 
+
+    @cached_property
+    def sentiment(self):
+        """Return a tuple of form (polarity, subjectivity ) where polarity
+        is a float within the range [-1.0, 1.0] and subjectivity is a float
+        within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is
+        very subjective.
+
+        :rtype: tuple of the form ``(polarity, subjectivity)``
+        """
+        _polarity = 0
+        _subjectivity = 0        
+        for s in self.sentences:
+            _polarity += s.polarity
+            _subjectivity += s.subjectivity
+        polarity = _polarity/len(self.sentences)
+        subjectivity = _subjectivity/len(self.sentences)
+        return (polarity, subjectivity)
+
+    @cached_property
+    def polarity(self):
+        """Return the polarity score as a float within the range [-1.0, 1.0]
+
+        :rtype: float
+        """
+        return self.sentiment[0]
+
+    @cached_property
+    def subjectivity(self):
+        '''Return the subjectivity score as a float within the range [0.0, 1.0]
+        where 0.0 is very objective and 1.0 is very subjective.
+
+        :rtype: float
+        '''
+        return self.sentiment[1]
+
     @property
     def serialized(self):
         """Returns a list of each sentence's dict representation."""
@@ -540,7 +629,7 @@ class TextBlobDE(BaseBlob):
         '''Return a json representation (str) of this blob.
         Takes the same arguments as json.dumps.
 
-        .. versionadded:: 0.5.1
+        .. versionadded:: 0.5.1 (``textblob``)
         '''
         return json.dumps(self.serialized, *args, **kwargs)
 
@@ -610,7 +699,7 @@ class BlobberDE(object):
         :class:`PatternAnalyzer <textblob_de.sentiments.PatternAnalyzer>`.
     :param classifier: (optional) A classifier.
 
-    .. versionadded:: 0.4.0
+    .. versionadded:: 0.4.0 (``textblob``)
     '''
     def __init__(self, 
                  tokenizer=None, 
@@ -630,6 +719,7 @@ class BlobberDE(object):
         
         _initialize_models(self, self.tokenizer, self.pos_tagger, self.np_extractor, self.analyzer,
                             self.parser, self.classifier)
+
 
     def __call__(self, text):
         '''Return a new TextBlob object with this Blobber's ``np_extractor``,

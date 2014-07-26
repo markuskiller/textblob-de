@@ -21,9 +21,9 @@ from textblob_de import NLTKPunktTokenizer, PatternTokenizer
 class TestPatternAnalyzer(unittest.TestCase):
 
     def setUp(self):
-        self.neg1 = "Das Auto ist schrecklich."
-        self.pos1 = "Das Auto ist schön."
-        self.pos2 = "Die Katze ist nicht böse."
+        self.neg1 = "Das ist ein hässliches Auto."
+        self.pos1 = "Dieses Auto ist schön."
+        self.pos2 = "Die ist keine böse Katze."
         self.neg2 = "Dieser Hund ist nicht nett."
 
 
