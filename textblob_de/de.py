@@ -257,10 +257,10 @@ def parse(s, tokenizer, *args, **kwargs):
     return parser.parse(s, tokenizer, *args, **kwargs)
 
 
-def parsetree(s, *args, **kwargs):
+def parsetree(s, tokenizer, *args, **kwargs):
     """ Returns a parsed Text from the given string.
     """
-    return Text(parse(s, *args, **kwargs))
+    return Text(parse(s, tokenizer, *args, **kwargs))
 
 
 def tree(s, token=[WORD, POS, CHUNK, PNP, REL, LEMMA]):
