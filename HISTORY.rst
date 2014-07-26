@@ -1,10 +1,15 @@
 Changelog
 ---------
 
+0.2.4 (unreleased)
+++++++++++++++++++
+
+* 
+
 0.2.3 (26/07/2014)
 ++++++++++++++++++
 
-* Lemmatizer: ``PatternParserLemmatizer()`` extracts lemmas from Parser output
+* Lemmatizer: ``PatternParserLemmatizer()`` extracts lemmata from Parser output
 * Improved polarity analysis through look-up of lemmatised word forms
 
 0.2.2 (22/07/2014)
