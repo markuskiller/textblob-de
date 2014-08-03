@@ -27,4 +27,5 @@ try:
     import pattern
 except ImportError:
     import _pattern as pattern
+
 sys.path.pop(-1)

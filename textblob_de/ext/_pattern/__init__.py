@@ -43,8 +43,8 @@ from __future__ import absolute_import
 ### CREDITS ########################################################################################
 
 # Modifications to integrate pattern into 'textblob-de' without losing 
-# compatibility with pattern2.6 on Python2 and with providing
-# a working interface to pattern.text.de on Python3 (pattern2.6 does not
+# compatibility with pattern2.6 on Python2 and providing a working
+# interface to pattern.text.de on Python3 (pattern2.6 does not yet
 # install on Python3) 
 __maintainer__  = "Markus Killer <m.killer@langui.ch>"
 
@@ -60,4 +60,6 @@ import sys
 
 import _pattern.text
 import _pattern.text.de
+
+from _pattern.text import de
 
