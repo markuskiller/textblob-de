@@ -15,9 +15,9 @@ from setuptools import setup
 
 packages = ['textblob_de']
 if sys.version_info[0] == 2:
-    requires = ["textblob>=0.8.0"]
-else:
     requires = ["textblob>=0.8.0", "pattern>=2.6.0"]
+else:
+    requires = ["textblob>=0.8.0"]
 
 PUBLISH_CMD = "python setup.py register sdist bdist_wheel upload"
 TEST_PUBLISH_CMD = 'python setup.py register -r test sdist bdist_wheel upload -r test'
