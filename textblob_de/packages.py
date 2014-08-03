@@ -23,9 +23,6 @@ except ImportError:
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(HERE, 'ext'))
 
-try:
-    import pattern
-except ImportError:
-    import _pattern as pattern
+import _pattern as pattern
 
 sys.path.pop(-1)
