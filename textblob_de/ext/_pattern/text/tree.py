@@ -30,7 +30,7 @@
 
 # The Text and Sentece classes are containers: 
 # no parsing functionality should be added to it.
-
+from __future__ import absolute_import
 try:
     from itertools import chain
     from itertools import izip
@@ -45,6 +45,8 @@ except:
     SLASH, WORD, POS, CHUNK, PNP, REL, ANCHOR, LEMMA = \
         "&slash;", "word", "part-of-speech", "chunk", "preposition", "relation", "anchor", "lemma"
     MBSP = False
+
+from _pattern.compat import unicode
 
 # B- marks the start of a chunk: the/DT/B-NP cat/NN/I-NP
 # I- words are inside a chunk.

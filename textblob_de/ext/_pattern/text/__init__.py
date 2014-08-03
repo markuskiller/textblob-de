@@ -6,7 +6,7 @@
 # http://www.clips.ua.ac.be/pages/pattern
 
 ####################################################################################################
-
+from __future__ import unicode_literals, absolute_import
 import os
 import sys
 import re
@@ -16,33 +16,38 @@ import codecs
 
 from xml.etree import cElementTree
 from itertools import chain
-from math      import log
+from math import log
 
 try:
     MODULE = os.path.dirname(os.path.realpath(__file__))
 except:
     MODULE = ""
 
-from pattern.text.tree import Tree, Text, Sentence, Slice, Chunk, PNPChunk, Chink, Word, table
-from pattern.text.tree import SLASH, WORD, POS, CHUNK, PNP, REL, ANCHOR, LEMMA, AND, OR
+from _pattern.compat import text_type, string_types, basestring, imap, unicode, binary_type, PY2
+
+from _pattern.text.tree import Tree, Text, Sentence, Slice, Chunk, PNPChunk, Chink, Word, table
+from _pattern.text.tree import SLASH, WORD, POS, CHUNK, PNP, REL, ANCHOR, LEMMA, AND, OR
 
 #--- STRING FUNCTIONS ------------------------------------------------------------------------------
 # Latin-1 (ISO-8859-1) encoding is identical to Windows-1252 except for the code points 128-159:
 # Latin-1 assigns control codes in this range, Windows-1252 has characters, punctuation, symbols
 # assigned to these code points.
 
+# String functions
 def decode_string(v, encoding="utf-8"):
     """ Returns the given value as a Unicode string (if possible).
     """
     if isinstance(encoding, basestring):
         encoding = ((encoding,),) + (("windows-1252",), ("utf-8", "ignore"))
-    if isinstance(v, str):
+    if isinstance(v, binary_type):
         for e in encoding:
-            try: return v.decode(*e)
+            try:
+                return v.decode(*e)
             except:
                 pass
         return v
     return unicode(v)
+
 
 def encode_string(v, encoding="utf-8"):
     """ Returns the given value as a Python byte string (if possible).
@@ -51,11 +56,15 @@ def encode_string(v, encoding="utf-8"):
         encoding = ((encoding,),) + (("windows-1252",), ("utf-8", "ignore"))
     if isinstance(v, unicode):
         for e in encoding:
-            try: return v.encode(*e)
+            try:
+                return v.encode(*e)
             except:
                 pass
         return v
     return str(v)
+
+decode_utf8 = decode_string
+encode_utf8 = encode_string
 
 decode_utf8 = decode_string
 encode_utf8 = encode_string
@@ -208,7 +217,10 @@ def _read(path, encoding="utf-8", comment=";;;"):
     if path:
         if isinstance(path, basestring) and os.path.exists(path):
             # From file path.
-            f = open(path, "rb")
+            if PY2:
+                f = codecs.open(path, 'r', encoding='utf-8')
+            else:
+                f = open(path, 'r', encoding='utf-8')
         elif isinstance(path, basestring):
             # From string.
             f = path.splitlines()
@@ -216,7 +228,7 @@ def _read(path, encoding="utf-8", comment=";;;"):
             # From file or buffer.
             f = path
         for i, line in enumerate(f):
-            line = line.strip(codecs.BOM_UTF8) if i == 0 and isinstance(line, str) else line
+            line = line.strip(codecs.BOM_UTF8) if i == 0 and isinstance(line, binary_type) else line
             line = line.strip()
             line = decode_utf8(line, encoding)
             if not line or (comment and line.startswith(comment)):

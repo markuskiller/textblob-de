@@ -13,6 +13,7 @@ Code adapted from ``textblob`` main package.
 from __future__ import absolute_import
 
 import re
+import string
 
 from itertools import chain
 
@@ -22,9 +23,12 @@ from textblob.base import BaseTokenizer
 from textblob.decorators import requires_nltk_corpus
 
 from textblob_de.compat import basestring
-from textblob_de._text import find_tokens as find_sentences
-from textblob_de._text import replacements, ABBREVIATIONS_DE, PUNCTUATION
+from textblob_de.packages import pattern
 
+find_sentences = pattern.text.find_tokens
+replacements = pattern.text.replacements
+PUNCTUATION = string.punctuation
+ABBREVIATIONS_DE = pattern.text.de.ABBREVIATIONS
 
 class NLTKPunktTokenizer(BaseTokenizer):
 
@@ -155,6 +159,9 @@ class PatternTokenizer(BaseTokenizer):
         _tokens = sentences.split(" ")
 
         if include_punc:
+            last_word = _tokens[-1]
+            if len(last_word) > 1 and last_word.endswith('.'):
+                _tokens = _tokens[:-1] + [last_word[:-1], '.']            
             return _tokens
         else:
             # Return each word token

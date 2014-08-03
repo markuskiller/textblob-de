@@ -18,7 +18,7 @@
 # 87% for Verbs.find_lemma()
 # 87% for Verbs.find_lexeme()
 # 98% for predicative
-
+from __future__ import absolute_import
 import os
 import sys
 import re
@@ -30,8 +30,8 @@ except:
     
 sys.path.insert(0, os.path.join(MODULE, "..", "..", "..", ".."))
 
-from pattern.text import Verbs as _Verbs
-from pattern.text import (
+from _pattern.text import Verbs as _Verbs
+from _pattern.text import (
     INFINITIVE, PRESENT, PAST, FUTURE,
     FIRST, SECOND, THIRD,
     SINGULAR, PLURAL, SG, PL,

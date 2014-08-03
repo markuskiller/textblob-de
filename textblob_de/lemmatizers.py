@@ -14,8 +14,10 @@ from itertools import chain
 from collections import defaultdict
 
 from textblob_de.base import BaseLemmatizer
+from textblob_de.packages import pattern
 from textblob_de.tokenizers import PatternTokenizer
-from textblob_de.de import parse as pattern_parse
+
+pattern_parse = pattern.text.de.parse
 
 try:
     MODULE = os.path.dirname(os.path.realpath(__file__))

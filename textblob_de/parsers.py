@@ -10,10 +10,12 @@
 '''
 from __future__ import absolute_import
 from textblob.base import BaseParser
-from textblob_de.de import parse as pattern_parse
-from textblob_de.de import parsetree as pattern_parsetree
+
+from textblob_de.packages import pattern
 from textblob_de.tokenizers import PatternTokenizer
 
+pattern_parse = pattern.text.de.parse
+pattern_parsetree = pattern.text.de.parsetree
 
 class PatternParser(BaseParser):
 
@@ -52,7 +54,12 @@ class PatternParser(BaseParser):
         
         :param str text: A string.
         '''
-        return pattern_parse(text, self.tokenizer, tokenize=self.tokenize, 
+        if self.tokenize:
+            _tokenized = " ".join(self.tokenizer.word_tokenize(text))
+            
+        return pattern_parse(_tokenized, 
+                             # text is tokenized before it is passed on to pattern.de.parse
+                             tokenize=False, 
                              tags=self.tags, chunks=self.chunks,
                              relations=self.relations, lemmata=self.lemmata, 
                              encoding=self.encoding, tagset=self.tagset)

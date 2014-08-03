@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
+#
+# Code imported from ``textblob`` main package.
+#
+# :repo: `https://github.com/sloria/TextBlob`_
+# :source: tests/test_blob.py
+# :version: 2014-06-29 (8351166e36)
+#
+# :modified: 2014-08-03 <m.killer@langui.ch>
+#
 '''Tests for the text processor
-
-Code imported from ``textblob`` main package.
-
-:repo: `https://github.com/sloria/TextBlob`_
-:source: tests/test_blob.py
-:version: 2014-06-29 (8351166e36)
-
-:modified: July 2014 <m.killer@langui.ch>
-
 '''
 from __future__ import unicode_literals
 
@@ -21,9 +21,6 @@ from datetime import datetime
 from nose.tools import *  # PEP8 asserts
 from nose.plugins.attrib import attr
 
-
-from textblob.packages import nltk
-
 import textblob_de as tb
 
 from textblob_de.compat import PY2, unicode, basestring, binary_type
@@ -31,11 +28,11 @@ from textblob_de.np_extractors import PatternParserNPExtractor
 from textblob_de.taggers import PatternTagger
 from textblob_de.tokenizers import WordTokenizer, SentenceTokenizer, NLTKPunktTokenizer
 from textblob_de.sentiments import PatternAnalyzer
+from textblob_de.packages import nltk
 from textblob_de.parsers import PatternParser
 from textblob_de.classifiers import NaiveBayesClassifier
 
 import textblob.wordnet as wn
-
 
 
 def expected_failure(test):

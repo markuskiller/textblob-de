@@ -7,7 +7,7 @@
 
 ####################################################################################################
 # German linguistical tools using fast regular expressions.
-
+from __future__ import absolute_import
 import os
 import sys
 
@@ -18,28 +18,30 @@ except:
 
 sys.path.insert(0, os.path.join(MODULE, "..", "..", "..", ".."))
 
+from _pattern.compat import text_type, string_types, basestring, imap, unicode
+
 # Import parser base classes.
-from pattern.text import (
+from _pattern.text import (
     Lexicon, Model, Morphology, Context, Parser as _Parser, ngrams, pprint, commandline,
     PUNCTUATION
 )
 # Import parser universal tagset.
-from pattern.text import (
+from _pattern.text import (
     penntreebank2universal,
     PTB, PENN, UNIVERSAL,
     NOUN, VERB, ADJ, ADV, PRON, DET, PREP, ADP, NUM, CONJ, INTJ, PRT, PUNC, X
 )
 # Import parse tree base classes.
-from pattern.text.tree import (
+from _pattern.text.tree import (
     Tree, Text, Sentence, Slice, Chunk, PNPChunk, Chink, Word, table,
     SLASH, WORD, POS, CHUNK, PNP, REL, ANCHOR, LEMMA, AND, OR
 )
 # Import sentiment analysis base classes.
-from pattern.text import (
+from _pattern.text import (
     Sentiment, NOUN, VERB, ADJECTIVE, ADVERB
 )
 # Import verb tenses.
-from pattern.text import (
+from _pattern.text import (
     INFINITIVE, PRESENT, PAST, FUTURE,
     FIRST, SECOND, THIRD,
     SINGULAR, PLURAL, SG, PL,
@@ -48,7 +50,7 @@ from pattern.text import (
     PARTICIPLE, GERUND
 )
 # Import inflection functions.
-from pattern.text.de.inflect import (
+from _pattern.text.de.inflect import (
     article, referenced, DEFINITE, INDEFINITE,
     pluralize, singularize, NOUN, VERB, ADJECTIVE,
     grade, comparative, superlative, COMPARATIVE, SUPERLATIVE,
@@ -58,7 +60,7 @@ from pattern.text.de.inflect import (
             NOMINATIVE, ACCUSATIVE, DATIVE, GENITIVE, SUBJECT, OBJECT, INDIRECT, PROPERTY
 )
 # Import all submodules.
-from pattern.text.de import inflect
+from _pattern.text.de import inflect
 
 sys.path.pop(0)
 

@@ -13,11 +13,13 @@ from __future__ import absolute_import
 from textblob.base import BaseTagger
 from textblob.utils import PUNCTUATION_REGEX
 
-from textblob_de.de import tag as pattern_tag
+from textblob_de.packages import pattern
 
 from textblob_de.compat import unicode
+from textblob_de.packages import pattern
 from textblob_de.tokenizers import PatternTokenizer
 
+pattern_tag = pattern.text.de.tag
 
 class PatternTagger(BaseTagger):
 
@@ -37,9 +39,15 @@ class PatternTagger(BaseTagger):
         '''Tag a string `sentence`.
         
         :param str or list sentence: A string or a list of sentence strings.
-        :param tokenizer: (optional) If ``True``
-        '''       
-        _tagged = pattern_tag(sentence, self.tokenizer, tokenize)
+        :param tokenize: (optional) If ``False`` string has to be tokenized before (space separated string).
+        '''
+        if tokenize:
+            _tokenized = " ".join(self.tokenizer.word_tokenize(sentence))
+            sentence = _tokenized
+        print("Tokenizer: ", self.tokenizer, _tokenized)
+        # Sentence is tokenized before it is passed on to pattern.de.tag
+        # (i.e. it is either submitted tokenized or if )
+        _tagged = pattern_tag(sentence, tokenize=False)
         if self.include_punc:
             return _tagged
         else:

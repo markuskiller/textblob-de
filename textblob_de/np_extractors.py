@@ -13,9 +13,12 @@ from itertools import chain
 from collections import defaultdict
 
 from textblob.base import BaseNPExtractor
+from textblob_de.packages import pattern
 from textblob_de.tokenizers import PatternTokenizer
-from textblob_de.de import parse as pattern_parse
-from textblob_de.inflect import Verbs, verbs
+
+pattern_parse = pattern.text.de.parse
+Verbs = pattern.text.de.inflect.Verbs
+verbs = pattern.text.de.inflect.verbs
 
 try:
     MODULE = os.path.dirname(os.path.realpath(__file__))
@@ -30,7 +33,7 @@ START_NEW_NP = ['der', 'des', 'und', 'oder']
 def _get_verb_lexicon():
     verb_lexicon = defaultdict(set)
     
-    with open(os.path.join(MODULE, 'de-verbs.txt'), 'r') as _vl:
+    with open(os.path.join(MODULE, 'ext', '_pattern', 'text', 'de', 'de-verbs.txt'), 'r') as _vl:
         for line in _vl:
             verb_lexicon[line[0].lower()] = set(list(verb_lexicon[line[0].lower()]) 
                                                 + line.strip().split(','))
@@ -122,7 +125,7 @@ class PatternParserNPExtractor(BaseNPExtractor):
         
         :param str text: A string.
         """
-        parsed_text = pattern_parse(text, self.tokenizer, lemmata=False)
+        parsed_text = pattern_parse(text, lemmata=False)
         return parsed_text.split('\n')
     
     def _is_verb(self, word_form): 

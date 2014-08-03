@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import absolute_import
 #### PATTERN #######################################################################################
 
 # Authors: Tom De Smedt <tom@organisms.be>, Walter Daelemans <walter.daelemans@ua.ac.be>
@@ -40,7 +42,12 @@
 
 ### CREDITS ########################################################################################
 
-__maintainer__  = "Markus Killer"
+# Modifications to integrate pattern into 'textblob-de' without losing 
+# compatibility with pattern2.6 on Python2 and with providing
+# a working interface to pattern.text.de on Python3 (pattern2.6 does not
+# install on Python3) 
+__maintainer__  = "Markus Killer <m.killer@langui.ch>"
+
 __author__      = "Tom De Smedt"
 __credits__     = "Tom De Smedt, Walter Daelemans"
 __version__     = "2.6 for textblob-de"
@@ -48,8 +55,9 @@ __copyright__   = "Copyright (c) 2010 University of Antwerp (BE)"
 __license__     = "BSD"
 
 ####################################################################################################
-from __future_ import absolute_import
 import os
+import sys
 
-from _pattern.text import de
+import _pattern.text
+import _pattern.text.de
 

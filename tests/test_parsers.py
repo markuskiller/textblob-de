@@ -9,11 +9,18 @@
 
 '''
 from __future__ import unicode_literals
+
 import unittest
 from nose.tools import *  # PEP8 asserts
 
-from textblob_de import PatternParser, PatternTokenizer, NLTKPunktTokenizer
-from textblob_de.de import parse as pattern_parse
+
+from textblob_de import NLTKPunktTokenizer
+from textblob_de import PatternParser
+from textblob_de import PatternTokenizer
+
+from textblob_de.packages import pattern
+
+pattern_parse = pattern.text.de.parse
 
 
 class TestPatternParser(unittest.TestCase):
@@ -33,7 +40,7 @@ class TestPatternParser(unittest.TestCase):
     def test_parse(self):
         parser = parser = PatternParser()
         assert_equal(parser.parse(self.text), 
-                     pattern_parse(self.text, PatternTokenizer()))
+                     pattern_parse(self.text))
 
     def test_parse_nltk_tok_result_string(self):
         parser = PatternParser(tokenizer=NLTKPunktTokenizer(), lemmata=False)
