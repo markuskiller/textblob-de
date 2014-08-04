@@ -4,6 +4,11 @@
 # License: BSD (see LICENSE.txt for details).
 # http://www.clips.ua.ac.be/pages/pattern
 
+# Source: https://github.com/clips/pattern/pattern/text/tree.py
+# git-commit: 2014-04-02 (6e4695f)
+
+# Modified: 2014-08-04 Markus Killer <m.killer@langui.ch>
+
 ####################################################################################################
 # Text and Sentence objects to traverse words and chunks in parsed text.
 # from pattern.en import parsetree

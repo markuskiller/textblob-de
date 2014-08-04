@@ -5,6 +5,11 @@
 # License: BSD (see LICENSE.txt for details).
 # http://www.clips.ua.ac.be/pages/pattern
 
+# Source: https://github.com/clips/pattern/pattern/text/__init__.py
+# git-commit: 2014-05-10 (2f944cb)
+
+# Modified: 2014-08-04 Markus Killer <m.killer@langui.ch>
+
 ####################################################################################################
 from __future__ import unicode_literals, absolute_import
 import os

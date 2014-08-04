@@ -4,6 +4,11 @@
 # Author: Tom De Smedt <tom@organisms.be>
 # License: BSD (see LICENSE.txt for details).
 
+# Source: https://github.com/clips/pattern/pattern/text/de/inflect.py
+# git-commit: 2014-04-02 (6e4695f)
+
+# Modified: 2014-08-04 Markus Killer <m.killer@langui.ch>
+
 ####################################################################################################
 # Regular expressions-based rules for German word inflection:
 # - pluralization and singularization of nouns and adjectives,

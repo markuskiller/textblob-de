@@ -5,6 +5,11 @@
 # License: BSD (see LICENSE.txt for details).
 # http://www.clips.ua.ac.be/pages/pattern
 
+# Source: https://github.com/clips/pattern/pattern/text/de/__init__.py
+# git-commit: 2014-05-10 (eb98cd7)
+
+# Modified: 2014-08-04 Markus Killer <m.killer@langui.ch>
+
 ####################################################################################################
 # German linguistical tools using fast regular expressions.
 from __future__ import absolute_import

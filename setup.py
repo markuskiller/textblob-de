@@ -14,7 +14,11 @@ import re
 from setuptools import setup
 
 packages = ['textblob_de']
-requires = ["textblob>=0.8.0"]
+
+if sys.version_info[0] == 2:
+    requires = ["textblob>=0.8.0", "pattern>=2.6.0"]
+else:
+    requires = ["textblob>=0.8.0"]
 
 
 PUBLISH_CMD = "python setup.py register sdist bdist_wheel upload"
@@ -86,9 +90,9 @@ setup(
     packages=packages,
     package_dir={'textblob_de': 'textblob_de'},
     include_package_data=True,
-    package_data={
-        "textblob_de": ["*.txt", "*.xml"]
-    },
+    #package_data={
+        #"textblob_de": ["*.txt", "*.xml"]
+    #},
     install_requires=requires,
     license='\n\n' + read("LICENSE") + '\n\n',
     zip_safe=False,
