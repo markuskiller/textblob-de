@@ -1,9 +1,15 @@
 Changelog
 ---------
 
+0.2.6 (04/08/2014)
+++++++++++++++++++
+
+* Fixed ``MANIFEST.in`` for package data in ``sdist``
+
 0.2.5 (04/08/2014)
 ++++++++++++++++++
 
+* ``sdist`` is non-functional as important files are missing due to a misconfiguration in ``MANIFEST.in`` - does not affect ``wheels``
 * Major internal refactoring (but no backwards-incompatible API changes) with the aim of restoring complete compatibility to original ``pattern>=2.6`` library on Python2
 * Separation of ``textblob`` and ``pattern`` code
 * On Python2 the vendorized version of ``pattern.text.de`` is only used, if original is not installed (same as ``nltk``)
