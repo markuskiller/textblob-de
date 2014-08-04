@@ -1,3 +1,5 @@
 include *.rst LICENSE *.txt
-recursive-include ebook2corpus/ext *
-recursive-include ebook2corpus/data *
+include textblob_de/ext
+include textblob_de/data
+
+recursive-exclude textblob_de/ext __pycache__ *.pyc
