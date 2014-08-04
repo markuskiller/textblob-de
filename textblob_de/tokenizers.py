@@ -23,12 +23,13 @@ from textblob.base import BaseTokenizer
 from textblob.decorators import requires_nltk_corpus
 
 from textblob_de.compat import basestring
-from textblob_de.packages import pattern
+from textblob_de.packages import pattern_de
+from textblob_de.packages import pattern_text
 
-find_sentences = pattern.text.find_tokens
-replacements = pattern.text.replacements
+find_sentences = pattern_text.find_tokens
+replacements = pattern_text.replacements
 PUNCTUATION = string.punctuation
-ABBREVIATIONS_DE = pattern.text.de.ABBREVIATIONS
+ABBREVIATIONS_DE = pattern_de.ABBREVIATIONS
 
 class NLTKPunktTokenizer(BaseTokenizer):
 

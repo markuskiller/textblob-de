@@ -5,6 +5,11 @@ from __future__ import absolute_import
 # Authors: Tom De Smedt <tom@organisms.be>, Walter Daelemans <walter.daelemans@ua.ac.be>
 # License: BSD License, see LICENSE.txt
 
+# Source: https://github.com/clips/pattern/pattern/__init__.py
+# git-commit: 2013-10-26 (2f44c5a)
+# Modified: 2014-08-04 Markus Killer <m.killer@langui.ch>
+
+
 #### BSD LICENSE ###################################################################################
 
 # Copyright (c) 2010 University of Antwerp, Belgium
@@ -42,9 +47,9 @@ from __future__ import absolute_import
 
 ### CREDITS ########################################################################################
 
-# Modifications to integrate pattern into 'textblob-de' without losing 
-# compatibility with pattern2.6 on Python2 and providing a working
-# interface to pattern.text.de on Python3 (pattern2.6 does not yet
+# Minor modifications to integrate pattern into 'textblob-de' without losing 
+# compatibility with pattern2.6 on Python2, providing a working interface
+# to pattern.text.de on Python3 (pattern2.6 does not yet
 # install on Python3) 
 __maintainer__  = "Markus Killer <m.killer@langui.ch>"
 
@@ -59,7 +64,8 @@ import os
 import sys
 
 import _pattern.text
-import _pattern.text.de
 
 from _pattern.text import de
+from _pattern.text import tree
+from _pattern.text import search
 

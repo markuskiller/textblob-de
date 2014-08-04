@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
-'''Code imported from ``textblob-fr`` sample extension.
-
-:repo: `https://github.com/sloria/textblob-fr`_
-:source: textblob_fr/compat.py
-:version: 2013-10-28 (5c6329d209)
-
+#
+# Author: Steven Loria
+# License: MIT License, see <http://opensource.org/licenses/MIT>
+#
+# Source: https://github.com/sloria/textblob-fr/textblob_fr/compat.py
+# git-commit: 2013-10-28 (5c6329d209)
+#
+# Modified: 2014-08-04 Markus Killer <m.killer@langui.ch>
+#
+'''Compatibility module for shared code base on Python2 and Python3.
 '''
 import sys
 

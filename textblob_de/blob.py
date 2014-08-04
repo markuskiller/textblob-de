@@ -25,14 +25,14 @@ from textblob_de.compat import unicode, basestring
 from textblob_de.tokenizers import NLTKPunktTokenizer, PatternTokenizer
 from textblob_de.tokenizers import word_tokenize, sent_tokenize
 from textblob_de.taggers import PatternTagger
-from textblob_de.packages import pattern
+from textblob_de.packages import pattern_de
 from textblob_de.parsers import PatternParser
 from textblob_de.np_extractors import PatternParserNPExtractor
 from textblob_de.lemmatizers import PatternParserLemmatizer
 from textblob_de.sentiments import PatternAnalyzer
 
-_singularize = pattern.text.de.inflect.singularize
-_pluralize = pattern.text.de.inflect.pluralize
+_singularize = pattern_de.inflect.singularize
+_pluralize = pattern_de.inflect.pluralize
 
 class Word(unicode):
 

@@ -11,11 +11,12 @@
 from __future__ import absolute_import
 from textblob.base import BaseParser
 
-from textblob_de.packages import pattern
+from textblob_de.packages import pattern_de
 from textblob_de.tokenizers import PatternTokenizer
 
-pattern_parse = pattern.text.de.parse
-pattern_parsetree = pattern.text.de.parsetree
+pattern_pprint = pattern_de.pprint
+pattern_parse = pattern_de.parse
+pattern_parsetree = pattern_de.parsetree
 
 class PatternParser(BaseParser):
 
@@ -34,10 +35,11 @@ class PatternParser(BaseParser):
     :param tagset: (optional) Penn Treebank II (default) or UNIVERSAL.      
         
     '''
-    def __init__(self, tokenizer=None, tokenize=True, tags=True, chunks=True,
+    def __init__(self, tokenizer=None, pprint=False, tokenize=True, tags=True, chunks=True,
                  relations=False, lemmata=False, encoding='utf-8', tagset=None):
         
         self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
+        self.pprint = pprint if pprint else False
         self.tokenize = tokenize if tokenize else True
         self.tags = tags if tags else True
         self.chunks = chunks if chunks else True
@@ -56,18 +58,33 @@ class PatternParser(BaseParser):
         '''
         if self.tokenize:
             _tokenized = " ".join(self.tokenizer.word_tokenize(text))
-            
-        return pattern_parse(_tokenized, 
+        
+        _parsed = pattern_parse(_tokenized, 
                              # text is tokenized before it is passed on to pattern.de.parse
                              tokenize=False, 
                              tags=self.tags, chunks=self.chunks,
                              relations=self.relations, lemmata=self.lemmata, 
                              encoding=self.encoding, tagset=self.tagset)
+        if self.pprint:
+            _parsed = pattern_pprint(_parsed)
+            
+        return _parsed
     
     def parsetree(self, text):
         """Returns a parsed ``pattern`` Text object from the given string."""
-        return pattern_parsetree(text, self.tokenizer, tokenize=self.tokenize, 
-                             tags=self.tags, chunks=self.chunks,
-                             relations=self.relations, lemmata=self.lemmata, 
-                             encoding=self.encoding, tagset=self.tagset)
+        
+        if self.tokenize:
+            _tokenized = " ".join(self.tokenizer.word_tokenize(text))        
+        
+        _parsed = pattern_parsetree(text, 
+                                 # text is tokenized before it is passed on to pattern.de.parsetree
+                                 tokenize=False, 
+                                 tags=self.tags, chunks=self.chunks,
+                                 relations=self.relations, lemmata=self.lemmata, 
+                                 encoding=self.encoding, tagset=self.tagset)
+        
+        if self.pprint:
+            _parsed = pattern_pprint(_parsed)
+            
+        return _parsed
         

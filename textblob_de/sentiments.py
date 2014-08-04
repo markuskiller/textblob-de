@@ -40,7 +40,7 @@ import os
 
 from textblob.base import BaseSentimentAnalyzer, CONTINUOUS
 from textblob_de.lemmatizers import PatternParserLemmatizer
-from textblob_de.packages import pattern
+from textblob_de.packages import pattern_text
 from textblob_de.tokenizers import PatternTokenizer
 
 
@@ -53,7 +53,7 @@ try:
 except:
     MODULE = ""
     
-_Sentiment = pattern.text.Sentiment
+_Sentiment = pattern_text.Sentiment
 
 class Sentiment(_Sentiment):
 

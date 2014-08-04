@@ -13,12 +13,12 @@ from itertools import chain
 from collections import defaultdict
 
 from textblob.base import BaseNPExtractor
-from textblob_de.packages import pattern
+from textblob_de.packages import pattern_de
 from textblob_de.tokenizers import PatternTokenizer
 
-pattern_parse = pattern.text.de.parse
-Verbs = pattern.text.de.inflect.Verbs
-verbs = pattern.text.de.inflect.verbs
+pattern_parse = pattern_de.parse
+Verbs = pattern_de.inflect.Verbs
+verbs = pattern_de.inflect.verbs
 
 try:
     MODULE = os.path.dirname(os.path.realpath(__file__))

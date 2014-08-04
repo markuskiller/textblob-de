@@ -18,9 +18,9 @@ from textblob_de import NLTKPunktTokenizer
 from textblob_de import PatternParser
 from textblob_de import PatternTokenizer
 
-from textblob_de.packages import pattern
+from textblob_de.packages import pattern_de
 
-pattern_parse = pattern.text.de.parse
+pattern_parse = pattern_de.parse
 
 
 class TestPatternParser(unittest.TestCase):

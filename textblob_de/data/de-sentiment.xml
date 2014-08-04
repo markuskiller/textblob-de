@@ -43,7 +43,7 @@ Important note on PoS tags: the source did not specify part-of-speech tags. The 
 %% limitations under the License.
 %% 
 -->
-<sentiment language="de" version="0.1" author="Polarity Values: Klenner et al. (2010) / XML format by Markus Killer" license="Apache License, v2.0">
+<sentiment language="de" version="0.1" author="Polarity Values: Klenner et al. (2010) / XML version by Markus Killer" license="Apache License, v2.0">
   <word confidence="1.0" form="AIDS" intensity="1.0" polarity="-1.0" pos="NN" subjectivity="0.0"/>
   <word confidence="1.0" form="Abart" intensity="1.0" polarity="-0.7" pos="NN" subjectivity="0.0"/>
   <word confidence="1.0" form="Abbau" intensity="1.0" polarity="-0.7" pos="NN" subjectivity="0.0"/>

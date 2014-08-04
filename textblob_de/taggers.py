@@ -13,13 +13,12 @@ from __future__ import absolute_import
 from textblob.base import BaseTagger
 from textblob.utils import PUNCTUATION_REGEX
 
-from textblob_de.packages import pattern
+from textblob_de.packages import pattern_de
 
 from textblob_de.compat import unicode
-from textblob_de.packages import pattern
 from textblob_de.tokenizers import PatternTokenizer
 
-pattern_tag = pattern.text.de.tag
+pattern_tag = pattern_de.tag
 
 class PatternTagger(BaseTagger):
 

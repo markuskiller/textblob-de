@@ -210,17 +210,19 @@ class SentenceTest(TestCase):
 
     def test_pos_tags(self):
         then1 = datetime.now()
+        
         tagged = self.sentence.pos_tags
         now1 = datetime.now()
         t1 = now1 - then1
 
         then2 = datetime.now()
         tagged = self.sentence.pos_tags
-        now2 = datetime.now()
+        now2 = datetime.now()  
         t2 = now2 - then2
 
         # Getting the pos tags the second time should be faster
         # because they were stored as an attribute the first time
+        print("T1, T2 ", t1, t2)
         assert_true(t2 < t1)
         assert_equal(tagged,
                      

@@ -5,6 +5,10 @@
 # License: BSD (see LICENSE.txt for details).
 # http://www.clips.ua.ac.be/pages/pattern
 
+# Source: https://github.com/clips/pattern/pattern/__init__.py
+# git-commit: 2013-10-26 (2f44c5a)
+# Modified: 2014-08-04 Markus Killer <m.killer@langui.ch>
+
 ####################################################################################################
 
 import re
