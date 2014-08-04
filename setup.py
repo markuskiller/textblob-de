@@ -14,7 +14,6 @@ import re
 from setuptools import setup
 
 packages = ['textblob_de']
-
 requires = ["textblob>=0.8.0"]
 
 
@@ -91,10 +90,10 @@ setup(
         "textblob_de": [
             "data/*.*",
             "ext/*.*",
-            "ext/_pattern/*.*", 
+            "ext/_pattern/*.*",
             "ext/_pattern/text/*.*",
             "ext/_pattern/text/de/*.*",
-                        ]
+        ]
     },
     install_requires=requires,
     license='\n\n' + read("LICENSE") + '\n\n',

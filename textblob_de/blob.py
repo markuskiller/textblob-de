@@ -1,12 +1,33 @@
 # -*- coding: utf-8 -*-
-'''Code adapted from ``textblob`` main package.
+# Code adapted from ``textblob`` main package.
+#
+# :repo: `https://github.com/sloria/TextBlob`_
+# :source: textblob/blob.py
+# :version: 2013-10-21 (a88e86a76a)
+#
+# :modified: 2014-08-04 <m.killer@langui.ch>
+#
+'''Wrappers for various units of text.
 
-:repo: `https://github.com/sloria/TextBlob`_
-:source: textblob/blob.py
-:version: 2013-10-21 (a88e86a76a)
+This includes the main :class:`TextBlobDE <textblob_de.blob.TextBlobDE>`, 
+:class:`Word <textblob_de.blob.Word>`, and :class:`WordList <textblob_de.blob.WordList>` classes.
 
-:modified: July 2014 <m.killer@langui.ch>
+Whenever possible, classes are inherited from ``textblob`` main package, but in many
+cases, the models for German have to be initialised here. The main reason is that if a 
+word object is generated from an inherited class, it will use the English models, 
+used in ``textblob`` main package.
 
+Example usage: ::
+
+    >>> from textblob_de import TextBlobDE
+    >>> b = TextBlobDE("Einfach ist besser als kompliziert.")
+    >>> b.tags
+    [('Einfach', 'RB'), ('ist', 'VB'), ('besser', 'RB'), ('als', 'IN'), ('kompliziert', 'JJ')]
+    >>> b.noun_phrases
+    WordList([])
+    >>> b.words
+    WordList(['Einfach', 'ist', 'besser', 'als', 'kompliziert'])
+    
 '''
 from __future__ import absolute_import
 
@@ -33,6 +54,7 @@ from textblob_de.sentiments import PatternAnalyzer
 
 _singularize = pattern_de.inflect.singularize
 _pluralize = pattern_de.inflect.pluralize
+
 
 class Word(unicode):
 
@@ -76,7 +98,7 @@ class Word(unicode):
         if from_lang is None:
             from_lang = self.translator.detect(self.string)
         return self.translator.translate(self.string,
-                                        from_lang=from_lang, to_lang=to)
+                                         from_lang=from_lang, to_lang=to)
 
     def detect_language(self):
         '''Detect the word's language using Google's Translate API.
@@ -94,7 +116,7 @@ class Word(unicode):
 
         .. versionadded:: 0.6.0 (``textblob``)
         '''
-        #return suggest(self.string)
+        # return suggest(self.string)
         raise NotImplementedError
 
     def correct(self):
@@ -103,16 +125,15 @@ class Word(unicode):
 
         .. versionadded:: 0.6.0 (``textblob``)
         '''
-        #return Word(self.spellcheck()[0][0])
+        # return Word(self.spellcheck()[0][0])
         raise NotImplementedError
-    
 
     @cached_property
     def lemma(self):
         """Return the lemma of this word using Wordnet's morphy function.
         """
         #tag = _penn_to_wordnet(self.pos_tag) if (self.pos_tag is not None) else None
-        #return self.lemmatize(pos=tag)
+        # return self.lemmatize(pos=tag)
         raise NotImplementedError
 
     @requires_nltk_corpus
@@ -124,10 +145,10 @@ class Word(unicode):
 
         .. versionadded:: 0.8.1 (``textblob``)
         """
-        #if pos is None:
-            #pos = _wordnet.NOUN
+        # if pos is None:
+        #pos = _wordnet.NOUN
         #lemmatizer = nltk.stem.WordNetLemmatizer()
-        #return lemmatizer.lemmatize(self.string, pos)
+        # return lemmatizer.lemmatize(self.string, pos)
         raise NotImplementedError
 
     @cached_property
@@ -138,9 +159,8 @@ class Word(unicode):
 
         .. versionadded:: 0.7.0 (``textblob``)
         """
-        #return self.get_synsets(pos=None)
+        # return self.get_synsets(pos=None)
         raise NotImplementedError
-    
 
     @cached_property
     def definitions(self):
@@ -149,7 +169,7 @@ class Word(unicode):
 
         .. versionadded:: 0.7.0 (``textblob``)
         """
-        #return self.define(pos=None)
+        # return self.define(pos=None)
         raise NotImplementedError
 
     def get_synsets(self, pos=None):
@@ -162,7 +182,7 @@ class Word(unicode):
 
         .. versionadded:: 0.7.0 (``textblob``)
         '''
-        #return _wordnet.synsets(self.string, pos)
+        # return _wordnet.synsets(self.string, pos)
         raise NotImplementedError
 
     def define(self, pos=None):
@@ -175,11 +195,11 @@ class Word(unicode):
 
         .. versionadded:: 0.7.0 (``textblob``)
         '''
-        #return [syn.definition for syn in self.get_synsets(pos=pos)]
+        # return [syn.definition for syn in self.get_synsets(pos=pos)]
         raise NotImplementedError
 
 
-# Cannot inherit from textblob.blob.WordList, otherwise the 
+# Cannot inherit from textblob.blob.WordList, otherwise the
 # properties of Word() will use the English models
 class WordList(list):
 
@@ -198,7 +218,8 @@ class WordList(list):
     def __repr__(self):
         """Returns a string representation for debugging."""
         class_name = self.__class__.__name__
-        return '{cls}({lst})'.format(cls=class_name, lst=repr(self._collection))
+        return '{cls}({lst})'.format(
+            cls=class_name, lst=repr(self._collection))
 
     def __getitem__(self, key):
         """Returns a string at the given index."""
@@ -222,7 +243,7 @@ class WordList(list):
         """
         if not case_sensitive:
             return [word.lower() for word in self].count(strg.lower(), *args,
-                    **kwargs)
+                                                         **kwargs)
         return self._collection.count(strg, *args, **kwargs)
 
     def append(self, obj):
@@ -260,7 +281,7 @@ class WordList(list):
 
     def lemmatize(self):
         """Return the lemma of each word in this WordList.
-        
+
         Currently using NLTKPunktTokenizer() for all lemmatization
         tasks. This might cause slightly different tokenization results
         compared to the TextBlob.words property.
@@ -281,7 +302,7 @@ class BaseBlob(_BaseBlob):
     An abstract base class that all textblob classes will inherit from.
     Includes words, POS tag, NP, and word count properties. Also includes
     basic dunder and string methods for making objects like Python strings.
-    
+
     :param str text: A string.
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`NLTKPunktTokenizer() <textblob_de.tokenizers.NLTKPunktTokenizer>`.
@@ -296,28 +317,32 @@ class BaseBlob(_BaseBlob):
     .. versionchanged:: 0.6.0
         ``clean_html`` parameter deprecated, as it was in NLTK.
     '''
+
     def __init__(self, text, tokenizer=None,
-                    pos_tagger=None,
-                    np_extractor=None,
-                    analyzer=None,
-                    parser=None,
-                    classifier=None, clean_html=False):
-        
+                 pos_tagger=None,
+                 np_extractor=None,
+                 analyzer=None,
+                 parser=None,
+                 classifier=None, clean_html=False):
+
         self.tokenizer = tokenizer if tokenizer else NLTKPunktTokenizer()
-        self.pos_tagger = pos_tagger if pos_tagger else PatternTagger(tokenizer=self.tokenizer)
+        self.pos_tagger = pos_tagger if pos_tagger else PatternTagger(
+            tokenizer=self.tokenizer)
         self.np_extractor = np_extractor if np_extractor \
             else PatternParserNPExtractor(tokenizer=self.tokenizer)
-        self.analyzer = analyzer if analyzer else PatternAnalyzer(tokenizer=self.tokenizer)
-        self.parser = parser if parser else PatternParser(tokenizer=self.tokenizer)
+        self.analyzer = analyzer if analyzer else PatternAnalyzer(
+            tokenizer=self.tokenizer)
+        self.parser = parser if parser else PatternParser(
+            tokenizer=self.tokenizer)
         self.classifier = classifier if classifier else None
-        
+
         if not isinstance(text, basestring):
             raise TypeError('The `text` argument passed to `__init__(text)` '
                             'must be a string, not {0}'.format(type(text)))
         if clean_html:
             raise NotImplementedError("clean_html has been deprecated. "
-                                    "To remove HTML markup, use BeautifulSoup's "
-                                    "get_text() function")
+                                      "To remove HTML markup, use BeautifulSoup's "
+                                      "get_text() function")
         self.raw = self.string = text
         self.stripped = lowerstrip(self.raw, all=True)
         _initialize_models(self, self.tokenizer, self.pos_tagger, self.np_extractor, self.analyzer,
@@ -331,7 +356,8 @@ class BaseBlob(_BaseBlob):
 
         :returns: A :class:`WordList <WordList>` of word tokens.
         '''
-        return WordList(word_tokenize(self.raw, tokenizer=self.tokenizer, include_punc=False))
+        return WordList(
+            word_tokenize(self.raw, tokenizer=self.tokenizer, include_punc=False))
 
     @cached_property
     def tokens(self):
@@ -349,7 +375,6 @@ class BaseBlob(_BaseBlob):
         t = tokenizer if tokenizer is not None else self.tokenizer
         return WordList(t.tokenize(self.raw))
 
-
     @cached_property
     def sentiment(self):
         """Return a tuple of form (polarity, subjectivity ) where polarity
@@ -360,7 +385,7 @@ class BaseBlob(_BaseBlob):
         :rtype: namedtuple of the form ``Sentiment(polarity, subjectivity)``
         """
         return self.analyzer.analyze(self.raw)
-    
+
     @cached_property
     def polarity(self):
         """Return the polarity score as a float within the range [-1.0, 1.0]
@@ -382,8 +407,8 @@ class BaseBlob(_BaseBlob):
     def noun_phrases(self):
         '''Returns a list of noun phrases for this blob.'''
         return WordList([phrase.strip()
-                        for phrase in self.np_extractor.extract(self.raw)
-                        if len(phrase.split()) > 1])
+                         for phrase in self.np_extractor.extract(self.raw)
+                         if len(phrase.split()) > 1])
 
     @cached_property
     def pos_tags(self):
@@ -400,7 +425,7 @@ class BaseBlob(_BaseBlob):
         return [(Word(word, pos_tag=t), unicode(t))
                 for word, t in self.pos_tagger.tag(self.raw)
                 # new keyword PatternTagger(include_punc=False)
-                #if not PUNCTUATION_REGEX.match(unicode(t))
+                # if not PUNCTUATION_REGEX.match(unicode(t))
                 ]
 
     tags = pos_tags
@@ -424,15 +449,13 @@ class BaseBlob(_BaseBlob):
             counts[phrase] += 1
         return counts
 
-
     def translate(self, from_lang=None, to="de"):
         """Translate the blob to another language.
         """
         if from_lang is None:
             from_lang = self.translator.detect(self.string)
         return self.__class__(self.translator.translate(self.raw,
-                        from_lang=from_lang, to_lang=to))
-
+                                                        from_lang=from_lang, to_lang=to))
 
     def correct(self):
         """Attempt to correct the spelling of a blob.
@@ -445,7 +468,7 @@ class BaseBlob(_BaseBlob):
         #tokens = nltk.tokenize.regexp_tokenize(self.raw, "\w*('\w*)+|\w+|[^\w\s]|\s")
         #corrected = (Word(w).correct() for w in tokens)
         #ret = ''.join(corrected)
-        #return self.__class__(ret)
+        # return self.__class__(ret)
         raise NotImplementedError
 
     def _cmpkey(self):
@@ -474,7 +497,7 @@ class BaseBlob(_BaseBlob):
             return self.__class__(self.raw + other.raw)
         else:
             raise TypeError('Operands must be either strings or {0} objects'
-                .format(self.__class__.__name__))
+                            .format(self.__class__.__name__))
 
     def split(self, sep=None, maxsplit=sys.maxsize):
         """Behaves like the built-in str.split() except returns a
@@ -485,7 +508,6 @@ class BaseBlob(_BaseBlob):
         return WordList(self._strkey().split(sep, maxsplit))
 
 
-    
 class Sentence(BaseBlob):
 
     '''A sentence within a TextBlob. Inherits from :class:`BaseBlob <BaseBlob>`.
@@ -497,6 +519,7 @@ class Sentence(BaseBlob):
                         a TextBlob. If not given, defaults to the
                         length of the sentence - 1.
     '''
+
     def __init__(self, sentence, start_index=0, end_index=None,
                  *args, **kwargs):
         super(Sentence, self).__init__(sentence, *args, **kwargs)
@@ -504,37 +527,37 @@ class Sentence(BaseBlob):
         self.start = self.start_index = start_index
         #: The end index within a textBlob
         self.end = self.end_index = end_index or len(sentence) - 1
-        
+
     #@cached_property
-    #def sentiment(self):
+    # def sentiment(self):
         #"""Return a tuple of form (polarity, subjectivity ) where polarity
-        #is a float within the range [-1.0, 1.0] and subjectivity is a float
-        #within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is
-        #very subjective.
+        # is a float within the range [-1.0, 1.0] and subjectivity is a float
+        # within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is
+        # very subjective.
 
         #:rtype: tuple of the form ``(polarity, subjectivity)``
         #"""
         #_wl = self.words
-        #_lemmas = _wl.lemmatize()  
+        #_lemmas = _wl.lemmatize()
         #_string = " ".join(_lemmas)
-        #return self.analyzer.analyze(_string)  
+        # return self.analyzer.analyze(_string)
 
     #@cached_property
-    #def polarity(self):
+    # def polarity(self):
         #"""Return the polarity score as a float within the range [-1.0, 1.0]
 
         #:rtype: float
         #"""
-        #return self.sentiment[0]
+        # return self.sentiment[0]
 
     #@cached_property
-    #def subjectivity(self):
+    # def subjectivity(self):
         #'''Return the subjectivity score as a float within the range [0.0, 1.0]
-        #where 0.0 is very objective and 1.0 is very subjective.
+        # where 0.0 is very objective and 1.0 is very subjective.
 
         #:rtype: float
         #'''
-        #return self.sentiment[1]
+        # return self.sentiment[1]
 
     @property
     def dict(self):
@@ -548,6 +571,7 @@ class Sentence(BaseBlob):
             'polarity': self.polarity,
             'subjectivity': self.subjectivity,
         }
+
 
 class TextBlobDE(BaseBlob):
 
@@ -578,13 +602,13 @@ class TextBlobDE(BaseBlob):
 
         :returns: A :class:`WordList <WordList>` of word tokens.
         """
-        return WordList(word_tokenize(self.raw, self.tokenizer, include_punc=False))
+        return WordList(
+            word_tokenize(self.raw, self.tokenizer, include_punc=False))
 
     @property
     def raw_sentences(self):
         """List of strings, the raw sentences in the blob."""
         return [sentence.raw for sentence in self.sentences]
-
 
     @cached_property
     def sentiment(self):
@@ -596,12 +620,12 @@ class TextBlobDE(BaseBlob):
         :rtype: tuple of the form ``(polarity, subjectivity)``
         """
         _polarity = 0
-        _subjectivity = 0        
+        _subjectivity = 0
         for s in self.sentences:
             _polarity += s.polarity
             _subjectivity += s.subjectivity
-        polarity = _polarity/len(self.sentences)
-        subjectivity = _subjectivity/len(self.sentences)
+        polarity = _polarity / len(self.sentences)
+        subjectivity = _subjectivity / len(self.sentences)
         return (polarity, subjectivity)
 
     @cached_property
@@ -666,9 +690,9 @@ class TextBlobDE(BaseBlob):
                 end_index = None
             # Sentences share the same models as their parent blob
             s = Sentence(sent, start_index=start_index, end_index=end_index,
-                tokenizer=self.tokenizer, np_extractor=self.np_extractor,
-                pos_tagger=self.pos_tagger, analyzer=self.analyzer,
-                parser=self.parser, classifier=self.classifier)
+                         tokenizer=self.tokenizer, np_extractor=self.np_extractor,
+                         pos_tagger=self.pos_tagger, analyzer=self.analyzer,
+                         parser=self.parser, classifier=self.classifier)
             sentence_objects.append(s)
         return sentence_objects
 
@@ -702,25 +726,28 @@ class BlobberDE(object):
 
     .. versionadded:: 0.4.0 (``textblob``)
     '''
-    def __init__(self, 
-                 tokenizer=None, 
-                 pos_tagger=None, 
+
+    def __init__(self,
+                 tokenizer=None,
+                 pos_tagger=None,
                  np_extractor=None,
-                 analyzer=None, 
-                 parser=None, 
+                 analyzer=None,
+                 parser=None,
                  classifier=None):
-        
+
         self.tokenizer = tokenizer if tokenizer else NLTKPunktTokenizer()
-        self.pos_tagger = pos_tagger if pos_tagger else PatternTagger(tokenizer=self.tokenizer)
+        self.pos_tagger = pos_tagger if pos_tagger else PatternTagger(
+            tokenizer=self.tokenizer)
         self.np_extractor = np_extractor if np_extractor \
             else PatternParserNPExtractor(tokenizer=self.tokenizer)
-        self.analyzer = analyzer if analyzer else PatternAnalyzer(tokenizer=self.tokenizer)
-        self.parser = parser if parser else PatternParser(tokenizer=self.tokenizer)
-        self.classifier = classifier if classifier else None        
-        
-        _initialize_models(self, self.tokenizer, self.pos_tagger, self.np_extractor, self.analyzer,
-                            self.parser, self.classifier)
+        self.analyzer = analyzer if analyzer else PatternAnalyzer(
+            tokenizer=self.tokenizer)
+        self.parser = parser if parser else PatternParser(
+            tokenizer=self.tokenizer)
+        self.classifier = classifier if classifier else None
 
+        _initialize_models(self, self.tokenizer, self.pos_tagger, self.np_extractor, self.analyzer,
+                           self.parser, self.classifier)
 
     def __call__(self, text):
         '''Return a new TextBlob object with this Blobber's ``np_extractor``,
@@ -729,19 +756,20 @@ class BlobberDE(object):
         :returns: A new :class:`TextBlob <TextBlob>`.
         '''
         return TextBlobDE(text, tokenizer=self.tokenizer, pos_tagger=self.pos_tagger,
-                        np_extractor=self.np_extractor, analyzer=self.analyzer,
-                        parser=self.parser,
-                        classifier=self.classifier)
+                          np_extractor=self.np_extractor, analyzer=self.analyzer,
+                          parser=self.parser,
+                          classifier=self.classifier)
 
     def __repr__(self):
-        classifier_name = self.classifier.__class__.__name__ + "()" if self.classifier else "None"
+        classifier_name = self.classifier.__class__.__name__ + \
+            "()" if self.classifier else "None"
         return ("Blobber(tokenizer={0}(), pos_tagger={1}(), "
-                    "np_extractor={2}(), analyzer={3}(), parser={4}(), classifier={5})")\
-                    .format(self.tokenizer.__class__.__name__,
-                            self.pos_tagger.__class__.__name__,
-                            self.np_extractor.__class__.__name__,
-                            self.analyzer.__class__.__name__,
-                            self.parser.__class__.__name__,
-                            classifier_name)
+                "np_extractor={2}(), analyzer={3}(), parser={4}(), classifier={5})")\
+            .format(self.tokenizer.__class__.__name__,
+                    self.pos_tagger.__class__.__name__,
+                    self.np_extractor.__class__.__name__,
+                    self.analyzer.__class__.__name__,
+                    self.parser.__class__.__name__,
+                    classifier_name)
 
     __str__ = __repr__

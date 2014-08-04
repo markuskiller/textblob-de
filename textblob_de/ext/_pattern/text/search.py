@@ -15,6 +15,8 @@
 import re
 import itertools
 
+from _pattern.compat import text_type, string_types, basestring, imap, unicode, binary_type, PY2
+
 #--- TEXT, SENTENCE AND WORD -----------------------------------------------------------------------
 # The search() and match() functions work on Text, Sentence and Word objects (see pattern.text.tree),
 # i.e., the parse tree including part-of-speech tags and phrase chunk tags.

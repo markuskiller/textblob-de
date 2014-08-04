@@ -1,12 +1,15 @@
 Changelog
 ---------
 
-0.2.4 (unreleased)
+0.2.5 (04/08/2014)
 ++++++++++++++++++
 
-* Major internal refactoring (but no API changes) with the aim of restoring complete compatibility to original ``pattern2.6`` library on Python2
+* Major internal refactoring (but no backwards-incompatible API changes) with the aim of restoring complete compatibility to original ``pattern>=2.6`` library on Python2
+* Separation of ``textblob`` and ``pattern`` code
 * On Python2 the vendorized version of ``pattern.text.de`` is only used, if original is not installed (same as ``nltk``)
 * Made ``pattern.de.pprint`` function and all parser keywords accessible to customise parser output
+* Access to complete ``pattern.text.de`` API on Python2 and Python3 ``from textblob_de.packages import pattern_de as pd``
+* ``tox`` passed on all major platforms (Win/Linux/OSX)
 
 0.2.3 (26/07/2014)
 ++++++++++++++++++

@@ -3,8 +3,11 @@
 
 '''
 from __future__ import absolute_import
+
 from abc import ABCMeta, abstractmethod
+
 from textblob.compat import with_metaclass
+
 # provide all base classes for ``textblob_de``
 from textblob.blob import BaseBlob
 from textblob.base import BaseNPExtractor, BaseParser
@@ -22,8 +25,8 @@ class BaseLemmatizer(with_metaclass(ABCMeta)):
     '''Abstract base class from which all Lemmatizer classes inherit.
     Descendant classes must implement a ``lemmatize(text)`` method
     that returns a WordList of Word object with updated lemma properties.
-    
-    .. versionadded:: 0.3.0 (``textblob_de``)
+
+    .. versionadded:: 0.2.3 (``textblob_de``)
     '''
 
     @abstractmethod

@@ -1,4 +1,12 @@
 # -*- coding: utf-8 -*-
+# Code imported from ``textblob`` main package.
+#
+# :repo: `https://github.com/sloria/TextBlob`_
+# :source: textblob/classifiers.py
+# :version: 2014-07-19 (bae0ac095b)
+#
+# :modified: 2014-08-04 <m.killer@langui.ch>
+#
 """Various classifier implementations. Also includes basic feature extractor
 methods.
 
@@ -28,14 +36,6 @@ Example Usage:
     pos
     But the hangover is horrible.
     neg
-
-Code imported from ``textblob`` main package.
-
-:repo: `https://github.com/sloria/TextBlob`_
-:source: textblob/classifiers.py
-:version: 2014-07-19 (bae0ac095b)
-
-:modified: July 2014 <m.killer@langui.ch>
 
 .. versionadded:: 0.6.0 (``textblob``)
 """
@@ -69,13 +69,15 @@ def _get_words_from_dataset(dataset):
     all_words = chain.from_iterable(tokenize(words) for words, _ in dataset)
     return set(all_words)
 
+
 def _get_document_tokens(document):
     if isinstance(document, basestring):
         tokens = set((strip_punc(w, all=False)
-                    for w in word_tokenize(document, include_punc=False)))
+                      for w in word_tokenize(document, include_punc=False)))
     else:
         tokens = set(strip_punc(w, all=False) for w in document)
     return tokens
+
 
 def basic_extractor(document, train_set):
     """A basic document feature extractor that returns a dict indicating
@@ -88,7 +90,7 @@ def basic_extractor(document, train_set):
     word_features = _get_words_from_dataset(train_set)
     tokens = _get_document_tokens(document)
     features = dict(((u'contains({0})'.format(word), (word in tokens))
-                                            for word in word_features))
+                     for word in word_features))
     return features
 
 
@@ -102,7 +104,9 @@ def contains_extractor(document):
 
 ##### CLASSIFIERS #####
 
+
 class BaseClassifier(object):
+
     """Abstract classifier class from which all classifers inherit. At a
     minimum, descendant classes must implement a ``classify`` method and have
     a ``classifier`` property.
@@ -119,7 +123,8 @@ class BaseClassifier(object):
     .. versionadded:: 0.6.0
     """
 
-    def __init__(self, train_set, feature_extractor=basic_extractor, format=None):
+    def __init__(
+            self, train_set, feature_extractor=basic_extractor, format=None):
         self.feature_extractor = feature_extractor
         if isinstance(train_set, basestring):  # train_set is a filename
             self.train_set = self._read_data(train_set, format)
@@ -188,13 +193,21 @@ class NLTKClassifier(BaseClassifier):
 
     def __init__(self, train_set,
                  feature_extractor=basic_extractor, format=None):
-        super(NLTKClassifier, self).__init__(train_set, feature_extractor, format)
-        self.train_features = [(self.extract_features(d), c) for d, c in self.train_set]
+        super(
+            NLTKClassifier,
+            self).__init__(
+            train_set,
+            feature_extractor,
+            format)
+        self.train_features = [
+            (self.extract_features(d),
+             c) for d,
+            c in self.train_set]
 
     def __repr__(self):
         class_name = self.__class__.__name__
         return "<{cls} trained on {n} instances>".format(cls=class_name,
-                                                        n=len(self.train_set))
+                                                         n=len(self.train_set))
 
     @cached_property
     def classifier(self):
@@ -203,7 +216,7 @@ class NLTKClassifier(BaseClassifier):
             return self.train()
         except AttributeError:  # nltk_class has not been defined
             raise ValueError("NLTKClassifier must have a nltk_class"
-                            " variable that is not None.")
+                             " variable that is not None.")
 
     def train(self, *args, **kwargs):
         '''Train the classifier with a labeled feature set and return
@@ -222,7 +235,7 @@ class NLTKClassifier(BaseClassifier):
             return self.classifier
         except AttributeError:
             raise ValueError("NLTKClassifier must have a nltk_class"
-                            " variable that is not None.")
+                             " variable that is not None.")
 
     def labels(self):
         '''Return an iterable of possible labels.'''
@@ -261,13 +274,13 @@ class NLTKClassifier(BaseClassifier):
         '''
         self.train_set += new_data
         self.train_features = [(self.extract_features(d), c)
-                                for d, c in self.train_set]
+                               for d, c in self.train_set]
         try:
             self.classifier = self.nltk_class.train(self.train_features,
                                                     *args, **kwargs)
         except AttributeError:  # Descendant has not defined nltk_class
             raise ValueError("NLTKClassifier must have a nltk_class"
-                            " variable that is not None.")
+                             " variable that is not None.")
         return True
 
 
@@ -407,22 +420,22 @@ class PositiveNaiveBayesClassifier(NLTKClassifier):
     nltk_class = nltk.classify.PositiveNaiveBayesClassifier
 
     def __init__(self, positive_set, unlabeled_set,
-                feature_extractor=contains_extractor,
-                positive_prob_prior=0.5):
+                 feature_extractor=contains_extractor,
+                 positive_prob_prior=0.5):
         self.feature_extractor = feature_extractor
         self.positive_set = positive_set
         self.unlabeled_set = unlabeled_set
         self.positive_features = [self.extract_features(d)
-                                    for d in self.positive_set]
+                                  for d in self.positive_set]
         self.unlabeled_features = [self.extract_features(d)
-                                    for d in self.unlabeled_set]
+                                   for d in self.unlabeled_set]
         self.positive_prob_prior = positive_prob_prior
 
     def __repr__(self):
         class_name = self.__class__.__name__
         return "<{cls} trained on {n_pos} labeled and {n_unlabeled} unlabeled instances>"\
-                        .format(cls=class_name, n_pos=len(self.positive_set),
-                                n_unlabeled=len(self.unlabeled_set))
+            .format(cls=class_name, n_pos=len(self.positive_set),
+                    n_unlabeled=len(self.unlabeled_set))
 
     # Override
     def train(self, *args, **kwargs):
@@ -452,11 +465,11 @@ class PositiveNaiveBayesClassifier(NLTKClassifier):
         if new_positive_data:
             self.positive_set += new_positive_data
             self.positive_features += [self.extract_features(d)
-                                            for d in new_positive_data]
+                                       for d in new_positive_data]
         if new_unlabeled_data:
             self.unlabeled_set += new_unlabeled_data
             self.unlabeled_features += [self.extract_features(d)
-                                            for d in new_unlabeled_data]
+                                        for d in new_unlabeled_data]
         self.classifier = self.nltk_class.train(self.positive_features,
                                                 self.unlabeled_features,
                                                 self.positive_prob_prior,

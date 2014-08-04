@@ -9,7 +9,7 @@
 # :modified: 2014-08-03 <m.killer@langui.ch>
 #
 '''
-Module to provide import context for vendorized packages such as nltk or pattern.
+Module to provide import context for vendorized packages such as ``nltk`` or ``pattern``.
 '''
 from __future__ import absolute_import
 import sys
@@ -34,4 +34,3 @@ except ImportError:
     from _pattern import tree as pattern_tree
     from _pattern import search as pattern_search
     sys.path.pop(-1)
-

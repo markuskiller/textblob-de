@@ -27,7 +27,7 @@ from textblob.packages import nltk
 from textblob import download_corpora
 
 
-#def check_for_nltk_data():
+# def check_for_nltk_data():
 #    try:
 #        nltk.tokenize.load('tokenizers/punkt/german.pickle')
 #        return True
@@ -36,8 +36,8 @@ from textblob import download_corpora
 
 
 def main():
-    #if not check_for_nltk_data():
-        #download_corpora.download_all()
+    # if not check_for_nltk_data():
+        # download_corpora.download_all()
     args = get_argv()
     success = nose.run(argv=args)
     sys.exit(0) if success else sys.exit(1)

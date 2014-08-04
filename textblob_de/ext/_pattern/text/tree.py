@@ -51,7 +51,7 @@ except:
         "&slash;", "word", "part-of-speech", "chunk", "preposition", "relation", "anchor", "lemma"
     MBSP = False
 
-from _pattern.compat import unicode
+from _pattern.compat import text_type, string_types, basestring, imap, unicode, binary_type, PY2
 
 # B- marks the start of a chunk: the/DT/B-NP cat/NN/I-NP
 # I- words are inside a chunk.

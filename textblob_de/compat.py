@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
-'''Code imported from ``textblob-fr`` sample extension.
-
-:repo: `https://github.com/sloria/textblob-fr`_
-:source: textblob_fr/compat.py
-:version: 2013-10-28 (5c6329d209)
-
+#
+# Code imported from ``textblob-fr`` sample extension.
+#
+# :repo: `https://github.com/sloria/textblob-fr`_
+# :source: textblob_fr/compat.py
+# :version: 2013-10-28 (5c6329d209)
+#
+'''Compatibility module for shared code base on Python2 and Python3.
 '''
 import sys
 

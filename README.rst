@@ -24,8 +24,8 @@ See `Extension Guidelines <https://textblob.readthedocs.org/en/dev/contributing.
 Features
 --------
 
-* All directly accessible ``textblob_de`` classes (e.g. ``Sentence()`` or ``Word()``) are now initialized with default models for German
-* Properties or methods that do not yet work for German now raise a ``NotImplementedError``
+* All directly accessible ``textblob_de`` classes (e.g. ``Sentence()`` or ``Word()``) are initialized with default models for German
+* Properties or methods that do not yet work for German raise a ``NotImplementedError``
 * German sentence boundary detection and tokenization (``NLTKPunktTokenizer``)
 * Consistent use of specified tokenizer for all tools (``NLTKPunktTokenizer`` or ``PatternTokenizer``)
 * Part-of-speech tagging (``PatternTagger``) with keyword ``include_punc=True`` (defaults to ``False``)
@@ -33,6 +33,7 @@ Features
 * Noun Phrase Extraction (``PatternParserNPExtractor``)
 * Lemmatization (``PatternParserLemmatizer``)
 * Polarity detection (``PatternAnalyzer``) - Still **EXPERIMENTAL**, does not yet have information on subjectivity
+* **NEW:** Full ``pattern.text.de`` API support on Python3
 * Supports Python 2 and 3
 * See `working features overview <http://langui.ch/nlp/python/textblob-de-dev/>`_ for details
 
@@ -78,7 +79,8 @@ Usage
     >>> blob.tags
     [('Heute', 'RB'), ('ist', 'VB'), ('der', 'DT'), ('3.', 'LS'), ('Mai', 'NN'), 
     ('2014', 'CD'), ...]
-    # not perfect, but a start (relies heavily on parser accuracy)
+    # Default: Only noun_phrases that consist of two or more meaningful parts are displayed.
+    # Not perfect, but a start (relies heavily on parser accuracy)
     >>> blob.noun_phrases
     WordList(['Mai 2014', 'Dr. Meier', 'seinen 43. Geburtstag', 'Kuchen einzukaufen', 
     'meiner Brieftasche'])
@@ -91,14 +93,15 @@ Usage
     'Das/DT/B-NP/O Auto/NN/I-NP/O ist/VB/B-VP/O sehr/RB/B-ADJP/O schön/JJ/I-ADJP/O'
     >>> from textblob_de import PatternParser
     >>> blob = TextBlobDE(u"Das ist ein schönes Auto.", parser=PatternParser(pprint=True, lemmata=True))
-              WORD   TAG    CHUNK   ROLE   ID     PNP    LEMM
-              
-           Das   DT     -       -      -      -      das
-           ist   VB     VP      -      -      -      sein
-           ein   DT     NP      -      -      -      ein
-       schönes   JJ     NP ^    -      -      -      schö
-          Auto   NN     NP ^    -      -      -      auto
-             .   .      -       -      -      -      .
+    >>> blob.parse()
+    #          WORD   TAG    CHUNK   ROLE   ID     PNP    LEMM
+    #          
+    #       Das   DT     -       -      -      -      das
+    #       ist   VB     VP      -      -      -      sein
+    #       ein   DT     NP      -      -      -      ein
+    #   schönes   JJ     NP ^    -      -      -      schö
+    #      Auto   NN     NP ^    -      -      -      auto
+    #         .   .      -       -      -      -      .
     >>> from textblob_de import PatternTagger
     >>> blob = TextBlob(text, pos_tagger=PatternTagger(include_punc=True))
     [('Das', 'DT'), ('Auto', 'NN'), ('ist', 'VB'), ('sehr', 'RB'), ('schön', 'JJ'), ('.', '.')]
@@ -138,6 +141,25 @@ Usage
     non-ascii characters (e.g. ``word = u"schön"``).
 
 
+Access to ``pattern`` API in Python3
+------------------------------------
+
+.. code-block:: python
+
+    >>> from textblob_de.packages import pattern_de as pd
+    >>> print(pd.attributive("neugierig", gender=pd.FEMALE, role=pd.INDIRECT, article="die"))
+    neugierigen
+    
+.. note::
+
+   Alternatively, the path to ``textblob_de/ext`` can be added to the ``PYTHONPATH``, which allows
+   the use of ``pattern.de`` in almost the same way as described in its 
+   `Documentation <http://www.clips.ua.ac.be/pages/pattern-de>`_.
+   The only difference is that you will have to prepend an underscore: 
+   ``from _pattern.de import ...``. This is a precautionary measure in case the ``pattern``
+   library gets native Python3 support in the future.
+
+
 Requirements
 ------------
 
@@ -146,8 +168,8 @@ Requirements
 TODO
 ----
 
-- **TextBlob Extension:** ``textblob-cmd`` (command-line wrapper for ``TextBlob``, basically TextBlob for files 
 - **TextBlob Extension:** ``textblob-rftagger`` (wrapper class for ``RFTagger``)
+- **TextBlob Extension:** ``textblob-cmd`` (command-line wrapper for ``TextBlob``, basically TextBlob for files 
 - **TextBlob Extension:** ``textblob-stanfordparser`` (wrapper class for ``StanfordParser`` via NLTK)
 - **TextBlob Extension:** ``textblob-berkeleyparser`` (wrapper class for ``BerkeleyParser``)
 - **TextBlob Extension:** ``textblob-sent-align`` (sentence alignment for parallel TextBlobs)
@@ -157,6 +179,7 @@ TODO
 - Improve sentiment analysis (find suitable subjectivity scores)
 - Improve functionality of ``Sentence()`` and ``Word()`` objects
 - Adapt more tests from ``textblob`` main package (esp. for ``TextBlobDE()`` in ``test_blob.py``)
+
 
 License
 -------

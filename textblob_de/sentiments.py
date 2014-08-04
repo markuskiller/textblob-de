@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
+#
+# Code adapted from ``textblob-fr`` sample extension.
+#
+# :repo: `https://github.com/sloria/textblob-fr`_
+# :source: textblob_fr/sentiments.py
+# :version: 2013-10-28 (a88e86a76a)
+#
+# :modified: 2014-08-04 <m.killer@langui.ch>
+#
 """German sentiment analysis implementations.
-
-Code adapted from ``textblob-fr`` sample extension.
-
-:repo: `https://github.com/sloria/textblob-fr`_
-:source: textblob_fr/sentiments.py
-:version: 2013-10-28 (a88e86a76a)
-
-:modified: July 2014 <m.killer@langui.ch>
 
 Main resource for ``de-sentiment.xml``:
 
@@ -44,16 +45,17 @@ from textblob_de.packages import pattern_text
 from textblob_de.tokenizers import PatternTokenizer
 
 
-#################### PATTERN ANALYZER #############################################
+#################### PATTERN ANALYZER ####################################
 
 # adapted from 'textblob_fr.fr.py'
-#################### PATTERN SENTIMENT DETECTION ##################################
+#################### PATTERN SENTIMENT DETECTION #########################
 try:
     MODULE = os.path.dirname(os.path.realpath(__file__))
 except:
     MODULE = ""
-    
+
 _Sentiment = pattern_text.Sentiment
+
 
 class Sentiment(_Sentiment):
 
@@ -104,40 +106,40 @@ class PatternAnalyzer(BaseSentimentAnalyzer):
 
     ``(polarity, subjectivity)``
     '''
+
     def __init__(self, tokenizer=None, lemmatizer=None, lemmatize=True):
         self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
         self.lemmatize = lemmatize if lemmatize else True
         if self.lemmatize:
             self.lemmatizer = lemmatizer if lemmatizer \
                 else PatternParserLemmatizer(tokenizer=self.tokenizer)
-        
-    
+
     def analyze(self, text):
         """Return the sentiment as a tuple of the form:
         ``(polarity, subjectivity)``
-        
+
         :param str text: A string.
-        
+
         .. todo::
-        
+
             Figure out best format to be passed to the analyzer.
             There might be a better format than a string of space separated
             lemmas (e.g. with pos tags) but the parsing/tagging
             results look rather inaccurate and a wrong pos
-            might prevent the lexicon lookup of an otherwise correctly 
+            might prevent the lexicon lookup of an otherwise correctly
             lemmatized word form (or would it not?) - further checks needed.
-            
+
         """
         if self.lemmatize:
             text = self._lemmatize(text)
         _sentiment = pattern_sentiment(text)
         return _sentiment
-    
+
     def _lemmatize(self, raw):
         # returns a list of [(lemma1, tag1), (lemma2, tag2), ...]
         _lemmas = self.lemmatizer.lemmatize(raw)
         # pass to analyzer as a string
-        _lemmas = " ".join([l for l, t  in _lemmas])
+        _lemmas = " ".join([l for l, t in _lemmas])
         return _lemmas
 
-#################### END PATTERN ANALYZER #########################################
+#################### END PATTERN ANALYZER ################################
