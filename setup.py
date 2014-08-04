@@ -93,7 +93,10 @@ setup(
     package_data={
         "textblob_de": [
             "data/*.*",
-            "ext/*.*", 
+            "ext/*.*",
+            "ext/_pattern/*.*", 
+            "ext/_pattern/text/*.*",
+            "ext/_pattern/text/de/*.*",
                         ]
     },
     install_requires=requires,
