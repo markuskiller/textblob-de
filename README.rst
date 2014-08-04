@@ -6,7 +6,7 @@ textblob-de
     :target: http://badge.fury.io/py/textblob-de
     :alt: Latest version
 
-.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=dev
+.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=master
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
 
@@ -35,7 +35,7 @@ Features
 * Polarity detection (``PatternAnalyzer``) - Still **EXPERIMENTAL**, does not yet have information on subjectivity
 * **NEW:** Full ``pattern.text.de`` API support on Python3
 * Supports Python 2 and 3
-* See `working features overview <http://langui.ch/nlp/python/textblob-de-dev/>`_ for details
+* See `working features overview <http://langui.ch/nlp/python/textblob-de/>`_ for details
 
 
 Installing/Upgrading
@@ -94,14 +94,14 @@ Usage
     >>> from textblob_de import PatternParser
     >>> blob = TextBlobDE(u"Das ist ein schönes Auto.", parser=PatternParser(pprint=True, lemmata=True))
     >>> blob.parse()
-    #          WORD   TAG    CHUNK   ROLE   ID     PNP    LEMM
-    #          
-    #       Das   DT     -       -      -      -      das
-    #       ist   VB     VP      -      -      -      sein
-    #       ein   DT     NP      -      -      -      ein
-    #   schönes   JJ     NP ^    -      -      -      schö
-    #      Auto   NN     NP ^    -      -      -      auto
-    #         .   .      -       -      -      -      .
+          WORD   TAG    CHUNK   ROLE   ID     PNP    LEMMA   
+                                                             
+           Das   DT     -       -      -      -      das     
+           ist   VB     VP      -      -      -      sein    
+           ein   DT     NP      -      -      -      ein     
+       schönes   JJ     NP ^    -      -      -      schön   
+          Auto   NN     NP ^    -      -      -      auto    
+             .   .      -       -      -      -      .       
     >>> from textblob_de import PatternTagger
     >>> blob = TextBlob(text, pos_tagger=PatternTagger(include_punc=True))
     [('Das', 'DT'), ('Auto', 'NN'), ('ist', 'VB'), ('sehr', 'RB'), ('schön', 'JJ'), ('.', '.')]
