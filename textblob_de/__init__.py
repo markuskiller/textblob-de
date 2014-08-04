@@ -10,6 +10,6 @@ from textblob_de.tokenizers import NLTKPunktTokenizer, PatternTokenizer
 from textblob_de.parsers import PatternParser
 from textblob_de.sentiments import PatternAnalyzer
 
-__version__ = '0.2.4a4'
+__version__ = '0.2.4a5'
 __author__ = 'Markus Killer'
 __license__ = "MIT"

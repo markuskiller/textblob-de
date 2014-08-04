@@ -55,8 +55,7 @@ Or the latest development release (apparently this does not always work on Windo
 
    ``TextBlob`` will be installed/upgraded automatically when running 
    ``pip install``. The second line (``python -m textblob.download_corpora``) 
-   downloads/updates nltk corpora and language models used in ``TextBlob``. On
-   Python2, ``pattern`` will also be installed from PyPI.
+   downloads/updates nltk corpora and language models used in ``TextBlob``.
 
 
 Usage

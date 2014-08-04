@@ -4,7 +4,9 @@ Changelog
 0.2.4 (unreleased)
 ++++++++++++++++++
 
-* Make ``pattern.de.pprint`` function and all parser keywords accessible
+* Major internal refactoring, but no API changes, with the aim of restoring complete compatibility to original ``pattern2.6`` library on Python2
+* On Python2 the vendorized version of ``pattern.text.de````is only used, if original is not installed (same as ``nltk``)
+* ``Make ``pattern.de.pprint`` function and all parser keywords accessible
 
 0.2.3 (26/07/2014)
 ++++++++++++++++++
