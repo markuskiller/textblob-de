@@ -29,7 +29,7 @@ Features
 * German sentence boundary detection and tokenization (``NLTKPunktTokenizer``)
 * Consistent use of specified tokenizer for all tools (``NLTKPunktTokenizer`` or ``PatternTokenizer``)
 * Part-of-speech tagging (``PatternTagger``) with keyword ``include_punc=True`` (defaults to ``False``)
-* Parsing (``PatternParser``) with keyword ``lemmata=True`` (defaults to ``False``)
+* Parsing (``PatternParser``) with all ``pattern`` keywords, plus ``pprint=True`` (defaults to ``False``)
 * Noun Phrase Extraction (``PatternParserNPExtractor``)
 * Lemmatization (``PatternParserLemmatizer``)
 * Polarity detection (``PatternAnalyzer``) - Still **EXPERIMENTAL**, does not yet have information on subjectivity
@@ -90,9 +90,15 @@ Usage
     >>> blob.parse()
     'Das/DT/B-NP/O Auto/NN/I-NP/O ist/VB/B-VP/O sehr/RB/B-ADJP/O schön/JJ/I-ADJP/O'
     >>> from textblob_de import PatternParser
-    >>> blob = TextBlob(text, parser=PatternParser(lemmata=True))
-    'Das/DT/B-NP/O/das Auto/NN/I-NP/O/auto ist/VB/B-VP/O/sein sehr/RB/B-ADJP/O/sehr' \ 
-    'schön/JJ/I-ADJP/O/schön ././O/O/.'
+    >>> blob = TextBlobDE(u"Das ist ein schönes Auto.", parser=PatternParser(pprint=True, lemmata=True))
+              WORD   TAG    CHUNK   ROLE   ID     PNP    LEMM
+              
+           Das   DT     -       -      -      -      das
+           ist   VB     VP      -      -      -      sein
+           ein   DT     NP      -      -      -      ein
+       schönes   JJ     NP ^    -      -      -      schö
+          Auto   NN     NP ^    -      -      -      auto
+             .   .      -       -      -      -      .
     >>> from textblob_de import PatternTagger
     >>> blob = TextBlob(text, pos_tagger=PatternTagger(include_punc=True))
     [('Das', 'DT'), ('Auto', 'NN'), ('ist', 'VB'), ('sehr', 'RB'), ('schön', 'JJ'), ('.', '.')]
