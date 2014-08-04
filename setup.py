@@ -91,7 +91,10 @@ setup(
     package_dir={'textblob_de': 'textblob_de'},
     include_package_data=True,
     package_data={
-        "textblob_de": ["*.txt", "*.xml"]
+        "textblob_de": [
+            "data/*.*",
+            "ext/*.*", 
+                        ]
     },
     install_requires=requires,
     license='\n\n' + read("LICENSE") + '\n\n',
