@@ -43,7 +43,6 @@ class PatternTagger(BaseTagger):
         if tokenize:
             _tokenized = " ".join(self.tokenizer.word_tokenize(sentence))
             sentence = _tokenized
-        print("Tokenizer: ", self.tokenizer, _tokenized)
         # Sentence is tokenized before it is passed on to pattern.de.tag
         # (i.e. it is either submitted tokenized or if )
         _tagged = pattern_tag(sentence, tokenize=False)
