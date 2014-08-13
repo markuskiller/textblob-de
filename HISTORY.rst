@@ -1,6 +1,11 @@
 Changelog
 ---------
 
+0.3.0 (unreleased)
+++++++++++++++++++
+
+* Integration of ``textblob-rftagger``
+
 0.2.7 (13/08/2014)
 ++++++++++++++++++
 
