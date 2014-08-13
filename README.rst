@@ -111,10 +111,10 @@ Usage
     
     >>> blob = TextBlob("Das Auto ist sehr schön.")
     >>> blob.sentiment
-    (1.0, 0.0)
+    Sentiment(polarity=1.0, subjectivity=0.0)
     >>> blob = TextBlob("Das ist ein hässliches Auto.")     
     >>> blob.sentiment
-    (-1.0, 0.0)
+    Sentiment(polarity=-1.0, subjectivity=0.0)
 
 
 .. warning::
@@ -122,7 +122,8 @@ Usage
     **WORK IN PROGRESS:** The German polarity lexicon contains only uninflected
     forms and there are no subjectivity scores yet. As of version 0.2.3, lemmatized
     word forms are submitted to the ``PatternAnalyzer``, increasing the accuracy
-    of polarity values.
+    of polarity values. New in version 0.2.7: return type of ``.sentiment`` is now
+    adapted to ``textblob`` main package (``:rtype: namedtuple``).
 
 
 .. code-block:: python

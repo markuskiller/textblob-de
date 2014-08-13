@@ -617,8 +617,12 @@ class TextBlobDE(BaseBlob):
         within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is
         very subjective.
 
-        :rtype: tuple of the form ``(polarity, subjectivity)``
+        :rtype: named tuple of the form ``Sentiment(polarity=0.0, subjectivity=0.0)``
         """
+        #: Enhancement Issue #2
+        #: adapted from 'textblob.en.sentiments.py'
+        #: Return type declaration
+        _RETURN_TYPE = namedtuple('Sentiment', ['polarity', 'subjectivity'])    
         _polarity = 0
         _subjectivity = 0
         for s in self.sentences:
@@ -626,7 +630,7 @@ class TextBlobDE(BaseBlob):
             _subjectivity += s.subjectivity
         polarity = _polarity / len(self.sentences)
         subjectivity = _subjectivity / len(self.sentences)
-        return (polarity, subjectivity)
+        return _RETURN_TYPE(polarity, subjectivity)
 
     @cached_property
     def polarity(self):

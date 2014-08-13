@@ -267,7 +267,8 @@ class SentenceTest(TestCase):
     @attr('requires_internet')
     def test_translate_detects_language_by_default(self):
         blob = tb.TextBlobDE(unicode("ذات سيادة كاملة"))
-        assert_equal(blob.translate(), "Mit voller Souveränität")
+        assert_true(blob.translate() in ("Vollständig souveränen", 
+                                         "Mit voller Souveränität"))
 
 
 #class TextBlobTest(TestCase):

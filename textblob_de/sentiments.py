@@ -26,7 +26,7 @@ Main resource for ``de-sentiment.xml``:
        
        Possible sources:
        
-       * `Pattern Projext <http://www.clips.ua.ac.be/pages/pattern>`_
+       * `Pattern Project <http://www.clips.ua.ac.be/pages/pattern>`_
        
            * fr-sentiment.xml / en-sentiment.xml / nl-sentiment.xml
            
@@ -36,10 +36,11 @@ Main resource for ``de-sentiment.xml``:
         :class:`PatternTokenizer() <textblob_de.tokenizers.PatternTokenizer>`.
 """
 from __future__ import absolute_import
+from collections import namedtuple
 
 import os
 
-from textblob.base import BaseSentimentAnalyzer, CONTINUOUS
+from textblob_de.base import BaseSentimentAnalyzer, CONTINUOUS
 from textblob_de.lemmatizers import PatternParserLemmatizer
 from textblob_de.packages import pattern_text
 from textblob_de.tokenizers import PatternTokenizer
@@ -106,6 +107,11 @@ class PatternAnalyzer(BaseSentimentAnalyzer):
 
     ``(polarity, subjectivity)``
     '''
+    #: Enhancement Issue #2
+    #: adapted from 'textblob.en.sentiments.py'
+    kind = CONTINUOUS
+    #: Return type declaration
+    RETURN_TYPE = namedtuple('Sentiment', ['polarity', 'subjectivity'])    
 
     def __init__(self, tokenizer=None, lemmatizer=None, lemmatize=True):
         self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
@@ -113,6 +119,8 @@ class PatternAnalyzer(BaseSentimentAnalyzer):
         if self.lemmatize:
             self.lemmatizer = lemmatizer if lemmatizer \
                 else PatternParserLemmatizer(tokenizer=self.tokenizer)
+        
+        
 
     def analyze(self, text):
         """Return the sentiment as a tuple of the form:
@@ -132,8 +140,7 @@ class PatternAnalyzer(BaseSentimentAnalyzer):
         """
         if self.lemmatize:
             text = self._lemmatize(text)
-        _sentiment = pattern_sentiment(text)
-        return _sentiment
+        return self.RETURN_TYPE(*pattern_sentiment(text))
 
     def _lemmatize(self, raw):
         # returns a list of [(lemma1, tag1), (lemma2, tag2), ...]

@@ -1,12 +1,14 @@
 Changelog
 ---------
 
-0.3.0 (unreleased)
+0.2.7 (unreleased)
 ++++++++++++++++++
 
-* Integration of ``textblob-rftagger``
+* Fixed `Issue #1 <https://github.com/markuskiller/textblob-de/issues/1>`_ lemmatization of strings containing a forward slash (``/``)
+* Enhancement `Issue #2 <https://github.com/markuskiller/textblob-de/issues/2>`_ use the same rtype as ``textblob`` for sentiment detection.
+* Fixed tokenization in ``PatternParserLemmatizer``
 
-0.2.5 (04/08/2014)
+0.2.6 (04/08/2014)
 ++++++++++++++++++
 
 * Major internal refactoring (but no backwards-incompatible API changes) with the aim of restoring complete compatibility to original ``pattern>=2.6`` library on Python2
