@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+0.2.7 (13/08/2014)
+++++++++++++++++++
+
+* Fixed `Issue #1 <https://github.com/markuskiller/textblob-de/issues/1>`_ lemmatization of strings containing a forward slash (``/``)
+* Enhancement `Issue #2 <https://github.com/markuskiller/textblob-de/issues/2>`_ use the same rtype as ``textblob`` for sentiment detection.
+* Fixed tokenization in ``PatternParserLemmatizer``
+
 0.2.6 (04/08/2014)
 ++++++++++++++++++
 

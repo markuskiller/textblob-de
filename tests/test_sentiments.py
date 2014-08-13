@@ -23,7 +23,7 @@ class TestPatternAnalyzer(unittest.TestCase):
     def setUp(self):
         self.neg1 = "Das ist ein hässliches Auto."
         self.pos1 = "Dieses Auto ist schön."
-        self.pos2 = "Die ist keine böse Katze."
+        self.pos2 = "Die ist keine böse Katze/Raubkatze." # Make sure lemmatizer does not break on ``/`` (Issue #1)
         self.neg2 = "Dieser Hund ist nicht nett."
 
 

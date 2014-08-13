@@ -57,6 +57,8 @@ class PatternParserLemmatizer(BaseLemmatizer):
                 w, tag, phrase, role, lemma = t.split('/')
                 # The lexicon uses Swiss spelling: "ss" instead of "ß".
                 lemma = lemma.replace(u"ß", "ss")
+                # Reverse previous replacement
+                lemma = lemma.strip().replace("FORWARDSLASH", "/")
                 if w[0].isupper() and i > 0:
                     lemma = lemma.title()
                 elif tag.startswith("N"):
@@ -78,5 +80,8 @@ class PatternParserLemmatizer(BaseLemmatizer):
 
         :param str text: A string.
         """
-        parsed_text = pattern_parse(text, self.tokenizer, lemmata=True)
+        # Fix for issue #1
+        text = text.replace("/", " FORWARDSLASH ")
+        _tokenized = " ".join(self.tokenizer.word_tokenize(text))
+        parsed_text = pattern_parse(_tokenized, tokenize=False, lemmata=True)
         return parsed_text.split('\n')
