@@ -58,12 +58,15 @@ class PatternParserLemmatizer(BaseLemmatizer):
                 # The lexicon uses Swiss spelling: "ss" instead of "ß".
                 lemma = lemma.replace(u"ß", "ss")
                 # Reverse previous replacement
-                lemma = lemma.strip().replace("FORWARDSLASH", "/")
+                lemma = lemma.strip().replace("forwardslash", "/")
                 if w[0].isupper() and i > 0:
                     lemma = lemma.title()
-                elif tag.startswith("N"):
+                elif tag.startswith("N") and i == 0:
                     lemma = lemma.title()
-                elif w in string.punctuation:
+                # Todo: Check if it makes sense to treat '/' as punctuation
+                # (especially for sentiment analysis it might be interesting 
+                # to treat it as OR ('oder')).
+                if w in string.punctuation or lemma == '/':
                     continue
                 else:
                     lemma = lemma
