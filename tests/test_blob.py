@@ -178,6 +178,7 @@ class SentenceTest(TestCase):
         self.empty_sentence = tb.Sentence(" ")
         self.single_period = tb.Sentence(" .")
         self.single_comma = tb.Sentence(" ,")
+        self.text_space_period = tb.Sentence("A .")
         self.single_exlamation_mark = tb.Sentence(" !  ")
         self.raw_sentence = \
             'Peter mag Restaurants, die belgisches Bier servieren.'
@@ -192,6 +193,9 @@ class SentenceTest(TestCase):
         assert_equal(self.single_period.parse(), "././O/O")
         assert_equal(self.single_comma.parse(), ",/,/O/O")
         assert_equal(self.single_exlamation_mark.parse(), "!/./O/O")
+        
+    def test_text_space_period(self):
+        assert_equal(self.text_space_period.tokens, ['A', '.'])
 
     def test_repr(self):
         # In Py2, repr returns bytestring

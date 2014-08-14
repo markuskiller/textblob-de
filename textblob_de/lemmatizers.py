@@ -56,6 +56,11 @@ class PatternParserLemmatizer(BaseLemmatizer):
         for s in parsed_sentences:
             tokens = s.split()
             for i, t in enumerate(tokens):
+                #: Filter empty tokens from the parser output (Issue #5)
+                #: This only happens if parser input is improperly tokenized
+                #: e.g. if there are empty strings in the list of tokens ['A', '', '.']
+                if t.startswith('/'):
+                    continue
                 w, tag, phrase, role, lemma = t.split('/')
                 # The lexicon uses Swiss spelling: "ss" instead of "ß".
                 lemma = lemma.replace(u"ß", "ss")

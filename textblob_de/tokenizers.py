@@ -101,7 +101,8 @@ class NLTKPunktTokenizer(BaseTokenizer):
                     return []
         if include_punc:
             last_word = _tokens[-1]
-            if last_word.endswith('.'):
+            # Make sure that you do not separate '.' tokens into ['', '.'] (Issue #5)
+            if last_word.endswith('.') and len(last_word) > 1:
                 _tokens = _tokens[:-1] + [last_word[:-1], '.']
             return _tokens
         else:
@@ -184,7 +185,8 @@ class PatternTokenizer(BaseTokenizer):
                     return []
         if include_punc:
             last_word = _tokens[-1]
-            if len(last_word) > 1 and last_word.endswith('.'):
+            # Make sure that you do not separate '.' tokens into ['', '.'] (Issue #5)
+            if last_word.endswith('.') and len(last_word) > 1:
                 _tokens = _tokens[:-1] + [last_word[:-1], '.']
             return _tokens
         else:

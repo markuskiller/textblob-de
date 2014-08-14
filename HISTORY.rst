@@ -4,7 +4,7 @@ Changelog
 0.3.0 (unreleased)
 ++++++++++++++++++
 
-* 
+* Fixed `Issue #5 <https://github.com/markuskiller/textblob-de/issues/5>`_ (text + space + period)
 
 0.2.9 (14/08/2014)
 ++++++++++++++++++
@@ -16,8 +16,8 @@ Changelog
 0.2.8 (14/08/2014)
 ++++++++++++++++++
 
-* Fixed `Issue #3 <https://github.com/markuskiller/textblob-de/issues/3>`_
-* Fixed `Issue #4 <https://github.com/markuskiller/textblob-de/issues/4>`_
+* Fixed `Issue #3 <https://github.com/markuskiller/textblob-de/issues/3>`_ (empty string)
+* Fixed `Issue #4 <https://github.com/markuskiller/textblob-de/issues/4>`_ (space + punctuation)
 
 0.2.7 (13/08/2014)
 ++++++++++++++++++

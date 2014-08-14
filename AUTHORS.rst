@@ -15,7 +15,7 @@ Credits
 Contributors
 ------------
 
-* Hocdoc (Issues #1 - #4)
+* Hocdoc (Issues #1 - #5)
 
 .. _TextBlob: https://textblob.readthedocs.org/
 .. _textblob-de: https://github.com/markuskiller/textblob-de
