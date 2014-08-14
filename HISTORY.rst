@@ -1,7 +1,7 @@
 Changelog
 ---------
 
-0.2.8 (unreleased)
+0.2.8 (14/08/2014)
 ++++++++++++++++++
 
 * Fixed `Issue #3 <https://github.com/markuskiller/textblob-de/issues/3>`_
