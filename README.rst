@@ -62,7 +62,6 @@ Or the latest development release (apparently this does not always work on Windo
 Usage
 -----
 
-
 .. code-block:: python
 
     >>> from textblob_de import TextBlobDE as TextBlob
