@@ -179,20 +179,26 @@ class SentenceTest(TestCase):
         self.single_period = tb.Sentence(" .")
         self.single_comma = tb.Sentence(" ,")
         self.text_space_period = tb.Sentence("A .")
-        self.single_exlamation_mark = tb.Sentence(" !  ")
+        self.single_exclamation_mark = tb.Sentence(" !  ")
         self.raw_sentence = \
             'Peter mag Restaurants, die belgisches Bier servieren.'
         self.sentence = tb.Sentence(self.raw_sentence)
         
     def test_empty_sentence(self):
         assert_equal(self.empty_sentence.tags, [])
+        assert_equal(self.empty_sentence.tokens, tb.WordList([]))
+        assert_equal(self.empty_sentence.words, tb.WordList([]))
+        assert_equal(self.empty_sentence.noun_phrases, tb.WordList([]))
+        assert_equal(self.empty_sentence.np_counts, {})
+        assert_equal(self.empty_sentence.word_counts, {})
+        assert_equal(self.empty_sentence.ngrams(), [])
         assert_equal(self.empty_sentence.parse(), "")
         
     def test_single_punctuation(self):
         assert_equal(self.single_period.tags, [])
         assert_equal(self.single_period.parse(), "././O/O")
         assert_equal(self.single_comma.parse(), ",/,/O/O")
-        assert_equal(self.single_exlamation_mark.parse(), "!/./O/O")
+        assert_equal(self.single_exclamation_mark.parse(), "!/./O/O")
         
     def test_text_space_period(self):
         assert_equal(self.text_space_period.tokens, ['A', '.'])
