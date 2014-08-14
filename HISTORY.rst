@@ -1,7 +1,7 @@
 Changelog
 ---------
 
-0.3.0 (unreleased)
+0.3.0 (14/08/2014)
 ++++++++++++++++++
 
 * Fixed `Issue #5 <https://github.com/markuskiller/textblob-de/issues/5>`_ (text + space + period)
