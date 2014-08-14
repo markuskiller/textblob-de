@@ -175,9 +175,23 @@ class WordListTest(TestCase):
 class SentenceTest(TestCase):
 
     def setUp(self):
+        self.empty_sentence = tb.Sentence(" ")
+        self.single_period = tb.Sentence(" .")
+        self.single_comma = tb.Sentence(" ,")
+        self.single_exlamation_mark = tb.Sentence(" !  ")
         self.raw_sentence = \
             'Peter mag Restaurants, die belgisches Bier servieren.'
         self.sentence = tb.Sentence(self.raw_sentence)
+        
+    def test_empty_sentence(self):
+        assert_equal(self.empty_sentence.tags, [])
+        assert_equal(self.empty_sentence.parse(), "")
+        
+    def test_single_punctuation(self):
+        assert_equal(self.single_period.tags, [])
+        assert_equal(self.single_period.parse(), "././O/O")
+        assert_equal(self.single_comma.parse(), ",/,/O/O")
+        assert_equal(self.single_exlamation_mark.parse(), "!/./O/O")
 
     def test_repr(self):
         # In Py2, repr returns bytestring

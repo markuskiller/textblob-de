@@ -56,11 +56,18 @@ class PatternTagger(BaseTagger):
         if sentence.strip() == "":
             return []
         #: Do not process strings consisting of a single punctuation mark (Issue #4)
-        elif sentence.strip() in PUNCTUATION:
-            _sym = sentence.strip()
-            return [(_sym, '.')]
+        elif sentence.strip() in PUNCTUATION:         
+            if self.include_punc:
+                _sym = sentence.strip()
+                if _sym in tuple('.?!'):
+                    _tag = "."
+                else:
+                    _tag = _sym
+                return [(_sym, _tag)]
+            else:
+                return []
         if tokenize:
-            _tokenized = " ".join(self.tokenizer.word_tokenize(sentence))
+            _tokenized = " ".join(self.tokenizer.tokenize(sentence))
             sentence = _tokenized
         # Sentence is tokenized before it is passed on to pattern.de.tag
         # (i.e. it is either submitted tokenized or if )

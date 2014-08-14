@@ -18,6 +18,8 @@ or
 
 '''
 from __future__ import absolute_import
+import string
+
 from textblob.base import BaseParser
 
 from textblob_de.packages import pattern_de
@@ -27,6 +29,7 @@ pattern_pprint = pattern_de.pprint
 pattern_parse = pattern_de.parse
 pattern_parsetree = pattern_de.parsetree
 
+PUNCTUATION = string.punctuation
 
 class PatternParser(BaseParser):
 
@@ -68,9 +71,23 @@ class PatternParser(BaseParser):
 
         :param str text: A string.
         '''
+        #: Do not process empty strings (Issue #3)
+        if text.strip() == "":
+            return ""
+        #: Do not process strings consisting of a single punctuation mark (Issue #4)
+        elif text.strip() in PUNCTUATION:
+            _sym = text.strip()
+            if _sym in tuple('.?!'):
+                _tag = "."
+            else:
+                _tag = _sym
+            if self.lemmata:
+                return "{0}/{1}/O/O/{0}".format(_sym, _tag)
+            else:
+                return "{0}/{1}/O/O".format(_sym, _tag)
         if self.tokenize:
-            _tokenized = " ".join(self.tokenizer.word_tokenize(text))
-
+            _tokenized = " ".join(self.tokenizer.tokenize(text))
+        
         _parsed = pattern_parse(_tokenized,
                                 # text is tokenized before it is passed on to
                                 # pattern.de.parse
@@ -87,7 +104,7 @@ class PatternParser(BaseParser):
         """Returns a parsed ``pattern`` Text object from the given string."""
 
         if self.tokenize:
-            _tokenized = " ".join(self.tokenizer.word_tokenize(text))
+            _tokenized = " ".join(self.tokenizer.tokenize(text))
 
         _parsed = pattern_parsetree(text,
                                     # text is tokenized before it is passed on

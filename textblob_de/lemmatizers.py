@@ -87,6 +87,6 @@ class PatternParserLemmatizer(BaseLemmatizer):
         """
         # Fix for issue #1
         text = text.replace("/", " FORWARDSLASH ")
-        _tokenized = " ".join(self.tokenizer.word_tokenize(text))
+        _tokenized = " ".join(self.tokenizer.tokenize(text))
         parsed_text = pattern_parse(_tokenized, tokenize=False, lemmata=True)
         return parsed_text.split('\n')

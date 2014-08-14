@@ -91,7 +91,7 @@ Usage
     >>> blob.parse()
     'Das/DT/B-NP/O Auto/NN/I-NP/O ist/VB/B-VP/O sehr/RB/B-ADJP/O schön/JJ/I-ADJP/O'
     >>> from textblob_de import PatternParser
-    >>> blob = TextBlobDE(u"Das ist ein schönes Auto.", parser=PatternParser(pprint=True, lemmata=True))
+    >>> blob = TextBlobDE("Das ist ein schönes Auto.", parser=PatternParser(pprint=True, lemmata=True))
     >>> blob.parse()
           WORD   TAG    CHUNK   ROLE   ID     PNP    LEMMA   
                                                              

@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+0.2.9 (14/08/2014)
+++++++++++++++++++
+
+* Fixed tokenization in ``PatternParser`` (if initialized manually, punctuation was not always separated from words)
+* Improved handling of empty strings (Issue #3) and of strings containing single punctuation marks (Issue #4) in ``PatternTagger`` and ``PatternParser``
+* Added tests for empty strings and for strings containing single punctuation marks
+
 0.2.8 (14/08/2014)
 ++++++++++++++++++
 
