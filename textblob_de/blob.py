@@ -628,8 +628,14 @@ class TextBlobDE(BaseBlob):
         for s in self.sentences:
             _polarity += s.polarity
             _subjectivity += s.subjectivity
-        polarity = _polarity / len(self.sentences)
-        subjectivity = _subjectivity / len(self.sentences)
+        try:
+            polarity = _polarity / len(self.sentences)
+        except ZeroDivisionError:
+            polarity = 0.0
+        try:
+            subjectivity = _subjectivity / len(self.sentences)
+        except ZeroDivisionError:
+            subjectivity = 0.0
         return _RETURN_TYPE(polarity, subjectivity)
 
     @cached_property

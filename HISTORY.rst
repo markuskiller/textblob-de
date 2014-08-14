@@ -1,10 +1,11 @@
 Changelog
 ---------
 
-0.3.0 (unreleased)
+0.2.8 (unreleased)
 ++++++++++++++++++
 
-* Integration of ``textblob-rftagger``
+* Fixed `Issue #3 <https://github.com/markuskiller/textblob-de/issues/3>`_
+* Fixed `Issue #4 <https://github.com/markuskiller/textblob-de/issues/4>`_
 
 0.2.7 (13/08/2014)
 ++++++++++++++++++

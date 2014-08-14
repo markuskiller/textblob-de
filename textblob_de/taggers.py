@@ -18,6 +18,7 @@ or
 '''
 
 from __future__ import absolute_import
+import string
 
 from textblob.base import BaseTagger
 from textblob.utils import PUNCTUATION_REGEX
@@ -28,7 +29,7 @@ from textblob_de.compat import unicode
 from textblob_de.tokenizers import PatternTokenizer
 
 pattern_tag = pattern_de.tag
-
+PUNCTUATION = string.punctuation
 
 class PatternTagger(BaseTagger):
 
@@ -51,6 +52,13 @@ class PatternTagger(BaseTagger):
         :param str or list sentence: A string or a list of sentence strings.
         :param tokenize: (optional) If ``False`` string has to be tokenized before (space separated string).
         '''
+        #: Do not process empty strings (Issue #3)
+        if sentence.strip() == "":
+            return []
+        #: Do not process strings consisting of a single punctuation mark (Issue #4)
+        elif sentence.strip() in PUNCTUATION:
+            _sym = sentence.strip()
+            return [(_sym, '.')]
         if tokenize:
             _tokenized = " ".join(self.tokenizer.word_tokenize(sentence))
             sentence = _tokenized

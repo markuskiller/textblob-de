@@ -48,11 +48,13 @@ class PatternParserLemmatizer(BaseLemmatizer):
 
         :param str text: A string.
         '''
+        #: Do not process empty strings (Issue #3)
+        if text.strip() == "":
+            return []
         parsed_sentences = self._parse_text(text)
         _lemmalist = []
         for s in parsed_sentences:
             tokens = s.split()
-
             for i, t in enumerate(tokens):
                 w, tag, phrase, role, lemma = t.split('/')
                 # The lexicon uses Swiss spelling: "ss" instead of "ß".

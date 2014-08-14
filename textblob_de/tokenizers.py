@@ -88,7 +88,17 @@ class NLTKPunktTokenizer(BaseTokenizer):
         a text into tokens, leaving all periods attached to words,
         but separating off other punctuation.
         '''
+        #: Do not process empty strings (Issue #3)
+        if text.strip() == "":
+            return []
         _tokens = self.word_tok.tokenize(text)
+        #: Handle strings consisting of a single punctuation mark seperately (Issue #4)
+        if len(_tokens) == 1:
+            if _tokens[0] in PUNCTUATION:
+                if include_punc:
+                    return _tokens
+                else:
+                    return []
         if include_punc:
             last_word = _tokens[-1]
             if last_word.endswith('.'):
@@ -161,9 +171,17 @@ class PatternTokenizer(BaseTokenizer):
         return sentences
 
     def word_tokenize(self, sentences, include_punc=True):
-
+        #: Do not process empty strings (Issue #3)
+        if sentences.strip() == "":
+            return []        
         _tokens = sentences.split(" ")
-
+        #: Handle strings consisting of a single punctuation mark seperately (Issue #4)
+        if len(_tokens) == 1:
+            if _tokens[0] in PUNCTUATION:
+                if include_punc:
+                    return _tokens
+                else:
+                    return []
         if include_punc:
             last_word = _tokens[-1]
             if len(last_word) > 1 and last_word.endswith('.'):
