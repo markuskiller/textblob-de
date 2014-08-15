@@ -18,11 +18,6 @@ textblob-de
      :target: https://waffle.io/markuskiller/textblob-de
      :alt: Issues in In Progress
      
-.. image:: https://badge.waffle.io/markuskiller/textblob-de.png?label=Done&title=Done
-     :target: https://waffle.io/markuskiller/textblob-de
-     :alt: Issues in Done
-
-
 
 German language support for `TextBlob <https://textblob.readthedocs.org/>`_ by Steven Loria.
 
