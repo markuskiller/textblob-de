@@ -10,7 +10,7 @@ Usage: ::
 Skip slow tests: ::
 
     python run_tests.py fast
-    
+
 Code imported from ``textblob-fr`` sample extension.
 
 :repo: `https://github.com/sloria/textblob-fr`_
@@ -23,21 +23,9 @@ import nose
 import sys
 
 from textblob_de.compat import PY2, PY26
-from textblob.packages import nltk
-from textblob import download_corpora
-
-
-# def check_for_nltk_data():
-#    try:
-#        nltk.tokenize.load('tokenizers/punkt/german.pickle')
-#        return True
-#    except LookupError:
-#        return False
 
 
 def main():
-    # if not check_for_nltk_data():
-        # download_corpora.download_all()
     args = get_argv()
     success = nose.run(argv=args)
     sys.exit(0) if success else sys.exit(1)
@@ -62,6 +50,7 @@ def get_argv():
     if attr_expression:
         args.extend(["-A", attr_expression])
     return args
+
 
 if __name__ == '__main__':
     main()

@@ -7,11 +7,7 @@
 from __future__ import absolute_import
 
 import os
-import re
 import string
-
-from itertools import chain
-from collections import defaultdict
 
 from textblob_de.base import BaseLemmatizer
 from textblob_de.packages import pattern_de
@@ -48,7 +44,7 @@ class PatternParserLemmatizer(BaseLemmatizer):
 
         :param str text: A string.
         '''
-        #: Do not process empty strings (Issue #3)
+        # : Do not process empty strings (Issue #3)
         if text.strip() == "":
             return []
         parsed_sentences = self._parse_text(text)
@@ -56,7 +52,7 @@ class PatternParserLemmatizer(BaseLemmatizer):
         for s in parsed_sentences:
             tokens = s.split()
             for i, t in enumerate(tokens):
-                #: Filter empty tokens from the parser output (Issue #5)
+                # : Filter empty tokens from the parser output (Issue #5)
                 #: This only happens if parser input is improperly tokenized
                 #: e.g. if there are empty strings in the list of tokens ['A', '', '.']
                 if t.startswith('/'):
@@ -71,7 +67,7 @@ class PatternParserLemmatizer(BaseLemmatizer):
                 elif tag.startswith("N") and i == 0:
                     lemma = lemma.title()
                 # Todo: Check if it makes sense to treat '/' as punctuation
-                # (especially for sentiment analysis it might be interesting 
+                # (especially for sentiment analysis it might be interesting
                 # to treat it as OR ('oder')).
                 if w in string.punctuation or lemma == '/':
                     continue

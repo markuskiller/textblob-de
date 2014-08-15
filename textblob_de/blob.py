@@ -9,12 +9,12 @@
 #
 '''Wrappers for various units of text.
 
-This includes the main :class:`TextBlobDE <textblob_de.blob.TextBlobDE>`, 
+This includes the main :class:`TextBlobDE <textblob_de.blob.TextBlobDE>`,
 :class:`Word <textblob_de.blob.Word>`, and :class:`WordList <textblob_de.blob.WordList>` classes.
 
 Whenever possible, classes are inherited from ``textblob`` main package, but in many
-cases, the models for German have to be initialised here. The main reason is that if a 
-word object is generated from an inherited class, it will use the English models, 
+cases, the models for German have to be initialised here. The main reason is that if a
+word object is generated from an inherited class, it will use the English models,
 used in ``textblob`` main package.
 
 Example usage: ::
@@ -27,7 +27,7 @@ Example usage: ::
     WordList([])
     >>> b.words
     WordList(['Einfach', 'ist', 'besser', 'als', 'kompliziert'])
-    
+
 '''
 from __future__ import absolute_import
 
@@ -39,11 +39,11 @@ from collections import defaultdict, namedtuple
 from textblob.blob import _initialize_models
 from textblob.decorators import cached_property, requires_nltk_corpus
 from textblob.translate import Translator
-from textblob.utils import PUNCTUATION_REGEX, lowerstrip
+from textblob.utils import lowerstrip
 
 from textblob_de.base import BaseBlob as _BaseBlob
 from textblob_de.compat import unicode, basestring
-from textblob_de.tokenizers import NLTKPunktTokenizer, PatternTokenizer
+from textblob_de.tokenizers import NLTKPunktTokenizer
 from textblob_de.tokenizers import word_tokenize, sent_tokenize
 from textblob_de.taggers import PatternTagger
 from textblob_de.packages import pattern_de
@@ -307,7 +307,8 @@ class BaseBlob(_BaseBlob):
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`NLTKPunktTokenizer() <textblob_de.tokenizers.NLTKPunktTokenizer>`.
     :param np_extractor: (optional) An NPExtractor instance. If ``None``,
-        defaults to :class:`PatternParserNPExtractor() <textblob_de.np_extractors.PatternParserNPExtractor>`.
+        defaults to :class:`PatternParserNPExtractor()
+        <textblob_de.np_extractors.PatternParserNPExtractor>`.
     :param pos_tagger: (optional) A Tagger instance. If ``None``, defaults to
         :class:`PatternTagger <textblob_de.taggers.PatternTagger>`.
     :param analyzer: (optional) A sentiment analyzer. If ``None``, defaults to
@@ -340,13 +341,20 @@ class BaseBlob(_BaseBlob):
             raise TypeError('The `text` argument passed to `__init__(text)` '
                             'must be a string, not {0}'.format(type(text)))
         if clean_html:
-            raise NotImplementedError("clean_html has been deprecated. "
-                                      "To remove HTML markup, use BeautifulSoup's "
-                                      "get_text() function")
+            raise NotImplementedError(
+                "clean_html has been deprecated. "
+                "To remove HTML markup, use BeautifulSoup's "
+                "get_text() function")
         self.raw = self.string = text
         self.stripped = lowerstrip(self.raw, all=True)
-        _initialize_models(self, self.tokenizer, self.pos_tagger, self.np_extractor, self.analyzer,
-                           self.parser, self.classifier)
+        _initialize_models(
+            self,
+            self.tokenizer,
+            self.pos_tagger,
+            self.np_extractor,
+            self.analyzer,
+            self.parser,
+            self.classifier)
 
     @cached_property
     def words(self):
@@ -357,7 +365,10 @@ class BaseBlob(_BaseBlob):
         :returns: A :class:`WordList <WordList>` of word tokens.
         '''
         return WordList(
-            word_tokenize(self.raw, tokenizer=self.tokenizer, include_punc=False))
+            word_tokenize(
+                self.raw,
+                tokenizer=self.tokenizer,
+                include_punc=False))
 
     @cached_property
     def tokens(self):
@@ -454,8 +465,11 @@ class BaseBlob(_BaseBlob):
         """
         if from_lang is None:
             from_lang = self.translator.detect(self.string)
-        return self.__class__(self.translator.translate(self.raw,
-                                                        from_lang=from_lang, to_lang=to))
+        return self.__class__(
+            self.translator.translate(
+                self.raw,
+                from_lang=from_lang,
+                to_lang=to))
 
     def correct(self):
         """Attempt to correct the spelling of a blob.
@@ -581,7 +595,8 @@ class TextBlobDE(BaseBlob):
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`NLTKPunktTokenizer() <textblob_de.tokenizers.NLTKPunktTokenizer>`.
     :param np_extractor: (optional) An NPExtractor instance. If ``None``,
-        defaults to :class:`PatternParserNPExtractor() <textblob_de.np_extractors.PatternParserNPExtractor>`.
+        defaults to :class:`PatternParserNPExtractor()
+        <textblob_de.np_extractors.PatternParserNPExtractor>`.
     :param pos_tagger: (optional) A Tagger instance. If ``None``, defaults to
         :class:`PatternTagger <textblob_de.taggers.PatternTagger>`.
     :param analyzer: (optional) A sentiment analyzer. If ``None``, defaults to
@@ -619,10 +634,10 @@ class TextBlobDE(BaseBlob):
 
         :rtype: named tuple of the form ``Sentiment(polarity=0.0, subjectivity=0.0)``
         """
-        #: Enhancement Issue #2
+        # : Enhancement Issue #2
         #: adapted from 'textblob.en.sentiments.py'
         #: Return type declaration
-        _RETURN_TYPE = namedtuple('Sentiment', ['polarity', 'subjectivity'])    
+        _RETURN_TYPE = namedtuple('Sentiment', ['polarity', 'subjectivity'])
         _polarity = 0
         _subjectivity = 0
         for s in self.sentences:
@@ -699,10 +714,16 @@ class TextBlobDE(BaseBlob):
                 start_index = None
                 end_index = None
             # Sentences share the same models as their parent blob
-            s = Sentence(sent, start_index=start_index, end_index=end_index,
-                         tokenizer=self.tokenizer, np_extractor=self.np_extractor,
-                         pos_tagger=self.pos_tagger, analyzer=self.analyzer,
-                         parser=self.parser, classifier=self.classifier)
+            s = Sentence(
+                sent,
+                start_index=start_index,
+                end_index=end_index,
+                tokenizer=self.tokenizer,
+                np_extractor=self.np_extractor,
+                pos_tagger=self.pos_tagger,
+                analyzer=self.analyzer,
+                parser=self.parser,
+                classifier=self.classifier)
             sentence_objects.append(s)
         return sentence_objects
 
@@ -727,7 +748,8 @@ class BlobberDE(object):
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`NLTKPunktTokenizer() <textblob_de.tokenizers.NLTKPunktTokenizer>`.
     :param np_extractor: (optional) An NPExtractor instance. If ``None``,
-        defaults to :class:`PatternParserNPExtractor() <textblob_de.np_extractors.PatternParserNPExtractor>`.
+        defaults to :class:`PatternParserNPExtractor()
+        <textblob_de.np_extractors.PatternParserNPExtractor>`.
     :param pos_tagger: (optional) A Tagger instance. If ``None``, defaults to
         :class:`PatternTagger <textblob_de.taggers.PatternTagger>`.
     :param analyzer: (optional) A sentiment analyzer. If ``None``, defaults to
@@ -756,8 +778,14 @@ class BlobberDE(object):
             tokenizer=self.tokenizer)
         self.classifier = classifier if classifier else None
 
-        _initialize_models(self, self.tokenizer, self.pos_tagger, self.np_extractor, self.analyzer,
-                           self.parser, self.classifier)
+        _initialize_models(
+            self,
+            self.tokenizer,
+            self.pos_tagger,
+            self.np_extractor,
+            self.analyzer,
+            self.parser,
+            self.classifier)
 
     def __call__(self, text):
         '''Return a new TextBlob object with this Blobber's ``np_extractor``,
@@ -765,10 +793,14 @@ class BlobberDE(object):
 
         :returns: A new :class:`TextBlob <TextBlob>`.
         '''
-        return TextBlobDE(text, tokenizer=self.tokenizer, pos_tagger=self.pos_tagger,
-                          np_extractor=self.np_extractor, analyzer=self.analyzer,
-                          parser=self.parser,
-                          classifier=self.classifier)
+        return TextBlobDE(
+            text,
+            tokenizer=self.tokenizer,
+            pos_tagger=self.pos_tagger,
+            np_extractor=self.np_extractor,
+            analyzer=self.analyzer,
+            parser=self.parser,
+            classifier=self.classifier)
 
     def __repr__(self):
         classifier_name = self.classifier.__class__.__name__ + \

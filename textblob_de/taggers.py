@@ -31,6 +31,7 @@ from textblob_de.tokenizers import PatternTokenizer
 pattern_tag = pattern_de.tag
 PUNCTUATION = string.punctuation
 
+
 class PatternTagger(BaseTagger):
 
     '''Tagger that uses the implementation in
@@ -39,7 +40,8 @@ class PatternTagger(BaseTagger):
 
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`PatternTokenizer() <textblob_de.tokenizers.PatternTokenizer>`.
-    :param include_punc: (optional) whether to include punctuation as separate tokens. Default to ``False``.
+    :param include_punc: (optional) whether to include punctuation as separate tokens.
+        Default to ``False``.
     '''
 
     def __init__(self, tokenizer=None, include_punc=False):
@@ -50,13 +52,14 @@ class PatternTagger(BaseTagger):
         '''Tag a string `sentence`.
 
         :param str or list sentence: A string or a list of sentence strings.
-        :param tokenize: (optional) If ``False`` string has to be tokenized before (space separated string).
+        :param tokenize: (optional) If ``False`` string has to be tokenized before
+            (space separated string).
         '''
-        #: Do not process empty strings (Issue #3)
+        # : Do not process empty strings (Issue #3)
         if sentence.strip() == "":
             return []
-        #: Do not process strings consisting of a single punctuation mark (Issue #4)
-        elif sentence.strip() in PUNCTUATION:         
+        # : Do not process strings consisting of a single punctuation mark (Issue #4)
+        elif sentence.strip() in PUNCTUATION:
             if self.include_punc:
                 _sym = sentence.strip()
                 if _sym in tuple('.?!'):

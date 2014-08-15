@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
 
-import sys
-
 from textblob_de.blob import TextBlobDE, BlobberDE, Word, WordList, Sentence
 from textblob_de.np_extractors import PatternParserNPExtractor
 from textblob_de.taggers import PatternTagger

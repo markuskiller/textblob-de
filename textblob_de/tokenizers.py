@@ -12,7 +12,6 @@
 '''
 from __future__ import absolute_import
 
-import re
 import string
 
 from itertools import chain
@@ -22,7 +21,6 @@ from textblob.utils import strip_punc
 from textblob.base import BaseTokenizer
 from textblob.decorators import requires_nltk_corpus
 
-from textblob_de.compat import basestring
 from textblob_de.packages import pattern_de
 from textblob_de.packages import pattern_text
 
@@ -59,8 +57,10 @@ class NLTKPunktTokenizer(BaseTokenizer):
         '''Return a list of word tokens.
 
         :param text: string of text.
-        :param include_punc: (optional) whether to include punctuation as separate tokens. Default to True.
-        :param nested: (optional) whether to return tokens as nested lists of sentences. Default to False.
+        :param include_punc: (optional) whether to include punctuation as separate
+            tokens. Default to True.
+        :param nested: (optional) whether to return tokens as nested lists of
+            sentences. Default to False.
         '''
         self.tokens = [
             w for w in (
@@ -79,8 +79,11 @@ class NLTKPunktTokenizer(BaseTokenizer):
         collocations, and words that start sentences, then uses that to find
         sentence boundaries.
         '''
-        sentences = self.sent_tok.tokenize(text,
-                                           realign_boundaries=kwargs.get("realign_boundaries", True))
+        sentences = self.sent_tok.tokenize(
+            text,
+            realign_boundaries=kwargs.get(
+                "realign_boundaries",
+                True))
         return sentences
 
     def word_tokenize(self, text, include_punc=True):
@@ -88,11 +91,11 @@ class NLTKPunktTokenizer(BaseTokenizer):
         a text into tokens, leaving all periods attached to words,
         but separating off other punctuation.
         '''
-        #: Do not process empty strings (Issue #3)
+        # : Do not process empty strings (Issue #3)
         if text.strip() == "":
             return []
         _tokens = self.word_tok.tokenize(text)
-        #: Handle strings consisting of a single punctuation mark seperately (Issue #4)
+        # : Handle strings consisting of a single punctuation mark seperately (Issue #4)
         if len(_tokens) == 1:
             if _tokens[0] in PUNCTUATION:
                 if include_punc:
@@ -101,7 +104,8 @@ class NLTKPunktTokenizer(BaseTokenizer):
                     return []
         if include_punc:
             last_word = _tokens[-1]
-            # Make sure that you do not separate '.' tokens into ['', '.'] (Issue #5)
+            # Make sure that you do not separate '.' tokens into ['', '.']
+            # (Issue #5)
             if last_word.endswith('.') and len(last_word) > 1:
                 _tokens = _tokens[:-1] + [last_word[:-1], '.']
             return _tokens
@@ -111,8 +115,12 @@ class NLTKPunktTokenizer(BaseTokenizer):
             # e.g. "gibt's" => ["gibt", "'s"] in "Heute gibt's viel zu tun!"
             # e.g. "hat's" => ["hat", "'s"]
             # e.g. "home." => ['home']
-            words = [word if word.startswith("'") else strip_punc(word, all=False)
-                     for word in _tokens if strip_punc(word, all=False)]
+            words = [
+                word if word.startswith("'") else strip_punc(
+                    word,
+                    all=False) for word in _tokens if strip_punc(
+                    word,
+                    all=False)]
             return list(words)
 
 
@@ -141,7 +149,8 @@ class PatternTokenizer(BaseTokenizer):
         '''Return a list of word tokens.
 
         :param text: string of text.
-        :param include_punc: (optional) whether to include punctuation as separate tokens. Default to True.
+        :param include_punc: (optional) whether to include punctuation as separate
+            tokens. Default to True.
         '''
         self.tokens = [
             w for w in (
@@ -172,11 +181,11 @@ class PatternTokenizer(BaseTokenizer):
         return sentences
 
     def word_tokenize(self, sentences, include_punc=True):
-        #: Do not process empty strings (Issue #3)
+        # : Do not process empty strings (Issue #3)
         if sentences.strip() == "":
-            return []        
+            return []
         _tokens = sentences.split(" ")
-        #: Handle strings consisting of a single punctuation mark seperately (Issue #4)
+        # : Handle strings consisting of a single punctuation mark seperately (Issue #4)
         if len(_tokens) == 1:
             if _tokens[0] in PUNCTUATION:
                 if include_punc:
@@ -185,7 +194,8 @@ class PatternTokenizer(BaseTokenizer):
                     return []
         if include_punc:
             last_word = _tokens[-1]
-            # Make sure that you do not separate '.' tokens into ['', '.'] (Issue #5)
+            # Make sure that you do not separate '.' tokens into ['', '.']
+            # (Issue #5)
             if last_word.endswith('.') and len(last_word) > 1:
                 _tokens = _tokens[:-1] + [last_word[:-1], '.']
             return _tokens
@@ -195,8 +205,12 @@ class PatternTokenizer(BaseTokenizer):
             # e.g. "gibt's" => ["gibt", "'s"] in "Heute gibt's viel zu tun!"
             # e.g. "hat's" => ["hat", "'s"]
             # e.g. "home." => ['home']
-            words = [word if word.startswith("'") else strip_punc(word, all=False)
-                     for word in _tokens if strip_punc(word, all=False)]
+            words = [
+                word if word.startswith("'") else strip_punc(
+                    word,
+                    all=False) for word in _tokens if strip_punc(
+                    word,
+                    all=False)]
             return list(words)
 
 
@@ -226,7 +240,8 @@ class WordTokenizer(BaseTokenizer):
         '''Return a list of word tokens.
 
         :param text: string of text.
-        :param include_punc: (optional) whether to include punctuation as separate tokens. Default to True.
+        :param include_punc: (optional) whether to include punctuation as separate
+            tokens. Default to True.
         '''
         return self.tokenizer.word_tokenize(text, include_punc, **kwargs)
 
@@ -249,14 +264,16 @@ class SentenceTokenizer(BaseTokenizer):
 
     def __init__(self, tokenizer=None, *args, **kwargs):
         # make sure that tokenizer is not referring to this class
-        self.tokenizer = tokenizer if tokenizer and \
-            not isinstance(tokenizer, SentenceTokenizer) else NLTKPunktTokenizer()
+        self.tokenizer = tokenizer if tokenizer and not isinstance(
+            tokenizer,
+            SentenceTokenizer) else NLTKPunktTokenizer()
 
     def tokenize(self, text, **kwargs):
         '''Return a list of word tokens.
 
         :param text: string of text.
-        :param include_punc: (optional) whether to include punctuation as separate tokens. Default to True.
+        :param include_punc: (optional) whether to include punctuation as separate
+            tokens. Default to True.
         '''
         return self.tokenizer.sent_tokenize(text, **kwargs)
 

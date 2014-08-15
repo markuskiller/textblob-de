@@ -7,9 +7,7 @@
 from __future__ import absolute_import
 
 import os
-import re
 
-from itertools import chain
 from collections import defaultdict
 
 from textblob.base import BaseNPExtractor
@@ -25,8 +23,28 @@ try:
 except:
     MODULE = ""
 
-INSIGNIFICANT = ['der', 'die', 'das', 'des', 'dem', 'ein', 'eine', 'einer', 'einen', 'eines',
-                 'welcher', 'welche', 'welches', 'und', 'oder', 'mich', 'dich', 'sich', 'uns', 'euch', 'ihnen']
+INSIGNIFICANT = [
+    'der',
+    'die',
+    'das',
+    'des',
+    'dem',
+    'ein',
+    'eine',
+    'einer',
+    'einen',
+    'eines',
+    'welcher',
+    'welche',
+    'welches',
+    'und',
+    'oder',
+    'mich',
+    'dich',
+    'sich',
+    'uns',
+    'euch',
+    'ihnen']
 
 START_NEW_NP = ['der', 'des', 'und', 'oder']
 
@@ -36,8 +54,12 @@ def _get_verb_lexicon():
 
     with open(os.path.join(MODULE, 'ext', '_pattern', 'text', 'de', 'de-verbs.txt'), 'r') as _vl:
         for line in _vl:
-            verb_lexicon[line[0].lower()] = set(list(verb_lexicon[line[0].lower()])
-                                                + line.strip().split(','))
+            verb_lexicon[
+                line[0].lower()] = set(
+                list(
+                    verb_lexicon[
+                        line[0].lower()]) +
+                line.strip().split(','))
 
     setattr(_get_verb_lexicon, "cached", verb_lexicon)
     return verb_lexicon

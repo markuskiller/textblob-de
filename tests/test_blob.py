@@ -37,8 +37,8 @@ import textblob.wordnet as wn
 
 def expected_failure(test):
     '''Decorator for expected failures in nose tests.
-    
-    Source [accessed: 21/07/2014]: 
+
+    Source [accessed: 21/07/2014]:
     http://stackoverflow.com/questions/9613932/nose-plugin-for-expected-failures
     '''
     @functools.wraps(test)
@@ -53,30 +53,31 @@ def expected_failure(test):
 
 Synset = nltk.corpus.reader.Synset
 
-#train = [
-    #('Ich liebe dieses Sandwich.', 'pos'),
-    #('Dieser Ort ist wunderbar!', 'pos'),
-    #("Was für ein grossartiges Abendessen.", 'pos'),
-    #('Ich mag dieses Bier wirklich gut.', 'pos'),
-    #('Das ist meine beste Leistung bisher.', 'pos'),
-    #("Was für ein Ausblick!", 'pos'),
-    #('Ich mag dieses Restaurant nicht.', 'neg'),
-    #('Ich habe diese Angelegenheit satt!', 'neg'),
-    #("Ich kann nicht damit umgehen.", 'neg'),
-    #('Er ist mein Erzfeind!', 'neg'),
-    #('Mein Vorgesetzter ist schrecklich.', 'neg')
+# train = [
+#('Ich liebe dieses Sandwich.', 'pos'),
+#('Dieser Ort ist wunderbar!', 'pos'),
+#("Was für ein grossartiges Abendessen.", 'pos'),
+#('Ich mag dieses Bier wirklich gut.', 'pos'),
+#('Das ist meine beste Leistung bisher.', 'pos'),
+#("Was für ein Ausblick!", 'pos'),
+#('Ich mag dieses Restaurant nicht.', 'neg'),
+#('Ich habe diese Angelegenheit satt!', 'neg'),
+#("Ich kann nicht damit umgehen.", 'neg'),
+#('Er ist mein Erzfeind!', 'neg'),
+#('Mein Vorgesetzter ist schrecklich.', 'neg')
 #]
 
-#test = [
-    #('Das Bier war gut.', 'pos'),
-    #('Ich mag meine Arbeitsstelle nicht.', 'neg'),
-    #("I ain't feeling dandy today.", 'neg'),
-    #("Ich fühle mich wunderbar!", 'pos'),
-    #('Gary ist ein Freund von mir.', 'pos'),
-    #("Ich kann nicht glauben, dass ich hier mitmache.", 'neg')
+# test = [
+#('Das Bier war gut.', 'pos'),
+#('Ich mag meine Arbeitsstelle nicht.', 'neg'),
+#("I ain't feeling dandy today.", 'neg'),
+#("Ich fühle mich wunderbar!", 'pos'),
+#('Gary ist ein Freund von mir.', 'pos'),
+#("Ich kann nicht glauben, dass ich hier mitmache.", 'neg')
 #]
 
 #classifier = NaiveBayesClassifier(train)
+
 
 class WordListTest(TestCase):
 
@@ -102,37 +103,42 @@ class WordListTest(TestCase):
         wl = tb.WordList(['Schön', 'ist', 'besser'])
         # This compat clause is necessary because from __future__ import unicode_literals
         # turns the whole second argument into one single unicode string:
-        # Without it you get an AssertionError on PY2: 
+        # Without it you get an AssertionError on PY2:
         # "WordList([u'Sch\\xf6n', u'ist', u'besser'])" != \
         # u"WordList(['Sch\xf6n', 'ist', 'besser'])"
         if PY2:
-            assert_equal(unicode(repr(wl)), u"WordList([u'Sch\\xf6n', u'ist', u'besser'])")
+            assert_equal(
+                unicode(
+                    repr(wl)),
+                u"WordList([u'Sch\\xf6n', u'ist', u'besser'])")
         else:
             assert_equal(repr(wl), "WordList(['Schön', 'ist', 'besser'])")
 
     def test_slice_repr(self):
         wl = tb.WordList(['Schön', 'ist', 'besser'])
         if PY2:
-            assert_equal(unicode(repr(wl[:2])), u"WordList([u'Sch\\xf6n', u'ist'])")
+            assert_equal(unicode(repr(wl[:2])),
+                         u"WordList([u'Sch\\xf6n', u'ist'])")
         else:
             assert_equal(repr(wl[:2]), "WordList(['Schön', 'ist'])")
 
     def test_str(self):
         wl = tb.WordList(self.words)
         assert_equal(str(wl), str(self.words))
-    
-    
+
     def test_singularize(self):
-        wl = tb.WordList(['Hunde', 'Katzen', 'Büffel', 
-                          #'Menschen', 'Mäuse' not processed correctly
+        wl = tb.WordList(['Hunde', 'Katzen', 'Büffel',
+                          # 'Menschen', 'Mäuse' not processed correctly
                           ])
-        assert_equal(wl.singularize(), tb.WordList(['Hund', 'Katze', 'Büffel', 
-                                                    #'Mensch', 'Maus' processed as 'Menschen', 'Mäus'
-                     ]))
-    
+        assert_equal(wl.singularize(), tb.WordList(['Hund', 'Katze', 'Büffel',
+                                                    # 'Mensch', 'Maus' processed as
+                                                    # 'Menschen', 'Mäus'
+                                                    ]))
+
     def test_pluralize(self):
         wl = tb.WordList(['Hund', 'Katze', 'Büffel'])
-        assert_equal(wl.pluralize(), tb.WordList(['Hunde', 'Katzen', 'Büffel']))
+        assert_equal(
+            wl.pluralize(), tb.WordList(['Hunde', 'Katzen', 'Büffel']))
 
     #@attr('slow')
     @expected_failure
@@ -183,7 +189,7 @@ class SentenceTest(TestCase):
         self.raw_sentence = \
             'Peter mag Restaurants, die belgisches Bier servieren.'
         self.sentence = tb.Sentence(self.raw_sentence)
-        
+
     def test_empty_sentence(self):
         assert_equal(self.empty_sentence.tags, [])
         assert_equal(self.empty_sentence.tokens, tb.WordList([]))
@@ -193,28 +199,34 @@ class SentenceTest(TestCase):
         assert_equal(self.empty_sentence.word_counts, {})
         assert_equal(self.empty_sentence.ngrams(), [])
         assert_equal(self.empty_sentence.parse(), "")
-        
+
     def test_single_punctuation(self):
         assert_equal(self.single_period.tags, [])
         assert_equal(self.single_period.parse(), "././O/O")
         assert_equal(self.single_comma.parse(), ",/,/O/O")
         assert_equal(self.single_exclamation_mark.parse(), "!/./O/O")
-        
+
     def test_text_space_period(self):
         assert_equal(self.text_space_period.tokens, ['A', '.'])
 
     def test_repr(self):
         # In Py2, repr returns bytestring
         if PY2:
-            assert_equal(repr(self.sentence),
-                        b"Sentence(\"{0}\")".format(binary_type(self.raw_sentence)))
+            assert_equal(
+                repr(
+                    self.sentence), b"Sentence(\"{0}\")".format(
+                    binary_type(
+                        self.raw_sentence)))
         # In Py3, returns text type string
         else:
-            assert_equal(repr(self.sentence), 'Sentence("{0}")'.format(self.raw_sentence))
+            assert_equal(
+                repr(
+                    self.sentence), 'Sentence("{0}")'.format(
+                    self.raw_sentence))
 
     def test_stripped_sentence(self):
         assert_equal(self.sentence.stripped,
-             'peter mag restaurants die belgisches bier servieren')
+                     'peter mag restaurants die belgisches bier servieren')
 
     def test_len(self):
         assert_equal(len(self.sentence), len(self.raw_sentence))
@@ -223,25 +235,25 @@ class SentenceTest(TestCase):
     def test_dict(self):
         sentence_dict = self.sentence.dict
         assert_equal(sentence_dict, {
-        'raw': self.raw_sentence,
-        'start_index': 0,
-        'polarity': 1.0,
-        'subjectivity': 0.0,
-        'end_index': len(self.raw_sentence) - 1,
-        'stripped': 'peter mag restaurants die belgisches bier servieren',
-        'noun_phrases': self.sentence.noun_phrases,
-            })
+            'raw': self.raw_sentence,
+            'start_index': 0,
+            'polarity': 1.0,
+            'subjectivity': 0.0,
+            'end_index': len(self.raw_sentence) - 1,
+            'stripped': 'peter mag restaurants die belgisches bier servieren',
+            'noun_phrases': self.sentence.noun_phrases,
+        })
 
     def test_pos_tags(self):
         then1 = datetime.now()
-        
+
         tagged = self.sentence.pos_tags
         now1 = datetime.now()
         t1 = now1 - then1
 
         then2 = datetime.now()
         tagged = self.sentence.pos_tags
-        now2 = datetime.now()  
+        now2 = datetime.now()
         t2 = now2 - then2
 
         # Getting the pos tags the second time should be faster
@@ -249,11 +261,11 @@ class SentenceTest(TestCase):
         print("T1, T2 ", t1, t2)
         assert_true(t2 < t1)
         assert_equal(tagged,
-                     
-                [('Peter', 'NNP'), ('mag', 'VB'), ('Restaurants', 'NN'),
-                 ('die', 'DT'), ('belgisches', 'JJ'), ('Bier', 'NN'), ('servieren', 'VB')]
 
-        )
+                     [('Peter', 'NNP'), ('mag', 'VB'), ('Restaurants', 'NN'),
+                      ('die', 'DT'), ('belgisches', 'JJ'), ('Bier', 'NN'), ('servieren', 'VB')]
+
+                     )
 
     @attr('slow')
     def test_noun_phrases(self):
@@ -266,7 +278,9 @@ class SentenceTest(TestCase):
         #assert_equal(words[1].pluralize(), 'places')
 
     def test_string_equality(self):
-        assert_equal(self.sentence, 'Peter mag Restaurants, die belgisches Bier servieren.')
+        assert_equal(
+            self.sentence,
+            'Peter mag Restaurants, die belgisches Bier servieren.')
 
     @attr("requires_internet")
     def test_translate(self):
@@ -278,398 +292,399 @@ class SentenceTest(TestCase):
         # it does not (not entirely sure if this is Google or TextBlob)
         # Further tests needed.
         assert_equal(translated, "This is a sentence .")
-        
+
     @expected_failure
     def test_correct(self):
         blob = tb.Sentence("Meinne Reschtschreibung ist schrrecklich.")
         assert_true(isinstance(blob.correct(), tb.Sentence))
-        assert_equal(blob.correct(), tb.Sentence("Meine Rechtschreibung ist schrecklich."))
+        assert_equal(
+            blob.correct(),
+            tb.Sentence("Meine Rechtschreibung ist schrecklich."))
         blob = tb.Sentence("Meinne Reschtschreibung \nist guut.")
         assert_true(isinstance(blob.correct(), tb.Sentence))
-        assert_equal(blob.correct(), tb.Sentence("Meine Rechtschreibung \nist gut."))
+        assert_equal(
+            blob.correct(),
+            tb.Sentence("Meine Rechtschreibung \nist gut."))
 
     @attr('requires_internet')
     def test_translate_detects_language_by_default(self):
         blob = tb.TextBlobDE(unicode("ذات سيادة كاملة"))
-        assert_true(blob.translate() in ("Vollständig souveränen", 
+        assert_true(blob.translate() in ("Vollständig souveränen",
                                          "Mit voller Souveränität"))
 
 
-#class TextBlobTest(TestCase):
+# class TextBlobTest(TestCase):
 
-    #def setUp(self):
-        #self.text = \
-            #"""Beautiful is better than ugly.
-#Explicit is better than implicit.
-#Simple is better than complex.
-#Complex is better than complicated.
-#Flat is better than nested.
-#Sparse is better than dense.
-#Readability counts.
-#Special cases aren't special enough to break the rules.
-#Although practicality beats purity.
-#Errors should never pass silently.
-#Unless explicitly silenced.
-#In the face of ambiguity, refuse the temptation to guess.
-#There should be one-- and preferably only one --obvious way to do it.
-#Although that way may not be obvious at first unless you're Dutch.
-#Now is better than never.
-#Although never is often better than *right* now.
-#If the implementation is hard to explain, it's a bad idea.
-#If the implementation is easy to explain, it may be a good idea.
-#Namespaces are one honking great idea -- let's do more of those!"""
+    # def setUp(self):
+        # self.text = \
+        #"""Beautiful is better than ugly.
+# Explicit is better than implicit.
+# Simple is better than complex.
+# Complex is better than complicated.
+# Flat is better than nested.
+# Sparse is better than dense.
+# Readability counts.
+# Special cases aren't special enough to break the rules.
+# Although practicality beats purity.
+# Errors should never pass silently.
+# Unless explicitly silenced.
+# In the face of ambiguity, refuse the temptation to guess.
+# There should be one-- and preferably only one --obvious way to do it.
+# Although that way may not be obvious at first unless you're Dutch.
+# Now is better than never.
+# Although never is often better than *right* now.
+# If the implementation is hard to explain, it's a bad idea.
+# If the implementation is easy to explain, it may be a good idea.
+# Namespaces are one honking great idea -- let's do more of those!"""
         #self.blob = tb.TextBlobDE(self.text)
 
-        #self.np_test_text = '''
-#Python is a widely used general-purpose, high-level programming language.
-#Its design philosophy emphasizes code readability, and its syntax allows
-#programmers to express concepts in fewer
-#lines of code than would be possible in languages such as C.
-#The language provides constructs intended to enable clear programs on both a small and large scale.
-#Python supports multiple programming paradigms, including object-oriented,
-#imperative and functional programming or procedural styles.
-#It features a dynamic type system and automatic memory management and
-#has a large and comprehensive standard library. Like other dynamic languages, Python is often used as a scripting language,
-#but is also used in a wide range of non-scripting contexts.
-#Using third-party tools, Python code can be packaged into standalone executable
-#programs. Python interpreters are available for many operating systems. CPython, the reference implementation of Python, is free and open source software and h
-#as a community-based development model, as do nearly all of its alternative implementations. CPython
-#is managed by the non-profit Python Software Foundation.'''
+        # self.np_test_text = '''
+# Python is a widely used general-purpose, high-level programming language.
+# Its design philosophy emphasizes code readability, and its syntax allows
+# programmers to express concepts in fewer
+# lines of code than would be possible in languages such as C.
+# The language provides constructs intended to enable clear programs on both a small and
+# large scale.
+# Python supports multiple programming paradigms, including object-oriented,
+# imperative and functional programming or procedural styles.
+# It features a dynamic type system and automatic memory management and
+# has a large and comprehensive standard library. Like other dynamic languages, Python is often
+# used as a scripting language,
+# but is also used in a wide range of non-scripting contexts.
+# Using third-party tools, Python code can be packaged into standalone executable
+# programs. Python interpreters are available for many operating systems. CPython, the reference
+# implementation of Python, is free and open source software and h
+# as a community-based development model, as do nearly all of its alternative implementations.
+# CPython is managed by the non-profit Python Software Foundation.'''
+
         #self.np_test_blob = tb.TextBlobDE(self.np_test_text)
 
         #self.short = "Beautiful is better than ugly. "
         #self.short_blob = tb.TextBlobDE(self.short)
 
-    #def test_init(self):
+    # def test_init(self):
         #blob = tb.TextBlobDE('Wow I love this place. It really rocks my socks!')
         #assert_equal(len(blob.sentences), 2)
         #assert_equal(blob.sentences[1].stripped, 'it really rocks my socks')
         #assert_equal(blob.string, blob.raw)
 
-        ## Must initialize with a string
+        # Must initialize with a string
         #assert_raises(TypeError, tb.TextBlobDE.__init__, ['invalid'])
 
-    #def test_string_equality(self):
+    # def test_string_equality(self):
         #blob = tb.TextBlobDE("Textblobs should be equal to strings.")
         #assert_equal(blob, "Textblobs should be equal to strings.")
 
-    #def test_string_comparison(self):
+    # def test_string_comparison(self):
         #blob = tb.TextBlobDE("apple")
         #assert_true(blob < "banana")
         #assert_true(blob > 'aardvark')
 
-    #def test_hash(self):
+    # def test_hash(self):
         #blob = tb.TextBlobDE('apple')
         #assert_equal(hash(blob), hash('apple'))
         #assert_not_equal(hash(blob), hash('banana'))
 
-    #def test_stripped(self):
+    # def test_stripped(self):
         #blob = tb.TextBlobDE("Um... well this ain't right.!..")
         #assert_equal(blob.stripped, "um well this aint right")
 
-    #def test_ngrams(self):
+    # def test_ngrams(self):
         #blob = tb.TextBlobDE("I am eating a pizza.")
         #three_grams = blob.ngrams()
-        #assert_equal(three_grams, [
-                #tb.WordList(('I', 'am', 'eating')),
-                #tb.WordList(('am', 'eating', 'a')),
-                #tb.WordList(('eating', 'a', 'pizza'))
-            #])
+        # assert_equal(three_grams, [
+        #tb.WordList(('I', 'am', 'eating')),
+        #tb.WordList(('am', 'eating', 'a')),
+        #tb.WordList(('eating', 'a', 'pizza'))
+        #])
         #four_grams = blob.ngrams(n=4)
-        #assert_equal(four_grams, [
-            #tb.WordList(('I', 'am', 'eating', 'a')),
-            #tb.WordList(('am', 'eating', 'a', 'pizza'))
+        # assert_equal(four_grams, [
+        #tb.WordList(('I', 'am', 'eating', 'a')),
+        #tb.WordList(('am', 'eating', 'a', 'pizza'))
         #])
 
-    #def test_clean_html(self):
-        #html = '<b>Python</b> is a widely used <a href="/wiki/General-purpose_programming_language" title="General-purpose programming language">general-purpose</a>, <a href="/wiki/High-level_programming_language" title="High-level programming language">high-level programming language</a>.'
-        #assert_raises(NotImplementedError, lambda: tb.TextBlobDE(html, clean_html=True))
-
-    #def test_sentences(self):
+    # def test_sentences(self):
         #blob = self.blob
         #assert_equal(len(blob.sentences), 19)
         #assert_true(isinstance(blob.sentences[0], tb.Sentence))
 
-    #def test_senences_with_space_before_punctuation(self):
+    # def test_senences_with_space_before_punctuation(self):
         #text = "Uh oh. This sentence might cause some problems. : Now we're ok."
         #b = tb.TextBlobDE(text)
         #assert_equal(len(b.sentences), 3)
 
-    #def test_sentiment_of_foreign_text(self):
-        #blob = tb.TextBlobDE(u'Nous avons cherch\xe9 un motel dans la r\xe9gion de '
-            #'Madison, mais les motels ne sont pas nombreux et nous avons '
-            #'finalement choisi un Motel 6, attir\xe9s par le bas '
-            #'prix de la chambre.')
+    # def test_sentiment_of_foreign_text(self):
+        # blob = tb.TextBlobDE(u'Nous avons cherch\xe9 un motel dans la r\xe9gion de '
+        #'Madison, mais les motels ne sont pas nombreux et nous avons '
+        #'finalement choisi un Motel 6, attir\xe9s par le bas '
+        #'prix de la chambre.')
         #assert_true(isinstance(blob.sentiment[0], float))
 
-    #def test_iter(self):
-        #for i, letter in enumerate(self.short_blob):
-            #assert_equal(letter, self.short[i])
+    # def test_iter(self):
+        # for i, letter in enumerate(self.short_blob):
+        #assert_equal(letter, self.short[i])
 
-    #def test_raw_sentences(self):
+    # def test_raw_sentences(self):
         #blob = tb.TextBlobDE(self.text)
         #assert_equal(len(blob.raw_sentences), 19)
         #assert_equal(blob.raw_sentences[0], "Beautiful is better than ugly.")
 
-    #def test_blob_with_no_sentences(self):
+    # def test_blob_with_no_sentences(self):
         #text = "this isn't really a sentence it's just a long string of words"
         #blob = tb.TextBlobDE(text)
-        ## the blob just has one sentence
+        # the blob just has one sentence
         #assert_equal(len(blob.sentences), 1)
-        ## the start index is 0, the end index is len(text) - 1
+        # the start index is 0, the end index is len(text) - 1
         #assert_equal(blob.sentences[0].start_index, 0)
         #assert_equal(blob.sentences[0].end_index, len(text))
 
-    #def test_len(self):
+    # def test_len(self):
         #blob = tb.TextBlobDE('lorem ipsum')
         #assert_equal(len(blob), len('lorem ipsum'))
 
-    #def test_repr(self):
+    # def test_repr(self):
         #blob1 = tb.TextBlobDE('lorem ipsum')
-        #if PY2:
-            #assert_equal(repr(blob1), b"TextBlob(\"{0}\")".format(binary_type('lorem ipsum')))
-        #else:
-            #assert_equal(repr(blob1), "TextBlob(\"{0}\")".format('lorem ipsum'))
+        # if PY2:
+        #assert_equal(repr(blob1), b"TextBlob(\"{0}\")".format(binary_type('lorem ipsum')))
+        # else:
+        #assert_equal(repr(blob1), "TextBlob(\"{0}\")".format('lorem ipsum'))
 
-    #def test_cmp(self):
+    # def test_cmp(self):
         #blob1 = tb.TextBlobDE('lorem ipsum')
         #blob2 = tb.TextBlobDE('lorem ipsum')
         #blob3 = tb.TextBlobDE('dolor sit amet')
 
-        #assert_true(blob1 == blob2)  # test ==
-        #assert_true(blob1 > blob3)  # test >
-        #assert_true(blob1 >= blob3)  # test >=
-        #assert_true(blob3 < blob2)  # test <
-        #assert_true(blob3 <= blob2)  # test <=
+        # assert_true(blob1 == blob2)  # test ==
+        # assert_true(blob1 > blob3)  # test >
+        # assert_true(blob1 >= blob3)  # test >=
+        # assert_true(blob3 < blob2)  # test <
+        # assert_true(blob3 <= blob2)  # test <=
 
-    #def test_invalid_comparison(self):
+    # def test_invalid_comparison(self):
         #blob = tb.TextBlobDE("one")
-        #if PY2:
-            ## invalid comparison returns False
-            #assert_false(blob < 2)
-        #else:
-            ## invalid comparison raises Error
-            #with assert_raises(TypeError):
-                #blob < 2
+        # if PY2:
+        # invalid comparison returns False
+        #assert_false(blob < 2)
+        # else:
+        # invalid comparison raises Error
+        # with assert_raises(TypeError):
+        #blob < 2
 
-    #def test_words(self):
-        #blob = tb.TextBlobDE('Beautiful is better than ugly. '
-                            #'Explicit is better than implicit.')
+    # def test_words(self):
+        # blob = tb.TextBlobDE('Beautiful is better than ugly. '
+        #'Explicit is better than implicit.')
         #assert_true(isinstance(blob.words, tb.WordList))
-        #assert_equal(blob.words, tb.WordList([
-            #'Beautiful',
-            #'is',
-            #'better',
-            #'than',
-            #'ugly',
-            #'Explicit',
-            #'is',
-            #'better',
-            #'than',
-            #'implicit',
-            #]))
+        # assert_equal(blob.words, tb.WordList([
+        #'Beautiful',
+        #'is',
+        #'better',
+        #'than',
+        #'ugly',
+        #'Explicit',
+        #'is',
+        #'better',
+        #'than',
+        #'implicit',
+        #]))
         #short = tb.TextBlobDE("Just a bundle of words")
-        #assert_equal(short.words, tb.WordList([
-            #'Just', 'a', 'bundle', 'of', 'words'
-            #]))
+        # assert_equal(short.words, tb.WordList([
+        #'Just', 'a', 'bundle', 'of', 'words'
+        #]))
 
-    #def test_words_includes_apostrophes_in_contractions(self):
+    # def test_words_includes_apostrophes_in_contractions(self):
         #blob = tb.TextBlobDE("Let's test this.")
         #assert_equal(blob.words, tb.WordList(['Let', "'s", "test", "this"]))
         #blob2 = tb.TextBlobDE("I can't believe it's not butter.")
-        #assert_equal(blob2.words, tb.WordList(['I', 'ca', "n't", "believe",
-                                            #'it', "'s", "not", "butter"]))
+        # assert_equal(blob2.words, tb.WordList(['I', 'ca', "n't", "believe",
+        #'it', "'s", "not", "butter"]))
 
-    #def test_pos_tags(self):
-        #blob = tb.TextBlobDE('Simple is better than complex. '
-                            #'Complex is better than complicated.')
-        #assert_equal(blob.pos_tags, [
-            #('Simple', 'JJ'),
-            #('is', 'VBZ'),
-            #('better', 'JJR'),
-            #('than', 'IN'),
-            #('complex', 'JJ'),
-            #('Complex', 'NNP'),
-            #('is', 'VBZ'),
-            #('better', 'JJR'),
-            #('than', 'IN'),
-            #('complicated', 'VBN'),
-            #])
+    # def test_pos_tags(self):
+        # blob = tb.TextBlobDE('Simple is better than complex. '
+        #'Complex is better than complicated.')
+        # assert_equal(blob.pos_tags, [
+        #('Simple', 'JJ'),
+        #('is', 'VBZ'),
+        #('better', 'JJR'),
+        #('than', 'IN'),
+        #('complex', 'JJ'),
+        #('Complex', 'NNP'),
+        #('is', 'VBZ'),
+        #('better', 'JJR'),
+        #('than', 'IN'),
+        #('complicated', 'VBN'),
+        #])
 
-    #def test_tags(self):
+    # def test_tags(self):
         #assert_equal(self.blob.tags, self.blob.pos_tags)
 
-    #def test_tagging_nonascii(self):
-        #b = tb.TextBlobDE('Learn how to make the five classic French mother sauces: '
-                        #'Béchamel, Tomato Sauce, Espagnole, Velouté and Hollandaise.')
+    # def test_tagging_nonascii(self):
+        # b = tb.TextBlobDE('Learn how to make the five classic French mother sauces: '
+        #'Béchamel, Tomato Sauce, Espagnole, Velouté and Hollandaise.')
         #tags = b.tags
         #assert_true(isinstance(tags[0][0], unicode))
 
-
-    #def test_pos_tags_includes_one_letter_articles(self):
+    # def test_pos_tags_includes_one_letter_articles(self):
         #blob = tb.TextBlobDE("This is a sentence.")
         #assert_equal(blob.pos_tags[2][0], 'a')
 
     #@attr('slow')
-    #def test_np_extractor_defaults_to_fast_tagger(self):
+    # def test_np_extractor_defaults_to_fast_tagger(self):
         #text = "Python is a high-level scripting language."
         #blob1 = tb.TextBlobDE(text)
         #assert_true(isinstance(blob1.np_extractor, FastNPExtractor))
 
-    #def test_np_extractor_is_shared_among_instances(self):
+    # def test_np_extractor_is_shared_among_instances(self):
         #blob1 = tb.TextBlobDE("This is one sentence")
         #blob2 = tb.TextBlobDE("This is another sentence")
         #assert_true(blob1.np_extractor is blob2.np_extractor)
 
     #@attr('slow')
-    #def test_can_use_different_np_extractors(self):
+    # def test_can_use_different_np_extractors(self):
         #e = ConllExtractor()
         #text = "Python is a high-level scripting language."
         #blob = tb.TextBlobDE(text)
         #blob.np_extractor = e
         #assert_true(isinstance(blob.np_extractor, ConllExtractor))
 
-    #def test_can_use_different_sentanalyzer(self):
+    # def test_can_use_different_sentanalyzer(self):
         #blob = tb.TextBlobDE("I love this car", analyzer=NaiveBayesAnalyzer())
         #assert_true(isinstance(blob.analyzer, NaiveBayesAnalyzer))
 
     #@attr("slow")
-    #def test_discrete_sentiment(self):
+    # def test_discrete_sentiment(self):
         #blob = tb.TextBlobDE("I feel great today.", analyzer=NaiveBayesAnalyzer())
         #assert_equal(blob.sentiment[0], 'pos')
 
-    #def test_can_get_subjectivity_and_polarity_with_different_analyzer(self):
+    # def test_can_get_subjectivity_and_polarity_with_different_analyzer(self):
         #blob = tb.TextBlobDE("I love this car.", analyzer=NaiveBayesAnalyzer())
         #pattern = PatternAnalyzer()
         #assert_equal(blob.polarity, pattern.analyze(str(blob))[0])
         #assert_equal(blob.subjectivity, pattern.analyze(str(blob))[1])
 
-    #def test_pos_tagger_defaults_to_pattern(self):
+    # def test_pos_tagger_defaults_to_pattern(self):
         #blob = tb.TextBlobDE("some text")
         #assert_true(isinstance(blob.pos_tagger, PatternTagger))
 
-    #def test_pos_tagger_is_shared_among_instances(self):
+    # def test_pos_tagger_is_shared_among_instances(self):
         #blob1 = tb.TextBlobDE("This is one sentence")
         #blob2 = tb.TextBlobDE("This is another sentence.")
         #assert_true(blob1.pos_tagger is blob2.pos_tagger)
 
-
-    #def test_can_use_different_pos_tagger(self):
+    # def test_can_use_different_pos_tagger(self):
         #tagger = NLTKTagger()
         #blob = tb.TextBlobDE("this is some text", pos_tagger=tagger)
         #assert_true(isinstance(blob.pos_tagger, NLTKTagger))
 
     #@attr('slow')
-    #def test_can_pass_np_extractor_to_constructor(self):
+    # def test_can_pass_np_extractor_to_constructor(self):
         #e = ConllExtractor()
         #blob = tb.TextBlobDE('Hello world!', np_extractor=e)
         #assert_true(isinstance(blob.np_extractor, ConllExtractor))
 
-    #def test_getitem(self):
+    # def test_getitem(self):
         #blob = tb.TextBlobDE('lorem ipsum')
         #assert_equal(blob[0], 'l')
         #assert_equal(blob[0:5], tb.TextBlobDE('lorem'))
 
-    #def test_upper(self):
+    # def test_upper(self):
         #blob = tb.TextBlobDE('lorem ipsum')
-        #assert_true(is_blob(blob.upper()))
+        # assert_true(is_blob(blob.upper()))
         #assert_equal(blob.upper(), tb.TextBlobDE('LOREM IPSUM'))
 
-    #def test_upper_and_words(self):
+    # def test_upper_and_words(self):
         #blob = tb.TextBlobDE('beautiful is better')
-        #assert_equal(blob.upper().words, tb.WordList(['BEAUTIFUL', 'IS', 'BETTER'
-                     #]))
+        # assert_equal(blob.upper().words, tb.WordList(['BEAUTIFUL', 'IS', 'BETTER'
+        #]))
 
-    #def test_lower(self):
+    # def test_lower(self):
         #blob = tb.TextBlobDE('Lorem Ipsum')
-        #assert_true(is_blob(blob.lower()))
+        # assert_true(is_blob(blob.lower()))
         #assert_equal(blob.lower(), tb.TextBlobDE('lorem ipsum'))
 
-    #def test_find(self):
+    # def test_find(self):
         #text = 'Beautiful is better than ugly.'
         #blob = tb.TextBlobDE(text)
-        #assert_equal(blob.find('better', 5, len(blob)), text.find('better', 5,
-                     #len(text)))
+        # assert_equal(blob.find('better', 5, len(blob)), text.find('better', 5,
+        # len(text)))
 
-    #def test_rfind(self):
+    # def test_rfind(self):
         #text = 'Beautiful is better than ugly. '
         #blob = tb.TextBlobDE(text)
         #assert_equal(blob.rfind('better'), text.rfind('better'))
 
-    #def test_startswith(self):
+    # def test_startswith(self):
         #blob = tb.TextBlobDE(self.text)
-        #assert_true(blob.startswith('Beautiful'))
-        #assert_true(blob.starts_with('Beautiful'))
+        # assert_true(blob.startswith('Beautiful'))
+        # assert_true(blob.starts_with('Beautiful'))
 
-    #def test_endswith(self):
+    # def test_endswith(self):
         #blob = tb.TextBlobDE(self.text)
         #assert_true(blob.endswith('of those!'))
         #assert_true(blob.ends_with('of those!'))
 
-    #def test_split(self):
+    # def test_split(self):
         #blob = tb.TextBlobDE('Beautiful is better')
         #assert_equal(blob.split(), tb.WordList(['Beautiful', 'is', 'better']))
 
-    #def test_title(self):
+    # def test_title(self):
         #blob = tb.TextBlobDE('Beautiful is better')
         #assert_equal(blob.title(), tb.TextBlobDE('Beautiful Is Better'))
 
-    #def test_format(self):
+    # def test_format(self):
         #blob = tb.TextBlobDE('1 + 1 = {0}')
         #assert_equal(blob.format(1 + 1), tb.TextBlobDE('1 + 1 = 2'))
         #assert_equal('1 + 1 = {0}'.format(tb.TextBlobDE('2')), '1 + 1 = 2')
 
-    #def test_using_indices_for_slicing(self):
+    # def test_using_indices_for_slicing(self):
         #blob = tb.TextBlobDE("Hello world. How do you do?")
         #sent1, sent2 = blob.sentences
         #assert_equal(blob[sent1.start:sent1.end], tb.TextBlobDE(str(sent1)))
         #assert_equal(blob[sent2.start:sent2.end], tb.TextBlobDE(str(sent2)))
 
-
-    #def test_indices_with_only_one_sentences(self):
+    # def test_indices_with_only_one_sentences(self):
         #blob = tb.TextBlobDE("Hello world.")
         #sent1 = blob.sentences[0]
         #assert_equal(blob[sent1.start:sent1.end], tb.TextBlobDE(str(sent1)))
 
-    #def test_indices_with_multiple_puncutations(self):
+    # def test_indices_with_multiple_puncutations(self):
         #blob = tb.TextBlobDE("Hello world. How do you do?! This has an ellipses...")
         #sent1, sent2, sent3 = blob.sentences
         #assert_equal(blob[sent2.start:sent2.end], tb.TextBlobDE("How do you do?!"))
         #assert_equal(blob[sent3.start:sent3.end], tb.TextBlobDE("This has an ellipses..."))
 
-    #def test_indices_short_names(self):
+    # def test_indices_short_names(self):
         #blob = tb.TextBlobDE(self.text)
         #last_sentence = blob.sentences[len(blob.sentences) - 1]
         #assert_equal(last_sentence.start, last_sentence.start_index)
         #assert_equal(last_sentence.end, last_sentence.end_index)
 
-    #def test_replace(self):
+    # def test_replace(self):
         #blob = tb.TextBlobDE('textblob is a blobby blob')
-        #assert_equal(blob.replace('blob', 'bro'),
-                     #tb.TextBlobDE('textbro is a broby bro'))
-        #assert_equal(blob.replace('blob', 'bro', 1),
-                     #tb.TextBlobDE('textbro is a blobby blob'))
+        # assert_equal(blob.replace('blob', 'bro'),
+        # tb.TextBlobDE('textbro is a broby bro'))
+        # assert_equal(blob.replace('blob', 'bro', 1),
+        # tb.TextBlobDE('textbro is a blobby blob'))
 
-    #def test_join(self):
+    # def test_join(self):
         #l = ['explicit', 'is', 'better']
         #wl = tb.WordList(l)
         #assert_equal(tb.TextBlobDE(' ').join(l), tb.TextBlobDE('explicit is better'))
         #assert_equal(tb.TextBlobDE(' ').join(wl), tb.TextBlobDE('explicit is better'))
 
     #@attr('slow')
-    #def test_blob_noun_phrases(self):
+    # def test_blob_noun_phrases(self):
         #noun_phrases = self.np_test_blob.noun_phrases
         #assert_true('python' in noun_phrases)
         #assert_true('design philosophy' in noun_phrases)
 
-    #def test_word_counts(self):
+    # def test_word_counts(self):
         #blob = tb.TextBlobDE('Buffalo buffalo ate my blue buffalo.')
-        #assert_equal(dict(blob.word_counts), {
-                #'buffalo': 3,
-                #'ate': 1,
-                #'my': 1,
-                #'blue': 1
-            #})
+        # assert_equal(dict(blob.word_counts), {
+        #'buffalo': 3,
+        #'ate': 1,
+        #'my': 1,
+        #'blue': 1
+        #})
         #assert_equal(blob.word_counts['buffalo'], 3)
         #assert_equal(blob.words.count('buffalo'), 3)
         #assert_equal(blob.words.count('buffalo', case_sensitive=True), 2)
@@ -685,94 +700,94 @@ class SentenceTest(TestCase):
         #assert_equal(blob2.words.count('special', case_sensitive=True), 1)
 
     #@attr('slow')
-    #def test_np_counts(self):
-        ## Add some text so that we have a noun phrase that
-        ## has a frequency greater than 1
+    # def test_np_counts(self):
+        # Add some text so that we have a noun phrase that
+        # has a frequency greater than 1
         #noun_phrases = self.np_test_blob.noun_phrases
         #assert_equal(noun_phrases.count('python'), 6)
         #assert_equal(self.np_test_blob.np_counts['python'], noun_phrases.count('python'))
         #assert_equal(noun_phrases.count('cpython'), 2)
         #assert_equal(noun_phrases.count('not found'), 0)
 
-    #def test_add(self):
+    # def test_add(self):
         #blob1 = tb.TextBlobDE('Hello, world! ')
         #blob2 = tb.TextBlobDE('Hola mundo!')
-        ## Can add two text blobs
+        # Can add two text blobs
         #assert_equal(blob1 + blob2, tb.TextBlobDE('Hello, world! Hola mundo!'))
-        ## Can also add a string to a tb.TextBlobDE
-        #assert_equal(blob1 + 'Hola mundo!',
-                     #tb.TextBlobDE('Hello, world! Hola mundo!'))
-        ## Or both
-        #assert_equal(blob1 + blob2 + ' Goodbye!',
-                     #tb.TextBlobDE('Hello, world! Hola mundo! Goodbye!'))
+        # Can also add a string to a tb.TextBlobDE
+        # assert_equal(blob1 + 'Hola mundo!',
+        # tb.TextBlobDE('Hello, world! Hola mundo!'))
+        # Or both
+        # assert_equal(blob1 + blob2 + ' Goodbye!',
+        # tb.TextBlobDE('Hello, world! Hola mundo! Goodbye!'))
 
-        ## operands must be strings
+        # operands must be strings
         #assert_raises(TypeError, blob1.__add__, ['hello'])
 
-    #def test_unicode(self):
+    # def test_unicode(self):
         #blob = tb.TextBlobDE(self.text)
         #assert_equal(str(blob), str(self.text))
 
-    #def test_strip(self):
+    # def test_strip(self):
         #text = 'Beautiful is better than ugly. '
         #blob = tb.TextBlobDE(text)
-        #assert_true(is_blob(blob))
+        # assert_true(is_blob(blob))
         #assert_equal(blob.strip(), tb.TextBlobDE(text.strip()))
 
-    #def test_strip_and_words(self):
+    # def test_strip_and_words(self):
         #blob = tb.TextBlobDE('Beautiful is better! ')
-        #assert_equal(blob.strip().words, tb.WordList(['Beautiful', 'is', 'better'
-                     #]))
+        # assert_equal(blob.strip().words, tb.WordList(['Beautiful', 'is', 'better'
+        #]))
 
-    #def test_index(self):
+    # def test_index(self):
         #blob = tb.TextBlobDE(self.text)
         #assert_equal(blob.index('Namespaces'), self.text.index('Namespaces'))
 
-    #def test_sentences_after_concatenation(self):
+    # def test_sentences_after_concatenation(self):
         #blob1 = tb.TextBlobDE('Beautiful is better than ugly. ')
         #blob2 = tb.TextBlobDE('Explicit is better than implicit.')
 
         #concatenated = blob1 + blob2
         #assert_equal(len(concatenated.sentences), 2)
 
-    #def test_sentiment(self):
-        #positive = tb.TextBlobDE('This is the best, most amazing '
-                            #'text-processing library ever!')
+    # def test_sentiment(self):
+        # positive = tb.TextBlobDE('This is the best, most amazing '
+        #'text-processing library ever!')
         #assert_true(positive.sentiment[0] > 0.0)
         #negative = tb.TextBlobDE("bad bad bitches that's my muthufuckin problem.")
         #assert_true(negative.sentiment[0] < 0.0)
         #zen = tb.TextBlobDE(self.text)
         #assert_equal(round(zen.sentiment[0], 1), 0.2)
 
-    #def test_subjectivity(self):
+    # def test_subjectivity(self):
         #positive = tb.TextBlobDE("Oh my god this is so amazing! I'm so happy!")
         #assert_true(isinstance(positive.subjectivity, float))
         #assert_true(positive.subjectivity > 0)
 
-    #def test_polarity(self):
+    # def test_polarity(self):
         #positive = tb.TextBlobDE("Oh my god this is so amazing! I'm so happy!")
         #assert_true(isinstance(positive.polarity, float))
         #assert_true(positive.polarity > 0)
 
-    #def test_sentiment_of_emoticons(self):
+    # def test_sentiment_of_emoticons(self):
         #b1 = tb.TextBlobDE("Faces have values =)")
         #b2 = tb.TextBlobDE("Faces have values")
         #assert_true(b1.sentiment[0] > b2.sentiment[0])
 
-    #def test_bad_init(self):
+    # def test_bad_init(self):
         #assert_raises(TypeError, lambda: tb.TextBlobDE(['bad']))
-        #assert_raises(ValueError, lambda: tb.TextBlobDE("this is fine",
-                                            #np_extractor="this is not fine"))
-        #assert_raises(ValueError, lambda: tb.TextBlobDE("this is fine",
-                                            #pos_tagger="this is not fine"))
+        # assert_raises(ValueError, lambda: tb.TextBlobDE("this is fine",
+        # np_extractor="this is not fine"))
+        # assert_raises(ValueError, lambda: tb.TextBlobDE("this is fine",
+        # pos_tagger="this is not fine"))
 
-    #def test_in(self):
+    # def test_in(self):
         #blob = tb.TextBlobDE('Beautiful is better than ugly. ')
         #assert_true('better' in blob)
         #assert_true('fugly' not in blob)
 
     #@attr('slow')
-    #def test_json(self):
+    # def test_json(self):
         #blob = tb.TextBlobDE('Beautiful is better than ugly. ')
         #assert_equal(blob.json, blob.to_json())
         #blob_dict = json.loads(blob.json)[0]
@@ -780,44 +795,44 @@ class SentenceTest(TestCase):
         #assert_equal(blob_dict['noun_phrases'], blob.sentences[0].noun_phrases)
         #assert_equal(blob_dict['start_index'], blob.sentences[0].start)
         #assert_equal(blob_dict['end_index'], blob.sentences[0].end)
-        #assert_almost_equal(blob_dict['polarity'],
-                            #blob.sentences[0].polarity, places=4)
-        #assert_almost_equal(blob_dict['subjectivity'],
-                            #blob.sentences[0].subjectivity, places=4)
+        # assert_almost_equal(blob_dict['polarity'],
+        # blob.sentences[0].polarity, places=4)
+        # assert_almost_equal(blob_dict['subjectivity'],
+        # blob.sentences[0].subjectivity, places=4)
 
-    #def test_words_are_word_objects(self):
+    # def test_words_are_word_objects(self):
         #words = self.blob.words
         #assert_true(isinstance(words[0], tb.Word))
 
-    #def test_words_have_pos_tags(self):
-        #blob = tb.TextBlobDE('Simple is better than complex. '
-                            #'Complex is better than complicated.')
+    # def test_words_have_pos_tags(self):
+        # blob = tb.TextBlobDE('Simple is better than complex. '
+        #'Complex is better than complicated.')
         #first_word, first_tag = blob.pos_tags[0]
         #assert_true(isinstance(first_word, tb.Word))
         #assert_equal(first_word.pos_tag, first_tag)
 
-    #def test_tokenizer_defaults_to_word_tokenizer(self):
+    # def test_tokenizer_defaults_to_word_tokenizer(self):
         #assert_true(isinstance(self.blob.tokenizer, WordTokenizer))
 
-    #def test_tokens_property(self):
-        #assert_true(self.blob.tokens,
-            #tb.WordList(WordTokenizer().tokenize(self.text)))
+    # def test_tokens_property(self):
+        # assert_true(self.blob.tokens,
+        # tb.WordList(WordTokenizer().tokenize(self.text)))
 
-    #def test_can_use_an_different_tokenizer(self):
+    # def test_can_use_an_different_tokenizer(self):
         #tokenizer = nltk.tokenize.TabTokenizer()
         #blob = tb.TextBlobDE("This is\ttext.", tokenizer=tokenizer)
         #assert_equal(blob.tokens, tb.WordList(["This is", "text."]))
 
-    #def test_tokenize_method(self):
+    # def test_tokenize_method(self):
         #tokenizer = nltk.tokenize.TabTokenizer()
         #blob = tb.TextBlobDE("This is\ttext.")
-        ## If called without arguments, should default to WordTokenizer
+        # If called without arguments, should default to WordTokenizer
         #assert_equal(blob.tokenize(), tb.WordList(["This", "is", "text", "."]))
-        ## Pass in the TabTokenizer
+        # Pass in the TabTokenizer
         #assert_equal(blob.tokenize(tokenizer), tb.WordList(["This is", "text."]))
 
     #@attr("requires_internet")
-    #def test_translate(self):
+    # def test_translate(self):
         #blob = tb.TextBlobDE("This is a sentence.")
         #translated = blob.translate(to="es")
         #assert_true(isinstance(translated, tb.TextBlobDE))
@@ -827,7 +842,7 @@ class SentenceTest(TestCase):
         #assert_equal(to_en, "This is a sentence.")
 
     #@attr("requires_internet")
-    #def test_translate_non_ascii(self):
+    # def test_translate_non_ascii(self):
         #blob = tb.TextBlobDE(unicode("ذات سيادة كاملة"))
         #translated = blob.translate(from_lang="ar", to="en")
         #assert_equal(translated, "With full sovereignty")
@@ -837,24 +852,24 @@ class SentenceTest(TestCase):
         #assert_equal(translated, "Beautiful is better than ugly")
 
     #@attr("requires_internet")
-    #def test_translate_unicode_escape(self):
+    # def test_translate_unicode_escape(self):
         #blob = tb.TextBlobDE("Jenner & Block LLP")
         #translated = blob.translate(from_lang="en", to="en")
         #assert_equal(translated, "Jenner & Block LLP")
 
     #@attr("requires_internet")
-    #def test_detect(self):
+    # def test_detect(self):
         #es_blob = tb.TextBlobDE("Hola")
         #assert_equal(es_blob.detect_language(), "es")
         #en_blob = tb.TextBlobDE("Hello")
         #assert_equal(en_blob.detect_language(), "en")
 
     #@attr("requires_internet")
-    #def test_detect_non_ascii(self):
+    # def test_detect_non_ascii(self):
         #blob = tb.TextBlobDE(unicode("ذات سيادة كاملة"))
         #assert_equal(blob.detect_language(), "ar")
 
-    #def test_correct(self):
+    # def test_correct(self):
         #blob = tb.TextBlobDE("I havv bad speling.")
         #assert_true(isinstance(blob.correct(), tb.TextBlobDE))
         #assert_equal(blob.correct(), tb.TextBlobDE("I have bad spelling."))
@@ -864,48 +879,48 @@ class SentenceTest(TestCase):
         #assert_equal(blob3.correct(), "The meaning of life is 42.0.")
         #blob4 = tb.TextBlobDE("?")
         #assert_equal(blob4.correct(), "?")
-        ## From a user-submitted bug
-        #text = "Before you embark on any of this journey, write a quick " + \
-                #"high-level test that demonstrates the slowness. " + \
-                #"You may need to introduce some minimum set of data to " + \
-                #"reproduce a significant enough slowness."
+        # From a user-submitted bug
+        # text = "Before you embark on any of this journey, write a quick " + \
+        #"high-level test that demonstrates the slowness. " + \
+        #"You may need to introduce some minimum set of data to " + \
+        #"reproduce a significant enough slowness."
         #blob5 = tb.TextBlobDE(text)
         #assert_equal(blob5.correct(), text)
-        #text = "Word list!  :\n" + \
-                #"\t* spelling\n" + \
-                #"\t* well"
+        # text = "Word list!  :\n" + \
+        #"\t* spelling\n" + \
+        #"\t* well"
         #blob6 = tb.TextBlobDE(text)
         #assert_equal(blob6.correct(), text)
 
-    #def test_parse(self):
+    # def test_parse(self):
         #blob = tb.TextBlobDE("And now for something completely different.")
         #assert_equal(blob.parse(), PatternParser().parse(blob.string))
 
-    #def test_passing_bad_init_params(self):
+    # def test_passing_bad_init_params(self):
         #tagger = PatternTagger()
-        #assert_raises(ValueError,
-            #lambda: tb.TextBlobDE("blah", parser=tagger))
-        #assert_raises(ValueError,
-            #lambda: tb.TextBlobDE("blah", np_extractor=tagger))
-        #assert_raises(ValueError,
-            #lambda: tb.TextBlobDE("blah", tokenizer=tagger))
-        #assert_raises(ValueError,
-            #lambda: tb.TextBlobDE("blah", analyzer=tagger))
+        # assert_raises(ValueError,
+        # lambda: tb.TextBlobDE("blah", parser=tagger))
+        # assert_raises(ValueError,
+        # lambda: tb.TextBlobDE("blah", np_extractor=tagger))
+        # assert_raises(ValueError,
+        # lambda: tb.TextBlobDE("blah", tokenizer=tagger))
+        # assert_raises(ValueError,
+        # lambda: tb.TextBlobDE("blah", analyzer=tagger))
         #analyzer = PatternAnalyzer
-        #assert_raises(ValueError,
-            #lambda: tb.TextBlobDE("blah", pos_tagger=analyzer))
+        # assert_raises(ValueError,
+        # lambda: tb.TextBlobDE("blah", pos_tagger=analyzer))
 
-    #def test_classify(self):
-        #blob = tb.TextBlobDE("This is an amazing library. What an awesome classifier!",
-            #classifier=classifier)
+    # def test_classify(self):
+        # blob = tb.TextBlobDE("This is an amazing library. What an awesome classifier!",
+        # classifier=classifier)
         #assert_equal(blob.classify(), 'pos')
-        #for s in blob.sentences:
-            #assert_equal(s.classify(), 'pos')
+        # for s in blob.sentences:
+        #assert_equal(s.classify(), 'pos')
 
-    #def test_classify_without_classifier(self):
+    # def test_classify_without_classifier(self):
         #blob = tb.TextBlobDE("This isn't gonna be good")
-        #assert_raises(NameError,
-            #lambda: blob.classify())
+        # assert_raises(NameError,
+        # lambda: blob.classify())
 
 
 class WordTest(TestCase):
@@ -919,7 +934,7 @@ class WordTest(TestCase):
         assert_true(isinstance(self.cat, tb.Word))
         word = tb.Word('Katze', 'NN')
         assert_equal(word.pos_tag, 'NN')
-    
+
     def test_singularize(self):
         singular = self.cats.singularize()
         assert_equal(singular, 'Katze')
@@ -945,7 +960,11 @@ class WordTest(TestCase):
 
     @attr('requires_internet')
     def test_translate(self):
-        assert_equal(tb.Word("Katze").translate(from_lang="de", to="en"), "cat")
+        assert_equal(
+            tb.Word("Katze").translate(
+                from_lang="de",
+                to="en"),
+            "cat")
 
     @attr('requires_internet')
     def test_translate_without_from_lang(self):
@@ -995,7 +1014,7 @@ class WordTest(TestCase):
     def test_lemma(self):
         w = tb.Word("Häuser")
         assert_equal(w.lemma, "Haus")
-        w = tb.Word("ging", "VBD");
+        w = tb.Word("ging", "VBD")
         assert_equal(w.lemma, "gehen")
 
     @expected_failure
@@ -1028,17 +1047,17 @@ class WordTest(TestCase):
         assert_equal(len(synsets), len(definitions))
 
 
-#class TestWordnetInterface(TestCase):
+# class TestWordnetInterface(TestCase):
 
-    #def setUp(self):
-        #pass
+    # def setUp(self):
+        # pass
 
-    #def test_synset(self):
+    # def test_synset(self):
         #syn = wn.Synset("dog.n.01")
         #word = tb.Word("dog")
         #assert_equal(word.synsets[0], syn)
 
-    #def test_lemma(self):
+    # def test_lemma(self):
         #lemma = wn.Lemma('eat.v.01.eat')
         #word = tb.Word("eat")
         #assert_equal(word.synsets[0].lemmas[0], lemma)
@@ -1096,6 +1115,7 @@ class BlobberTest(TestCase):
         b = tb.BlobberDE(classifier=classifier)
         blob = b("I am so amazing")
         assert_equal(blob.classify(), 'pos')
+
 
 def is_blob(obj):
     return isinstance(obj, tb.TextBlobDE)

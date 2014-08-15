@@ -36,10 +36,9 @@ class TestPatternParser(unittest.TestCase):
             'ist/VB/B-VP/O/sein sehr/RB/B-ADJP/O/sehr ' \
             'schön/JJ/I-ADJP/O/schön ././O/O/.'
 
-
     def test_parse(self):
         parser = parser = PatternParser()
-        assert_equal(parser.parse(self.text), 
+        assert_equal(parser.parse(self.text),
                      pattern_parse(self.text))
 
     def test_parse_nltk_tok_result_string(self):
@@ -49,14 +48,14 @@ class TestPatternParser(unittest.TestCase):
     def test_parse_nltk_tok_show_lemmata(self):
         parser = PatternParser(tokenizer=NLTKPunktTokenizer(), lemmata=True)
         assert_equal(parser.parse(self.text), self.expected_with_lemmata)
-    
+
     def test_parse_pattern_tok_result_string(self):
         parser = PatternParser(tokenizer=PatternTokenizer(), lemmata=False)
         assert_equal(parser.parse(self.text), self.expected)
 
     def test_parse_pattern_tok_show_lemmata(self):
         parser = PatternParser(tokenizer=PatternTokenizer(), lemmata=True)
-        assert_equal(parser.parse(self.text), self.expected_with_lemmata)    
+        assert_equal(parser.parse(self.text), self.expected_with_lemmata)
 
 
 if __name__ == '__main__':

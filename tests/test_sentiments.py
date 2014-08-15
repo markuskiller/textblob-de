@@ -23,9 +23,9 @@ class TestPatternAnalyzer(unittest.TestCase):
     def setUp(self):
         self.neg1 = "Das ist ein hässliches Auto."
         self.pos1 = "Dieses Auto ist schön."
-        self.pos2 = "Die ist keine böse Katze/Raubkatze." # Make sure lemmatizer does not break on ``/`` (Issue #1)
+        # Make sure lemmatizer does not break on ``/`` (Issue #1)
+        self.pos2 = "Die ist keine böse Katze/Raubkatze."
         self.neg2 = "Dieser Hund ist nicht nett."
-
 
     def test_analyze_nltk_tok(self):
         _analyzer = DeAnalyzer(tokenizer=NLTKPunktTokenizer())
@@ -40,7 +40,7 @@ class TestPatternAnalyzer(unittest.TestCase):
         assert_true(pos_blob.sentiment[0] > 0.0)
         neg_blob = TextBlob(self.neg2, analyzer=_analyzer)
         assert_true(neg_blob.sentiment[0] < 0.0)
-        
+
     def test_analyze_pattern_tok(self):
         _analyzer = DeAnalyzer(tokenizer=PatternTokenizer())
         pos_sentiment = _analyzer.analyze(self.pos1)
