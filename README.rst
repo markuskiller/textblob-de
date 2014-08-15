@@ -17,6 +17,10 @@ textblob-de
 .. image:: https://badge.waffle.io/markuskiller/textblob-de.png?label=In%20Progress&title=In%20Progress
      :target: https://waffle.io/markuskiller/textblob-de
      :alt: Issues in In Progress
+     
+.. image:: https://badge.waffle.io/markuskiller/textblob-de.png?label=Done&title=Done
+     :target: https://waffle.io/markuskiller/textblob-de
+     :alt: Issues in Done
 
 
 
