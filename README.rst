@@ -14,9 +14,9 @@ textblob-de
     :target: https://crate.io/packages/textblob-de/
     :alt: Number of PyPI downloads
 
-.. image:: https://badge.waffle.io/markuskiller/textblob-de.png?label="In Progress"
+.. image:: https://badge.waffle.io/markuskiller/textblob-de.png?label=inprogress
      :target: https://waffle.io/markuskiller/textblob-de
-     :alt: Issues in Ready
+     :alt: Issues in In Progress
 
 
 
