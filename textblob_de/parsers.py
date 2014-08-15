@@ -64,15 +64,15 @@ class PatternParser(BaseParser):
             encoding='utf-8',
             tagset=None):
 
-        self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
-        self.pprint = pprint if pprint else False
-        self.tokenize = tokenize if tokenize else True
-        self.tags = tags if tags else True
-        self.chunks = chunks if chunks else True
-        self.relations = relations if relations else False
-        self.lemmata = lemmata if lemmata else False
-        self.encoding = encoding if encoding else 'utf-8'
-        self.tagset = tagset if tagset else None
+        self.tokenizer = tokenizer if tokenizer is not None else PatternTokenizer()
+        self.pprint = pprint
+        self.tokenize = tokenize
+        self.tags = tags
+        self.chunks = chunks
+        self.relations = relations
+        self.lemmata = lemmata
+        self.encoding = encoding
+        self.tagset = tagset if tagset is not None else None
 
     def parse(self, text):
         '''Parses the text.
@@ -133,6 +133,8 @@ class PatternParser(BaseParser):
             _tokenized = " ".join(self.tokenizer.tokenize(text))
         else:
             _tokenized = text
+            
+        print(_tokenized)
 
         _parsed = pattern_parsetree(_tokenized,
                                     # text is tokenized before it is passed on

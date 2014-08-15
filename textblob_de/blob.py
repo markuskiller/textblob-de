@@ -326,16 +326,16 @@ class BaseBlob(_BaseBlob):
                  parser=None,
                  classifier=None, clean_html=False):
 
-        self.tokenizer = tokenizer if tokenizer else NLTKPunktTokenizer()
-        self.pos_tagger = pos_tagger if pos_tagger else PatternTagger(
+        self.tokenizer = tokenizer if tokenizer is not None else NLTKPunktTokenizer()
+        self.pos_tagger = pos_tagger if pos_tagger is not None else PatternTagger(
             tokenizer=self.tokenizer)
-        self.np_extractor = np_extractor if np_extractor \
+        self.np_extractor = np_extractor if np_extractor is not None \
             else PatternParserNPExtractor(tokenizer=self.tokenizer)
-        self.analyzer = analyzer if analyzer else PatternAnalyzer(
-            tokenizer=self.tokenizer)
-        self.parser = parser if parser else PatternParser(
-            tokenizer=self.tokenizer)
-        self.classifier = classifier if classifier else None
+        self.analyzer = analyzer if analyzer is not None \
+            else PatternAnalyzer(tokenizer=self.tokenizer)
+        self.parser = parser if parser is not None \
+            else PatternParser(tokenizer=self.tokenizer)
+        self.classifier = classifier if classifier is not None else None
 
         if not isinstance(text, basestring):
             raise TypeError('The `text` argument passed to `__init__(text)` '
@@ -767,16 +767,16 @@ class BlobberDE(object):
                  parser=None,
                  classifier=None):
 
-        self.tokenizer = tokenizer if tokenizer else NLTKPunktTokenizer()
-        self.pos_tagger = pos_tagger if pos_tagger else PatternTagger(
-            tokenizer=self.tokenizer)
-        self.np_extractor = np_extractor if np_extractor \
+        self.tokenizer = tokenizer if tokenizer is not None else NLTKPunktTokenizer()
+        self.pos_tagger = pos_tagger if pos_tagger is not None \
+            else PatternTagger(tokenizer=self.tokenizer)
+        self.np_extractor = np_extractor if np_extractor is not None \
             else PatternParserNPExtractor(tokenizer=self.tokenizer)
-        self.analyzer = analyzer if analyzer else PatternAnalyzer(
-            tokenizer=self.tokenizer)
-        self.parser = parser if parser else PatternParser(
-            tokenizer=self.tokenizer)
-        self.classifier = classifier if classifier else None
+        self.analyzer = analyzer if analyzer is not None \
+            else PatternAnalyzer(tokenizer=self.tokenizer)
+        self.parser = parser if parser is not None \
+            else PatternParser(tokenizer=self.tokenizer)
+        self.classifier = classifier if classifier is not None else None
 
         _initialize_models(
             self,

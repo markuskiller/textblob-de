@@ -114,10 +114,10 @@ class PatternAnalyzer(BaseSentimentAnalyzer):
     RETURN_TYPE = namedtuple('Sentiment', ['polarity', 'subjectivity'])
 
     def __init__(self, tokenizer=None, lemmatizer=None, lemmatize=True):
-        self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
-        self.lemmatize = lemmatize if lemmatize else True
+        self.tokenizer = tokenizer if tokenizer is not None else PatternTokenizer()
+        self.lemmatize = lemmatize
         if self.lemmatize:
-            self.lemmatizer = lemmatizer if lemmatizer \
+            self.lemmatizer = lemmatizer if lemmatizer is not None \
                 else PatternParserLemmatizer(tokenizer=self.tokenizer)
 
     def analyze(self, text):

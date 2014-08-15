@@ -233,7 +233,7 @@ class WordTokenizer(BaseTokenizer):
 
     def __init__(self, tokenizer=None, *args, **kwargs):
         # make sure that tokenizer is not referring to this class
-        self.tokenizer = tokenizer if tokenizer and \
+        self.tokenizer = tokenizer if tokenizer is not None and \
             not isinstance(tokenizer, WordTokenizer) else NLTKPunktTokenizer()
 
     def tokenize(self, text, include_punc=True, **kwargs):
@@ -264,9 +264,8 @@ class SentenceTokenizer(BaseTokenizer):
 
     def __init__(self, tokenizer=None, *args, **kwargs):
         # make sure that tokenizer is not referring to this class
-        self.tokenizer = tokenizer if tokenizer and not isinstance(
-            tokenizer,
-            SentenceTokenizer) else NLTKPunktTokenizer()
+        self.tokenizer = tokenizer if tokenizer is not None and \
+            not isinstance(tokenizer, SentenceTokenizer) else NLTKPunktTokenizer()
 
     def tokenize(self, text, **kwargs):
         '''Return a list of word tokens.
@@ -290,7 +289,7 @@ def sent_tokenize(text, tokenizer=None):
 
     This function returns the sentences as a generator object
     """
-    _tokenizer = tokenizer if tokenizer else NLTKPunktTokenizer()
+    _tokenizer = tokenizer if tokenizer is not None else NLTKPunktTokenizer()
     return SentenceTokenizer(tokenizer=_tokenizer).itokenize(text)
 
 
@@ -302,7 +301,7 @@ def word_tokenize(text, tokenizer=None, include_punc=True, *args, **kwargs):
 
     This function returns an itertools chain object (generator).
     """
-    _tokenizer = tokenizer if tokenizer else NLTKPunktTokenizer()
+    _tokenizer = tokenizer if tokenizer is not None else NLTKPunktTokenizer()
     words = chain.from_iterable(
         WordTokenizer(tokenizer=_tokenizer).itokenize(sentence, include_punc,
                                                       *args, **kwargs)

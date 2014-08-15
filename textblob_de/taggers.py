@@ -45,8 +45,8 @@ class PatternTagger(BaseTagger):
     '''
 
     def __init__(self, tokenizer=None, include_punc=False):
-        self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
-        self.include_punc = include_punc if include_punc else False
+        self.tokenizer = tokenizer if tokenizer is not None else PatternTokenizer()
+        self.include_punc = include_punc
 
     def tag(self, sentence, tokenize=True):
         '''Tag a string `sentence`.

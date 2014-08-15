@@ -4,7 +4,8 @@ Changelog
 0.3.1 (unreleased)
 ++++++++++++++++++
 
-* 
+* Improved ``PatternParserNPExtractor`` (less false positives in verb filter)
+* Made sure that all keyword arguments with default ``None`` are checked with ``is not None``
 
 0.3.0 (14/08/2014)
 ++++++++++++++++++

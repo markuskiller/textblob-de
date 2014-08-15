@@ -12,7 +12,7 @@ from collections import defaultdict
 
 from textblob.base import BaseNPExtractor
 from textblob_de.packages import pattern_de
-from textblob_de.tokenizers import PatternTokenizer
+from textblob_de.tokenizers import PatternTokenizer, sent_tokenize
 
 pattern_parse = pattern_de.parse
 Verbs = pattern_de.inflect.Verbs
@@ -33,6 +33,7 @@ INSIGNIFICANT = [
     'eine',
     'einer',
     'einen',
+    'einem',
     'eines',
     'welcher',
     'welche',
@@ -80,7 +81,7 @@ class PatternParserNPExtractor(BaseNPExtractor):
     """
 
     def __init__(self, tokenizer=None):
-        self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
+        self.tokenizer = tokenizer if tokenizer is not None else PatternTokenizer()
         self.verb_morphology = Verbs()
 
     def extract(self, text):
@@ -88,8 +89,10 @@ class PatternParserNPExtractor(BaseNPExtractor):
 
         :param str text: A string.
         '''
-        parsed_sentences = self._parse_text(text)
         _extracted = []
+        if text.strip() == "":
+            return _extracted     
+        parsed_sentences = self._parse_text(text)
         for s in parsed_sentences:
             tokens = s.split()
             new_np = []
@@ -97,7 +100,7 @@ class PatternParserNPExtractor(BaseNPExtractor):
                 w, tag, phrase, role = t.split('/')
                 # exclude some parser errors (e.g. VB within NP),
                 # extend startswith tuple if necessary
-                if 'NP' in phrase and not self._is_verb(w):
+                if 'NP' in phrase and not self._is_verb(w, tag):
                     if len(new_np) > 0 and w.lower() in START_NEW_NP:
                         _extracted.append(" ".join(new_np))
                         new_np = [w]
@@ -110,7 +113,6 @@ class PatternParserNPExtractor(BaseNPExtractor):
                     if len(new_np) > 0:
                         _extracted.append(" ".join(new_np))
                     new_np = []
-
         return self._filter_extracted(_extracted)
 
     def _filter_extracted(self, extracted_list):
@@ -150,10 +152,26 @@ class PatternParserNPExtractor(BaseNPExtractor):
 
         :param str text: A string.
         """
-        parsed_text = pattern_parse(text, lemmata=False)
+        if isinstance(self.tokenizer, PatternTokenizer):
+            parsed_text = pattern_parse(text, tokenize=True, lemmata=False)
+        else:
+            _tokenized = []
+            _sentences = sent_tokenize(text, tokenizer=self.tokenizer)
+            for s in _sentences:
+                _tokenized.append(" ".join(self.tokenizer.tokenize(s)))
+            parsed_text = pattern_parse(_tokenized, tokenize=False, lemmata=False)
         return parsed_text.split('\n')
 
-    def _is_verb(self, word_form):
+    def _is_verb(self, word_form, tag):
+        # Morphological analysis leads to too many false positives for 
+        # Nouns (e.g. ein schönes Haus, -->hausen<--)
+        if word_form[0].isupper():
+            return False
+        # Morphological analysis leads to too many false positives for 
+        # adjectives (e.g. an einem -->steilen<-- Hang)
+        if tag in ('JJ'):
+            return False
+        # Does not yet catch cases such as e.g. 'ausgenutzt/NN/B-NP/O'
         infinitive = self.verb_morphology.find_lemma(word_form)
         if infinitive in verbs:
             return True

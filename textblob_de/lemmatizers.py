@@ -37,7 +37,7 @@ class PatternParserLemmatizer(BaseLemmatizer):
     """
 
     def __init__(self, tokenizer=None):
-        self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
+        self.tokenizer = tokenizer if tokenizer is not None else PatternTokenizer()
 
     def lemmatize(self, text):
         '''Return a list of (lemma, tag) tuples.
