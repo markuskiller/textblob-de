@@ -195,7 +195,8 @@ MIT licensed. See the bundled ``LICENSE``  file for more details.
 Thanks
 ------
 
-.. image:: http://wingware.com/images/wingware-logo-180x58.png
-    :target: http://wingware.com/store/free
-    :caption: Coded with Wing IDE 5.0 (free open source developer license)
+Coded with Wing IDE 5.0 (free open source developer license)
+
+.. image:: https://wingware.com/images/wingware-logo-180x58.png
+    :target: https://wingware.com/store/free
     :alt: Python IDE for Python - wingware.com
