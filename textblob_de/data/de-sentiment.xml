@@ -7,7 +7,7 @@ Authors: Manfred Klenner, Simon Clematide, Martin Wiegand, Ronny Peters Version:
 
 Format 
 <sentiment> 
-<word form="schön" pos="JJ" polarity="0.80" subjectivity="0.80" intensity="1.0" confidence="1.0" /> 
+  <word confidence="1.0" form="schön" intensity="1.0" polarity="1.0" pos="JJ" subjectivity="0.0"/>
 </sentiment> 
 
 Approximation to 'pattern' project format by Markus Killer (Version 0.1 2014/07/10) 
