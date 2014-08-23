@@ -10,10 +10,6 @@ textblob-de
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
 
-.. image:: https://pypip.in/d/textblob-de/badge.png
-    :target: https://crate.io/packages/textblob-de/
-    :alt: Number of PyPI downloads
-
 .. image:: https://badge.waffle.io/markuskiller/textblob-de.png?label=In%20Progress&title=In%20Progress
      :target: https://waffle.io/markuskiller/textblob-de
      :alt: Issues in In Progress
@@ -71,12 +67,12 @@ Usage
     >>> from textblob_de import TextBlobDE as TextBlob
     >>> text = '''Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 43. Geburtstag. 
     Ich muss unbedingt daran denken, Mehl, usw. für einen Kuchen einzukaufen. Aber leider 
-    habe ich nur noch EUR 18.50 in meiner Brieftasche.'''
+    habe ich nur noch EUR 3.50 in meiner Brieftasche.'''
     >>> blob = TextBlob(text)
     >>> blob.sentences
     [Sentence("Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 43. Geburtstag."),
      Sentence("Ich muss unbedingt daran denken, Mehl, usw. für einen Kuchen einzukaufen."),
-     Sentence("Aber leider habe ich nur noch EUR 18.50 in meiner Brieftasche.")]
+     Sentence("Aber leider habe ich nur noch EUR 3.50 in meiner Brieftasche.")]
     >>> blob.tokens
     WordList(['Heute', 'ist', 'der', '3.', 'Mai', ...]
     >>> blob.tags
