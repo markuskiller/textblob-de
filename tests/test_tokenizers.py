@@ -31,7 +31,7 @@ class TestNLTKPunktTokenizer(unittest.TestCase):
         self.text = "Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 43. " \
             "Geburtstag. Ich muss unbedingt daran denken, Mehl, usw. für " \
             "einen Kuchen einzukaufen. Aber leider habe ich nur noch " \
-            "EUR 18.50 in meiner Brieftasche."
+            "EUR 3.50 in meiner Brieftasche."
         self.snt1 = "Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 43. " \
             "Geburtstag."
 
@@ -75,7 +75,7 @@ class TestNLTKPunktTokenizer(unittest.TestCase):
                       'nur',
                       'noch',
                       'EUR',
-                      '18.50',
+                      '3.50',
                       'in',
                       'meiner',
                       'Brieftasche',
@@ -115,7 +115,7 @@ class TestNLTKPunktTokenizer(unittest.TestCase):
                       'nur',
                       'noch',
                       'EUR',
-                      '18.50',
+                      '3.50',
                       'in',
                       'meiner',
                       'Brieftasche'])
@@ -158,7 +158,7 @@ class TestNLTKPunktTokenizer(unittest.TestCase):
                        'nur',
                        'noch',
                        'EUR',
-                       '18.50',
+                       '3.50',
                        'in',
                        'meiner',
                        'Brieftasche',
@@ -177,7 +177,7 @@ class TestNLTKPunktTokenizer(unittest.TestCase):
             [
                 'Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 43. Geburtstag.',
                 'Ich muss unbedingt daran denken, Mehl, usw. für einen Kuchen einzukaufen.',
-                'Aber leider habe ich nur noch EUR 18.50 in meiner Brieftasche.'])
+                'Aber leider habe ich nur noch EUR 3.50 in meiner Brieftasche.'])
 
     def test_word_tokenize(self):
         tokens = self.tokenizer.word_tokenize(self.snt1)
