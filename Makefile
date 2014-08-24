@@ -5,9 +5,6 @@
 # N: Package Name
 N = textblob_rftagger
 
-# REPO: git repository name (use "-" instead of "_")
-REPO = $(echo "$(N)" | sed s/_/-/g)
-
 # M: git commit message
 M =
 
@@ -174,5 +171,5 @@ push-github: clean clean-logs
 	git add --all
 	git commit -a -m "$(M)"
 	git push -u origin --all
-	$(O) https://github.com/markuskiller/$(REPO) &
+	$(O) https://github.com/markuskiller/$(subst _,-,$(N)) &
 
