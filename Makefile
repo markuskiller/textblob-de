@@ -5,6 +5,9 @@
 # N: Package Name
 N = textblob_rftagger
 
+# REPO: git repository name (use "-" instead of "_")
+REPO = $(N) | sed s/_/-/g
+
 # M: git commit message
 M =
 
@@ -162,14 +165,12 @@ sdist: clean clean-logs docs
 	ls -l dist
 
 push-bitbucket: clean clean-logs
-	$REPO = $(N) | sed s/_/-/g
 	git add --all
 	git commit -a -m "$(M)"
 	git push -u origin --all
 	$(O) https://bitbucket.org/mki5600/$(REPO) &
 	
 push-github: clean clean-logs
-	$REPO = $(N) | sed s/_/-/g
 	git add --all
 	git commit -a -m "$(M)"
 	git push -u origin --all
