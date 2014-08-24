@@ -3,7 +3,7 @@
 # You can set these variables from the command line.
 
 # N: Package Name
-N = textblob_rftagger
+N = textblob_de
 
 # M: git commit message
 M =
