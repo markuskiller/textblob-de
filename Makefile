@@ -6,7 +6,7 @@
 N = textblob_rftagger
 
 # REPO: git repository name (use "-" instead of "_")
-REPO = $(N) | sed s/_/-/g
+REPO = echo $(N) | sed s/_/-/g
 
 # M: git commit message
 M =
