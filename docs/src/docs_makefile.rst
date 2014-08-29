@@ -1,10 +1,10 @@
-========================
-Makefile in ``docs_dir``
-========================
+--------------------------
+Documentation ``Makefile``
+--------------------------
 
     ::
 
-     generated: 29 August 2014 - 15:17
+     generated: 29 August 2014 - 19:17
 
 	Please use `make <target>' where <target> is one of
 	

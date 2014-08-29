@@ -67,7 +67,7 @@ Classifiers (from `TextBlob`_ main package)
 Blobber
 -------
 
-.. autoclass:: textblob_de.blob.Blobber
+.. autoclass:: textblob_de.blob.BlobberDE
     :members:
     :special-members:
     :exclude-members: __weakref__

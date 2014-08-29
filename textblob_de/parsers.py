@@ -77,8 +77,9 @@ class PatternParser(BaseParser):
     def parse(self, text):
         """Parses the text.
 
-        PatternParser.parse(**kwargs) can be passed to the parser instance and
-        are documented in the class docstring.
+        ``pattern.de.parse(**kwargs)`` can be passed to the parser instance and
+        are documented in the main docstring of
+        :class:`PatternParser() <textblob_de.parsers.PatternParser>`.
 
         :param str text: A string.
 

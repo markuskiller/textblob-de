@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Credits &mdash; textblob-de 0.3.1a3 documentation</title>
+  <title>Credits &mdash; textblob-de 0.3.1a5 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   
 
   
-    <link rel="top" title="textblob-de 0.3.1a3 documentation" href="index.html"/>
-        <link rel="next" title="Contributing guidelines" href="contributing.html"/>
+    <link rel="top" title="textblob-de 0.3.1a5 documentation" href="index.html"/>
+        <link rel="next" title="LICENSE" href="license.html"/>
         <link rel="prev" title="Changelog" href="changelog.html"/> 
 
   
@@ -63,12 +63,15 @@
 <li class="toctree-l2"><a class="reference internal" href="readme.html#installing-upgrading">Installing/Upgrading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#usage">Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#access-to-pattern-api-in-python3">Access to <tt class="docutils literal"><span class="pre">pattern</span></tt> API in Python3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#documentation-and-api-reference">Documentation and API Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#todo">TODO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#license">License</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#thanks">Thanks</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Tutorial: Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">Advanced Usage: Overriding Models and the Blobber Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.blob">Blob Classes</a></li>
@@ -104,18 +107,22 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Credits</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#textblob-development-lead">TextBlob Development Lead</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#textblob-de-maintainer">textblob-de Maintainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#textblob-de-author-maintainer">textblob-de Author/Maintainer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#contributors">Contributors</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">LICENSE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing guidelines</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#in-general">In General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#in-particular">In Particular</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#make-command"><tt class="docutils literal"><span class="pre">make</span></tt> command</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#project-makefile">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#documentation-makefile">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="make_info.html"><tt class="docutils literal"><span class="pre">make</span></tt> command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="make_info.html#using-make-on-windows">Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project_makefile.html">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs_makefile.html">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
 </ul>
 
         
@@ -158,8 +165,8 @@
 <li>Steven Loria &lt;<a class="reference external" href="mailto:sloria1&#37;&#52;&#48;gmail&#46;com">sloria1<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</li>
 </ul>
 </div>
-<div class="section" id="textblob-de-maintainer">
-<h2><a class="reference external" href="https://github.com/markuskiller/textblob-de">textblob-de</a> Maintainer<a class="headerlink" href="#textblob-de-maintainer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="textblob-de-author-maintainer">
+<h2><a class="reference external" href="https://github.com/markuskiller/textblob-de">textblob-de</a> Author/Maintainer<a class="headerlink" href="#textblob-de-author-maintainer" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Markus Killer &lt;<a class="reference external" href="mailto:m&#46;killer&#37;&#52;&#48;langui&#46;ch">m<span>&#46;</span>killer<span>&#64;</span>langui<span>&#46;</span>ch</a>&gt;</li>
 </ul>
@@ -178,7 +185,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="contributing.html" class="btn btn-neutral float-right" title="Contributing guidelines"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="license.html" class="btn btn-neutral float-right" title="LICENSE"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="changelog.html" class="btn btn-neutral" title="Changelog"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -210,7 +217,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.3.1a3',
+            VERSION:'0.3.1a5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

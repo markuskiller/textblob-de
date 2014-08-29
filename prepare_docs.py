@@ -115,7 +115,7 @@ def console_help2rst(cwd, help_cmd, path_to_rst, rst_title,
         help_msg = _proc.stdout.readlines()
         f.write(get_rst_title(
                 rst_title,
-                "=",
+                "-",
                 overline=True))
         f.write(generated_time_str)
         if "README" in path_to_rst:
@@ -183,10 +183,10 @@ def update_docs(readme=True, makefiles=True):
         #: ``(cwd, help_cmd, path_to_rst_file, rst_title_of_new_file)``
         help2rst_queue = [
             (project_makefile_dir, [_make, "help"], project_makefile_rst,
-             "Makefile in ``project_root_dir``"),
+             "Project ``Makefile``"),
 
             (docs_makefile_dir, [_make, "help"], docs_makefile_rst,
-             "Makefile in ``docs_dir``")]
+             "Documentation ``Makefile``")]
 
         for cwd, help_cmd, outfile, title in help2rst_queue:
             console_help2rst(

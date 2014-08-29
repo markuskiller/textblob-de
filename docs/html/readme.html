@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>textblob-de README &mdash; textblob-de 0.3.1a3 documentation</title>
+  <title>textblob-de README &mdash; textblob-de 0.3.1a5 documentation</title>
   
 
   
@@ -28,9 +28,9 @@
   
 
   
-    <link rel="top" title="textblob-de 0.3.1a3 documentation" href="index.html"/>
-        <link rel="next" title="Extensions" href="extensions.html"/>
-        <link rel="prev" title="textblob-de: German Language Extension for TextBlob" href="index.html"/> 
+    <link rel="top" title="textblob-de 0.3.1a5 documentation" href="index.html"/>
+        <link rel="next" title="Tutorial: Quickstart" href="quickstart.html"/>
+        <link rel="prev" title="textblob-de" href="index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -63,12 +63,15 @@
 <li class="toctree-l2"><a class="reference internal" href="#installing-upgrading">Installing/Upgrading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#access-to-pattern-api-in-python3">Access to <tt class="docutils literal"><span class="pre">pattern</span></tt> API in Python3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-and-api-reference">Documentation and API Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#todo">TODO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#thanks">Thanks</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Tutorial: Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">Advanced Usage: Overriding Models and the Blobber Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.blob">Blob Classes</a></li>
@@ -104,18 +107,22 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-development-lead">TextBlob Development Lead</a></li>
-<li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-de-maintainer">textblob-de Maintainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-de-author-maintainer">textblob-de Author/Maintainer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">LICENSE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing guidelines</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#in-general">In General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#in-particular">In Particular</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#make-command"><tt class="docutils literal"><span class="pre">make</span></tt> command</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#project-makefile">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#documentation-makefile">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="make_info.html"><tt class="docutils literal"><span class="pre">make</span></tt> command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="make_info.html#using-make-on-windows">Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project_makefile.html">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs_makefile.html">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
 </ul>
 
         
@@ -154,9 +161,10 @@
 <h1>textblob-de README<a class="headerlink" href="#textblob-de-readme" title="Permalink to this headline">¶</a></h1>
 <a class="reference external image-reference" href="https://pypi.python.org/pypi/textblob-de/"><img alt="textblob_de - latest PyPI version" src="https://pypip.in/v/textblob-de/badge.png" /></a>
 <a class="reference external image-reference" href="https://travis-ci.org/markuskiller/textblob-de"><img alt="Travis-CI" src="https://travis-ci.org/markuskiller/textblob-de.png?branch=dev" /></a>
+<a class="reference external image-reference" href="http://textblob-de.readthedocs.org/en/latest/"><img alt="Documentation Status" src="https://readthedocs.org/projects/textblob-de/badge/?version=latest" /></a>
 <a class="reference external image-reference" href="https://pypi.python.org/pypi/textblob-de/"><img alt="Number of PyPI downloads" src="https://pypip.in/d/textblob-de/badge.png" /></a>
 <a class="reference external image-reference" href="https://waffle.io/markuskiller/textblob-de"><img alt="Issues in In Progress" src="https://badge.waffle.io/markuskiller/textblob-de.png?label=In%20Progress&amp;title=In%20Progress" /></a>
-<a class="reference external image-reference" href="https://pypi.python.org/pypi/textblob-de/"><img alt="LICENSE info" src="https://pypip.in/license/textblob-de/badge.png" /></a>
+<a class="reference external image-reference" href="http://choosealicense.com/licenses/mit/"><img alt="LICENSE info" src="https://pypip.in/license/textblob-de/badge.png" /></a>
 <p>German language support for <a class="reference external" href="https://textblob.readthedocs.org/">TextBlob</a> by Steven Loria.</p>
 <p>This python package is being developed as a <tt class="docutils literal"><span class="pre">TextBlob</span></tt> <strong>Language Extension</strong>.
 See <a class="reference external" href="https://textblob.readthedocs.org/en/dev/contributing.html">Extension Guidelines</a> for details.</p>
@@ -285,6 +293,12 @@ The only difference is that you will have to prepend an underscore:
 library gets native Python3 support in the future.</p>
 </div>
 </div>
+<div class="section" id="documentation-and-api-reference">
+<h2>Documentation and API Reference<a class="headerlink" href="#documentation-and-api-reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://textblob-de.readthedocs.org/en/latest">http://textblob-de.readthedocs.org/en/latest</a></li>
+</ul>
+</div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -294,12 +308,7 @@ library gets native Python3 support in the future.</p>
 <div class="section" id="todo">
 <h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><strong>TextBlob Extension:</strong> <tt class="docutils literal"><span class="pre">textblob-rftagger</span></tt> (wrapper class for <tt class="docutils literal"><span class="pre">RFTagger</span></tt>)</li>
-<li><strong>TextBlob Extension:</strong> <tt class="docutils literal"><span class="pre">textblob-cmd</span></tt> (command-line wrapper for <tt class="docutils literal"><span class="pre">TextBlob</span></tt>, basically TextBlob for files</li>
-<li><strong>TextBlob Extension:</strong> <tt class="docutils literal"><span class="pre">textblob-stanfordparser</span></tt> (wrapper class for <tt class="docutils literal"><span class="pre">StanfordParser</span></tt> via NLTK)</li>
-<li><strong>TextBlob Extension:</strong> <tt class="docutils literal"><span class="pre">textblob-berkeleyparser</span></tt> (wrapper class for <tt class="docutils literal"><span class="pre">BerkeleyParser</span></tt>)</li>
-<li><strong>TextBlob Extension:</strong> <tt class="docutils literal"><span class="pre">textblob-sent-align</span></tt> (sentence alignment for parallel TextBlobs)</li>
-<li><strong>TextBlob Extension:</strong> <tt class="docutils literal"><span class="pre">textblob-converters</span></tt> (various input and output conversions)</li>
+<li><a class="reference external" href="http://textblob-de.readthedocs.org/en/latest/extensions.html">Planned Extensions</a></li>
 <li>Additional PoS tagging options, e.g. NLTK tagging (<tt class="docutils literal"><span class="pre">NLTKTagger</span></tt>)</li>
 <li>Improve noun phrase extraction (e.g. based on <tt class="docutils literal"><span class="pre">RFTagger</span></tt> output)</li>
 <li>Improve sentiment analysis (find suitable subjectivity scores)</li>
@@ -309,7 +318,7 @@ library gets native Python3 support in the future.</p>
 </div>
 <div class="section" id="license">
 <h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
-<p>MIT licensed. See the bundled <tt class="docutils literal"><span class="pre">LICENSE</span></tt>  file for more details.</p>
+<p><a class="reference external" href="http://choosealicense.com/licenses/mit/">MIT licensed</a>. See the bundled <tt class="docutils literal"><span class="pre">LICENSE</span></tt>  file for more details.</p>
 </div>
 <div class="section" id="thanks">
 <h2>Thanks<a class="headerlink" href="#thanks" title="Permalink to this headline">¶</a></h2>
@@ -324,10 +333,10 @@ library gets native Python3 support in the future.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="extensions.html" class="btn btn-neutral float-right" title="Extensions"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="Tutorial: Quickstart"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="textblob-de: German Language Extension for TextBlob"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="textblob-de"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -356,7 +365,7 @@ library gets native Python3 support in the future.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.3.1a3',
+            VERSION:'0.3.1a5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

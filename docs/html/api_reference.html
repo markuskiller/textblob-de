@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; textblob-de 0.3.1a3 documentation</title>
+  <title>API Reference &mdash; textblob-de 0.3.1a5 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   
 
   
-    <link rel="top" title="textblob-de 0.3.1a3 documentation" href="index.html"/>
+    <link rel="top" title="textblob-de 0.3.1a5 documentation" href="index.html"/>
         <link rel="next" title="Changelog" href="changelog.html"/>
         <link rel="prev" title="Extensions" href="extensions.html"/> 
 
@@ -63,12 +63,15 @@
 <li class="toctree-l2"><a class="reference internal" href="readme.html#installing-upgrading">Installing/Upgrading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#usage">Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#access-to-pattern-api-in-python3">Access to <tt class="docutils literal"><span class="pre">pattern</span></tt> API in Python3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#documentation-and-api-reference">Documentation and API Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#todo">TODO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#license">License</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#thanks">Thanks</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Tutorial: Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">Advanced Usage: Overriding Models and the Blobber Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-textblob_de.blob">Blob Classes</a></li>
@@ -104,18 +107,22 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-development-lead">TextBlob Development Lead</a></li>
-<li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-de-maintainer">textblob-de Maintainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-de-author-maintainer">textblob-de Author/Maintainer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">LICENSE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing guidelines</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#in-general">In General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#in-particular">In Particular</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#make-command"><tt class="docutils literal"><span class="pre">make</span></tt> command</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#project-makefile">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#documentation-makefile">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="make_info.html"><tt class="docutils literal"><span class="pre">make</span></tt> command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="make_info.html#using-make-on-windows">Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project_makefile.html">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs_makefile.html">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
 </ul>
 
         
@@ -175,7 +182,7 @@ If they are generated from an inherited class, they will use the English models
 </div>
 <dl class="class">
 <dt id="textblob_de.blob.BaseBlob">
-<em class="property">class </em><tt class="descclassname">textblob_de.blob.</tt><tt class="descname">BaseBlob</tt><big>(</big><em>text</em>, <em>tokenizer=None</em>, <em>pos_tagger=None</em>, <em>np_extractor=None</em>, <em>analyzer=None</em>, <em>parser=None</em>, <em>classifier=None</em>, <em>clean_html=False</em><big>)</big><a class="headerlink" href="#textblob_de.blob.BaseBlob" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.blob.</tt><tt class="descname">BaseBlob</tt><big>(</big><em>text</em>, <em>tokenizer=None</em>, <em>pos_tagger=None</em>, <em>np_extractor=None</em>, <em>analyzer=None</em>, <em>parser=None</em>, <em>classifier=None</em>, <em>clean_html=False</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#BaseBlob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BaseBlob" title="Permalink to this definition">¶</a></dt>
 <dd><p><tt class="docutils literal"><span class="pre">BaseBlob</span></tt> class initialised with German default models:</p>
 <p>An abstract base class that all textblob classes will inherit from.
 Includes words, POS tag, NP, and word count properties. Also includes
@@ -211,7 +218,7 @@ defaults to <a class="reference internal" href="#textblob_de.np_extractors.Patte
 
 <dl class="method">
 <dt id="textblob_de.blob.BaseBlob.correct">
-<tt class="descname">correct</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob_de.blob.BaseBlob.correct" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">correct</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#BaseBlob.correct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BaseBlob.correct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attempt to correct the spelling of a blob.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.6.0: </span>(<tt class="docutils literal"><span class="pre">textblob</span></tt>)</p>
@@ -312,13 +319,13 @@ blob.</p>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.BaseBlob.noun_phrases">
-<tt class="descname">noun_phrases</tt><a class="headerlink" href="#textblob_de.blob.BaseBlob.noun_phrases" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">noun_phrases</tt><a class="reference internal" href="_modules/textblob_de/blob.html#BaseBlob.noun_phrases"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BaseBlob.noun_phrases" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of noun phrases for this blob.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.BaseBlob.np_counts">
-<tt class="descname">np_counts</tt><a class="headerlink" href="#textblob_de.blob.BaseBlob.np_counts" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">np_counts</tt><a class="reference internal" href="_modules/textblob_de/blob.html#BaseBlob.np_counts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BaseBlob.np_counts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dictionary of noun phrase frequencies in this text.</p>
 </dd></dl>
 
@@ -342,7 +349,7 @@ this blob&#8217;s default parser.</td>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.BaseBlob.polarity">
-<tt class="descname">polarity</tt><a class="headerlink" href="#textblob_de.blob.BaseBlob.polarity" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">polarity</tt><a class="reference internal" href="_modules/textblob_de/blob.html#BaseBlob.polarity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BaseBlob.polarity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the polarity score as a float within the range [-1.0, 1.0]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -356,7 +363,7 @@ this blob&#8217;s default parser.</td>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.BaseBlob.pos_tags">
-<tt class="descname">pos_tags</tt><a class="headerlink" href="#textblob_de.blob.BaseBlob.pos_tags" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pos_tags</tt><a class="reference internal" href="_modules/textblob_de/blob.html#BaseBlob.pos_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BaseBlob.pos_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an list of tuples of the form (word, POS tag).</p>
 <p>Example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">[(</span><span class="s">&#39;At&#39;</span><span class="p">,</span> <span class="s">&#39;IN&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;eight&#39;</span><span class="p">,</span> <span class="s">&#39;CD&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&quot;o&#39;clock&quot;</span><span class="p">,</span> <span class="s">&#39;JJ&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;on&#39;</span><span class="p">,</span> <span class="s">&#39;IN&#39;</span><span class="p">),</span>
@@ -397,7 +404,7 @@ found.</p>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.BaseBlob.sentiment">
-<tt class="descname">sentiment</tt><a class="headerlink" href="#textblob_de.blob.BaseBlob.sentiment" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">sentiment</tt><a class="reference internal" href="_modules/textblob_de/blob.html#BaseBlob.sentiment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BaseBlob.sentiment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a tuple of form (polarity, subjectivity ) where polarity
 is a float within the range [-1.0, 1.0] and subjectivity is a float
 within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is
@@ -414,7 +421,7 @@ very subjective.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.BaseBlob.split">
-<tt class="descname">split</tt><big>(</big><em>sep=None</em>, <em>maxsplit=9223372036854775807</em><big>)</big><a class="headerlink" href="#textblob_de.blob.BaseBlob.split" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">split</tt><big>(</big><em>sep=None</em>, <em>maxsplit=9223372036854775807</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#BaseBlob.split"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BaseBlob.split" title="Permalink to this definition">¶</a></dt>
 <dd><p>Behaves like the built-in str.split() except returns a
 WordList.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -448,7 +455,7 @@ an object with leading and trailing whitespace removed.</p>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.BaseBlob.subjectivity">
-<tt class="descname">subjectivity</tt><a class="headerlink" href="#textblob_de.blob.BaseBlob.subjectivity" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">subjectivity</tt><a class="reference internal" href="_modules/textblob_de/blob.html#BaseBlob.subjectivity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BaseBlob.subjectivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the subjectivity score as a float within the range [0.0, 1.0]
 where 0.0 is very objective and 1.0 is very subjective.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -488,7 +495,7 @@ where 0.0 is very objective and 1.0 is very subjective.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.BaseBlob.tokenize">
-<tt class="descname">tokenize</tt><big>(</big><em>tokenizer=None</em><big>)</big><a class="headerlink" href="#textblob_de.blob.BaseBlob.tokenize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">tokenize</tt><big>(</big><em>tokenizer=None</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#BaseBlob.tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BaseBlob.tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of tokens, using <tt class="docutils literal"><span class="pre">tokenizer</span></tt>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -503,14 +510,14 @@ this blob&#8217;s default tokenizer.</td>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.BaseBlob.tokens">
-<tt class="descname">tokens</tt><a class="headerlink" href="#textblob_de.blob.BaseBlob.tokens" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">tokens</tt><a class="reference internal" href="_modules/textblob_de/blob.html#BaseBlob.tokens"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BaseBlob.tokens" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of tokens, using this blob&#8217;s tokenizer object
 (defaults to <tt class="xref py py-class docutils literal"><span class="pre">WordTokenizer</span></tt>).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob_de.blob.BaseBlob.translate">
-<tt class="descname">translate</tt><big>(</big><em>from_lang=None</em>, <em>to='de'</em><big>)</big><a class="headerlink" href="#textblob_de.blob.BaseBlob.translate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">translate</tt><big>(</big><em>from_lang=None</em>, <em>to='de'</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#BaseBlob.translate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BaseBlob.translate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Translate the blob to another language.</p>
 </dd></dl>
 
@@ -522,13 +529,13 @@ this blob&#8217;s default tokenizer.</td>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.BaseBlob.word_counts">
-<tt class="descname">word_counts</tt><a class="headerlink" href="#textblob_de.blob.BaseBlob.word_counts" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">word_counts</tt><a class="reference internal" href="_modules/textblob_de/blob.html#BaseBlob.word_counts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BaseBlob.word_counts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dictionary of word frequencies in this text.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.BaseBlob.words">
-<tt class="descname">words</tt><a class="headerlink" href="#textblob_de.blob.BaseBlob.words" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">words</tt><a class="reference internal" href="_modules/textblob_de/blob.html#BaseBlob.words"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BaseBlob.words" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of word tokens. This excludes punctuation characters.
 If you want to include punctuation characters, access the <tt class="docutils literal"><span class="pre">tokens</span></tt>
 property.</p>
@@ -546,7 +553,7 @@ property.</p>
 
 <dl class="class">
 <dt id="textblob_de.blob.BlobberDE">
-<em class="property">class </em><tt class="descclassname">textblob_de.blob.</tt><tt class="descname">BlobberDE</tt><big>(</big><em>tokenizer=None</em>, <em>pos_tagger=None</em>, <em>np_extractor=None</em>, <em>analyzer=None</em>, <em>parser=None</em>, <em>classifier=None</em><big>)</big><a class="headerlink" href="#textblob_de.blob.BlobberDE" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.blob.</tt><tt class="descname">BlobberDE</tt><big>(</big><em>tokenizer=None</em>, <em>pos_tagger=None</em>, <em>np_extractor=None</em>, <em>analyzer=None</em>, <em>parser=None</em>, <em>classifier=None</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#BlobberDE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BlobberDE" title="Permalink to this definition">¶</a></dt>
 <dd><p>A factory for TextBlobs that all share the same tagger, tokenizer,
 parser, classifier, and np_extractor.</p>
 <p>Usage:</p>
@@ -587,7 +594,7 @@ defaults to <a class="reference internal" href="#textblob_de.np_extractors.Patte
 
 <dl class="class">
 <dt id="textblob_de.blob.Sentence">
-<em class="property">class </em><tt class="descclassname">textblob_de.blob.</tt><tt class="descname">Sentence</tt><big>(</big><em>sentence</em>, <em>start_index=0</em>, <em>end_index=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob_de.blob.Sentence" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.blob.</tt><tt class="descname">Sentence</tt><big>(</big><em>sentence</em>, <em>start_index=0</em>, <em>end_index=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#Sentence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Sentence" title="Permalink to this definition">¶</a></dt>
 <dd><p>A sentence within a TextBlob. Inherits from <a class="reference internal" href="#textblob_de.blob.BaseBlob" title="textblob_de.blob.BaseBlob"><tt class="xref py py-class docutils literal"><span class="pre">BaseBlob</span></tt></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -658,7 +665,7 @@ length of the sentence - 1.</li>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.Sentence.dict">
-<tt class="descname">dict</tt><a class="headerlink" href="#textblob_de.blob.Sentence.dict" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">dict</tt><a class="reference internal" href="_modules/textblob_de/blob.html#Sentence.dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Sentence.dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>The dict representation of this sentence.</p>
 </dd></dl>
 
@@ -978,7 +985,7 @@ property.</p>
 
 <dl class="class">
 <dt id="textblob_de.blob.TextBlobDE">
-<em class="property">class </em><tt class="descclassname">textblob_de.blob.</tt><tt class="descname">TextBlobDE</tt><big>(</big><em>text</em>, <em>tokenizer=None</em>, <em>pos_tagger=None</em>, <em>np_extractor=None</em>, <em>analyzer=None</em>, <em>parser=None</em>, <em>classifier=None</em>, <em>clean_html=False</em><big>)</big><a class="headerlink" href="#textblob_de.blob.TextBlobDE" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.blob.</tt><tt class="descname">TextBlobDE</tt><big>(</big><em>text</em>, <em>tokenizer=None</em>, <em>pos_tagger=None</em>, <em>np_extractor=None</em>, <em>analyzer=None</em>, <em>parser=None</em>, <em>classifier=None</em>, <em>clean_html=False</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#TextBlobDE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.TextBlobDE" title="Permalink to this definition">¶</a></dt>
 <dd><p><tt class="docutils literal"><span class="pre">TextBlob</span></tt> class initialised with German default models:</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1096,7 +1103,7 @@ in the iterable.</p>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.TextBlobDE.json">
-<tt class="descname">json</tt><a class="headerlink" href="#textblob_de.blob.TextBlobDE.json" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">json</tt><a class="reference internal" href="_modules/textblob_de/blob.html#TextBlobDE.json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.TextBlobDE.json" title="Permalink to this definition">¶</a></dt>
 <dd><p>The json representation of this blob.</p>
 <div class="versionchanged">
 <p><span class="versionmodified">Changed in version 0.5.1: </span>Made <tt class="docutils literal"><span class="pre">json</span></tt> a property instead of a method to restore backwards
@@ -1149,7 +1156,7 @@ this blob&#8217;s default parser.</td>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.TextBlobDE.polarity">
-<tt class="descname">polarity</tt><a class="headerlink" href="#textblob_de.blob.TextBlobDE.polarity" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">polarity</tt><a class="reference internal" href="_modules/textblob_de/blob.html#TextBlobDE.polarity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.TextBlobDE.polarity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the polarity score as a float within the range [-1.0, 1.0]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1182,7 +1189,7 @@ this blob&#8217;s default parser.</td>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.TextBlobDE.raw_sentences">
-<tt class="descname">raw_sentences</tt><a class="headerlink" href="#textblob_de.blob.TextBlobDE.raw_sentences" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">raw_sentences</tt><a class="reference internal" href="_modules/textblob_de/blob.html#TextBlobDE.raw_sentences"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.TextBlobDE.raw_sentences" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of strings, the raw sentences in the blob.</p>
 </dd></dl>
 
@@ -1210,13 +1217,13 @@ found.</p>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.TextBlobDE.sentences">
-<tt class="descname">sentences</tt><a class="headerlink" href="#textblob_de.blob.TextBlobDE.sentences" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">sentences</tt><a class="reference internal" href="_modules/textblob_de/blob.html#TextBlobDE.sentences"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.TextBlobDE.sentences" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return list of <a class="reference internal" href="#textblob_de.blob.Sentence" title="textblob_de.blob.Sentence"><tt class="xref py py-class docutils literal"><span class="pre">Sentence</span></tt></a> objects.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.TextBlobDE.sentiment">
-<tt class="descname">sentiment</tt><a class="headerlink" href="#textblob_de.blob.TextBlobDE.sentiment" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">sentiment</tt><a class="reference internal" href="_modules/textblob_de/blob.html#TextBlobDE.sentiment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.TextBlobDE.sentiment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a tuple of form (polarity, subjectivity ) where polarity
 is a float within the range [-1.0, 1.0] and subjectivity is a float
 within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is
@@ -1233,7 +1240,7 @@ very subjective.</p>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.TextBlobDE.serialized">
-<tt class="descname">serialized</tt><a class="headerlink" href="#textblob_de.blob.TextBlobDE.serialized" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">serialized</tt><a class="reference internal" href="_modules/textblob_de/blob.html#TextBlobDE.serialized"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.TextBlobDE.serialized" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of each sentence&#8217;s dict representation.</p>
 </dd></dl>
 
@@ -1273,7 +1280,7 @@ an object with leading and trailing whitespace removed.</p>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.TextBlobDE.subjectivity">
-<tt class="descname">subjectivity</tt><a class="headerlink" href="#textblob_de.blob.TextBlobDE.subjectivity" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">subjectivity</tt><a class="reference internal" href="_modules/textblob_de/blob.html#TextBlobDE.subjectivity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.TextBlobDE.subjectivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the subjectivity score as a float within the range [0.0, 1.0]
 where 0.0 is very objective and 1.0 is very subjective.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1313,7 +1320,7 @@ where 0.0 is very objective and 1.0 is very subjective.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.TextBlobDE.to_json">
-<tt class="descname">to_json</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob_de.blob.TextBlobDE.to_json" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">to_json</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#TextBlobDE.to_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.TextBlobDE.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a json representation (str) of this blob. Takes the same
 arguments as json.dumps.</p>
 <div class="versionadded">
@@ -1363,7 +1370,7 @@ this blob&#8217;s default tokenizer.</td>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.TextBlobDE.words">
-<tt class="descname">words</tt><a class="headerlink" href="#textblob_de.blob.TextBlobDE.words" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">words</tt><a class="reference internal" href="_modules/textblob_de/blob.html#TextBlobDE.words"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.TextBlobDE.words" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of word tokens. This excludes punctuation characters.
 If you want to include punctuation characters, access the <tt class="docutils literal"><span class="pre">tokens</span></tt>
 property.</p>
@@ -1381,7 +1388,7 @@ property.</p>
 
 <dl class="class">
 <dt id="textblob_de.blob.Word">
-<em class="property">class </em><tt class="descclassname">textblob_de.blob.</tt><tt class="descname">Word</tt><big>(</big><em>string</em>, <em>pos_tag=None</em><big>)</big><a class="headerlink" href="#textblob_de.blob.Word" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.blob.</tt><tt class="descname">Word</tt><big>(</big><em>string</em>, <em>pos_tag=None</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#Word"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word" title="Permalink to this definition">¶</a></dt>
 <dd><p>A simple word representation.</p>
 <p>Includes methods for inflection, translation, and WordNet
 integration.</p>
@@ -1407,7 +1414,7 @@ done using the specified fill character (default is a space)</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.correct">
-<tt class="descname">correct</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob_de.blob.Word.correct" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">correct</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#Word.correct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word.correct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Correct the spelling of the word. Returns the word with the highest
 confidence using the spelling corrector.</p>
 <div class="versionadded">
@@ -1425,7 +1432,7 @@ interpreted as in slice notation.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.define">
-<tt class="descname">define</tt><big>(</big><em>pos=None</em><big>)</big><a class="headerlink" href="#textblob_de.blob.Word.define" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">define</tt><big>(</big><em>pos=None</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#Word.define"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word.define" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of definitions for this word. Each definition
 corresponds to a synset for this word.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1446,7 +1453,7 @@ for all parts of speech will be loaded.</td>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.Word.definitions">
-<tt class="descname">definitions</tt><a class="headerlink" href="#textblob_de.blob.Word.definitions" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">definitions</tt><a class="reference internal" href="_modules/textblob_de/blob.html#Word.definitions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word.definitions" title="Permalink to this definition">¶</a></dt>
 <dd><p>The list of definitions for this word. Each definition corresponds
 to a synset.</p>
 <div class="versionadded">
@@ -1456,7 +1463,7 @@ to a synset.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.detect_language">
-<tt class="descname">detect_language</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob_de.blob.Word.detect_language" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">detect_language</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#Word.detect_language"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word.detect_language" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detect the word&#8217;s language using Google&#8217;s Translate API.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.5.0: </span>(<tt class="docutils literal"><span class="pre">textblob</span></tt>)</p>
@@ -1515,7 +1522,7 @@ The substitutions are identified by braces (&#8216;{&#8216; and &#8216;}&#8217;)
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.get_synsets">
-<tt class="descname">get_synsets</tt><big>(</big><em>pos=None</em><big>)</big><a class="headerlink" href="#textblob_de.blob.Word.get_synsets" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">get_synsets</tt><big>(</big><em>pos=None</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#Word.get_synsets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word.get_synsets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of Synset objects for this word.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1629,13 +1636,13 @@ iterable.  The separator between elements is S.</p>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.Word.lemma">
-<tt class="descname">lemma</tt><a class="headerlink" href="#textblob_de.blob.Word.lemma" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">lemma</tt><a class="reference internal" href="_modules/textblob_de/blob.html#Word.lemma"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word.lemma" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the lemma of this word using Wordnet&#8217;s morphy function.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.lemmatize">
-<tt class="descname">lemmatize</tt><big>(</big><em>pos=None</em><big>)</big><a class="headerlink" href="#textblob_de.blob.Word.lemmatize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">lemmatize</tt><big>(</big><em>pos=None</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#Word.lemmatize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word.lemmatize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the lemma for a word using WordNet&#8217;s morphy function.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1694,7 +1701,7 @@ found, return S and two empty strings.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.pluralize">
-<tt class="descname">pluralize</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob_de.blob.Word.pluralize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pluralize</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#Word.pluralize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word.pluralize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the plural version of the word as a string.</p>
 </dd></dl>
 
@@ -1755,13 +1762,13 @@ If chars is given and not None, remove characters in chars instead.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.singularize">
-<tt class="descname">singularize</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob_de.blob.Word.singularize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">singularize</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#Word.singularize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word.singularize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the singular version of the word as a string.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.spellcheck">
-<tt class="descname">spellcheck</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob_de.blob.Word.spellcheck" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">spellcheck</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#Word.spellcheck"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word.spellcheck" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of (word, confidence) tuples of spelling corrections.</p>
 <p>Based on: Peter Norvig, &#8220;How to Write a Spelling Corrector&#8221;
 (<a class="reference external" href="http://norvig.com/spell-correct.html">http://norvig.com/spell-correct.html</a>) as implemented in the pattern
@@ -1815,7 +1822,7 @@ and vice versa.</p>
 
 <dl class="attribute">
 <dt id="textblob_de.blob.Word.synsets">
-<tt class="descname">synsets</tt><a class="headerlink" href="#textblob_de.blob.Word.synsets" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">synsets</tt><a class="reference internal" href="_modules/textblob_de/blob.html#Word.synsets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word.synsets" title="Permalink to this definition">¶</a></dt>
 <dd><p>The list of Synset objects for this Word.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1839,7 +1846,7 @@ characters, all remaining cased characters have lower case.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.translate">
-<tt class="descname">translate</tt><big>(</big><em>from_lang=None</em>, <em>to='de'</em><big>)</big><a class="headerlink" href="#textblob_de.blob.Word.translate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">translate</tt><big>(</big><em>from_lang=None</em>, <em>to='de'</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#Word.translate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word.translate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Translate the word to another language using Google&#8217;s Translate API.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.5.0: </span>(<tt class="docutils literal"><span class="pre">textblob</span></tt>)</p>
@@ -1863,11 +1870,11 @@ of the specified width. The string S is never truncated.</p>
 
 <dl class="class">
 <dt id="textblob_de.blob.WordList">
-<em class="property">class </em><tt class="descclassname">textblob_de.blob.</tt><tt class="descname">WordList</tt><big>(</big><em>collection</em><big>)</big><a class="headerlink" href="#textblob_de.blob.WordList" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.blob.</tt><tt class="descname">WordList</tt><big>(</big><em>collection</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#WordList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.WordList" title="Permalink to this definition">¶</a></dt>
 <dd><p>A list-like collection of words.</p>
 <dl class="method">
 <dt id="textblob_de.blob.WordList.append">
-<tt class="descname">append</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#textblob_de.blob.WordList.append" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">append</tt><big>(</big><em>obj</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#WordList.append"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.WordList.append" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append an object to end. If the object is a string, appends a.</p>
 <p><a class="reference internal" href="#textblob_de.blob.Word" title="textblob_de.blob.Word"><tt class="xref py py-class docutils literal"><span class="pre">Word</span></tt></a> object.</p>
 </dd></dl>
@@ -1884,7 +1891,7 @@ of the specified width. The string S is never truncated.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.WordList.count">
-<tt class="descname">count</tt><big>(</big><em>strg</em>, <em>case_sensitive=False</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob_de.blob.WordList.count" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">count</tt><big>(</big><em>strg</em>, <em>case_sensitive=False</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#WordList.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.WordList.count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the count of a word or phrase <cite>s</cite> within this WordList.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1902,7 +1909,7 @@ of the specified width. The string S is never truncated.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.WordList.extend">
-<tt class="descname">extend</tt><big>(</big><em>iterable</em><big>)</big><a class="headerlink" href="#textblob_de.blob.WordList.extend" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">extend</tt><big>(</big><em>iterable</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#WordList.extend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.WordList.extend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extend WordList by appending elements from <tt class="docutils literal"><span class="pre">iterable</span></tt>.</p>
 <p>If an element
 is a string, appends a <a class="reference internal" href="#textblob_de.blob.Word" title="textblob_de.blob.Word"><tt class="xref py py-class docutils literal"><span class="pre">Word</span></tt></a> object.</p>
@@ -1922,7 +1929,7 @@ is a string, appends a <a class="reference internal" href="#textblob_de.blob.Wor
 
 <dl class="method">
 <dt id="textblob_de.blob.WordList.lemmatize">
-<tt class="descname">lemmatize</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob_de.blob.WordList.lemmatize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">lemmatize</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#WordList.lemmatize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.WordList.lemmatize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the lemma of each word in this WordList.</p>
 <p>Currently using NLTKPunktTokenizer() for all lemmatization
 tasks. This might cause slightly different tokenization results
@@ -1931,13 +1938,13 @@ compared to the TextBlob.words property.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.WordList.lower">
-<tt class="descname">lower</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob_de.blob.WordList.lower" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">lower</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#WordList.lower"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.WordList.lower" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a new WordList with each word lower-cased.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob_de.blob.WordList.pluralize">
-<tt class="descname">pluralize</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob_de.blob.WordList.pluralize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pluralize</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#WordList.pluralize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.WordList.pluralize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the plural version of each word in this WordList.</p>
 </dd></dl>
 
@@ -1961,7 +1968,7 @@ compared to the TextBlob.words property.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.WordList.singularize">
-<tt class="descname">singularize</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob_de.blob.WordList.singularize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">singularize</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#WordList.singularize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.WordList.singularize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the single version of each word in this WordList.</p>
 </dd></dl>
 
@@ -1972,7 +1979,7 @@ compared to the TextBlob.words property.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.WordList.upper">
-<tt class="descname">upper</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob_de.blob.WordList.upper" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">upper</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#WordList.upper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.WordList.upper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a new WordList with each word upper-cased.</p>
 </dd></dl>
 
@@ -1984,7 +1991,7 @@ compared to the TextBlob.words property.</p>
 <p>Extensions to Abstract base classes in <tt class="docutils literal"><span class="pre">textblob.base</span></tt></p>
 <dl class="class">
 <dt id="textblob_de.base.BaseLemmatizer">
-<em class="property">class </em><tt class="descclassname">textblob_de.base.</tt><tt class="descname">BaseLemmatizer</tt><a class="headerlink" href="#textblob_de.base.BaseLemmatizer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.base.</tt><tt class="descname">BaseLemmatizer</tt><a class="reference internal" href="_modules/textblob_de/base.html#BaseLemmatizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.base.BaseLemmatizer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract base class from which all Lemmatizer classes inherit.
 Descendant classes must implement a <tt class="docutils literal"><span class="pre">lemmatize(text)</span></tt> method that returns
 a WordList of Word object with updated lemma properties.</p>
@@ -1993,7 +2000,7 @@ a WordList of Word object with updated lemma properties.</p>
 </div>
 <dl class="method">
 <dt id="textblob_de.base.BaseLemmatizer.lemmatize">
-<tt class="descname">lemmatize</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#textblob_de.base.BaseLemmatizer.lemmatize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">lemmatize</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="_modules/textblob_de/base.html#BaseLemmatizer.lemmatize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.base.BaseLemmatizer.lemmatize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of (lemma, tag) tuples.</p>
 </dd></dl>
 
@@ -2005,13 +2012,15 @@ a WordList of Word object with updated lemma properties.</p>
 <p>Various tokenizer implementations.</p>
 <dl class="class">
 <dt id="textblob_de.tokenizers.NLTKPunktTokenizer">
-<em class="property">class </em><tt class="descclassname">textblob_de.tokenizers.</tt><tt class="descname">NLTKPunktTokenizer</tt><a class="headerlink" href="#textblob_de.tokenizers.NLTKPunktTokenizer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.tokenizers.</tt><tt class="descname">NLTKPunktTokenizer</tt><a class="reference internal" href="_modules/textblob_de/tokenizers.html#NLTKPunktTokenizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.NLTKPunktTokenizer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tokenizer included in <tt class="docutils literal"><span class="pre">nltk.tokenize.punkt</span></tt> package.</p>
 <p>This is the default tokenizer in <tt class="docutils literal"><span class="pre">textblob-de</span></tt></p>
+<p><strong>PROs:</strong></p>
 <ul class="simple">
 <li>trained model available for German</li>
 <li>deals with many abbreviations and common German tokenization problems oob</li>
 </ul>
+<p><strong>CONs:</strong></p>
 <ul class="simple">
 <li>not very flexible (model has to be re-trained on your own corpus)</li>
 </ul>
@@ -2034,7 +2043,7 @@ a WordList of Word object with updated lemma properties.</p>
 
 <dl class="method">
 <dt id="textblob_de.tokenizers.NLTKPunktTokenizer.sent_tokenize">
-<tt class="descname">sent_tokenize</tt><big>(</big><em>text</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob_de.tokenizers.NLTKPunktTokenizer.sent_tokenize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">sent_tokenize</tt><big>(</big><em>text</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#NLTKPunktTokenizer.sent_tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.NLTKPunktTokenizer.sent_tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>NLTK&#8217;s sentence tokenizer (currently PunktSentenceTokenizer).</p>
 <p>Uses an unsupervised algorithm to build a model for abbreviation
 words, collocations, and words that start sentences, then uses
@@ -2043,7 +2052,7 @@ that to find sentence boundaries.</p>
 
 <dl class="method">
 <dt id="textblob_de.tokenizers.NLTKPunktTokenizer.tokenize">
-<tt class="descname">tokenize</tt><big>(</big><em>text</em>, <em>include_punc=True</em>, <em>nested=False</em><big>)</big><a class="headerlink" href="#textblob_de.tokenizers.NLTKPunktTokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">tokenize</tt><big>(</big><em>text</em>, <em>include_punc=True</em>, <em>nested=False</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#NLTKPunktTokenizer.tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.NLTKPunktTokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of word tokens.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2064,7 +2073,7 @@ sentences. Default to False.</li>
 
 <dl class="method">
 <dt id="textblob_de.tokenizers.NLTKPunktTokenizer.word_tokenize">
-<tt class="descname">word_tokenize</tt><big>(</big><em>text</em>, <em>include_punc=True</em><big>)</big><a class="headerlink" href="#textblob_de.tokenizers.NLTKPunktTokenizer.word_tokenize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">word_tokenize</tt><big>(</big><em>text</em>, <em>include_punc=True</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#NLTKPunktTokenizer.word_tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.NLTKPunktTokenizer.word_tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>NLTK&#8217;s PunktWordTokenizer uses a regular expression to divide a text
 into tokens, leaving all periods attached to words, but separating off
 other punctuation.</p>
@@ -2074,13 +2083,15 @@ other punctuation.</p>
 
 <dl class="class">
 <dt id="textblob_de.tokenizers.PatternTokenizer">
-<em class="property">class </em><tt class="descclassname">textblob_de.tokenizers.</tt><tt class="descname">PatternTokenizer</tt><a class="headerlink" href="#textblob_de.tokenizers.PatternTokenizer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.tokenizers.</tt><tt class="descname">PatternTokenizer</tt><a class="reference internal" href="_modules/textblob_de/tokenizers.html#PatternTokenizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.PatternTokenizer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tokenizer included in <tt class="docutils literal"><span class="pre">pattern.de</span></tt> package.</p>
+<p><strong>PROs:</strong></p>
 <ul class="simple">
 <li>handling of emoticons</li>
 <li>flexible implementations of abbreviations</li>
 <li>can be adapted very easily</li>
 </ul>
+<p><strong>CONs:</strong></p>
 <ul class="simple">
 <li>ordinal numbers cause sentence breaks</li>
 <li>indices of Sentence() objects cannot be computed</li>
@@ -2104,7 +2115,7 @@ other punctuation.</p>
 
 <dl class="method">
 <dt id="textblob_de.tokenizers.PatternTokenizer.sent_tokenize">
-<tt class="descname">sent_tokenize</tt><big>(</big><em>text</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob_de.tokenizers.PatternTokenizer.sent_tokenize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">sent_tokenize</tt><big>(</big><em>text</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#PatternTokenizer.sent_tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.PatternTokenizer.sent_tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of sentences.</p>
 <p>Each sentence is a space-separated string of tokens (words).
 Handles common cases of abbreviations (e.g., etc., ...).
@@ -2114,7 +2125,7 @@ Headings without an ending period are inferred by line breaks.</p>
 
 <dl class="method">
 <dt id="textblob_de.tokenizers.PatternTokenizer.tokenize">
-<tt class="descname">tokenize</tt><big>(</big><em>text</em>, <em>include_punc=True</em>, <em>nested=False</em><big>)</big><a class="headerlink" href="#textblob_de.tokenizers.PatternTokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">tokenize</tt><big>(</big><em>text</em>, <em>include_punc=True</em>, <em>nested=False</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#PatternTokenizer.tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.PatternTokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of word tokens.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2135,7 +2146,7 @@ tokens. Default to True.</li>
 
 <dl class="class">
 <dt id="textblob_de.tokenizers.SentenceTokenizer">
-<em class="property">class </em><tt class="descclassname">textblob_de.tokenizers.</tt><tt class="descname">SentenceTokenizer</tt><big>(</big><em>tokenizer=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob_de.tokenizers.SentenceTokenizer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.tokenizers.</tt><tt class="descname">SentenceTokenizer</tt><big>(</big><em>tokenizer=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#SentenceTokenizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.SentenceTokenizer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generic sentence tokenization class, using tokenizer specified in
 TextBlobDE() instance.</p>
 <p>Enables SentenceTokenizer().itokenize generator that would be lost otherwise.</p>
@@ -2168,13 +2179,13 @@ TextBlobDE() instance.</p>
 
 <dl class="method">
 <dt id="textblob_de.tokenizers.SentenceTokenizer.sent_tokenize">
-<tt class="descname">sent_tokenize</tt><big>(</big><em>text</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob_de.tokenizers.SentenceTokenizer.sent_tokenize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">sent_tokenize</tt><big>(</big><em>text</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#SentenceTokenizer.sent_tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.SentenceTokenizer.sent_tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compatibility method to tokenizers included in <tt class="docutils literal"><span class="pre">textblob-de</span></tt></p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob_de.tokenizers.SentenceTokenizer.tokenize">
-<tt class="descname">tokenize</tt><big>(</big><em>text</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob_de.tokenizers.SentenceTokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">tokenize</tt><big>(</big><em>text</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#SentenceTokenizer.tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.SentenceTokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of word tokens.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2195,7 +2206,7 @@ tokens. Default to True.</li>
 
 <dl class="class">
 <dt id="textblob_de.tokenizers.WordTokenizer">
-<em class="property">class </em><tt class="descclassname">textblob_de.tokenizers.</tt><tt class="descname">WordTokenizer</tt><big>(</big><em>tokenizer=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob_de.tokenizers.WordTokenizer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.tokenizers.</tt><tt class="descname">WordTokenizer</tt><big>(</big><em>tokenizer=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#WordTokenizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.WordTokenizer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generic word tokenization class, using tokenizer specified in
 TextBlobDE() instance.</p>
 <p>You can also submit the tokenizer as keyword argument:
@@ -2231,7 +2242,7 @@ TextBlobDE() instance.</p>
 
 <dl class="method">
 <dt id="textblob_de.tokenizers.WordTokenizer.tokenize">
-<tt class="descname">tokenize</tt><big>(</big><em>text</em>, <em>include_punc=True</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob_de.tokenizers.WordTokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">tokenize</tt><big>(</big><em>text</em>, <em>include_punc=True</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#WordTokenizer.tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.WordTokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of word tokens.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2250,7 +2261,7 @@ tokens. Default to True.</li>
 
 <dl class="method">
 <dt id="textblob_de.tokenizers.WordTokenizer.word_tokenize">
-<tt class="descname">word_tokenize</tt><big>(</big><em>text</em>, <em>include_punc=True</em><big>)</big><a class="headerlink" href="#textblob_de.tokenizers.WordTokenizer.word_tokenize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">word_tokenize</tt><big>(</big><em>text</em>, <em>include_punc=True</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#WordTokenizer.word_tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.WordTokenizer.word_tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compatibility method to tokenizers included in <tt class="docutils literal"><span class="pre">textblob-de</span></tt></p>
 </dd></dl>
 
@@ -2258,7 +2269,7 @@ tokens. Default to True.</li>
 
 <dl class="function">
 <dt id="textblob_de.tokenizers.sent_tokenize">
-<tt class="descclassname">textblob_de.tokenizers.</tt><tt class="descname">sent_tokenize</tt><big>(</big><em>text</em>, <em>tokenizer=None</em><big>)</big><a class="headerlink" href="#textblob_de.tokenizers.sent_tokenize" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">textblob_de.tokenizers.</tt><tt class="descname">sent_tokenize</tt><big>(</big><em>text</em>, <em>tokenizer=None</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#sent_tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.sent_tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convenience function for tokenizing sentences (not iterable).</p>
 <p>If tokenizer is not specified, the default tokenizer NLTKPunktTokenizer()
 is used (same behaviour as in the main <a class="reference external" href="http://textblob.readthedocs.org/">TextBlob</a> library).</p>
@@ -2267,7 +2278,7 @@ is used (same behaviour as in the main <a class="reference external" href="http:
 
 <dl class="function">
 <dt id="textblob_de.tokenizers.word_tokenize">
-<tt class="descclassname">textblob_de.tokenizers.</tt><tt class="descname">word_tokenize</tt><big>(</big><em>text</em>, <em>tokenizer=None</em>, <em>include_punc=True</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob_de.tokenizers.word_tokenize" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">textblob_de.tokenizers.</tt><tt class="descname">word_tokenize</tt><big>(</big><em>text</em>, <em>tokenizer=None</em>, <em>include_punc=True</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#word_tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.word_tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convenience function for tokenizing text into words.</p>
 <p>NOTE: NLTK&#8217;s word tokenizer expects sentences as input, so the text will be
 tokenized to sentences before being tokenized to words.</p>
@@ -2287,7 +2298,7 @@ tokenized to sentences before being tokenized to words.</p>
 </div>
 <dl class="class">
 <dt id="textblob_de.taggers.PatternTagger">
-<em class="property">class </em><tt class="descclassname">textblob_de.taggers.</tt><tt class="descname">PatternTagger</tt><big>(</big><em>tokenizer=None</em>, <em>include_punc=False</em><big>)</big><a class="headerlink" href="#textblob_de.taggers.PatternTagger" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.taggers.</tt><tt class="descname">PatternTagger</tt><big>(</big><em>tokenizer=None</em>, <em>include_punc=False</em><big>)</big><a class="reference internal" href="_modules/textblob_de/taggers.html#PatternTagger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.taggers.PatternTagger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tagger that uses the implementation in
 Tom de Smedt&#8217;s pattern library
 (<a class="reference external" href="http://www.clips.ua.ac.be/pattern">http://www.clips.ua.ac.be/pattern</a>).</p>
@@ -2307,7 +2318,7 @@ Default to <tt class="docutils literal"><span class="pre">False</span></tt>.</li
 </table>
 <dl class="method">
 <dt id="textblob_de.taggers.PatternTagger.tag">
-<tt class="descname">tag</tt><big>(</big><em>sentence</em>, <em>tokenize=True</em><big>)</big><a class="headerlink" href="#textblob_de.taggers.PatternTagger.tag" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">tag</tt><big>(</big><em>sentence</em>, <em>tokenize=True</em><big>)</big><a class="reference internal" href="_modules/textblob_de/taggers.html#PatternTagger.tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.taggers.PatternTagger.tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tag a string <cite>sentence</cite>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2333,7 +2344,7 @@ Default to <tt class="docutils literal"><span class="pre">False</span></tt>.</li
 <p># <a class="reference internal" href="#textblob_de.np_extractors.PatternParserNPExtractor" title="textblob_de.np_extractors.PatternParserNPExtractor"><tt class="xref py py-class docutils literal"><span class="pre">PatternParserNPExtractor()</span></tt></a>.</p>
 <dl class="class">
 <dt id="textblob_de.np_extractors.PatternParserNPExtractor">
-<em class="property">class </em><tt class="descclassname">textblob_de.np_extractors.</tt><tt class="descname">PatternParserNPExtractor</tt><big>(</big><em>tokenizer=None</em><big>)</big><a class="headerlink" href="#textblob_de.np_extractors.PatternParserNPExtractor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.np_extractors.</tt><tt class="descname">PatternParserNPExtractor</tt><big>(</big><em>tokenizer=None</em><big>)</big><a class="reference internal" href="_modules/textblob_de/np_extractors.html#PatternParserNPExtractor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.np_extractors.PatternParserNPExtractor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract noun phrases (NP) from PatternParser() output.</p>
 <p>Very naïve and resource hungry approach:</p>
 <ul class="simple">
@@ -2352,7 +2363,7 @@ Default to <tt class="docutils literal"><span class="pre">False</span></tt>.</li
 </table>
 <dl class="method">
 <dt id="textblob_de.np_extractors.PatternParserNPExtractor.extract">
-<tt class="descname">extract</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#textblob_de.np_extractors.PatternParserNPExtractor.extract" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">extract</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="_modules/textblob_de/np_extractors.html#PatternParserNPExtractor.extract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.np_extractors.PatternParserNPExtractor.extract" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of noun phrases (strings) for a body of text.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2377,7 +2388,7 @@ Default to <tt class="docutils literal"><span class="pre">False</span></tt>.</li
 </ul>
 <dl class="class">
 <dt id="textblob_de.sentiments.PatternAnalyzer">
-<em class="property">class </em><tt class="descclassname">textblob_de.sentiments.</tt><tt class="descname">PatternAnalyzer</tt><big>(</big><em>tokenizer=None</em>, <em>lemmatizer=None</em>, <em>lemmatize=True</em><big>)</big><a class="headerlink" href="#textblob_de.sentiments.PatternAnalyzer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.sentiments.</tt><tt class="descname">PatternAnalyzer</tt><big>(</big><em>tokenizer=None</em>, <em>lemmatizer=None</em>, <em>lemmatize=True</em><big>)</big><a class="reference internal" href="_modules/textblob_de/sentiments.html#PatternAnalyzer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.sentiments.PatternAnalyzer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sentiment analyzer that uses the same implementation as the
 pattern library. Returns results as a tuple of the form:</p>
 <p><tt class="docutils literal"><span class="pre">(polarity,</span> <span class="pre">subjectivity)</span></tt></p>
@@ -2390,7 +2401,7 @@ pattern library. Returns results as a tuple of the form:</p>
 
 <dl class="method">
 <dt id="textblob_de.sentiments.PatternAnalyzer.analyze">
-<tt class="descname">analyze</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#textblob_de.sentiments.PatternAnalyzer.analyze" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">analyze</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="_modules/textblob_de/sentiments.html#PatternAnalyzer.analyze"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.sentiments.PatternAnalyzer.analyze" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the sentiment as a tuple of the form:
 <tt class="docutils literal"><span class="pre">(polarity,</span> <span class="pre">subjectivity)</span></tt></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2424,7 +2435,7 @@ pattern library. Returns results as a tuple of the form:</p>
 </div>
 <dl class="class">
 <dt id="textblob_de.parsers.PatternParser">
-<em class="property">class </em><tt class="descclassname">textblob_de.parsers.</tt><tt class="descname">PatternParser</tt><big>(</big><em>tokenizer=None</em>, <em>tokenize=True</em>, <em>pprint=False</em>, <em>tags=True</em>, <em>chunks=True</em>, <em>relations=False</em>, <em>lemmata=False</em>, <em>encoding='utf-8'</em>, <em>tagset=None</em><big>)</big><a class="headerlink" href="#textblob_de.parsers.PatternParser" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.parsers.</tt><tt class="descname">PatternParser</tt><big>(</big><em>tokenizer=None</em>, <em>tokenize=True</em>, <em>pprint=False</em>, <em>tags=True</em>, <em>chunks=True</em>, <em>relations=False</em>, <em>lemmata=False</em>, <em>encoding='utf-8'</em>, <em>tagset=None</em><big>)</big><a class="reference internal" href="_modules/textblob_de/parsers.html#PatternParser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.parsers.PatternParser" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parser that uses the implementation in Tom de Smedt&#8217;s pattern library.
 <a class="reference external" href="http://www.clips.ua.ac.be/pages/pattern-de#parser">http://www.clips.ua.ac.be/pages/pattern-de#parser</a></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2450,10 +2461,11 @@ trees (Default <tt class="docutils literal"><span class="pre">False</span></tt>)
 </table>
 <dl class="method">
 <dt id="textblob_de.parsers.PatternParser.parse">
-<tt class="descname">parse</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#textblob_de.parsers.PatternParser.parse" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">parse</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="_modules/textblob_de/parsers.html#PatternParser.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.parsers.PatternParser.parse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parses the text.</p>
-<p>PatternParser.parse(<a href="#id4"><span class="problematic" id="id5">**</span></a>kwargs) can be passed to the parser instance and
-are documented in the class docstring.</p>
+<p><tt class="docutils literal"><span class="pre">pattern.de.parse(**kwargs)</span></tt> can be passed to the parser instance and
+are documented in the main docstring of
+<a class="reference internal" href="#textblob_de.parsers.PatternParser" title="textblob_de.parsers.PatternParser"><tt class="xref py py-class docutils literal"><span class="pre">PatternParser()</span></tt></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2466,7 +2478,7 @@ are documented in the class docstring.</p>
 
 <dl class="method">
 <dt id="textblob_de.parsers.PatternParser.parsetree">
-<tt class="descname">parsetree</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#textblob_de.parsers.PatternParser.parsetree" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">parsetree</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="_modules/textblob_de/parsers.html#PatternParser.parsetree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.parsers.PatternParser.parsetree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a parsed <tt class="docutils literal"><span class="pre">pattern</span></tt> Text object from the given string.</p>
 </dd></dl>
 
@@ -2508,7 +2520,7 @@ methods.</p>
 </div>
 <dl class="class">
 <dt id="textblob.classifiers.BaseClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">BaseClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x0000000006D3A048&gt;</em>, <em>format=None</em><big>)</big><a class="headerlink" href="#textblob.classifiers.BaseClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">BaseClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x000000000667A8C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#BaseClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.BaseClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract classifier class from which all classifers inherit. At a
 minimum, descendant classes must implement a <tt class="docutils literal"><span class="pre">classify</span></tt> method and have
 a <tt class="docutils literal"><span class="pre">classifier</span></tt> property.</p>
@@ -2535,19 +2547,19 @@ file format.</li>
 </div>
 <dl class="attribute">
 <dt id="textblob.classifiers.BaseClassifier.classifier">
-<tt class="descname">classifier</tt><a class="headerlink" href="#textblob.classifiers.BaseClassifier.classifier" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">classifier</tt><a class="reference internal" href="_modules/textblob/classifiers.html#BaseClassifier.classifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.BaseClassifier.classifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>The classifier object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob.classifiers.BaseClassifier.classify">
-<tt class="descname">classify</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#textblob.classifiers.BaseClassifier.classify" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">classify</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#BaseClassifier.classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.BaseClassifier.classify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Classifies a string of text.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob.classifiers.BaseClassifier.extract_features">
-<tt class="descname">extract_features</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#textblob.classifiers.BaseClassifier.extract_features" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">extract_features</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#BaseClassifier.extract_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.BaseClassifier.extract_features" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extracts features from a body of text.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2561,13 +2573,13 @@ file format.</li>
 
 <dl class="method">
 <dt id="textblob.classifiers.BaseClassifier.labels">
-<tt class="descname">labels</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob.classifiers.BaseClassifier.labels" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">labels</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#BaseClassifier.labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.BaseClassifier.labels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an iterable containing the possible labels.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob.classifiers.BaseClassifier.train">
-<tt class="descname">train</tt><big>(</big><em>labeled_featureset</em><big>)</big><a class="headerlink" href="#textblob.classifiers.BaseClassifier.train" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">train</tt><big>(</big><em>labeled_featureset</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#BaseClassifier.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.BaseClassifier.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trains the classifier.</p>
 </dd></dl>
 
@@ -2575,7 +2587,7 @@ file format.</li>
 
 <dl class="class">
 <dt id="textblob.classifiers.DecisionTreeClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">DecisionTreeClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x0000000006D3A048&gt;</em>, <em>format=None</em><big>)</big><a class="headerlink" href="#textblob.classifiers.DecisionTreeClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">DecisionTreeClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x000000000667A8C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#DecisionTreeClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.DecisionTreeClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A classifier based on the decision tree algorithm, as implemented in
 NLTK.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2662,7 +2674,7 @@ file format.</li>
 
 <dl class="method">
 <dt id="textblob.classifiers.DecisionTreeClassifier.pprint">
-<tt class="descname">pprint</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob.classifiers.DecisionTreeClassifier.pprint" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pprint</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#DecisionTreeClassifier.pprint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.DecisionTreeClassifier.pprint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a string containing a pretty-printed version of this decision
 tree. Each line in the string corresponds to a single decision tree node
 or leaf, and indentation is used to display the structure of the tree.</p>
@@ -2678,7 +2690,7 @@ or leaf, and indentation is used to display the structure of the tree.</p>
 
 <dl class="method">
 <dt id="textblob.classifiers.DecisionTreeClassifier.pseudocode">
-<tt class="descname">pseudocode</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob.classifiers.DecisionTreeClassifier.pseudocode" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pseudocode</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#DecisionTreeClassifier.pseudocode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.DecisionTreeClassifier.pseudocode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a string representation of this decision tree that expresses
 the decisions it makes as a nested set of pseudocode if statements.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2732,7 +2744,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.MaxEntClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">MaxEntClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x0000000006D3A048&gt;</em>, <em>format=None</em><big>)</big><a class="headerlink" href="#textblob.classifiers.MaxEntClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">MaxEntClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x000000000667A8C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#MaxEntClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.MaxEntClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A maximum entropy classifier (also known as a &#8220;conditional
 exponential classifier&#8221;).  This classifier is parameterized by a
 set of &#8220;weights&#8221;, which are used to combine the joint-features
@@ -2818,7 +2830,7 @@ file format.</li>
 
 <dl class="method">
 <dt id="textblob.classifiers.MaxEntClassifier.prob_classify">
-<tt class="descname">prob_classify</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#textblob.classifiers.MaxEntClassifier.prob_classify" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">prob_classify</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#MaxEntClassifier.prob_classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.MaxEntClassifier.prob_classify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the label probability distribution for classifying a string
 of text.</p>
 <p>Example:</p>
@@ -2881,7 +2893,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.NLTKClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NLTKClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x0000000006D3A048&gt;</em>, <em>format=None</em><big>)</big><a class="headerlink" href="#textblob.classifiers.NLTKClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NLTKClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x000000000667A8C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NLTKClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NLTKClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract class that wraps around the nltk.classify module.</p>
 <p>Expects that descendant classes include a class variable <tt class="docutils literal"><span class="pre">nltk_class</span></tt>
 which is the class in the nltk.classify module to be wrapped.</p>
@@ -2892,7 +2904,7 @@ which is the class in the nltk.classify module to be wrapped.</p>
 </div>
 <dl class="method">
 <dt id="textblob.classifiers.NLTKClassifier.accuracy">
-<tt class="descname">accuracy</tt><big>(</big><em>test_set</em>, <em>format=None</em><big>)</big><a class="headerlink" href="#textblob.classifiers.NLTKClassifier.accuracy" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">accuracy</tt><big>(</big><em>test_set</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NLTKClassifier.accuracy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NLTKClassifier.accuracy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the accuracy on a test set.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2913,13 +2925,13 @@ file format.</li>
 
 <dl class="attribute">
 <dt id="textblob.classifiers.NLTKClassifier.classifier">
-<tt class="descname">classifier</tt><a class="headerlink" href="#textblob.classifiers.NLTKClassifier.classifier" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">classifier</tt><a class="reference internal" href="_modules/textblob/classifiers.html#NLTKClassifier.classifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NLTKClassifier.classifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>The classifier.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob.classifiers.NLTKClassifier.classify">
-<tt class="descname">classify</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#textblob.classifiers.NLTKClassifier.classify" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">classify</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NLTKClassifier.classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NLTKClassifier.classify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Classifies the text.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2947,7 +2959,7 @@ file format.</li>
 
 <dl class="method">
 <dt id="textblob.classifiers.NLTKClassifier.labels">
-<tt class="descname">labels</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob.classifiers.NLTKClassifier.labels" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">labels</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NLTKClassifier.labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NLTKClassifier.labels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an iterable of possible labels.</p>
 </dd></dl>
 
@@ -2959,7 +2971,7 @@ file format.</li>
 
 <dl class="method">
 <dt id="textblob.classifiers.NLTKClassifier.train">
-<tt class="descname">train</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob.classifiers.NLTKClassifier.train" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">train</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NLTKClassifier.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NLTKClassifier.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train the classifier with a labeled feature set and return
 the classifier. Takes the same arguments as the wrapped NLTK class.
 This method is implicitly called when calling <tt class="docutils literal"><span class="pre">classify</span></tt> or
@@ -2980,7 +2992,7 @@ to the <tt class="docutils literal"><span class="pre">train</span></tt> method o
 
 <dl class="method">
 <dt id="textblob.classifiers.NLTKClassifier.update">
-<tt class="descname">update</tt><big>(</big><em>new_data</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob.classifiers.NLTKClassifier.update" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">update</tt><big>(</big><em>new_data</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NLTKClassifier.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NLTKClassifier.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the classifier with new training data and re-trains the
 classifier.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2998,7 +3010,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.NaiveBayesClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NaiveBayesClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x0000000006D3A048&gt;</em>, <em>format=None</em><big>)</big><a class="headerlink" href="#textblob.classifiers.NaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NaiveBayesClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x000000000667A8C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NaiveBayesClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A classifier based on the Naive Bayes algorithm, as implemented in
 NLTK.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -3079,7 +3091,7 @@ file format.</li>
 
 <dl class="method">
 <dt id="textblob.classifiers.NaiveBayesClassifier.informative_features">
-<tt class="descname">informative_features</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob.classifiers.NaiveBayesClassifier.informative_features" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">informative_features</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NaiveBayesClassifier.informative_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NaiveBayesClassifier.informative_features" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the most informative features as a list of tuples of the
 form <tt class="docutils literal"><span class="pre">(feature_name,</span> <span class="pre">feature_value)</span></tt>.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -3106,7 +3118,7 @@ form <tt class="docutils literal"><span class="pre">(feature_name,</span> <span 
 
 <dl class="method">
 <dt id="textblob.classifiers.NaiveBayesClassifier.prob_classify">
-<tt class="descname">prob_classify</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#textblob.classifiers.NaiveBayesClassifier.prob_classify" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">prob_classify</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NaiveBayesClassifier.prob_classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NaiveBayesClassifier.prob_classify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the label probability distribution for classifying a string
 of text.</p>
 <p>Example:</p>
@@ -3130,7 +3142,7 @@ of text.</p>
 
 <dl class="method">
 <dt id="textblob.classifiers.NaiveBayesClassifier.show_informative_features">
-<tt class="descname">show_informative_features</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob.classifiers.NaiveBayesClassifier.show_informative_features" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_informative_features</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NaiveBayesClassifier.show_informative_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NaiveBayesClassifier.show_informative_features" title="Permalink to this definition">¶</a></dt>
 <dd><p>Displays a listing of the most informative features for this
 classifier.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -3184,7 +3196,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.PositiveNaiveBayesClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">PositiveNaiveBayesClassifier</tt><big>(</big><em>positive_set</em>, <em>unlabeled_set</em>, <em>feature_extractor=&lt;function contains_extractor at 0x0000000006D3A0D0&gt;</em>, <em>positive_prob_prior=0.5</em><big>)</big><a class="headerlink" href="#textblob.classifiers.PositiveNaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">PositiveNaiveBayesClassifier</tt><big>(</big><em>positive_set</em>, <em>unlabeled_set</em>, <em>feature_extractor=&lt;function contains_extractor at 0x000000000667A950&gt;</em>, <em>positive_prob_prior=0.5</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#PositiveNaiveBayesClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.PositiveNaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A variant of the Naive Bayes Classifier that performs binary
 classification with partially-labeled training sets, i.e. when only
 one class is labeled and the other is not. Assuming a prior distribution
@@ -3293,7 +3305,7 @@ file format.</li>
 
 <dl class="method">
 <dt id="textblob.classifiers.PositiveNaiveBayesClassifier.train">
-<tt class="descname">train</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob.classifiers.PositiveNaiveBayesClassifier.train" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">train</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#PositiveNaiveBayesClassifier.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.PositiveNaiveBayesClassifier.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train the classifier with a labeled and unlabeled feature sets and return
 the classifier. Takes the same arguments as the wrapped NLTK class.
 This method is implicitly called when calling <tt class="docutils literal"><span class="pre">classify</span></tt> or
@@ -3311,7 +3323,7 @@ to the <tt class="docutils literal"><span class="pre">train</span></tt> method o
 
 <dl class="method">
 <dt id="textblob.classifiers.PositiveNaiveBayesClassifier.update">
-<tt class="descname">update</tt><big>(</big><em>new_positive_data=None</em>, <em>new_unlabeled_data=None</em>, <em>positive_prob_prior=0.5</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob.classifiers.PositiveNaiveBayesClassifier.update" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">update</tt><big>(</big><em>new_positive_data=None</em>, <em>new_unlabeled_data=None</em>, <em>positive_prob_prior=0.5</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#PositiveNaiveBayesClassifier.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.PositiveNaiveBayesClassifier.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the classifier with new data and re-trains the
 classifier.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -3332,7 +3344,7 @@ classifier.</p>
 
 <dl class="function">
 <dt id="textblob.classifiers.basic_extractor">
-<tt class="descclassname">textblob.classifiers.</tt><tt class="descname">basic_extractor</tt><big>(</big><em>document</em>, <em>train_set</em><big>)</big><a class="headerlink" href="#textblob.classifiers.basic_extractor" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">textblob.classifiers.</tt><tt class="descname">basic_extractor</tt><big>(</big><em>document</em>, <em>train_set</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#basic_extractor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.basic_extractor" title="Permalink to this definition">¶</a></dt>
 <dd><p>A basic document feature extractor that returns a dict indicating
 what words in <tt class="docutils literal"><span class="pre">train_set</span></tt> are contained in <tt class="docutils literal"><span class="pre">document</span></tt>.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -3352,7 +3364,7 @@ what words in <tt class="docutils literal"><span class="pre">train_set</span></t
 
 <dl class="function">
 <dt id="textblob.classifiers.contains_extractor">
-<tt class="descclassname">textblob.classifiers.</tt><tt class="descname">contains_extractor</tt><big>(</big><em>document</em><big>)</big><a class="headerlink" href="#textblob.classifiers.contains_extractor" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">textblob.classifiers.</tt><tt class="descname">contains_extractor</tt><big>(</big><em>document</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#contains_extractor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.contains_extractor" title="Permalink to this definition">¶</a></dt>
 <dd><p>A basic document feature extractor that returns a dict of words that
 the document contains.</p>
 </dd></dl>
@@ -3360,13 +3372,69 @@ the document contains.</p>
 </div>
 <div class="section" id="blobber">
 <h2>Blobber<a class="headerlink" href="#blobber" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descclassname">textblob_de.blob.</tt><tt class="descname">BlobberDE</tt><big>(</big><em>tokenizer=None</em>, <em>pos_tagger=None</em>, <em>np_extractor=None</em>, <em>analyzer=None</em>, <em>parser=None</em>, <em>classifier=None</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#BlobberDE"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>A factory for TextBlobs that all share the same tagger, tokenizer,
+parser, classifier, and np_extractor.</p>
+<p>Usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">textblob_de</span> <span class="kn">import</span> <span class="n">BlobberDE</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">textblob_de.taggers</span> <span class="kn">import</span> <span class="n">PatternTagger</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">textblob.tokenizers</span> <span class="kn">import</span> <span class="n">PatternTokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tb</span> <span class="o">=</span> <span class="n">Blobber</span><span class="p">(</span><span class="n">pos_tagger</span><span class="o">=</span><span class="n">PatternTagger</span><span class="p">(),</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">PatternTokenizer</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">blob1</span> <span class="o">=</span> <span class="n">tb</span><span class="p">(</span><span class="s">&quot;Das ist ein Blob.&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">blob2</span> <span class="o">=</span> <span class="n">tb</span><span class="p">(</span><span class="s">&quot;Dieser Blob benutzt die selben Tagger und Tokenizer.&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">blob1</span><span class="o">.</span><span class="n">pos_tagger</span> <span class="ow">is</span> <span class="n">blob2</span><span class="o">.</span><span class="n">pos_tagger</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>text</strong> (<em>str</em>) &#8211; A string.</li>
+<li><strong>tokenizer</strong> &#8211; (optional) A tokenizer instance. If <tt class="docutils literal"><span class="pre">None</span></tt>, defaults to
+<a class="reference internal" href="#textblob_de.tokenizers.NLTKPunktTokenizer" title="textblob_de.tokenizers.NLTKPunktTokenizer"><tt class="xref py py-class docutils literal"><span class="pre">NLTKPunktTokenizer()</span></tt></a>.</li>
+<li><strong>np_extractor</strong> &#8211; (optional) An NPExtractor instance. If <tt class="docutils literal"><span class="pre">None</span></tt>,
+defaults to <a class="reference internal" href="#textblob_de.np_extractors.PatternParserNPExtractor" title="textblob_de.np_extractors.PatternParserNPExtractor"><tt class="xref py py-class docutils literal"><span class="pre">PatternParserNPExtractor()</span></tt></a>.</li>
+<li><strong>pos_tagger</strong> &#8211; (optional) A Tagger instance. If <tt class="docutils literal"><span class="pre">None</span></tt>, defaults to
+<a class="reference internal" href="#textblob_de.taggers.PatternTagger" title="textblob_de.taggers.PatternTagger"><tt class="xref py py-class docutils literal"><span class="pre">PatternTagger</span></tt></a>.</li>
+<li><strong>analyzer</strong> &#8211; (optional) A sentiment analyzer. If <tt class="docutils literal"><span class="pre">None</span></tt>, defaults to
+<a class="reference internal" href="#textblob_de.sentiments.PatternAnalyzer" title="textblob_de.sentiments.PatternAnalyzer"><tt class="xref py py-class docutils literal"><span class="pre">PatternAnalyzer</span></tt></a>.</li>
+<li><strong>classifier</strong> &#8211; (optional) A classifier.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.4.0: </span>(<tt class="docutils literal"><span class="pre">textblob</span></tt>)</p>
+</div>
+<dl class="method">
+<dt id="textblob_de.blob.BlobberDE.__call__">
+<tt class="descname">__call__</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#BlobberDE.__call__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.BlobberDE.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new TextBlob object with this Blobber&#8217;s <tt class="docutils literal"><span class="pre">np_extractor</span></tt>,
+<tt class="docutils literal"><span class="pre">pos_tagger</span></tt>, <tt class="docutils literal"><span class="pre">tokenizer</span></tt>, <tt class="docutils literal"><span class="pre">analyzer</span></tt>, and <tt class="docutils literal"><span class="pre">classifier</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A new <tt class="xref py py-class docutils literal"><span class="pre">TextBlob</span></tt>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-textblob.formats">
 <span id="file-formats-from-textblob-main-package"></span><h2>File Formats (from <a class="reference external" href="http://textblob.readthedocs.org/">TextBlob</a> main package)<a class="headerlink" href="#module-textblob.formats" title="Permalink to this headline">¶</a></h2>
 <p>File formats for training and testing data.</p>
 <dl class="class">
 <dt id="textblob.formats.BaseFormat">
-<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">BaseFormat</tt><big>(</big><em>fname</em><big>)</big><a class="headerlink" href="#textblob.formats.BaseFormat" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">BaseFormat</tt><big>(</big><em>fname</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#BaseFormat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.BaseFormat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interface for format classes.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -3378,14 +3446,14 @@ the document contains.</p>
 </table>
 <dl class="staticmethod">
 <dt id="textblob.formats.BaseFormat.detect">
-<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="headerlink" href="#textblob.formats.BaseFormat.detect" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#BaseFormat.detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.BaseFormat.detect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detect the file format given a filename.
 Return True if a stream is this file format.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob.formats.BaseFormat.to_iterable">
-<tt class="descname">to_iterable</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob.formats.BaseFormat.to_iterable" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">to_iterable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#BaseFormat.to_iterable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.BaseFormat.to_iterable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an iterable object from the data.</p>
 </dd></dl>
 
@@ -3393,7 +3461,7 @@ Return True if a stream is this file format.</p>
 
 <dl class="class">
 <dt id="textblob.formats.CSV">
-<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">CSV</tt><big>(</big><em>fname</em><big>)</big><a class="headerlink" href="#textblob.formats.CSV" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">CSV</tt><big>(</big><em>fname</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#CSV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.CSV" title="Permalink to this definition">¶</a></dt>
 <dd><p>CSV format. Assumes each row is of the form <tt class="docutils literal"><span class="pre">text,label</span></tt>.</p>
 <div class="highlight-python"><div class="highlight"><pre>Today is a good day,pos
 I hate this car.,pos
@@ -3401,7 +3469,7 @@ I hate this car.,pos
 </div>
 <dl class="staticmethod">
 <dt id="textblob.formats.CSV.detect">
-<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="headerlink" href="#textblob.formats.CSV.detect" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#CSV.detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.CSV.detect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return True if stream is valid CSV.</p>
 </dd></dl>
 
@@ -3415,17 +3483,17 @@ I hate this car.,pos
 
 <dl class="class">
 <dt id="textblob.formats.DelimitedFormat">
-<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">DelimitedFormat</tt><big>(</big><em>fname</em><big>)</big><a class="headerlink" href="#textblob.formats.DelimitedFormat" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">DelimitedFormat</tt><big>(</big><em>fname</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#DelimitedFormat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.DelimitedFormat" title="Permalink to this definition">¶</a></dt>
 <dd><p>A general character-delimited format.</p>
 <dl class="staticmethod">
 <dt id="textblob.formats.DelimitedFormat.detect">
-<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="headerlink" href="#textblob.formats.DelimitedFormat.detect" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#DelimitedFormat.detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.DelimitedFormat.detect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return True if stream is valid.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob.formats.DelimitedFormat.to_iterable">
-<tt class="descname">to_iterable</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob.formats.DelimitedFormat.to_iterable" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">to_iterable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#DelimitedFormat.to_iterable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.DelimitedFormat.to_iterable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an iterable object from the data.</p>
 </dd></dl>
 
@@ -3433,7 +3501,7 @@ I hate this car.,pos
 
 <dl class="class">
 <dt id="textblob.formats.JSON">
-<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">JSON</tt><big>(</big><em>fname</em><big>)</big><a class="headerlink" href="#textblob.formats.JSON" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">JSON</tt><big>(</big><em>fname</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#JSON"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.JSON" title="Permalink to this definition">¶</a></dt>
 <dd><p>JSON format.</p>
 <p>Assumes that JSON is formatted as an array of objects with <tt class="docutils literal"><span class="pre">text</span></tt> and
 <tt class="docutils literal"><span class="pre">label</span></tt> properties.</p>
@@ -3445,13 +3513,13 @@ I hate this car.,pos
 </div>
 <dl class="staticmethod">
 <dt id="textblob.formats.JSON.detect">
-<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="headerlink" href="#textblob.formats.JSON.detect" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#JSON.detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.JSON.detect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return True if stream is valid JSON.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob.formats.JSON.to_iterable">
-<tt class="descname">to_iterable</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob.formats.JSON.to_iterable" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">to_iterable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#JSON.to_iterable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.JSON.to_iterable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an iterable object from the JSON data.</p>
 </dd></dl>
 
@@ -3459,11 +3527,11 @@ I hate this car.,pos
 
 <dl class="class">
 <dt id="textblob.formats.TSV">
-<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">TSV</tt><big>(</big><em>fname</em><big>)</big><a class="headerlink" href="#textblob.formats.TSV" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">TSV</tt><big>(</big><em>fname</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#TSV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.TSV" title="Permalink to this definition">¶</a></dt>
 <dd><p>TSV format. Assumes each row is of the form <tt class="docutils literal"><span class="pre">text</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="pre">label</span></tt>.</p>
 <dl class="staticmethod">
 <dt id="textblob.formats.TSV.detect">
-<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="headerlink" href="#textblob.formats.TSV.detect" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#TSV.detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.TSV.detect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return True if stream is valid CSV.</p>
 </dd></dl>
 
@@ -3477,7 +3545,7 @@ I hate this car.,pos
 
 <dl class="function">
 <dt id="textblob.formats.detect">
-<tt class="descclassname">textblob.formats.</tt><tt class="descname">detect</tt><big>(</big><em>filename</em>, <em>max_read=1024</em><big>)</big><a class="headerlink" href="#textblob.formats.detect" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">textblob.formats.</tt><tt class="descname">detect</tt><big>(</big><em>filename</em>, <em>max_read=1024</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.detect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attempt to detect a file&#8217;s format, trying each of the supported
 formats. Return the format class that was detected. If no format is
 detected, return <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
@@ -3488,7 +3556,7 @@ detected, return <tt class="docutils literal"><span class="pre">None</span></tt>
 <span id="exceptions-from-textblob-main-package"></span><h2>Exceptions (from <a class="reference external" href="http://textblob.readthedocs.org/">TextBlob</a> main package)<a class="headerlink" href="#module-textblob.exceptions" title="Permalink to this headline">¶</a></h2>
 <dl class="exception">
 <dt id="textblob.exceptions.MissingCorpusException">
-<em class="property">exception </em><tt class="descclassname">textblob.exceptions.</tt><tt class="descname">MissingCorpusException</tt><big>(</big><em>message=&quot;nLooks like you are missing some required data for this feature.nnTo download the necessary data</em>, <em>simply runnn    curl https://raw.github.com/sloria/TextBlob/master/download_corpora.py | pythonnnOr use the NLTK downloader to download the missing data: http://nltk.org/data.htmlnIf this doesn't fix the problem</em>, <em>file an issue at https://github.com/sloria/TextBlob/issues.n&quot;</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#textblob.exceptions.MissingCorpusException" title="Permalink to this definition">¶</a></dt>
+<em class="property">exception </em><tt class="descclassname">textblob.exceptions.</tt><tt class="descname">MissingCorpusException</tt><big>(</big><em>message=&quot;nLooks like you are missing some required data for this feature.nnTo download the necessary data</em>, <em>simply runnn    curl https://raw.github.com/sloria/TextBlob/master/download_corpora.py | pythonnnOr use the NLTK downloader to download the missing data: http://nltk.org/data.htmlnIf this doesn't fix the problem</em>, <em>file an issue at https://github.com/sloria/TextBlob/issues.n&quot;</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/exceptions.html#MissingCorpusException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.exceptions.MissingCorpusException" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exception thrown when a user tries to use a feature that requires a
 dataset or model that the user does not have on their system.</p>
 </dd></dl>
@@ -3534,7 +3602,7 @@ dataset or model that the user does not have on their system.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.3.1a3',
+            VERSION:'0.3.1a5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

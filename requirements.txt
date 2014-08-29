@@ -1,3 +1,2 @@
-https://github.com/nltk/nltk/archive/3.0.0b2.tar.gz
 textblob>=0.8.0
 

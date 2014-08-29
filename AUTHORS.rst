@@ -7,8 +7,8 @@ Credits
 
 * Steven Loria <sloria1@gmail.com>
 
-`textblob-de`_ Maintainer
--------------------------
+`textblob-de`_ Author/Maintainer
+--------------------------------
 
 * Markus Killer <m.killer@langui.ch>
 

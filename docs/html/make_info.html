@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Advanced Usage: Overriding Models and the Blobber Class &mdash; textblob-de 0.3.1a5 documentation</title>
+  <title>make command &mdash; textblob-de 0.3.1a5 documentation</title>
   
 
   
@@ -29,8 +29,8 @@
 
   
     <link rel="top" title="textblob-de 0.3.1a5 documentation" href="index.html"/>
-        <link rel="next" title="Extensions" href="extensions.html"/>
-        <link rel="prev" title="Tutorial: Quickstart" href="quickstart.html"/> 
+        <link rel="next" title="Project Makefile" href="project_makefile.html"/>
+        <link rel="prev" title="Contributing guidelines" href="contributing.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -57,7 +57,7 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul class="current">
+            <ul>
 <li class="toctree-l1"><a class="reference internal" href="readme.html">textblob-de README</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#features">Features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#installing-upgrading">Installing/Upgrading</a></li>
@@ -71,7 +71,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Tutorial: Quickstart</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Advanced Usage: Overriding Models and the Blobber Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">Advanced Usage: Overriding Models and the Blobber Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.blob">Blob Classes</a></li>
@@ -88,7 +88,7 @@
 </ul>
 </li>
 </ul>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#unreleased">0.3.1 (unreleased)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.3.0 (14/08/2014)</a></li>
@@ -117,8 +117,8 @@
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#in-particular">In Particular</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="make_info.html"><tt class="docutils literal"><span class="pre">make</span></tt> command</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="make_info.html#using-make-on-windows">Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href=""><tt class="docutils literal"><span class="pre">make</span></tt> command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-make-on-windows">Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="project_makefile.html">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
@@ -146,10 +146,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Advanced Usage: Overriding Models and the Blobber Class</li>
+    <li><tt class="docutils literal"><span class="pre">make</span></tt> command</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/advanced_usage.txt" rel="nofollow"> View page source</a>
+          <a href="_sources/make_info.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -157,33 +157,44 @@
 </div>
           <div role="main">
             
-  <div class="section" id="advanced-usage-overriding-models-and-the-blobber-class">
-<span id="advanced"></span><h1>Advanced Usage: Overriding Models and the Blobber Class<a class="headerlink" href="#advanced-usage-overriding-models-and-the-blobber-class" title="Permalink to this headline">¶</a></h1>
-<p>Follow the <a class="reference external" href="http://textblob.readthedocs.org/en/dev/advanced_usage.html">Advanced Usage guide</a>
-in the documentation of the main package (using German examples). The following
-minimal replacements are necessary in order to enable the use of the German default models:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="54%" />
-<col width="46%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>Instead of:</strong></th>
-<th class="head"><strong>Use:</strong></th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">textblob</span></tt></td>
-<td><tt class="docutils literal"><span class="pre">textblob_de</span></tt></td>
-</tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">TextBlob</span></tt></td>
-<td><tt class="docutils literal"><span class="pre">TextBlobDE</span></tt></td>
-</tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">Blobber</span></tt></td>
-<td><tt class="docutils literal"><span class="pre">BlobberDE</span></tt></td>
-</tr>
-</tbody>
-</table>
+  <div class="section" id="make-command">
+<h1><tt class="docutils literal"><span class="pre">make</span></tt> command<a class="headerlink" href="#make-command" title="Permalink to this headline">¶</a></h1>
+<p>This project adopts the <tt class="docutils literal"><span class="pre">Makefile</span></tt> approach, proposed by Jeff Knupp in his
+blog post <a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">Open Sourcing a Python Project the Right Way </a>.</p>
+<p>On Linux/OSX the <tt class="docutils literal"><span class="pre">make</span></tt> command should work out-of-the-box:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make help
+</pre></div>
+</div>
+<p>Shows all available tasks.</p>
+<div class="section" id="using-make-on-windows">
+<h2>Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows<a class="headerlink" href="#using-make-on-windows" title="Permalink to this headline">¶</a></h2>
+<p>The two <tt class="docutils literal"><span class="pre">Makefile</span></tt> s in this project should work on all three major platforms.
+On Windows, <tt class="docutils literal"><span class="pre">make.exe</span></tt> included in the <a class="reference external" href="http://sourceforge.net/projects/mingw/files/Installer/mingw-get-setup.exe/download">MinGW/msys</a>
+distribution has been successfully tested. Once <tt class="docutils literal"><span class="pre">msys</span></tt> is installed
+on a Windows system, the <tt class="docutils literal"><span class="pre">path/to/msys/1.0/bin</span></tt> needs to be added to
+the <tt class="docutils literal"><span class="pre">PATH</span></tt> environment variable.</p>
+<p>A good place to update the <tt class="docutils literal"><span class="pre">PATH</span></tt> variable are the <tt class="docutils literal"><span class="pre">Activate.ps1</span></tt> or
+<tt class="docutils literal"><span class="pre">activate.bat</span></tt> scripts of a virtual python build environment, created using
+<tt class="docutils literal"><span class="pre">virtualenv</span></tt> (<tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">virtualenv</span></tt>) or <tt class="docutils literal"><span class="pre">pyvenv</span></tt> (added to Python3.3&#8217;s standard
+library).</p>
+<div class="section" id="windows-powershell">
+<h3><tt class="docutils literal"><span class="pre">Windows</span> <span class="pre">PowerShell</span></tt><a class="headerlink" href="#windows-powershell" title="Permalink to this headline">¶</a></h3>
+<p>Add the following line at the end of <tt class="docutils literal"><span class="pre">path\to\virtual\python\env\Scripts\Activate.ps1</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre># Add msys binaries to PATH
+$env:PATH = &quot;path\to\MinGW\msys\1.0\bin;$env:PATH&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows-cmd-exe">
+<h3>Windows <tt class="docutils literal"><span class="pre">cmd.exe</span></tt><a class="headerlink" href="#windows-cmd-exe" title="Permalink to this headline">¶</a></h3>
+<p>Add the following line at the end of <tt class="docutils literal"><span class="pre">path\to\virtual\python\env\Scripts\activate.bat</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre># Add msys binaries to PATH
+set &quot;PATH=path\to\MinGW\msys\1.0\bin;%PATH%&quot;
+</pre></div>
+</div>
+<p>Now the <tt class="docutils literal"><span class="pre">make</span></tt> command should work as documented in <tt class="docutils literal"><span class="pre">$</span> <span class="pre">make</span> <span class="pre">help</span></tt>.</p>
+</div>
+</div>
 </div>
 
 
@@ -192,10 +203,10 @@ minimal replacements are necessary in order to enable the use of the German defa
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="extensions.html" class="btn btn-neutral float-right" title="Extensions"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="project_makefile.html" class="btn btn-neutral float-right" title="Project Makefile"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="quickstart.html" class="btn btn-neutral" title="Tutorial: Quickstart"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="contributing.html" class="btn btn-neutral" title="Contributing guidelines"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

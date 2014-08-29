@@ -3,10 +3,10 @@ textblob-de README
 
 [![textblob\_de - latest PyPI version](https://pypip.in/v/textblob-de/badge.png)](https://pypi.python.org/pypi/textblob-de/)
 [![Travis-CI](https://travis-ci.org/markuskiller/textblob-de.png?branch=dev)](https://travis-ci.org/markuskiller/textblob-de)
-[![Documentation Status](https://readthedocs.org/projects/textblob-de/badge/?version=latest)](https://readthedocs.org/projects/textblob-de/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/textblob-de/badge/?version=latest)](http://textblob-de.readthedocs.org/en/latest/)
 [![Number of PyPI downloads](https://pypip.in/d/textblob-de/badge.png)](https://pypi.python.org/pypi/textblob-de/)
 [![Issues in In Progress](https://badge.waffle.io/markuskiller/textblob-de.png?label=In%20Progress&title=In%20Progress)](https://waffle.io/markuskiller/textblob-de)
-[![LICENSE info](https://pypip.in/license/textblob-de/badge.png)](https://pypi.python.org/pypi/textblob-de/)
+[![LICENSE info](https://pypip.in/license/textblob-de/badge.png)](http://choosealicense.com/licenses/mit/)
 
 German language support for [TextBlob](https://textblob.readthedocs.org/) by Steven Loria.
 
@@ -127,6 +127,11 @@ neugierigen
 >
 > Alternatively, the path to `textblob_de/ext` can be added to the `PYTHONPATH`, which allows the use of `pattern.de` in almost the same way as described in its [Documentation](http://www.clips.ua.ac.be/pages/pattern-de). The only difference is that you will have to prepend an underscore: `from _pattern.de import ...`. This is a precautionary measure in case the `pattern` library gets native Python3 support in the future.
 
+Documentation and API Reference
+-------------------------------
+
+-   <http://textblob-de.readthedocs.org/en/latest>
+
 Requirements
 ------------
 
@@ -135,12 +140,7 @@ Requirements
 TODO
 ----
 
--   **TextBlob Extension:** `textblob-rftagger` (wrapper class for `RFTagger`)
--   **TextBlob Extension:** `textblob-cmd` (command-line wrapper for `TextBlob`, basically TextBlob for files
--   **TextBlob Extension:** `textblob-stanfordparser` (wrapper class for `StanfordParser` via NLTK)
--   **TextBlob Extension:** `textblob-berkeleyparser` (wrapper class for `BerkeleyParser`)
--   **TextBlob Extension:** `textblob-sent-align` (sentence alignment for parallel TextBlobs)
--   **TextBlob Extension:** `textblob-converters` (various input and output conversions)
+-   [Planned Extensions](http://textblob-de.readthedocs.org/en/latest/extensions.html)
 -   Additional PoS tagging options, e.g. NLTK tagging (`NLTKTagger`)
 -   Improve noun phrase extraction (e.g. based on `RFTagger` output)
 -   Improve sentiment analysis (find suitable subjectivity scores)
@@ -150,7 +150,7 @@ TODO
 License
 -------
 
-MIT licensed. See the bundled `LICENSE` file for more details.
+[MIT licensed](http://choosealicense.com/licenses/mit/). See the bundled `LICENSE` file for more details.
 
 Thanks
 ------

@@ -1,8 +1,8 @@
 .. textblob documentation master file
    adapted from the main `TextBlob`_ library by Steven Loria
 
-textblob-de: German Language Extension for `TextBlob`_
-======================================================
+textblob-de
+===========
 
 Release |version| . (:ref:`Changelog`)
 
@@ -12,7 +12,7 @@ common natural language processing (NLP) tasks such as part-of-speech tagging,
 noun phrase extraction, sentiment analysis, classification, 
 translation, and more.
 
-**`textblob-de`** is the German language extension for `TextBlob`_.
+**`textblob-de`** is the **German language extension** for `TextBlob`_.
 
 .. code-block:: python
 
@@ -54,6 +54,8 @@ Guide
    :maxdepth: 2
 
    readme
+   quickstart
+   advanced_usage
    extensions
    api_reference
 
@@ -65,7 +67,11 @@ Project info
 
    changelog
    authors
+   license
    contributing
+   make_info
+   project_makefile
+   docs_makefile
 
 
 .. _TextBlob: http://textblob.readthedocs.org/

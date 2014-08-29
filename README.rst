@@ -12,7 +12,7 @@ textblob-de README
     :alt: Travis-CI
     
 .. image:: https://readthedocs.org/projects/textblob-de/badge/?version=latest
-    :target: https://readthedocs.org/projects/textblob-de/?badge=latest
+    :target: http://textblob-de.readthedocs.org/en/latest/
     :alt: Documentation Status
 
 .. image:: https://pypip.in/d/textblob-de/badge.png
@@ -24,7 +24,7 @@ textblob-de README
     :alt: Issues in In Progress
 
 .. image:: https://pypip.in/license/textblob-de/badge.png
-    :target: https://pypi.python.org/pypi/textblob-de/
+    :target: http://choosealicense.com/licenses/mit/
     :alt: LICENSE info
 
 German language support for `TextBlob <https://textblob.readthedocs.org/>`_ by Steven Loria.
@@ -172,6 +172,12 @@ Access to ``pattern`` API in Python3
    library gets native Python3 support in the future.
 
 
+Documentation and API Reference
+-------------------------------
+
+* http://textblob-de.readthedocs.org/en/latest
+
+
 Requirements
 ------------
 
@@ -180,12 +186,7 @@ Requirements
 TODO
 ----
 
-- **TextBlob Extension:** ``textblob-rftagger`` (wrapper class for ``RFTagger``)
-- **TextBlob Extension:** ``textblob-cmd`` (command-line wrapper for ``TextBlob``, basically TextBlob for files 
-- **TextBlob Extension:** ``textblob-stanfordparser`` (wrapper class for ``StanfordParser`` via NLTK)
-- **TextBlob Extension:** ``textblob-berkeleyparser`` (wrapper class for ``BerkeleyParser``)
-- **TextBlob Extension:** ``textblob-sent-align`` (sentence alignment for parallel TextBlobs)
-- **TextBlob Extension:** ``textblob-converters`` (various input and output conversions)
+- `Planned Extensions <http://textblob-de.readthedocs.org/en/latest/extensions.html>`_
 - Additional PoS tagging options, e.g. NLTK tagging (``NLTKTagger``)
 - Improve noun phrase extraction (e.g. based on ``RFTagger`` output)
 - Improve sentiment analysis (find suitable subjectivity scores)
@@ -196,7 +197,7 @@ TODO
 License
 -------
 
-MIT licensed. See the bundled ``LICENSE``  file for more details.
+`MIT licensed <http://choosealicense.com/licenses/mit/>`_. See the bundled ``LICENSE``  file for more details.
 
 
 Thanks

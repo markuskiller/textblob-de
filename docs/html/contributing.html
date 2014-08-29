@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Contributing guidelines &mdash; textblob-de 0.3.1a3 documentation</title>
+  <title>Contributing guidelines &mdash; textblob-de 0.3.1a5 documentation</title>
   
 
   
@@ -28,8 +28,9 @@
   
 
   
-    <link rel="top" title="textblob-de 0.3.1a3 documentation" href="index.html"/>
-        <link rel="prev" title="Credits" href="authors.html"/> 
+    <link rel="top" title="textblob-de 0.3.1a5 documentation" href="index.html"/>
+        <link rel="next" title="make command" href="make_info.html"/>
+        <link rel="prev" title="LICENSE" href="license.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -62,12 +63,15 @@
 <li class="toctree-l2"><a class="reference internal" href="readme.html#installing-upgrading">Installing/Upgrading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#usage">Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#access-to-pattern-api-in-python3">Access to <tt class="docutils literal"><span class="pre">pattern</span></tt> API in Python3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#documentation-and-api-reference">Documentation and API Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#todo">TODO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#license">License</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#thanks">Thanks</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Tutorial: Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">Advanced Usage: Overriding Models and the Blobber Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.blob">Blob Classes</a></li>
@@ -103,18 +107,22 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-development-lead">TextBlob Development Lead</a></li>
-<li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-de-maintainer">textblob-de Maintainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-de-author-maintainer">textblob-de Author/Maintainer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">LICENSE</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Contributing guidelines</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#in-general">In General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#in-particular">In Particular</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#make-command"><tt class="docutils literal"><span class="pre">make</span></tt> command</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#project-makefile">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#documentation-makefile">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="make_info.html"><tt class="docutils literal"><span class="pre">make</span></tt> command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="make_info.html#using-make-on-windows">Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project_makefile.html">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs_makefile.html">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
 </ul>
 
         
@@ -191,124 +199,6 @@ $ &lt;activate virtual environment&gt;
 </ol>
 </div>
 </div>
-<div class="section" id="make-command">
-<h2><tt class="docutils literal"><span class="pre">make</span></tt> command<a class="headerlink" href="#make-command" title="Permalink to this headline">¶</a></h2>
-<p>This project adopts the <tt class="docutils literal"><span class="pre">Makefile</span></tt> approach, proposed by Jeff Knupp in his
-blog post <a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">Open Sourcing a Python Project the Right Way </a>.</p>
-<p>On Linux/OSX the <tt class="docutils literal"><span class="pre">make</span></tt> command should work out-of-the-box:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ make help
-</pre></div>
-</div>
-<p>Shows all available tasks.</p>
-<p>The two <tt class="docutils literal"><span class="pre">Makefile</span></tt> s in this project should work on all three major platforms.
-On Windows, <tt class="docutils literal"><span class="pre">make.exe</span></tt> included in the <a class="reference external" href="http://sourceforge.net/projects/mingw/files/Installer/mingw-get-setup.exe/download">MinGW/msys</a>
-distribution has been successfully tested. Once <tt class="docutils literal"><span class="pre">msys</span></tt> is installed
-on a Windows system, the <tt class="docutils literal"><span class="pre">path/to/msys/1.0/bin</span></tt> needs to be added to
-the <tt class="docutils literal"><span class="pre">PATH</span></tt> environment variable.</p>
-<p>A good place to update the <tt class="docutils literal"><span class="pre">PATH</span></tt> variable are the <tt class="docutils literal"><span class="pre">Activate.ps1</span></tt> or
-<tt class="docutils literal"><span class="pre">activate.bat</span></tt> scripts of a virtual python build environment, created using
-<tt class="docutils literal"><span class="pre">virtualenv</span></tt> (<tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">virtualenv</span></tt>) or <tt class="docutils literal"><span class="pre">pyvenv</span></tt> (added to Python3.3&#8217;s standard
-library).</p>
-<p>Add the following line at the end of <tt class="docutils literal"><span class="pre">path\to\virtual\python\env\Scripts\Activate.ps1</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre># Add msys binaries to PATH
-$env:PATH = &quot;path\to\MinGW\msys\1.0\bin;$env:PATH&quot;
-</pre></div>
-</div>
-<p>Add the following line at the end of <tt class="docutils literal"><span class="pre">path\to\virtual\python\env\Scripts\activate.bat</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre># Add msys binaries to PATH
-set &quot;PATH=path\to\MinGW\msys\1.0\bin;%PATH%&quot;
-</pre></div>
-</div>
-<p>Now the <tt class="docutils literal"><span class="pre">make</span></tt> command should work as documented in <tt class="docutils literal"><span class="pre">$</span> <span class="pre">make</span> <span class="pre">help</span></tt>.</p>
-</div>
-<div class="section" id="project-makefile">
-<h2>Project <tt class="docutils literal"><span class="pre">Makefile</span></tt><a class="headerlink" href="#project-makefile" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><div class="highlight-python"><div class="highlight"><pre>generated: 29 August 2014 - 10:33
-
-
-   Please use &#39;make &lt;target&gt;&#39; where where &lt;target&gt; is one of
-
-   SETUP &amp; CLEAN
-   -------------
-
-   install            run &#39;python setup.py install&#39;
-   uninstall          run &#39;pip uninstall &lt;package&gt;&#39;
-   develop            install links to source files in current Python environment
-   reset-dev          uninstall all links and console scripts and make clean
-   clean              remove all artifacts
-   clean-build        remove build artifacts
-   clean-docs         remove documentation build artifacts
-   clean-pyc          remove Python file artifacts (except in &#39;ext&#39;)
-   clean-test         remove test artifacts (e.g. &#39;htmlcov&#39;)
-   clean-logs         remove log artifacts and place empty file in &#39;log_dir&#39;
-
-   TESTING
-   -------
-
-   autopep8           automatically correct &#39;pep8&#39; violations
-   lint               check style with &#39;flake8&#39;
-   test               run tests quickly with the default Python
-   test-all           run tests on every Python version with tox
-   coverage           check code coverage quickly with the default Python
-
-   PUBLISHING
-   ----------
-
-   docs               generate Sphinx HTML documentation, including API docs
-   docs-pdf           generate Sphinx HTML and PDF documentation, including API docs
-   sdist              package
-   publish            package and upload sdist and universal wheel to PyPI
-   register           update README.rst on PyPI
-   push-github        push all changes to git repository on github.com
-   push-bitbucket     push all changes to git repository on bitbucket.org
-                           --&gt; include commit message as M=&#39;your message&#39;
-
-   VARIABLES ACCESSIBLE FROM COMMAND-LINE
-   --------------------------------------
-
-   M=&#39;your message&#39;   mandatory git commit message
-   N=&#39;package name&#39;   specify python package name (optional)
-   O=&#39;open|xdg-open|start&#39;
-                           --&gt; specify platform specific &#39;open&#39; cmd (optional)
-   P=&#39;path/to/python&#39; specify python executable (optional)
-</pre></div>
-</div>
-</div></blockquote>
-</div>
-<div class="section" id="documentation-makefile">
-<h2>Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt><a class="headerlink" href="#documentation-makefile" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><div class="highlight-python"><div class="highlight"><pre>generated: 29 August 2014 - 10:33
-
-   Please use `make &lt;target&gt;&#39; where &lt;target&gt; is one of
-
-   html       to make standalone HTML files
-   dirhtml    to make HTML files named index.html in directories
-   singlehtml to make a single large HTML file
-   pickle     to make pickle files
-   json       to make JSON files
-   htmlhelp   to make HTML files and a HTML help project
-   qthelp     to make HTML files and a qthelp project
-   devhelp    to make HTML files and a Devhelp project
-   epub       to make an epub
-   latex      to make LaTeX files, you can set PAPER=a4 or PAPER=letter
-   latexpdf   to make LaTeX files and run them through pdflatex
-   latexpdfja to make LaTeX files and run them through platex/dvipdfmx
-   text       to make text files
-   man        to make manual pages
-   texinfo    to make Texinfo files
-   info       to make Texinfo files and run them through makeinfo
-   gettext    to make PO message catalogs
-   changes    to make an overview of all changed/added/deprecated items
-   xml        to make Docutils-native XML files
-   pseudoxml  to make pseudoxml-XML files for display purposes
-   linkcheck  to check all external links for integrity
-   doctest    to run all doctests embedded in the documentation (if enabled)
-</pre></div>
-</div>
-</div></blockquote>
-</div>
 </div>
 
 
@@ -317,8 +207,10 @@ set &quot;PATH=path\to\MinGW\msys\1.0\bin;%PATH%&quot;
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="make_info.html" class="btn btn-neutral float-right" title="make command"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="authors.html" class="btn btn-neutral" title="Credits"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="license.html" class="btn btn-neutral" title="LICENSE"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -347,7 +239,7 @@ set &quot;PATH=path\to\MinGW\msys\1.0\bin;%PATH%&quot;
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.3.1a3',
+            VERSION:'0.3.1a5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

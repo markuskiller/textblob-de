@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Extensions &mdash; textblob-de 0.3.1a3 documentation</title>
+  <title>Extensions &mdash; textblob-de 0.3.1a5 documentation</title>
   
 
   
@@ -28,9 +28,9 @@
   
 
   
-    <link rel="top" title="textblob-de 0.3.1a3 documentation" href="index.html"/>
+    <link rel="top" title="textblob-de 0.3.1a5 documentation" href="index.html"/>
         <link rel="next" title="API Reference" href="api_reference.html"/>
-        <link rel="prev" title="textblob-de README" href="readme.html"/> 
+        <link rel="prev" title="Advanced Usage: Overriding Models and the Blobber Class" href="advanced_usage.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -63,12 +63,15 @@
 <li class="toctree-l2"><a class="reference internal" href="readme.html#installing-upgrading">Installing/Upgrading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#usage">Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#access-to-pattern-api-in-python3">Access to <tt class="docutils literal"><span class="pre">pattern</span></tt> API in Python3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#documentation-and-api-reference">Documentation and API Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#todo">TODO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#license">License</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#thanks">Thanks</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Tutorial: Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">Advanced Usage: Overriding Models and the Blobber Class</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.blob">Blob Classes</a></li>
@@ -104,18 +107,22 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-development-lead">TextBlob Development Lead</a></li>
-<li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-de-maintainer">textblob-de Maintainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-de-author-maintainer">textblob-de Author/Maintainer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">LICENSE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing guidelines</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#in-general">In General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#in-particular">In Particular</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#make-command"><tt class="docutils literal"><span class="pre">make</span></tt> command</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#project-makefile">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#documentation-makefile">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="make_info.html"><tt class="docutils literal"><span class="pre">make</span></tt> command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="make_info.html#using-make-on-windows">Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project_makefile.html">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs_makefile.html">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
 </ul>
 
         
@@ -151,8 +158,48 @@
           <div role="main">
             
   <div class="section" id="extensions">
-<span id="id1"></span><h1>Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h1>
-<p>See notes on <a class="reference external" href="http://textblob.readthedocs.org/en/dev/extensions.html">Extensions</a>
+<h1>Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<caption>Planned extensions</caption>
+<colgroup>
+<col width="29%" />
+<col width="43%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Extension</th>
+<th class="head">Purpose</th>
+<th class="head">Status (in private repo)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">textblob-rftagger</span></tt></td>
+<td>wrapper class for <tt class="docutils literal"><span class="pre">RFTagger</span></tt></td>
+<td>95% completed</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">textblob-cmd</span></tt></td>
+<td>command-line wrapper for <tt class="docutils literal"><span class="pre">TextBlob</span></tt></td>
+<td>50% completed</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">textblob-stanfordparser</span></tt></td>
+<td>wrapper class for <tt class="docutils literal"><span class="pre">StanfordParser</span></tt></td>
+<td>25% completed</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">textblob-berkeleyparser</span></tt></td>
+<td>wrapper class for <tt class="docutils literal"><span class="pre">BerkeleyParser</span></tt></td>
+<td>0% completed</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">textblob-sent-align</span></tt></td>
+<td>sentence alignment for parallel TextBlobs</td>
+<td>40% completed</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">textblob-converters</span></tt></td>
+<td>various input and output conversions</td>
+<td>20% completed</td>
+</tr>
+</tbody>
+</table>
+<p>See also notes on <a class="reference external" href="http://textblob.readthedocs.org/en/dev/extensions.html">Extensions</a>
 in the documentation of the main package.</p>
 </div>
 
@@ -165,7 +212,7 @@ in the documentation of the main package.</p>
         <a href="api_reference.html" class="btn btn-neutral float-right" title="API Reference"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="readme.html" class="btn btn-neutral" title="textblob-de README"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="advanced_usage.html" class="btn btn-neutral" title="Advanced Usage: Overriding Models and the Blobber Class"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -194,7 +241,7 @@ in the documentation of the main package.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.3.1a3',
+            VERSION:'0.3.1a5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

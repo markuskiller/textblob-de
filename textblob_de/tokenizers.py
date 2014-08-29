@@ -35,13 +35,12 @@ class NLTKPunktTokenizer(BaseTokenizer):
 
     This is the default tokenizer in ``textblob-de``
 
-    PROs:
-    ^^^^^
+    **PROs:**
+
     * trained model available for German
     * deals with many abbreviations and common German tokenization problems oob
 
-    CONs
-    ^^^^
+    **CONs:**
 
     * not very flexible (model has to be re-trained on your own corpus)
 
@@ -129,14 +128,13 @@ class PatternTokenizer(BaseTokenizer):
 
     """Tokenizer included in ``pattern.de`` package.
 
-    PROs:
-    ^^^^^
+    **PROs:**
+    
     * handling of emoticons
     * flexible implementations of abbreviations
     * can be adapted very easily
 
-    CONs
-    ^^^^
+    **CONs:**
 
     * ordinal numbers cause sentence breaks
     * indices of Sentence() objects cannot be computed
