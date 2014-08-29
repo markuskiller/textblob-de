@@ -70,3 +70,9 @@ from _pattern.text import de
 from _pattern.text import tree
 from _pattern.text import search
 
+# Shortcut to _pattern.de
+# (instead of _pattern.text.de)
+try: 
+    __path__.append(os.path.join(__path__[0], "text"))
+except:
+    pass

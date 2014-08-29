@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Code imported from ``textblob`` main package.
+# Code imported from the main `TextBlob`_ library.
 #
 # :repo: `https://github.com/sloria/TextBlob`_
 # :source: packages.py
@@ -8,9 +8,8 @@
 #
 # :modified: 2014-08-03 <m.killer@langui.ch>
 #
-'''
-Module to provide import context for vendorized packages such as ``nltk`` or ``pattern``.
-'''
+"""Module to provide import context for vendorized packages such as ``nltk`` or
+``pattern``."""
 from __future__ import absolute_import
 import sys
 import os

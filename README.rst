@@ -1,21 +1,33 @@
-===========
-textblob-de
-===========
+==================
+textblob-de README
+==================
 
-.. image:: https://badge.fury.io/py/textblob-de.png
-    :target: http://badge.fury.io/py/textblob-de
-    :alt: Latest version
+
+.. image:: https://pypip.in/v/textblob-de/badge.png
+    :target: https://pypi.python.org/pypi/textblob-de/
+    :alt: textblob_de - latest PyPI version
 
 .. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=master
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
+    
+.. image:: https://readthedocs.org/projects/textblob-de/badge/?version=latest
+    :target: http://textblob-de.readthedocs.org/en/latest/
+    :alt: Documentation Status
 
 .. image:: https://pypip.in/d/textblob-de/badge.png
-    :target: https://crate.io/packages/textblob-de/
+    :target: https://pypi.python.org/pypi/textblob-de/
     :alt: Number of PyPI downloads
 
+.. image:: https://badge.waffle.io/markuskiller/textblob-de.png?label=In%20Progress&title=In%20Progress
+    :target: https://waffle.io/markuskiller/textblob-de
+    :alt: Issues in In Progress
 
-German language support for `TextBlob <https://textblob.readthedocs.org/>`_ by Steven Loria.
+.. image:: https://pypip.in/license/textblob-de/badge.png
+    :target: http://choosealicense.com/licenses/mit/
+    :alt: LICENSE info
+
+German language support for `TextBlob <http://textblob.readthedocs.org/en/dev/>`_ by Steven Loria.
 
 This python package is being developed as a ``TextBlob`` **Language Extension**.
 See `Extension Guidelines <https://textblob.readthedocs.org/en/dev/contributing.html>`_ for details.
@@ -67,12 +79,12 @@ Usage
     >>> from textblob_de import TextBlobDE as TextBlob
     >>> text = '''Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 43. Geburtstag. 
     Ich muss unbedingt daran denken, Mehl, usw. für einen Kuchen einzukaufen. Aber leider 
-    habe ich nur noch EUR 18.50 in meiner Brieftasche.'''
+    habe ich nur noch EUR 3.50 in meiner Brieftasche.'''
     >>> blob = TextBlob(text)
     >>> blob.sentences
     [Sentence("Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 43. Geburtstag."),
      Sentence("Ich muss unbedingt daran denken, Mehl, usw. für einen Kuchen einzukaufen."),
-     Sentence("Aber leider habe ich nur noch EUR 18.50 in meiner Brieftasche.")]
+     Sentence("Aber leider habe ich nur noch EUR 3.50 in meiner Brieftasche.")]
     >>> blob.tokens
     WordList(['Heute', 'ist', 'der', '3.', 'Mai', ...]
     >>> blob.tags
@@ -122,7 +134,7 @@ Usage
     forms and there are no subjectivity scores yet. As of version 0.2.3, lemmatized
     word forms are submitted to the ``PatternAnalyzer``, increasing the accuracy
     of polarity values. New in version 0.2.7: return type of ``.sentiment`` is now
-    adapted to ``textblob`` main package (``:rtype: namedtuple``).
+    adapted to the main `TextBlob <http://textblob.readthedocs.org/en/dev/>`_ library (``:rtype: namedtuple``).
 
 
 .. code-block:: python
@@ -160,6 +172,12 @@ Access to ``pattern`` API in Python3
    library gets native Python3 support in the future.
 
 
+Documentation and API Reference
+-------------------------------
+
+- http://textblob-de.readthedocs.org/en/latest
+
+
 Requirements
 ------------
 
@@ -168,20 +186,26 @@ Requirements
 TODO
 ----
 
-- **TextBlob Extension:** ``textblob-rftagger`` (wrapper class for ``RFTagger``)
-- **TextBlob Extension:** ``textblob-cmd`` (command-line wrapper for ``TextBlob``, basically TextBlob for files 
-- **TextBlob Extension:** ``textblob-stanfordparser`` (wrapper class for ``StanfordParser`` via NLTK)
-- **TextBlob Extension:** ``textblob-berkeleyparser`` (wrapper class for ``BerkeleyParser``)
-- **TextBlob Extension:** ``textblob-sent-align`` (sentence alignment for parallel TextBlobs)
-- **TextBlob Extension:** ``textblob-converters`` (various input and output conversions)
+- `Planned Extensions <http://textblob-de.readthedocs.org/en/latest/extensions.html>`_
 - Additional PoS tagging options, e.g. NLTK tagging (``NLTKTagger``)
 - Improve noun phrase extraction (e.g. based on ``RFTagger`` output)
 - Improve sentiment analysis (find suitable subjectivity scores)
 - Improve functionality of ``Sentence()`` and ``Word()`` objects
-- Adapt more tests from ``textblob`` main package (esp. for ``TextBlobDE()`` in ``test_blob.py``)
+- Adapt more tests from the main `TextBlob <http://textblob.readthedocs.org/en/dev/>`_ library (esp. for ``TextBlobDE()`` in ``test_blob.py``)
 
 
 License
 -------
 
-MIT licensed. See the bundled ``LICENSE``  file for more details.
+`MIT licensed <http://choosealicense.com/licenses/mit/>`_. See the bundled ``LICENSE``  file for more details.
+
+
+Thanks
+------
+
+Coded with Wing IDE 5.0 (free open source developer license)
+
+.. image:: https://wingware.com/images/wingware-logo-180x58.png
+    :target: https://wingware.com/store/free
+    :alt: Python IDE for Python - wingware.com
+

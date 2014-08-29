@@ -1,0 +1,698 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>textblob.classifiers &mdash; textblob-de 0.3.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="textblob-de 0.3.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="fa fa-home"> textblob-de</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">textblob-de README</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#installing-upgrading">Installing/Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#access-to-pattern-api-in-python3">Access to <tt class="docutils literal"><span class="pre">pattern</span></tt> API in Python3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#documentation-and-api-reference">Documentation and API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#todo">TODO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#thanks">Thanks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Tutorial: Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_usage.html">Advanced Usage: Overriding Models and the Blobber Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.blob">Blob Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.base">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.tokenizers">Tokenizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.taggers">POS Taggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.np_extractors">Noun Phrase Extractors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.sentiments">Sentiment Analyzers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.parsers">Parsers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob.classifiers">Classifiers (from TextBlob main package)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#blobber">Blobber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob.formats">File Formats (from TextBlob main package)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob.exceptions">Exceptions (from TextBlob main package)</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id2">0.3.1 (29/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id3">0.3.0 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id4">0.2.9 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id5">0.2.8 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id6">0.2.7 (13/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id7">0.2.6 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id8">0.2.5 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id9">0.2.3 (26/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id10">0.2.2 (22/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id11">0.2.1 (20/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id12">0.2.0 (18/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id13">0.1.3 (09/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id14">0.1.0 - 0.1.2 (09/07/2014)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#textblob-development-lead">TextBlob Development Lead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#textblob-de-author-maintainer">textblob-de Author/Maintainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#in-general">In General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#in-particular">In Particular</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../make_info.html"><tt class="docutils literal"><span class="pre">make</span></tt> command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../make_info.html#using-make-on-windows">Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../project_makefile.html">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs_makefile.html">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">textblob-de</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>textblob.classifiers</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <h1>Source code for textblob.classifiers</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="sd">&#39;&#39;&#39;Various classifier implementations. Also includes basic feature extractor</span>
+<span class="sd">methods.</span>
+
+<span class="sd">Example Usage:</span>
+<span class="sd">::</span>
+
+<span class="sd">    &gt;&gt;&gt; from textblob import TextBlob</span>
+<span class="sd">    &gt;&gt;&gt; from textblob.classifiers import NaiveBayesClassifier</span>
+<span class="sd">    &gt;&gt;&gt; train = [</span>
+<span class="sd">    ...     (&#39;I love this sandwich.&#39;, &#39;pos&#39;),</span>
+<span class="sd">    ...     (&#39;This is an amazing place!&#39;, &#39;pos&#39;),</span>
+<span class="sd">    ...     (&#39;I feel very good about these beers.&#39;, &#39;pos&#39;),</span>
+<span class="sd">    ...     (&#39;I do not like this restaurant&#39;, &#39;neg&#39;),</span>
+<span class="sd">    ...     (&#39;I am tired of this stuff.&#39;, &#39;neg&#39;),</span>
+<span class="sd">    ...     (&quot;I can&#39;t deal with this&quot;, &#39;neg&#39;),</span>
+<span class="sd">    ...     (&quot;My boss is horrible.&quot;, &quot;neg&quot;)</span>
+<span class="sd">    ... ]</span>
+<span class="sd">    &gt;&gt;&gt; cl = NaiveBayesClassifier(train)</span>
+<span class="sd">    &gt;&gt;&gt; cl.classify(&quot;I feel amazing!&quot;)</span>
+<span class="sd">    &#39;pos&#39;</span>
+<span class="sd">    &gt;&gt;&gt; blob = TextBlob(&quot;The beer is good. But the hangover is horrible.&quot;, classifier=cl)</span>
+<span class="sd">    &gt;&gt;&gt; for s in blob.sentences:</span>
+<span class="sd">    ...     print(s)</span>
+<span class="sd">    ...     print(s.classify())</span>
+<span class="sd">    ...</span>
+<span class="sd">    The beer is good.</span>
+<span class="sd">    pos</span>
+<span class="sd">    But the hangover is horrible.</span>
+<span class="sd">    neg</span>
+
+<span class="sd">.. versionadded:: 0.6.0</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+
+<span class="kn">from</span> <span class="nn">textblob.packages</span> <span class="kn">import</span> <span class="n">nltk</span>
+<span class="kn">from</span> <span class="nn">textblob.tokenizers</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">textblob.compat</span> <span class="kn">import</span> <span class="nb">basestring</span>
+<span class="kn">import</span> <span class="nn">textblob.formats</span> <span class="kn">as</span> <span class="nn">formats</span>
+<span class="kn">from</span> <span class="nn">textblob.utils</span> <span class="kn">import</span> <span class="n">strip_punc</span>
+<span class="kn">from</span> <span class="nn">textblob.decorators</span> <span class="kn">import</span> <span class="n">cached_property</span>
+
+<span class="c">### Basic feature extractors ###</span>
+
+
+<span class="k">def</span> <span class="nf">_get_words_from_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Return a set of all words in a dataset.</span>
+
+<span class="sd">    :param dataset: A list of tuples of the form ``(words, label)`` where</span>
+<span class="sd">        ``words`` is either a string of a list of tokens.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c"># Words may be either a string or a list of tokens. Return an iterator</span>
+    <span class="c"># of tokens accordingly</span>
+    <span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">include_punc</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">)</span>
+    <span class="n">all_words</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">tokenize</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="k">for</span> <span class="n">words</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">all_words</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="basic_extractor"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.basic_extractor">[docs]</a><span class="k">def</span> <span class="nf">basic_extractor</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">train_set</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;A basic document feature extractor that returns a dict indicating</span>
+<span class="sd">    what words in ``train_set`` are contained in ``document``.</span>
+
+<span class="sd">    :param document: The text to extract features from. Can be a string or an iterable.</span>
+<span class="sd">    :param train_set: Training data set, a list of tuples of the form</span>
+<span class="sd">        ``(words, label)``.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">word_features</span> <span class="o">=</span> <span class="n">_get_words_from_dataset</span><span class="p">(</span><span class="n">train_set</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="n">strip_punc</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">all</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">include_punc</span><span class="o">=</span><span class="bp">False</span><span class="p">)))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">strip_punc</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">all</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">document</span><span class="p">)</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(((</span><span class="s">u&#39;contains({0})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">word</span><span class="p">),</span> <span class="p">(</span><span class="n">word</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">))</span>
+                                            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_features</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">features</span>
+
+</div>
+<div class="viewcode-block" id="contains_extractor"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.contains_extractor">[docs]</a><span class="k">def</span> <span class="nf">contains_extractor</span><span class="p">(</span><span class="n">document</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;A basic document feature extractor that returns a dict of words that</span>
+<span class="sd">    the document contains.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">strip_punc</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">all</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">include_punc</span><span class="o">=</span><span class="bp">False</span><span class="p">)])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="n">strip_punc</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">all</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">document</span><span class="p">))</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="s">u&#39;contains({0})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">features</span>
+
+<span class="c">##### CLASSIFIERS #####</span>
+</div>
+<div class="viewcode-block" id="BaseClassifier"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.BaseClassifier">[docs]</a><span class="k">class</span> <span class="nc">BaseClassifier</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;Abstract classifier class from which all classifers inherit. At a</span>
+<span class="sd">    minimum, descendant classes must implement a ``classify`` method and have</span>
+<span class="sd">    a ``classifier`` property.</span>
+
+<span class="sd">    :param train_set: The training set, either a list of tuples of the form</span>
+<span class="sd">        ``(text, classification)`` or a filename. ``text`` may be either</span>
+<span class="sd">        a string or an iterable.</span>
+<span class="sd">    :param function feature_extractor: A feature extractor function that takes one or</span>
+<span class="sd">        two arguments: ``document`` and ``train_set``.</span>
+<span class="sd">    :param str format: If ``train_set`` is a filename, the file format, e.g.</span>
+<span class="sd">        ``&quot;csv&quot;`` or ``&quot;json&quot;``. If ``None``, will attempt to detect the</span>
+<span class="sd">        file format.</span>
+
+<span class="sd">    .. versionadded:: 0.6.0</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_set</span><span class="p">,</span> <span class="n">feature_extractor</span><span class="o">=</span><span class="n">basic_extractor</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">feature_extractor</span> <span class="o">=</span> <span class="n">feature_extractor</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>  <span class="c"># train_set is a filename</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">train_set</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_data</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">format</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c"># train_set is a list of tuples</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">train_set</span> <span class="o">=</span> <span class="n">train_set</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">train_features</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">_read_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Reads a data file and returns and iterable that can be used</span>
+<span class="sd">        as testing or training data.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c"># Attempt to detect file format if &quot;format&quot; isn&#39;t specified</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">format</span><span class="p">:</span>
+            <span class="n">format_class</span> <span class="o">=</span> <span class="n">formats</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">format</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">formats</span><span class="o">.</span><span class="n">AVAILABLE</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;&#39;{0}&#39; format not supported.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">format</span><span class="p">))</span>
+            <span class="n">format_class</span> <span class="o">=</span> <span class="n">formats</span><span class="o">.</span><span class="n">AVAILABLE</span><span class="p">[</span><span class="n">format</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">format_class</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="o">.</span><span class="n">to_iterable</span><span class="p">()</span>
+
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="BaseClassifier.classifier"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.BaseClassifier.classifier">[docs]</a>    <span class="k">def</span> <span class="nf">classifier</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;The classifier object.&#39;&#39;&#39;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&#39;Must implement the &quot;classifier&quot; property.&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="BaseClassifier.classify"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.BaseClassifier.classify">[docs]</a>    <span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Classifies a string of text.&#39;&#39;&#39;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&#39;Must implement a &quot;classify&quot; method.&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="BaseClassifier.train"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.BaseClassifier.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labeled_featureset</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Trains the classifier.&#39;&#39;&#39;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&#39;Must implement a &quot;train&quot; method.&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="BaseClassifier.labels"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.BaseClassifier.labels">[docs]</a>    <span class="k">def</span> <span class="nf">labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Returns an iterable containing the possible labels.&#39;&#39;&#39;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&#39;Must implement a &quot;labels&quot; method.&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="BaseClassifier.extract_features"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.BaseClassifier.extract_features">[docs]</a>    <span class="k">def</span> <span class="nf">extract_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Extracts features from a body of text.</span>
+
+<span class="sd">        :rtype: dictionary of features</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c"># Feature extractor may take 1 or two arguments</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_extractor</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_set</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_extractor</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="NLTKClassifier"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.NLTKClassifier">[docs]</a><span class="k">class</span> <span class="nc">NLTKClassifier</span><span class="p">(</span><span class="n">BaseClassifier</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;An abstract class that wraps around the nltk.classify module.</span>
+
+<span class="sd">    Expects that descendant classes include a class variable ``nltk_class``</span>
+<span class="sd">    which is the class in the nltk.classify module to be wrapped.</span>
+
+<span class="sd">    Example: ::</span>
+
+<span class="sd">        class MyClassifier(NLTKClassifier):</span>
+<span class="sd">            nltk_class = nltk.classify.svm.SvmClassifier</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c">#: The NLTK class to be wrapped. Must be a class within nltk.classify</span>
+    <span class="n">nltk_class</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_set</span><span class="p">,</span>
+                 <span class="n">feature_extractor</span><span class="o">=</span><span class="n">basic_extractor</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">NLTKClassifier</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">feature_extractor</span><span class="p">,</span> <span class="n">format</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">train_features</span> <span class="o">=</span> <span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_features</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_set</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">class_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span>
+        <span class="k">return</span> <span class="s">&quot;&lt;{cls} trained on {n} instances&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="n">class_name</span><span class="p">,</span>
+                                                        <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train_set</span><span class="p">))</span>
+
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="NLTKClassifier.classifier"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.NLTKClassifier.classifier">[docs]</a>    <span class="k">def</span> <span class="nf">classifier</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;The classifier.&#39;&#39;&#39;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>  <span class="c"># nltk_class has not been defined</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;NLTKClassifier must have a nltk_class&quot;</span>
+                            <span class="s">&quot; variable that is not None.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="NLTKClassifier.train"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.NLTKClassifier.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Train the classifier with a labeled feature set and return</span>
+<span class="sd">        the classifier. Takes the same arguments as the wrapped NLTK class.</span>
+<span class="sd">        This method is implicitly called when calling ``classify`` or</span>
+<span class="sd">        ``accuracy`` methods and is included only to allow passing in arguments</span>
+<span class="sd">        to the ``train`` method of the wrapped NLTK class.</span>
+
+<span class="sd">        .. versionadded:: 0.6.2</span>
+
+<span class="sd">        :rtype: A classifier</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nltk_class</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train_features</span><span class="p">,</span>
+                                                    <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;NLTKClassifier must have a nltk_class&quot;</span>
+                            <span class="s">&quot; variable that is not None.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="NLTKClassifier.labels"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.NLTKClassifier.labels">[docs]</a>    <span class="k">def</span> <span class="nf">labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Return an iterable of possible labels.&#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">labels</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="NLTKClassifier.classify"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.NLTKClassifier.classify">[docs]</a>    <span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Classifies the text.</span>
+
+<span class="sd">        :param str text: A string of text.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">text_features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extract_features</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">text_features</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="NLTKClassifier.accuracy"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.NLTKClassifier.accuracy">[docs]</a>    <span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_set</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Compute the accuracy on a test set.</span>
+
+<span class="sd">        :param test_set: A list of tuples of the form ``(text, label)``, or a</span>
+<span class="sd">            filename.</span>
+<span class="sd">        :param format: If ``test_set`` is a filename, the file format, e.g.</span>
+<span class="sd">            ``&quot;csv&quot;`` or ``&quot;json&quot;``. If ``None``, will attempt to detect the</span>
+<span class="sd">            file format.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">test_set</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>  <span class="c"># test_set is a filename</span>
+            <span class="n">test_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_data</span><span class="p">(</span><span class="n">test_set</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c"># test_set is a list of tuples</span>
+            <span class="n">test_data</span> <span class="o">=</span> <span class="n">test_set</span>
+        <span class="n">test_features</span> <span class="o">=</span> <span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_features</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">test_data</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">nltk</span><span class="o">.</span><span class="n">classify</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">,</span> <span class="n">test_features</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="NLTKClassifier.update"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.NLTKClassifier.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_data</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Update the classifier with new training data and re-trains the</span>
+<span class="sd">        classifier.</span>
+
+<span class="sd">        :param new_data: New data as a list of tuples of the form</span>
+<span class="sd">            ``(text, label)``.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">train_set</span> <span class="o">+=</span> <span class="n">new_data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">train_features</span> <span class="o">=</span> <span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_features</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="n">c</span><span class="p">)</span>
+                                <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_set</span><span class="p">]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nltk_class</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train_features</span><span class="p">,</span>
+                                                    <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>  <span class="c"># Descendant has not defined nltk_class</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;NLTKClassifier must have a nltk_class&quot;</span>
+                            <span class="s">&quot; variable that is not None.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+</div></div>
+<div class="viewcode-block" id="NaiveBayesClassifier"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.NaiveBayesClassifier">[docs]</a><span class="k">class</span> <span class="nc">NaiveBayesClassifier</span><span class="p">(</span><span class="n">NLTKClassifier</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;A classifier based on the Naive Bayes algorithm, as implemented in</span>
+<span class="sd">    NLTK.</span>
+
+<span class="sd">    :param train_set: The training set, either a list of tuples of the form</span>
+<span class="sd">        ``(text, classification)`` or a filename. ``text`` may be either</span>
+<span class="sd">        a string or an iterable.</span>
+<span class="sd">    :param feature_extractor: A feature extractor function that takes one or</span>
+<span class="sd">        two arguments: ``document`` and ``train_set``.</span>
+<span class="sd">    :param format: If ``train_set`` is a filename, the file format, e.g.</span>
+<span class="sd">        ``&quot;csv&quot;`` or ``&quot;json&quot;``. If ``None``, will attempt to detect the</span>
+<span class="sd">        file format.</span>
+
+<span class="sd">    .. versionadded:: 0.6.0</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">nltk_class</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">classify</span><span class="o">.</span><span class="n">NaiveBayesClassifier</span>
+
+<div class="viewcode-block" id="NaiveBayesClassifier.prob_classify"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.NaiveBayesClassifier.prob_classify">[docs]</a>    <span class="k">def</span> <span class="nf">prob_classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Return the label probability distribution for classifying a string</span>
+<span class="sd">        of text.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            &gt;&gt;&gt; classifier = NaiveBayesClassifier(train_data)</span>
+<span class="sd">            &gt;&gt;&gt; prob_dist = classifier.prob_classify(&quot;I feel happy this morning.&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; prob_dist.max()</span>
+<span class="sd">            &#39;positive&#39;</span>
+<span class="sd">            &gt;&gt;&gt; prob_dist.prob(&quot;positive&quot;)</span>
+<span class="sd">            0.7</span>
+
+<span class="sd">        :rtype: nltk.probability.DictionaryProbDist</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">text_features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extract_features</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">prob_classify</span><span class="p">(</span><span class="n">text_features</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="NaiveBayesClassifier.informative_features"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.NaiveBayesClassifier.informative_features">[docs]</a>    <span class="k">def</span> <span class="nf">informative_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Return the most informative features as a list of tuples of the</span>
+<span class="sd">        form ``(feature_name, feature_value)``.</span>
+
+<span class="sd">        :rtype: list</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">most_informative_features</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="NaiveBayesClassifier.show_informative_features"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.NaiveBayesClassifier.show_informative_features">[docs]</a>    <span class="k">def</span> <span class="nf">show_informative_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Displays a listing of the most informative features for this</span>
+<span class="sd">        classifier.</span>
+
+<span class="sd">        :rtype: None</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">show_most_informative_features</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="DecisionTreeClassifier"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.DecisionTreeClassifier">[docs]</a><span class="k">class</span> <span class="nc">DecisionTreeClassifier</span><span class="p">(</span><span class="n">NLTKClassifier</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;A classifier based on the decision tree algorithm, as implemented in</span>
+<span class="sd">    NLTK.</span>
+
+<span class="sd">    :param train_set: The training set, either a list of tuples of the form</span>
+<span class="sd">        ``(text, classification)`` or a filename. ``text`` may be either</span>
+<span class="sd">        a string or an iterable.</span>
+<span class="sd">    :param feature_extractor: A feature extractor function that takes one or</span>
+<span class="sd">        two arguments: ``document`` and ``train_set``.</span>
+<span class="sd">    :param format: If ``train_set`` is a filename, the file format, e.g.</span>
+<span class="sd">        ``&quot;csv&quot;`` or ``&quot;json&quot;``. If ``None``, will attempt to detect the</span>
+<span class="sd">        file format.</span>
+
+<span class="sd">    .. versionadded:: 0.6.2</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">nltk_class</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">classify</span><span class="o">.</span><span class="n">decisiontree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span>
+
+<div class="viewcode-block" id="DecisionTreeClassifier.pprint"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.DecisionTreeClassifier.pprint">[docs]</a>    <span class="k">def</span> <span class="nf">pprint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Return a string containing a pretty-printed version of this decision</span>
+<span class="sd">        tree. Each line in the string corresponds to a single decision tree node</span>
+<span class="sd">        or leaf, and indentation is used to display the structure of the tree.</span>
+
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">pp</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="DecisionTreeClassifier.pseudocode"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.DecisionTreeClassifier.pseudocode">[docs]</a>    <span class="k">def</span> <span class="nf">pseudocode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Return a string representation of this decision tree that expresses</span>
+<span class="sd">        the decisions it makes as a nested set of pseudocode if statements.</span>
+
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">pseudocode</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="PositiveNaiveBayesClassifier"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.PositiveNaiveBayesClassifier">[docs]</a><span class="k">class</span> <span class="nc">PositiveNaiveBayesClassifier</span><span class="p">(</span><span class="n">NLTKClassifier</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;A variant of the Naive Bayes Classifier that performs binary</span>
+<span class="sd">    classification with partially-labeled training sets, i.e. when only</span>
+<span class="sd">    one class is labeled and the other is not. Assuming a prior distribution</span>
+<span class="sd">    on the two labels, uses the unlabeled set to estimate the frequencies of</span>
+<span class="sd">    the features.</span>
+
+<span class="sd">    Example usage:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        &gt;&gt;&gt; from text.classifiers import PositiveNaiveBayesClassifier</span>
+<span class="sd">        &gt;&gt;&gt; sports_sentences = [&#39;The team dominated the game&#39;,</span>
+<span class="sd">        ...                   &#39;They lost the ball&#39;,</span>
+<span class="sd">        ...                   &#39;The game was intense&#39;,</span>
+<span class="sd">        ...                   &#39;The goalkeeper catched the ball&#39;,</span>
+<span class="sd">        ...                   &#39;The other team controlled the ball&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; various_sentences = [&#39;The President did not comment&#39;,</span>
+<span class="sd">        ...                        &#39;I lost the keys&#39;,</span>
+<span class="sd">        ...                        &#39;The team won the game&#39;,</span>
+<span class="sd">        ...                        &#39;Sara has two kids&#39;,</span>
+<span class="sd">        ...                        &#39;The ball went off the court&#39;,</span>
+<span class="sd">        ...                        &#39;They had the ball for the whole game&#39;,</span>
+<span class="sd">        ...                        &#39;The show is over&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; classifier = PositiveNaiveBayesClassifier(positive_set=sports_sentences,</span>
+<span class="sd">        ...                                           unlabeled_set=various_sentences)</span>
+<span class="sd">        &gt;&gt;&gt; classifier.classify(&quot;My team lost the game&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; classifier.classify(&quot;And now for something completely different.&quot;)</span>
+<span class="sd">        False</span>
+
+
+<span class="sd">    :param positive_set: A collection of strings that have the positive label.</span>
+<span class="sd">    :param unlabeled_set: A collection of unlabeled strings.</span>
+<span class="sd">    :param feature_extractor: A feature extractor function.</span>
+<span class="sd">    :param positive_prob_prior: A prior estimate of the probability of the</span>
+<span class="sd">        label ``True``.</span>
+
+<span class="sd">    .. versionadded:: 0.7.0</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">nltk_class</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">classify</span><span class="o">.</span><span class="n">PositiveNaiveBayesClassifier</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">positive_set</span><span class="p">,</span> <span class="n">unlabeled_set</span><span class="p">,</span>
+                <span class="n">feature_extractor</span><span class="o">=</span><span class="n">contains_extractor</span><span class="p">,</span>
+                <span class="n">positive_prob_prior</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">feature_extractor</span> <span class="o">=</span> <span class="n">feature_extractor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">positive_set</span> <span class="o">=</span> <span class="n">positive_set</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unlabeled_set</span> <span class="o">=</span> <span class="n">unlabeled_set</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">positive_features</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_features</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+                                    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">positive_set</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unlabeled_features</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_features</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+                                    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">unlabeled_set</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">positive_prob_prior</span> <span class="o">=</span> <span class="n">positive_prob_prior</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">class_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span>
+        <span class="k">return</span> <span class="s">&quot;&lt;{cls} trained on {n_pos} labeled and {n_unlabeled} unlabeled instances&gt;&quot;</span>\
+                        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="n">class_name</span><span class="p">,</span> <span class="n">n_pos</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">positive_set</span><span class="p">),</span>
+                                <span class="n">n_unlabeled</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unlabeled_set</span><span class="p">))</span>
+
+    <span class="c"># Override</span>
+<div class="viewcode-block" id="PositiveNaiveBayesClassifier.train"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.PositiveNaiveBayesClassifier.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Train the classifier with a labeled and unlabeled feature sets and return</span>
+<span class="sd">        the classifier. Takes the same arguments as the wrapped NLTK class.</span>
+<span class="sd">        This method is implicitly called when calling ``classify`` or</span>
+<span class="sd">        ``accuracy`` methods and is included only to allow passing in arguments</span>
+<span class="sd">        to the ``train`` method of the wrapped NLTK class.</span>
+
+<span class="sd">        :rtype: A classifier</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nltk_class</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">positive_features</span><span class="p">,</span>
+                                                <span class="bp">self</span><span class="o">.</span><span class="n">unlabeled_features</span><span class="p">,</span>
+                                                <span class="bp">self</span><span class="o">.</span><span class="n">positive_prob_prior</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span>
+</div>
+<div class="viewcode-block" id="PositiveNaiveBayesClassifier.update"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.PositiveNaiveBayesClassifier.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_positive_data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+               <span class="n">new_unlabeled_data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">positive_prob_prior</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+               <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Update the classifier with new data and re-trains the</span>
+<span class="sd">        classifier.</span>
+
+<span class="sd">        :param new_positive_data: List of new, labeled strings.</span>
+<span class="sd">        :param new_unlabeled_data: List of new, unlabeled strings.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">positive_prob_prior</span> <span class="o">=</span> <span class="n">positive_prob_prior</span>
+        <span class="k">if</span> <span class="n">new_positive_data</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">positive_set</span> <span class="o">+=</span> <span class="n">new_positive_data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">positive_features</span> <span class="o">+=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_features</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+                                            <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">new_positive_data</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">new_unlabeled_data</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unlabeled_set</span> <span class="o">+=</span> <span class="n">new_unlabeled_data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unlabeled_features</span> <span class="o">+=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_features</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+                                            <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">new_unlabeled_data</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nltk_class</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">positive_features</span><span class="p">,</span>
+                                                <span class="bp">self</span><span class="o">.</span><span class="n">unlabeled_features</span><span class="p">,</span>
+                                                <span class="bp">self</span><span class="o">.</span><span class="n">positive_prob_prior</span><span class="p">,</span>
+                                                <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+</div></div>
+<div class="viewcode-block" id="MaxEntClassifier"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.MaxEntClassifier">[docs]</a><span class="k">class</span> <span class="nc">MaxEntClassifier</span><span class="p">(</span><span class="n">NLTKClassifier</span><span class="p">):</span>
+    <span class="n">__doc__</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">classify</span><span class="o">.</span><span class="n">maxent</span><span class="o">.</span><span class="n">MaxentClassifier</span><span class="o">.</span><span class="n">__doc__</span>
+    <span class="n">nltk_class</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">classify</span><span class="o">.</span><span class="n">maxent</span><span class="o">.</span><span class="n">MaxentClassifier</span>
+
+<div class="viewcode-block" id="MaxEntClassifier.prob_classify"><a class="viewcode-back" href="../../api_reference.html#textblob.classifiers.MaxEntClassifier.prob_classify">[docs]</a>    <span class="k">def</span> <span class="nf">prob_classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Return the label probability distribution for classifying a string</span>
+<span class="sd">        of text.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            &gt;&gt;&gt; classifier = MaxEntClassifier(train_data)</span>
+<span class="sd">            &gt;&gt;&gt; prob_dist = classifier.prob_classify(&quot;I feel happy this morning.&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; prob_dist.max()</span>
+<span class="sd">            &#39;positive&#39;</span>
+<span class="sd">            &gt;&gt;&gt; prob_dist.prob(&quot;positive&quot;)</span>
+<span class="sd">            0.7</span>
+
+<span class="sd">        :rtype: nltk.probability.DictionaryProbDist</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">feats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extract_features</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">prob_classify</span><span class="p">(</span><span class="n">feats</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Markus Killer (http://langui.ch).
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.3.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

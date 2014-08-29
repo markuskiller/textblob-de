@@ -1,0 +1,1713 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Index &mdash; textblob-de 0.3.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="textblob-de 0.3.1 documentation" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> textblob-de</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">textblob-de README</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#installing-upgrading">Installing/Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#access-to-pattern-api-in-python3">Access to <tt class="docutils literal"><span class="pre">pattern</span></tt> API in Python3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#documentation-and-api-reference">Documentation and API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#todo">TODO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#thanks">Thanks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Tutorial: Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">Advanced Usage: Overriding Models and the Blobber Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.blob">Blob Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.base">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.tokenizers">Tokenizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.taggers">POS Taggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.np_extractors">Noun Phrase Extractors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.sentiments">Sentiment Analyzers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.parsers">Parsers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob.classifiers">Classifiers (from TextBlob main package)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#blobber">Blobber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob.formats">File Formats (from TextBlob main package)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob.exceptions">Exceptions (from TextBlob main package)</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.3.1 (29/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.3.0 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.2.9 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.2.8 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.2.7 (13/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.2.6 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.2.5 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.2.3 (26/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.2.2 (22/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id11">0.2.1 (20/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id12">0.2.0 (18/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id13">0.1.3 (09/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id14">0.1.0 - 0.1.2 (09/07/2014)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-development-lead">TextBlob Development Lead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-de-author-maintainer">textblob-de Author/Maintainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#in-general">In General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#in-particular">In Particular</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="make_info.html"><tt class="docutils literal"><span class="pre">make</span></tt> command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="make_info.html#using-make-on-windows">Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project_makefile.html">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs_makefile.html">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">textblob-de</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li></li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#Z"><strong>Z</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BlobberDE.__call__">__call__() (textblob_de.blob.BlobberDE method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob.classifiers.DecisionTreeClassifier.accuracy">accuracy() (textblob.classifiers.DecisionTreeClassifier method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob.classifiers.MaxEntClassifier.accuracy">(textblob.classifiers.MaxEntClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NLTKClassifier.accuracy">(textblob.classifiers.NLTKClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NaiveBayesClassifier.accuracy">(textblob.classifiers.NaiveBayesClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.PositiveNaiveBayesClassifier.accuracy">(textblob.classifiers.PositiveNaiveBayesClassifier method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.sentiments.PatternAnalyzer.analyze">analyze() (textblob_de.sentiments.PatternAnalyzer method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.append">append() (textblob_de.blob.WordList method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob">BaseBlob (class in textblob_de.blob)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob.classifiers.BaseClassifier">BaseClassifier (class in textblob.classifiers)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob.formats.BaseFormat">BaseFormat (class in textblob.formats)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.base.BaseLemmatizer">BaseLemmatizer (class in textblob_de.base)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob.classifiers.basic_extractor">basic_extractor() (in module textblob.classifiers)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BlobberDE">BlobberDE (class in textblob_de.blob)</a>, <a href="api_reference.html#textblob_de.blob.BlobberDE">[1]</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.capitalize">capitalize() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.casefold">casefold() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.center">center() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob.classifiers.BaseClassifier.classifier">classifier (textblob.classifiers.BaseClassifier attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob.classifiers.DecisionTreeClassifier.classifier">(textblob.classifiers.DecisionTreeClassifier attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.MaxEntClassifier.classifier">(textblob.classifiers.MaxEntClassifier attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NLTKClassifier.classifier">(textblob.classifiers.NLTKClassifier attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NaiveBayesClassifier.classifier">(textblob.classifiers.NaiveBayesClassifier attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.PositiveNaiveBayesClassifier.classifier">(textblob.classifiers.PositiveNaiveBayesClassifier attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob.classifiers.BaseClassifier.classify">classify() (textblob.classifiers.BaseClassifier method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob.classifiers.DecisionTreeClassifier.classify">(textblob.classifiers.DecisionTreeClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.MaxEntClassifier.classify">(textblob.classifiers.MaxEntClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NLTKClassifier.classify">(textblob.classifiers.NLTKClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NaiveBayesClassifier.classify">(textblob.classifiers.NaiveBayesClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.PositiveNaiveBayesClassifier.classify">(textblob.classifiers.PositiveNaiveBayesClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.classify">(textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.classify">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.classify">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.clear">clear() (textblob_de.blob.WordList method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob.classifiers.contains_extractor">contains_extractor() (in module textblob.classifiers)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.copy">copy() (textblob_de.blob.WordList method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.correct">correct() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.correct">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.correct">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.correct">(textblob_de.blob.Word method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.count">count() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.count">(textblob_de.blob.WordList method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob.formats.CSV">CSV (class in textblob.formats)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob.classifiers.DecisionTreeClassifier">DecisionTreeClassifier (class in textblob.classifiers)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.define">define() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.definitions">definitions (textblob_de.blob.Word attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob.formats.DelimitedFormat">DelimitedFormat (class in textblob.formats)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob.formats.detect">detect() (in module textblob.formats)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob.formats.BaseFormat.detect">(textblob.formats.BaseFormat static method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.formats.CSV.detect">(textblob.formats.CSV static method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.formats.DelimitedFormat.detect">(textblob.formats.DelimitedFormat static method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.formats.JSON.detect">(textblob.formats.JSON static method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.formats.TSV.detect">(textblob.formats.TSV static method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.detect_language">detect_language() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.detect_language">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.detect_language">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.detect_language">(textblob_de.blob.Word method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.dict">dict (textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.encode">encode() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.end">end (textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.end_index">end_index (textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.ends_with">ends_with() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.ends_with">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.ends_with">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.endswith">endswith() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.endswith">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.endswith">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.endswith">(textblob_de.blob.Word method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.expandtabs">expandtabs() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.extend">extend() (textblob_de.blob.WordList method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.np_extractors.PatternParserNPExtractor.extract">extract() (textblob_de.np_extractors.PatternParserNPExtractor method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob.classifiers.BaseClassifier.extract_features">extract_features() (textblob.classifiers.BaseClassifier method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob.classifiers.DecisionTreeClassifier.extract_features">(textblob.classifiers.DecisionTreeClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.MaxEntClassifier.extract_features">(textblob.classifiers.MaxEntClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NLTKClassifier.extract_features">(textblob.classifiers.NLTKClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NaiveBayesClassifier.extract_features">(textblob.classifiers.NaiveBayesClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.PositiveNaiveBayesClassifier.extract_features">(textblob.classifiers.PositiveNaiveBayesClassifier method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.find">find() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.find">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.find">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.find">(textblob_de.blob.Word method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.format">format() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.format">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.format">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.format">(textblob_de.blob.Word method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.format_map">format_map() (textblob_de.blob.Word method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.get_synsets">get_synsets() (textblob_de.blob.Word method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.index">index() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.index">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.index">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.index">(textblob_de.blob.Word method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.index">(textblob_de.blob.WordList method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob.classifiers.NaiveBayesClassifier.informative_features">informative_features() (textblob.classifiers.NaiveBayesClassifier method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.insert">insert() (textblob_de.blob.WordList method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.isalnum">isalnum() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.isalpha">isalpha() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.isdecimal">isdecimal() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.isdigit">isdigit() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.isidentifier">isidentifier() (textblob_de.blob.Word method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.islower">islower() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.isnumeric">isnumeric() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.isprintable">isprintable() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.isspace">isspace() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.istitle">istitle() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.isupper">isupper() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.tokenizers.NLTKPunktTokenizer.itokenize">itokenize() (textblob_de.tokenizers.NLTKPunktTokenizer method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.tokenizers.PatternTokenizer.itokenize">(textblob_de.tokenizers.PatternTokenizer method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.tokenizers.SentenceTokenizer.itokenize">(textblob_de.tokenizers.SentenceTokenizer method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.tokenizers.WordTokenizer.itokenize">(textblob_de.tokenizers.WordTokenizer method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.join">join() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.join">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.join">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.join">(textblob_de.blob.Word method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob.formats.JSON">JSON (class in textblob.formats)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.json">json (textblob_de.blob.TextBlobDE attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.sentiments.PatternAnalyzer.kind">kind (textblob_de.sentiments.PatternAnalyzer attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob.classifiers.BaseClassifier.labels">labels() (textblob.classifiers.BaseClassifier method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob.classifiers.DecisionTreeClassifier.labels">(textblob.classifiers.DecisionTreeClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.MaxEntClassifier.labels">(textblob.classifiers.MaxEntClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NLTKClassifier.labels">(textblob.classifiers.NLTKClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NaiveBayesClassifier.labels">(textblob.classifiers.NaiveBayesClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.PositiveNaiveBayesClassifier.labels">(textblob.classifiers.PositiveNaiveBayesClassifier method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.lemma">lemma (textblob_de.blob.Word attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.base.BaseLemmatizer.lemmatize">lemmatize() (textblob_de.base.BaseLemmatizer method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.lemmatize">(textblob_de.blob.Word method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.lemmatize">(textblob_de.blob.WordList method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.ljust">ljust() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.lower">lower() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.lower">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.lower">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.lower">(textblob_de.blob.Word method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.lower">(textblob_de.blob.WordList method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.lstrip">lstrip() (textblob_de.blob.Word method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.maketrans">maketrans() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob.classifiers.MaxEntClassifier">MaxEntClassifier (class in textblob.classifiers)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob.exceptions.MissingCorpusException">MissingCorpusException</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob.classifiers.NaiveBayesClassifier">NaiveBayesClassifier (class in textblob.classifiers)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.ngrams">ngrams() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.ngrams">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.ngrams">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob.classifiers.MaxEntClassifier.nltk_class">nltk_class (textblob.classifiers.MaxEntClassifier attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NLTKClassifier.nltk_class">(textblob.classifiers.NLTKClassifier attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NaiveBayesClassifier.nltk_class">(textblob.classifiers.NaiveBayesClassifier attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob.classifiers.NLTKClassifier">NLTKClassifier (class in textblob.classifiers)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.tokenizers.NLTKPunktTokenizer">NLTKPunktTokenizer (class in textblob_de.tokenizers)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.noun_phrases">noun_phrases (textblob_de.blob.BaseBlob attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.noun_phrases">(textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.noun_phrases">(textblob_de.blob.TextBlobDE attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.np_counts">np_counts (textblob_de.blob.BaseBlob attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.np_counts">(textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.np_counts">(textblob_de.blob.TextBlobDE attribute)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.parse">parse() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.parse">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.parse">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.parsers.PatternParser.parse">(textblob_de.parsers.PatternParser method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.parsers.PatternParser.parsetree">parsetree() (textblob_de.parsers.PatternParser method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.partition">partition() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.sentiments.PatternAnalyzer">PatternAnalyzer (class in textblob_de.sentiments)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.parsers.PatternParser">PatternParser (class in textblob_de.parsers)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.np_extractors.PatternParserNPExtractor">PatternParserNPExtractor (class in textblob_de.np_extractors)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.taggers.PatternTagger">PatternTagger (class in textblob_de.taggers)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.tokenizers.PatternTokenizer">PatternTokenizer (class in textblob_de.tokenizers)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.pluralize">pluralize() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.pluralize">(textblob_de.blob.WordList method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.polarity">polarity (textblob_de.blob.BaseBlob attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.polarity">(textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.polarity">(textblob_de.blob.TextBlobDE attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.pop">pop() (textblob_de.blob.WordList method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.pos_tags">pos_tags (textblob_de.blob.BaseBlob attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.pos_tags">(textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.pos_tags">(textblob_de.blob.TextBlobDE attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob.classifiers.PositiveNaiveBayesClassifier">PositiveNaiveBayesClassifier (class in textblob.classifiers)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob.classifiers.DecisionTreeClassifier.pprint">pprint() (textblob.classifiers.DecisionTreeClassifier method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob.classifiers.MaxEntClassifier.prob_classify">prob_classify() (textblob.classifiers.MaxEntClassifier method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NaiveBayesClassifier.prob_classify">(textblob.classifiers.NaiveBayesClassifier method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob.classifiers.DecisionTreeClassifier.pseudocode">pseudocode() (textblob.classifiers.DecisionTreeClassifier method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.raw_sentences">raw_sentences (textblob_de.blob.TextBlobDE attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.remove">remove() (textblob_de.blob.WordList method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.replace">replace() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.replace">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.replace">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.replace">(textblob_de.blob.Word method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.sentiments.PatternAnalyzer.RETURN_TYPE">RETURN_TYPE (textblob_de.sentiments.PatternAnalyzer attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.reverse">reverse() (textblob_de.blob.WordList method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.rfind">rfind() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.rfind">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.rfind">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.rfind">(textblob_de.blob.Word method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.rindex">rindex() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.rindex">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.rindex">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.rindex">(textblob_de.blob.Word method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.rjust">rjust() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.rpartition">rpartition() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.rsplit">rsplit() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.rstrip">rstrip() (textblob_de.blob.Word method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.tokenizers.sent_tokenize">sent_tokenize() (in module textblob_de.tokenizers)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.tokenizers.NLTKPunktTokenizer.sent_tokenize">(textblob_de.tokenizers.NLTKPunktTokenizer method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.tokenizers.PatternTokenizer.sent_tokenize">(textblob_de.tokenizers.PatternTokenizer method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.tokenizers.SentenceTokenizer.sent_tokenize">(textblob_de.tokenizers.SentenceTokenizer method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence">Sentence (class in textblob_de.blob)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.sentences">sentences (textblob_de.blob.TextBlobDE attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.tokenizers.SentenceTokenizer">SentenceTokenizer (class in textblob_de.tokenizers)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.sentiment">sentiment (textblob_de.blob.BaseBlob attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.sentiment">(textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.sentiment">(textblob_de.blob.TextBlobDE attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.serialized">serialized (textblob_de.blob.TextBlobDE attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob.classifiers.NaiveBayesClassifier.show_informative_features">show_informative_features() (textblob.classifiers.NaiveBayesClassifier method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.singularize">singularize() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.singularize">(textblob_de.blob.WordList method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.sort">sort() (textblob_de.blob.WordList method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.spellcheck">spellcheck() (textblob_de.blob.Word method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.split">split() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.split">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.split">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.split">(textblob_de.blob.Word method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.splitlines">splitlines() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.start">start (textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.start_index">start_index (textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.starts_with">starts_with() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.starts_with">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.starts_with">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.startswith">startswith() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.startswith">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.startswith">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.startswith">(textblob_de.blob.Word method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.strip">strip() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.strip">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.strip">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.strip">(textblob_de.blob.Word method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.subjectivity">subjectivity (textblob_de.blob.BaseBlob attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.subjectivity">(textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.subjectivity">(textblob_de.blob.TextBlobDE attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.swapcase">swapcase() (textblob_de.blob.Word method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.synsets">synsets (textblob_de.blob.Word attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.taggers.PatternTagger.tag">tag() (textblob_de.taggers.PatternTagger method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.tags">tags (textblob_de.blob.BaseBlob attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.tags">(textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.tags">(textblob_de.blob.TextBlobDE attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#module-textblob.classifiers">textblob.classifiers (module)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#module-textblob.exceptions">textblob.exceptions (module)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#module-textblob.formats">textblob.formats (module)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#module-textblob_de.base">textblob_de.base (module)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#module-textblob_de.blob">textblob_de.blob (module)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#module-textblob_de.np_extractors">textblob_de.np_extractors (module)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#module-textblob_de.parsers">textblob_de.parsers (module)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#module-textblob_de.sentiments">textblob_de.sentiments (module)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#module-textblob_de.taggers">textblob_de.taggers (module)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#module-textblob_de.tokenizers">textblob_de.tokenizers (module)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE">TextBlobDE (class in textblob_de.blob)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.title">title() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.title">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.title">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.title">(textblob_de.blob.Word method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob.formats.BaseFormat.to_iterable">to_iterable() (textblob.formats.BaseFormat method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob.formats.CSV.to_iterable">(textblob.formats.CSV method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.formats.DelimitedFormat.to_iterable">(textblob.formats.DelimitedFormat method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.formats.JSON.to_iterable">(textblob.formats.JSON method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.formats.TSV.to_iterable">(textblob.formats.TSV method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.to_json">to_json() (textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.tokenize">tokenize() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.tokenize">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.tokenize">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.tokenizers.NLTKPunktTokenizer.tokenize">(textblob_de.tokenizers.NLTKPunktTokenizer method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.tokenizers.PatternTokenizer.tokenize">(textblob_de.tokenizers.PatternTokenizer method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.tokenizers.SentenceTokenizer.tokenize">(textblob_de.tokenizers.SentenceTokenizer method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.tokenizers.WordTokenizer.tokenize">(textblob_de.tokenizers.WordTokenizer method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.tokens">tokens (textblob_de.blob.BaseBlob attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.tokens">(textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.tokens">(textblob_de.blob.TextBlobDE attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob.classifiers.BaseClassifier.train">train() (textblob.classifiers.BaseClassifier method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob.classifiers.DecisionTreeClassifier.train">(textblob.classifiers.DecisionTreeClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.MaxEntClassifier.train">(textblob.classifiers.MaxEntClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NLTKClassifier.train">(textblob.classifiers.NLTKClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NaiveBayesClassifier.train">(textblob.classifiers.NaiveBayesClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.PositiveNaiveBayesClassifier.train">(textblob.classifiers.PositiveNaiveBayesClassifier method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.translate">translate() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.translate">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.translate">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.translate">(textblob_de.blob.Word method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob.formats.TSV">TSV (class in textblob.formats)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob.classifiers.DecisionTreeClassifier.update">update() (textblob.classifiers.DecisionTreeClassifier method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob.classifiers.MaxEntClassifier.update">(textblob.classifiers.MaxEntClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NLTKClassifier.update">(textblob.classifiers.NLTKClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.NaiveBayesClassifier.update">(textblob.classifiers.NaiveBayesClassifier method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob.classifiers.PositiveNaiveBayesClassifier.update">(textblob.classifiers.PositiveNaiveBayesClassifier method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.upper">upper() (textblob_de.blob.BaseBlob method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.upper">(textblob_de.blob.Sentence method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.upper">(textblob_de.blob.TextBlobDE method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Word.upper">(textblob_de.blob.Word method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.WordList.upper">(textblob_de.blob.WordList method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word">Word (class in textblob_de.blob)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.word_counts">word_counts (textblob_de.blob.BaseBlob attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.word_counts">(textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.word_counts">(textblob_de.blob.TextBlobDE attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.tokenizers.word_tokenize">word_tokenize() (in module textblob_de.tokenizers)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.tokenizers.NLTKPunktTokenizer.word_tokenize">(textblob_de.tokenizers.NLTKPunktTokenizer method)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.tokenizers.WordTokenizer.word_tokenize">(textblob_de.tokenizers.WordTokenizer method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.WordList">WordList (class in textblob_de.blob)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference.html#textblob_de.blob.BaseBlob.words">words (textblob_de.blob.BaseBlob attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api_reference.html#textblob_de.blob.Sentence.words">(textblob_de.blob.Sentence attribute)</a>
+  </dt>
+
+        
+  <dt><a href="api_reference.html#textblob_de.blob.TextBlobDE.words">(textblob_de.blob.TextBlobDE attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api_reference.html#textblob_de.tokenizers.WordTokenizer">WordTokenizer (class in textblob_de.tokenizers)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="Z">Z</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference.html#textblob_de.blob.Word.zfill">zfill() (textblob_de.blob.Word method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Markus Killer (http://langui.ch).
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.3.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

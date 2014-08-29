@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>textblob_de.sentiments &mdash; textblob-de 0.3.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="textblob-de 0.3.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="fa fa-home"> textblob-de</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">textblob-de README</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#installing-upgrading">Installing/Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#access-to-pattern-api-in-python3">Access to <tt class="docutils literal"><span class="pre">pattern</span></tt> API in Python3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#documentation-and-api-reference">Documentation and API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#todo">TODO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#thanks">Thanks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Tutorial: Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_usage.html">Advanced Usage: Overriding Models and the Blobber Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.blob">Blob Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.base">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.tokenizers">Tokenizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.taggers">POS Taggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.np_extractors">Noun Phrase Extractors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.sentiments">Sentiment Analyzers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.parsers">Parsers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob.classifiers">Classifiers (from TextBlob main package)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#blobber">Blobber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob.formats">File Formats (from TextBlob main package)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob.exceptions">Exceptions (from TextBlob main package)</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id2">0.3.1 (29/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id3">0.3.0 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id4">0.2.9 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id5">0.2.8 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id6">0.2.7 (13/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id7">0.2.6 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id8">0.2.5 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id9">0.2.3 (26/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id10">0.2.2 (22/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id11">0.2.1 (20/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id12">0.2.0 (18/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id13">0.1.3 (09/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id14">0.1.0 - 0.1.2 (09/07/2014)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#textblob-development-lead">TextBlob Development Lead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#textblob-de-author-maintainer">textblob-de Author/Maintainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#in-general">In General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#in-particular">In Particular</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../make_info.html"><tt class="docutils literal"><span class="pre">make</span></tt> command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../make_info.html#using-make-on-windows">Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../project_makefile.html">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs_makefile.html">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">textblob-de</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>textblob_de.sentiments</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <h1>Source code for textblob_de.sentiments</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c">#</span>
+<span class="c"># Code adapted from ``textblob-fr`` sample extension.</span>
+<span class="c">#</span>
+<span class="c"># :repo: `https://github.com/sloria/textblob-fr`_</span>
+<span class="c"># :source: textblob_fr/sentiments.py</span>
+<span class="c"># :version: 2013-10-28 (a88e86a76a)</span>
+<span class="c">#</span>
+<span class="c"># :modified: 2014-08-04 &lt;m.killer@langui.ch&gt;</span>
+<span class="c">#</span>
+<span class="sd">&quot;&quot;&quot;German sentiment analysis implementations.</span>
+
+<span class="sd">Main resource for ``de-sentiment.xml``:</span>
+
+<span class="sd">* `German Polarity Lexicon &lt;http://bics.sentimental.li/index.php/downloads&gt;`_</span>
+<span class="sd">* See xml comment section in ``de-sentiment.xml`` for details</span>
+
+<span class="sd">.. todo::</span>
+
+<span class="sd">       enhance German Polarity Lexicon, using publicly available resources.</span>
+
+<span class="sd">       Missing values:</span>
+
+<span class="sd">       * Subjectivity</span>
+<span class="sd">       * (Intensity)</span>
+
+<span class="sd">       Possible sources:</span>
+
+<span class="sd">       * `Pattern Project &lt;http://www.clips.ua.ac.be/pages/pattern&gt;`_</span>
+
+<span class="sd">           * fr-sentiment.xml / en-sentiment.xml / nl-sentiment.xml</span>
+
+<span class="sd">       * `IGGSA &lt;https://sites.google.com/site/iggsahome/&gt;`_</span>
+
+<span class="sd">    :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to</span>
+<span class="sd">        :class:`PatternTokenizer() &lt;textblob_de.tokenizers.PatternTokenizer&gt;`.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">textblob_de.base</span> <span class="kn">import</span> <span class="n">BaseSentimentAnalyzer</span><span class="p">,</span> <span class="n">CONTINUOUS</span>
+<span class="kn">from</span> <span class="nn">textblob_de.lemmatizers</span> <span class="kn">import</span> <span class="n">PatternParserLemmatizer</span>
+<span class="kn">from</span> <span class="nn">textblob_de.packages</span> <span class="kn">import</span> <span class="n">pattern_text</span>
+<span class="kn">from</span> <span class="nn">textblob_de.tokenizers</span> <span class="kn">import</span> <span class="n">PatternTokenizer</span>
+
+
+<span class="c">#################### PATTERN ANALYZER ####################################</span>
+
+<span class="c"># adapted from &#39;textblob_fr.fr.py&#39;</span>
+<span class="c">#################### PATTERN SENTIMENT DETECTION #########################</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">MODULE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">MODULE</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+
+<span class="n">_Sentiment</span> <span class="o">=</span> <span class="n">pattern_text</span><span class="o">.</span><span class="n">Sentiment</span>
+
+
+<span class="k">class</span> <span class="nc">Sentiment</span><span class="p">(</span><span class="n">_Sentiment</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">_Sentiment</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+        <span class="c"># Map &quot;précaire&quot; to &quot;precaire&quot; (without diacritics, +1% accuracy).</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+                <span class="n">w0</span> <span class="o">=</span> <span class="n">w</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">w</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s">u&quot;à&quot;</span><span class="p">,</span> <span class="s">u&quot;è&quot;</span><span class="p">,</span> <span class="s">u&quot;é&quot;</span><span class="p">,</span> <span class="s">u&quot;ê&quot;</span><span class="p">,</span> <span class="s">u&quot;ï&quot;</span><span class="p">)):</span>
+                    <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">u&quot;à&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">)</span>
+                    <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">u&quot;é&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span>
+                    <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">u&quot;è&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span>
+                    <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">u&quot;ê&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span>
+                    <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">u&quot;ï&quot;</span><span class="p">,</span> <span class="s">&quot;i&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">w</span> <span class="o">!=</span> <span class="n">w0</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">pos</span><span class="p">,</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="ow">in</span> <span class="n">pos</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">pattern_sentiment</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">Sentiment</span><span class="p">(</span>
+        <span class="n">path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="s">&quot;data&quot;</span><span class="p">,</span> <span class="s">&quot;de-sentiment.xml&quot;</span><span class="p">),</span>
+        <span class="n">synset</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+        <span class="n">negations</span><span class="o">=</span><span class="p">(</span>
+            <span class="s">&quot;nicht&quot;</span><span class="p">,</span>
+            <span class="s">&quot;ohne&quot;</span><span class="p">,</span>
+            <span class="s">&quot;nie&quot;</span><span class="p">,</span>
+            <span class="s">&quot;nein&quot;</span><span class="p">,</span>
+            <span class="s">&quot;kein&quot;</span><span class="p">,</span>
+            <span class="s">&quot;keiner&quot;</span><span class="p">,</span>
+            <span class="s">&quot;keine&quot;</span><span class="p">,</span>
+            <span class="s">&quot;nichts&quot;</span><span class="p">),</span>
+        <span class="n">modifiers</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;RB&quot;</span><span class="p">,</span> <span class="s">&quot;JJ&quot;</span><span class="p">),</span>
+        <span class="n">modifier</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="n">w</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&quot;lich&quot;</span><span class="p">),</span>
+        <span class="c">#tokenizer = _tokenizer,</span>
+        <span class="n">language</span> <span class="o">=</span> <span class="s">&quot;de&quot;</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c">#################### END SENTIMENT DETECTION ##################################</span>
+
+
+<div class="viewcode-block" id="PatternAnalyzer"><a class="viewcode-back" href="../../api_reference.html#textblob_de.sentiments.PatternAnalyzer">[docs]</a><span class="k">class</span> <span class="nc">PatternAnalyzer</span><span class="p">(</span><span class="n">BaseSentimentAnalyzer</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;Sentiment analyzer that uses the same implementation as the</span>
+<span class="sd">    pattern library. Returns results as a tuple of the form:</span>
+
+<span class="sd">    ``(polarity, subjectivity)``</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c"># : Enhancement Issue #2</span>
+    <span class="c">#: adapted from &#39;textblob.en.sentiments.py&#39;</span>
+    <span class="n">kind</span> <span class="o">=</span> <span class="n">CONTINUOUS</span>
+    <span class="c">#: Return type declaration</span>
+    <span class="n">RETURN_TYPE</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">&#39;Sentiment&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;polarity&#39;</span><span class="p">,</span> <span class="s">&#39;subjectivity&#39;</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">lemmatizer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">lemmatize</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">tokenizer</span> <span class="k">if</span> <span class="n">tokenizer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">PatternTokenizer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lemmatize</span> <span class="o">=</span> <span class="n">lemmatize</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">lemmatizer</span> <span class="k">if</span> <span class="n">lemmatizer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> \
+                <span class="k">else</span> <span class="n">PatternParserLemmatizer</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PatternAnalyzer.analyze"><a class="viewcode-back" href="../../api_reference.html#textblob_de.sentiments.PatternAnalyzer.analyze">[docs]</a>    <span class="k">def</span> <span class="nf">analyze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the sentiment as a tuple of the form:</span>
+<span class="sd">        ``(polarity, subjectivity)``</span>
+
+<span class="sd">        :param str text: A string.</span>
+
+<span class="sd">        .. todo::</span>
+
+<span class="sd">            Figure out best format to be passed to the analyzer.</span>
+<span class="sd">            There might be a better format than a string of space separated</span>
+<span class="sd">            lemmas (e.g. with pos tags) but the parsing/tagging</span>
+<span class="sd">            results look rather inaccurate and a wrong pos</span>
+<span class="sd">            might prevent the lexicon lookup of an otherwise correctly</span>
+<span class="sd">            lemmatized word form (or would it not?) - further checks needed.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lemmatize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">RETURN_TYPE</span><span class="p">(</span><span class="o">*</span><span class="n">pattern_sentiment</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</div>
+    <span class="k">def</span> <span class="nf">_lemmatize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
+        <span class="c"># returns a list of [(lemma1, tag1), (lemma2, tag2), ...]</span>
+        <span class="n">_lemmas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+        <span class="c"># pass to analyzer as a string</span>
+        <span class="n">_lemmas</span> <span class="o">=</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">l</span> <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">_lemmas</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">_lemmas</span>
+
+<span class="c">#################### END PATTERN ANALYZER ################################</span></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Markus Killer (http://langui.ch).
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.3.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

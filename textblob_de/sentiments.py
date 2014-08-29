@@ -18,22 +18,23 @@ Main resource for ``de-sentiment.xml``:
 .. todo::
 
        enhance German Polarity Lexicon, using publicly available resources.
-       
+
        Missing values:
-       
+
        * Subjectivity
        * (Intensity)
-       
+
        Possible sources:
-       
+
        * `Pattern Project <http://www.clips.ua.ac.be/pages/pattern>`_
-       
+
            * fr-sentiment.xml / en-sentiment.xml / nl-sentiment.xml
-           
+
        * `IGGSA <https://sites.google.com/site/iggsahome/>`_
 
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`PatternTokenizer() <textblob_de.tokenizers.PatternTokenizer>`.
+
 """
 from __future__ import absolute_import
 from collections import namedtuple
@@ -107,20 +108,18 @@ class PatternAnalyzer(BaseSentimentAnalyzer):
 
     ``(polarity, subjectivity)``
     '''
-    #: Enhancement Issue #2
+    # : Enhancement Issue #2
     #: adapted from 'textblob.en.sentiments.py'
     kind = CONTINUOUS
     #: Return type declaration
-    RETURN_TYPE = namedtuple('Sentiment', ['polarity', 'subjectivity'])    
+    RETURN_TYPE = namedtuple('Sentiment', ['polarity', 'subjectivity'])
 
     def __init__(self, tokenizer=None, lemmatizer=None, lemmatize=True):
-        self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
-        self.lemmatize = lemmatize if lemmatize else True
+        self.tokenizer = tokenizer if tokenizer is not None else PatternTokenizer()
+        self.lemmatize = lemmatize
         if self.lemmatize:
-            self.lemmatizer = lemmatizer if lemmatizer \
+            self.lemmatizer = lemmatizer if lemmatizer is not None \
                 else PatternParserLemmatizer(tokenizer=self.tokenizer)
-        
-        
 
     def analyze(self, text):
         """Return the sentiment as a tuple of the form:

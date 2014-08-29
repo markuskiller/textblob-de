@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Code imported from ``textblob`` main package.
+# Code imported from the main `TextBlob`_ library.
 #
 # :repo: `https://github.com/sloria/TextBlob`_
 # :source: textblob/en/parsers.py
@@ -8,7 +8,7 @@
 #
 # :modified: 2014-08-04 <m.killer@langui.ch>
 #
-'''Default parsers for German.
+"""Default parsers for German.
 
 >>> from textblob_de.parsers import PatternParser
 
@@ -16,7 +16,7 @@ or
 
 >>> from textblob_de import PatternParser
 
-'''
+"""
 from __future__ import absolute_import
 import string
 
@@ -31,6 +31,7 @@ pattern_parsetree = pattern_de.parsetree
 
 PUNCTUATION = string.punctuation
 
+
 class PatternParser(BaseParser):
 
     '''Parser that uses the implementation in Tom de Smedt's pattern library.
@@ -40,7 +41,8 @@ class PatternParser(BaseParser):
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`PatternTokenizer() <textblob_de.tokenizers.PatternTokenizer>`.
     :param tokenize: (optional) Split punctuation marks from words? (Default ``True``)
-    :param pprint: (optional) Use ``pattern``'s ``pprint`` function to display parse trees (Default ``False``)
+    :param pprint: (optional) Use ``pattern``'s ``pprint`` function to display parse
+        trees (Default ``False``)
     :param tags: (optional) Parse part-of-speech tags? (NN, JJ, ...) (Default ``True``)
     :param chunks: (optional) Parse chunks? (NP, VP, PNP, ...) (Default ``True``)
     :param relations: (optional) Parse chunk relations? (-SBJ, -OBJ, ...) (Default ``False``)
@@ -50,31 +52,42 @@ class PatternParser(BaseParser):
 
     '''
 
-    def __init__(self, tokenizer=None, tokenize=True, pprint=False, tags=True, chunks=True,
-                 relations=False, lemmata=False, encoding='utf-8', tagset=None):
+    def __init__(
+            self,
+            tokenizer=None,
+            tokenize=True,
+            pprint=False,
+            tags=True,
+            chunks=True,
+            relations=False,
+            lemmata=False,
+            encoding='utf-8',
+            tagset=None):
 
-        self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
-        self.pprint = pprint if pprint else False
-        self.tokenize = tokenize if tokenize else True
-        self.tags = tags if tags else True
-        self.chunks = chunks if chunks else True
-        self.relations = relations if relations else False
-        self.lemmata = lemmata if lemmata else False
-        self.encoding = encoding if encoding else 'utf-8'
-        self.tagset = tagset if tagset else None
+        self.tokenizer = tokenizer if tokenizer is not None else PatternTokenizer()
+        self.pprint = pprint
+        self.tokenize = tokenize
+        self.tags = tags
+        self.chunks = chunks
+        self.relations = relations
+        self.lemmata = lemmata
+        self.encoding = encoding
+        self.tagset = tagset if tagset is not None else None
 
     def parse(self, text):
-        '''Parses the text.
+        """Parses the text.
 
-        PatternParser.parse(**kwargs) can be passed to the parser instance and
-        are documented in the class docstring.
+        ``pattern.de.parse(**kwargs)`` can be passed to the parser instance and
+        are documented in the main docstring of
+        :class:`PatternParser() <textblob_de.parsers.PatternParser>`.
 
         :param str text: A string.
-        '''
-        #: Do not process empty strings (Issue #3)
+
+        """
+        # : Do not process empty strings (Issue #3)
         if text.strip() == "":
             return ""
-        #: Do not process strings consisting of a single punctuation mark (Issue #4)
+        # : Do not process strings consisting of a single punctuation mark (Issue #4)
         elif text.strip() in PUNCTUATION:
             _sym = text.strip()
             if _sym in tuple('.?!'):
@@ -87,7 +100,9 @@ class PatternParser(BaseParser):
                 return "{0}/{1}/O/O".format(_sym, _tag)
         if self.tokenize:
             _tokenized = " ".join(self.tokenizer.tokenize(text))
-        
+        else:
+            _tokenized = text
+
         _parsed = pattern_parse(_tokenized,
                                 # text is tokenized before it is passed on to
                                 # pattern.de.parse
@@ -102,11 +117,28 @@ class PatternParser(BaseParser):
 
     def parsetree(self, text):
         """Returns a parsed ``pattern`` Text object from the given string."""
-
+        # : Do not process empty strings (Issue #3)
+        if text.strip() == "":
+            return ""
+        # : Do not process strings consisting of a single punctuation mark (Issue #4)
+        elif text.strip() in PUNCTUATION:
+            _sym = text.strip()
+            if _sym in tuple('.?!'):
+                _tag = "."
+            else:
+                _tag = _sym
+            if self.lemmata:
+                return "{0}/{1}/O/O/{0}".format(_sym, _tag)
+            else:
+                return "{0}/{1}/O/O".format(_sym, _tag)
         if self.tokenize:
             _tokenized = " ".join(self.tokenizer.tokenize(text))
+        else:
+            _tokenized = text
 
-        _parsed = pattern_parsetree(text,
+        print(_tokenized)
+
+        _parsed = pattern_parsetree(_tokenized,
                                     # text is tokenized before it is passed on
                                     # to pattern.de.parsetree
                                     tokenize=False,

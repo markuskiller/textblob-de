@@ -1,13 +1,13 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-'''Code imported from ``textblob-fr`` sample extension.
-
-:repo: `https://github.com/sloria/textblob-fr`_
-:source: tests/test_taggers.py
-:version: 2013-09-18 (1a8438b5ea)
-
-:modified: July 2014 <m.killer@langui.ch>
-
+# Code adapted from the main `TextBlob`_ library.
+#
+# :repo: `https://github.com/sloria/TextBlob`_
+# :source: tests/test_taggers.py
+# :version: 2013-09-18 (1a8438b5ea)
+#
+# :modified: 2014-08-29 <m.killer@langui.ch>
+#
+'''Test cases for taggers.
 '''
 from __future__ import unicode_literals
 import unittest
@@ -23,7 +23,6 @@ class TestPatternTagger(unittest.TestCase):
 
     def setUp(self):
         self.text = "Das ist ein schönes Auto."
-        
 
     def test_tag_nltk_tok(self):
         _tagger = PatternTagger(tokenizer=NLTKPunktTokenizer())
@@ -41,9 +40,9 @@ class TestPatternTagger(unittest.TestCase):
         for i, word_tag in enumerate(tags):
             assert_equal(word_tag[0], words[i])
         assert_equal(tags[-1][0], "Auto")
-            
+
     def test_tag_blob_nltk_tok_include_punc(self):
-        blob = TextBlob(self.text, tokenizer=NLTKPunktTokenizer(), 
+        blob = TextBlob(self.text, tokenizer=NLTKPunktTokenizer(),
                         pos_tagger=PatternTagger(include_punc=True))
         tags = blob.tags
         logging.debug("tags: {0}".format(tags))
@@ -61,15 +60,18 @@ class TestPatternTagger(unittest.TestCase):
             assert_equal(word_tag[0], words[i])
 
     def test_tag_blob_pattern_tok(self):
-        blob = TextBlob(self.text, tokenizer=PatternTokenizer(), pos_tagger=PatternTagger())
+        blob = TextBlob(
+            self.text,
+            tokenizer=PatternTokenizer(),
+            pos_tagger=PatternTagger())
         tags = blob.tags
         logging.debug("tags: {0}".format(tags))
         words = ["Das", "ist", "ein", "schönes", "Auto"]
         for i, word_tag in enumerate(tags):
             assert_equal(word_tag[0], words[i])
-            
+
     def test_tag_blob_pattern_tok_include_punc(self):
-        blob = TextBlob(self.text, tokenizer=PatternTokenizer(), 
+        blob = TextBlob(self.text, tokenizer=PatternTokenizer(),
                         pos_tagger=PatternTagger(include_punc=True))
         tags = blob.tags
         logging.debug("tags: {0}".format(tags))

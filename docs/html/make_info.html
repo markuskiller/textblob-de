@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>make command &mdash; textblob-de 0.3.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="textblob-de 0.3.1 documentation" href="index.html"/>
+        <link rel="next" title="Project Makefile" href="project_makefile.html"/>
+        <link rel="prev" title="Contributing guidelines" href="contributing.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> textblob-de</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">textblob-de README</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#installing-upgrading">Installing/Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#access-to-pattern-api-in-python3">Access to <tt class="docutils literal"><span class="pre">pattern</span></tt> API in Python3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#documentation-and-api-reference">Documentation and API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#todo">TODO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#thanks">Thanks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Tutorial: Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">Advanced Usage: Overriding Models and the Blobber Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.blob">Blob Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.base">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.tokenizers">Tokenizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.taggers">POS Taggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.np_extractors">Noun Phrase Extractors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.sentiments">Sentiment Analyzers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.parsers">Parsers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob.classifiers">Classifiers (from TextBlob main package)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#blobber">Blobber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob.formats">File Formats (from TextBlob main package)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob.exceptions">Exceptions (from TextBlob main package)</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.3.1 (29/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.3.0 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.2.9 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.2.8 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.2.7 (13/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.2.6 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.2.5 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.2.3 (26/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.2.2 (22/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id11">0.2.1 (20/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id12">0.2.0 (18/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id13">0.1.3 (09/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id14">0.1.0 - 0.1.2 (09/07/2014)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-development-lead">TextBlob Development Lead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-de-author-maintainer">textblob-de Author/Maintainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#in-general">In General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#in-particular">In Particular</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href=""><tt class="docutils literal"><span class="pre">make</span></tt> command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-make-on-windows">Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project_makefile.html">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs_makefile.html">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">textblob-de</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li><tt class="docutils literal"><span class="pre">make</span></tt> command</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/make_info.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="make-command">
+<h1><tt class="docutils literal"><span class="pre">make</span></tt> command<a class="headerlink" href="#make-command" title="Permalink to this headline">¶</a></h1>
+<p>This project adopts the <tt class="docutils literal"><span class="pre">Makefile</span></tt> approach, proposed by Jeff Knupp in his
+blog post <a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">Open Sourcing a Python Project the Right Way </a>.</p>
+<p>On Linux/OSX the <tt class="docutils literal"><span class="pre">make</span></tt> command should work out-of-the-box:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make help
+</pre></div>
+</div>
+<p>Shows all available tasks.</p>
+<div class="section" id="using-make-on-windows">
+<h2>Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows<a class="headerlink" href="#using-make-on-windows" title="Permalink to this headline">¶</a></h2>
+<p>The two <tt class="docutils literal"><span class="pre">Makefile</span></tt> s in this project should work on all three major platforms.
+On Windows, <tt class="docutils literal"><span class="pre">make.exe</span></tt> included in the <a class="reference external" href="http://sourceforge.net/projects/mingw/files/Installer/mingw-get-setup.exe/download">MinGW/msys</a>
+distribution has been successfully tested. Once <tt class="docutils literal"><span class="pre">msys</span></tt> is installed
+on a Windows system, the <tt class="docutils literal"><span class="pre">path/to/msys/1.0/bin</span></tt> needs to be added to
+the <tt class="docutils literal"><span class="pre">PATH</span></tt> environment variable.</p>
+<p>A good place to update the <tt class="docutils literal"><span class="pre">PATH</span></tt> variable are the <tt class="docutils literal"><span class="pre">Activate.ps1</span></tt> or
+<tt class="docutils literal"><span class="pre">activate.bat</span></tt> scripts of a virtual python build environment, created using
+<tt class="docutils literal"><span class="pre">virtualenv</span></tt> (<tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">virtualenv</span></tt>) or <tt class="docutils literal"><span class="pre">pyvenv</span></tt> (added to Python3.3&#8217;s standard
+library).</p>
+<div class="section" id="windows-powershell">
+<h3><tt class="docutils literal"><span class="pre">Windows</span> <span class="pre">PowerShell</span></tt><a class="headerlink" href="#windows-powershell" title="Permalink to this headline">¶</a></h3>
+<p>Add the following line at the end of <tt class="docutils literal"><span class="pre">path\to\virtual\python\env\Scripts\Activate.ps1</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre># Add msys binaries to PATH
+$env:PATH = &quot;path\to\MinGW\msys\1.0\bin;$env:PATH&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows-cmd-exe">
+<h3>Windows <tt class="docutils literal"><span class="pre">cmd.exe</span></tt><a class="headerlink" href="#windows-cmd-exe" title="Permalink to this headline">¶</a></h3>
+<p>Add the following line at the end of <tt class="docutils literal"><span class="pre">path\to\virtual\python\env\Scripts\activate.bat</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre># Add msys binaries to PATH
+set &quot;PATH=path\to\MinGW\msys\1.0\bin;%PATH%&quot;
+</pre></div>
+</div>
+<p>Now the <tt class="docutils literal"><span class="pre">make</span></tt> command should work as documented in <tt class="docutils literal"><span class="pre">$</span> <span class="pre">make</span> <span class="pre">help</span></tt>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="project_makefile.html" class="btn btn-neutral float-right" title="Project Makefile"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="contributing.html" class="btn btn-neutral" title="Contributing guidelines"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Markus Killer (http://langui.ch).
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.3.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

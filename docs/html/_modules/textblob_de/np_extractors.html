@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>textblob_de.np_extractors &mdash; textblob-de 0.3.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="textblob-de 0.3.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="fa fa-home"> textblob-de</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">textblob-de README</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#installing-upgrading">Installing/Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#access-to-pattern-api-in-python3">Access to <tt class="docutils literal"><span class="pre">pattern</span></tt> API in Python3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#documentation-and-api-reference">Documentation and API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#todo">TODO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#thanks">Thanks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Tutorial: Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_usage.html">Advanced Usage: Overriding Models and the Blobber Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.blob">Blob Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.base">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.tokenizers">Tokenizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.taggers">POS Taggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.np_extractors">Noun Phrase Extractors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.sentiments">Sentiment Analyzers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.parsers">Parsers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob.classifiers">Classifiers (from TextBlob main package)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#blobber">Blobber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob.formats">File Formats (from TextBlob main package)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob.exceptions">Exceptions (from TextBlob main package)</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id2">0.3.1 (29/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id3">0.3.0 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id4">0.2.9 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id5">0.2.8 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id6">0.2.7 (13/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id7">0.2.6 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id8">0.2.5 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id9">0.2.3 (26/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id10">0.2.2 (22/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id11">0.2.1 (20/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id12">0.2.0 (18/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id13">0.1.3 (09/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id14">0.1.0 - 0.1.2 (09/07/2014)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#textblob-development-lead">TextBlob Development Lead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#textblob-de-author-maintainer">textblob-de Author/Maintainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#in-general">In General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#in-particular">In Particular</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../make_info.html"><tt class="docutils literal"><span class="pre">make</span></tt> command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../make_info.html#using-make-on-windows">Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../project_makefile.html">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs_makefile.html">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">textblob-de</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>textblob_de.np_extractors</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <h1>Source code for textblob_de.np_extractors</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;Various noun phrase extractor implementations.</span>
+
+<span class="sd"># :class:`PatternParserNPExtractor() &lt;textblob_de.np_extractors.PatternParserNPExtractor&gt;`.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="kn">from</span> <span class="nn">textblob.base</span> <span class="kn">import</span> <span class="n">BaseNPExtractor</span>
+<span class="kn">from</span> <span class="nn">textblob_de.packages</span> <span class="kn">import</span> <span class="n">pattern_de</span>
+<span class="kn">from</span> <span class="nn">textblob_de.tokenizers</span> <span class="kn">import</span> <span class="n">PatternTokenizer</span><span class="p">,</span> <span class="n">sent_tokenize</span>
+
+<span class="n">pattern_parse</span> <span class="o">=</span> <span class="n">pattern_de</span><span class="o">.</span><span class="n">parse</span>
+<span class="n">Verbs</span> <span class="o">=</span> <span class="n">pattern_de</span><span class="o">.</span><span class="n">inflect</span><span class="o">.</span><span class="n">Verbs</span>
+<span class="n">verbs</span> <span class="o">=</span> <span class="n">pattern_de</span><span class="o">.</span><span class="n">inflect</span><span class="o">.</span><span class="n">verbs</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">MODULE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">MODULE</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+
+<span class="n">INSIGNIFICANT</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">&#39;der&#39;</span><span class="p">,</span>
+    <span class="s">&#39;die&#39;</span><span class="p">,</span>
+    <span class="s">&#39;das&#39;</span><span class="p">,</span>
+    <span class="s">&#39;des&#39;</span><span class="p">,</span>
+    <span class="s">&#39;dem&#39;</span><span class="p">,</span>
+    <span class="s">&#39;ein&#39;</span><span class="p">,</span>
+    <span class="s">&#39;eine&#39;</span><span class="p">,</span>
+    <span class="s">&#39;einer&#39;</span><span class="p">,</span>
+    <span class="s">&#39;einen&#39;</span><span class="p">,</span>
+    <span class="s">&#39;einem&#39;</span><span class="p">,</span>
+    <span class="s">&#39;eines&#39;</span><span class="p">,</span>
+    <span class="s">&#39;welcher&#39;</span><span class="p">,</span>
+    <span class="s">&#39;welche&#39;</span><span class="p">,</span>
+    <span class="s">&#39;welches&#39;</span><span class="p">,</span>
+    <span class="s">&#39;und&#39;</span><span class="p">,</span>
+    <span class="s">&#39;oder&#39;</span><span class="p">,</span>
+    <span class="s">&#39;mich&#39;</span><span class="p">,</span>
+    <span class="s">&#39;dich&#39;</span><span class="p">,</span>
+    <span class="s">&#39;sich&#39;</span><span class="p">,</span>
+    <span class="s">&#39;uns&#39;</span><span class="p">,</span>
+    <span class="s">&#39;euch&#39;</span><span class="p">,</span>
+    <span class="s">&#39;ihnen&#39;</span><span class="p">]</span>
+
+<span class="n">START_NEW_NP</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;der&#39;</span><span class="p">,</span> <span class="s">&#39;des&#39;</span><span class="p">,</span> <span class="s">&#39;und&#39;</span><span class="p">,</span> <span class="s">&#39;oder&#39;</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">_get_verb_lexicon</span><span class="p">():</span>
+    <span class="n">verb_lexicon</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="s">&#39;ext&#39;</span><span class="p">,</span> <span class="s">&#39;_pattern&#39;</span><span class="p">,</span> <span class="s">&#39;text&#39;</span><span class="p">,</span> <span class="s">&#39;de&#39;</span><span class="p">,</span> <span class="s">&#39;de-verbs.txt&#39;</span><span class="p">),</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">_vl</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">_vl</span><span class="p">:</span>
+            <span class="n">verb_lexicon</span><span class="p">[</span>
+                <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+                <span class="nb">list</span><span class="p">(</span>
+                    <span class="n">verb_lexicon</span><span class="p">[</span>
+                        <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()])</span> <span class="o">+</span>
+                <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="p">))</span>
+
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">_get_verb_lexicon</span><span class="p">,</span> <span class="s">&quot;cached&quot;</span><span class="p">,</span> <span class="n">verb_lexicon</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">verb_lexicon</span>
+
+
+<div class="viewcode-block" id="PatternParserNPExtractor"><a class="viewcode-back" href="../../api_reference.html#textblob_de.np_extractors.PatternParserNPExtractor">[docs]</a><span class="k">class</span> <span class="nc">PatternParserNPExtractor</span><span class="p">(</span><span class="n">BaseNPExtractor</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Extract noun phrases (NP) from PatternParser() output.</span>
+
+<span class="sd">    Very naïve and resource hungry approach:</span>
+
+<span class="sd">    * get parser output</span>
+<span class="sd">    * try to correct as many obvious parser errors as you can (e.g. eliminate wrongly tagged verbs)</span>
+<span class="sd">    * filter insignificant words</span>
+
+<span class="sd">    :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to</span>
+<span class="sd">        :class:`PatternTokenizer() &lt;textblob_de.tokenizers.PatternTokenizer&gt;`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">tokenizer</span> <span class="k">if</span> <span class="n">tokenizer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">PatternTokenizer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verb_morphology</span> <span class="o">=</span> <span class="n">Verbs</span><span class="p">()</span>
+
+<div class="viewcode-block" id="PatternParserNPExtractor.extract"><a class="viewcode-back" href="../../api_reference.html#textblob_de.np_extractors.PatternParserNPExtractor.extract">[docs]</a>    <span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of noun phrases (strings) for a body of text.</span>
+
+<span class="sd">        :param str text: A string.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_extracted</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_extracted</span>
+        <span class="n">parsed_sentences</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_text</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">parsed_sentences</span><span class="p">:</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">new_np</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+                <span class="n">w</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">phrase</span><span class="p">,</span> <span class="n">role</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+                <span class="c"># exclude some parser errors (e.g. VB within NP),</span>
+                <span class="c"># extend startswith tuple if necessary</span>
+                <span class="k">if</span> <span class="s">&#39;NP&#39;</span> <span class="ow">in</span> <span class="n">phrase</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_verb</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_np</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">START_NEW_NP</span><span class="p">:</span>
+                        <span class="n">_extracted</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">new_np</span><span class="p">))</span>
+                        <span class="n">new_np</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c"># normalize capitalisation of sentence starters, except</span>
+                        <span class="c"># for nouns</span>
+                        <span class="n">new_np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="ow">and</span>
+                                      <span class="ow">not</span> <span class="n">tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;N&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">w</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_np</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">_extracted</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">new_np</span><span class="p">))</span>
+                    <span class="n">new_np</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter_extracted</span><span class="p">(</span><span class="n">_extracted</span><span class="p">)</span>
+</div>
+    <span class="k">def</span> <span class="nf">_filter_extracted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extracted_list</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Filter insignificant words for key noun phrase extraction.</span>
+
+<span class="sd">        determiners, relative pronouns, reflexive pronouns</span>
+<span class="sd">        In general, pronouns are not useful, as you need context to know what they refer to.</span>
+<span class="sd">        Most of the pronouns, however, are filtered out by blob.noun_phrase method&#39;s</span>
+<span class="sd">        np length (&gt;1) filter</span>
+
+<span class="sd">        :param list extracted_list: A list of noun phrases extracted from parser output.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_filtered</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">np</span> <span class="ow">in</span> <span class="n">extracted_list</span><span class="p">:</span>
+            <span class="n">_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">_np</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">INSIGNIFICANT</span><span class="p">:</span>
+                <span class="n">_np</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">_np</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">INSIGNIFICANT</span><span class="p">:</span>
+                    <span class="n">_np</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="c"># e.g. &#39;welcher die ...&#39;</span>
+                <span class="k">if</span> <span class="n">_np</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">INSIGNIFICANT</span><span class="p">:</span>
+                    <span class="n">_np</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="n">_np</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_np</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">_filtered</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_np</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">_filtered</span>
+
+    <span class="k">def</span> <span class="nf">_parse_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Parse text (string) and return list of parsed sentences (strings).</span>
+
+<span class="sd">        Each sentence consists of space separated token elements and the</span>
+<span class="sd">        token format returned by the PatternParser is WORD/TAG/PHRASE/ROLE/(LEMMA)</span>
+<span class="sd">        (separated by a forward slash &#39;/&#39;)</span>
+
+<span class="sd">        :param str text: A string.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">PatternTokenizer</span><span class="p">):</span>
+            <span class="n">parsed_text</span> <span class="o">=</span> <span class="n">pattern_parse</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">tokenize</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">lemmata</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_tokenized</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">_sentences</span> <span class="o">=</span> <span class="n">sent_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">_sentences</span><span class="p">:</span>
+                <span class="n">_tokenized</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">s</span><span class="p">)))</span>
+            <span class="n">parsed_text</span> <span class="o">=</span> <span class="n">pattern_parse</span><span class="p">(</span>
+                <span class="n">_tokenized</span><span class="p">,</span>
+                <span class="n">tokenize</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                <span class="n">lemmata</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">parsed_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_is_verb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word_form</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+        <span class="c"># Morphological analysis leads to too many false positives for</span>
+        <span class="c"># Nouns (e.g. ein schönes Haus, --&gt;hausen&lt;--)</span>
+        <span class="k">if</span> <span class="n">word_form</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isupper</span><span class="p">():</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="c"># Morphological analysis leads to too many false positives for</span>
+        <span class="c"># adjectives (e.g. an einem --&gt;steilen&lt;-- Hang)</span>
+        <span class="k">if</span> <span class="n">tag</span> <span class="ow">in</span> <span class="p">(</span><span class="s">&#39;JJ&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="c"># Does not yet catch cases such as e.g. &#39;ausgenutzt/NN/B-NP/O&#39;</span>
+        <span class="n">infinitive</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">verb_morphology</span><span class="o">.</span><span class="n">find_lemma</span><span class="p">(</span><span class="n">word_form</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">infinitive</span> <span class="ow">in</span> <span class="n">verbs</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_in_verb_lexicon</span><span class="p">(</span><span class="n">word_form</span><span class="p">):</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="k">def</span> <span class="nf">_is_in_verb_lexicon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word_form</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">verb_lexicon</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">_get_verb_lexicon</span><span class="p">,</span> <span class="s">&quot;cached&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="n">verb_lexicon</span> <span class="o">=</span> <span class="n">_get_verb_lexicon</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">word_form</span> <span class="ow">in</span> <span class="n">verb_lexicon</span><span class="p">[</span><span class="n">word_form</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()]:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Markus Killer (http://langui.ch).
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.3.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,1062 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>textblob_de.blob &mdash; textblob-de 0.3.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="textblob-de 0.3.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="fa fa-home"> textblob-de</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">textblob-de README</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#installing-upgrading">Installing/Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#access-to-pattern-api-in-python3">Access to <tt class="docutils literal"><span class="pre">pattern</span></tt> API in Python3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#documentation-and-api-reference">Documentation and API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#todo">TODO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#thanks">Thanks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Tutorial: Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_usage.html">Advanced Usage: Overriding Models and the Blobber Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.blob">Blob Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.base">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.tokenizers">Tokenizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.taggers">POS Taggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.np_extractors">Noun Phrase Extractors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.sentiments">Sentiment Analyzers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob_de.parsers">Parsers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob.classifiers">Classifiers (from TextBlob main package)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#blobber">Blobber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob.formats">File Formats (from TextBlob main package)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#module-textblob.exceptions">Exceptions (from TextBlob main package)</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id2">0.3.1 (29/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id3">0.3.0 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id4">0.2.9 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id5">0.2.8 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id6">0.2.7 (13/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id7">0.2.6 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id8">0.2.5 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id9">0.2.3 (26/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id10">0.2.2 (22/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id11">0.2.1 (20/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id12">0.2.0 (18/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id13">0.1.3 (09/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id14">0.1.0 - 0.1.2 (09/07/2014)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#textblob-development-lead">TextBlob Development Lead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#textblob-de-author-maintainer">textblob-de Author/Maintainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#in-general">In General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#in-particular">In Particular</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../make_info.html"><tt class="docutils literal"><span class="pre">make</span></tt> command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../make_info.html#using-make-on-windows">Using <tt class="docutils literal"><span class="pre">make</span></tt> on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../project_makefile.html">Project <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs_makefile.html">Documentation <tt class="docutils literal"><span class="pre">Makefile</span></tt></a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">textblob-de</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>textblob_de.blob</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <h1>Source code for textblob_de.blob</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c"># Code adapted from the main `TextBlob`_ library.</span>
+<span class="c">#</span>
+<span class="c"># :repo: `https://github.com/sloria/TextBlob`_</span>
+<span class="c"># :source: textblob/blob.py</span>
+<span class="c"># :version: 2013-10-21 (a88e86a76a)</span>
+<span class="c">#</span>
+<span class="c"># :modified: 2014-08-04 &lt;m.killer@langui.ch&gt;</span>
+<span class="c">#</span>
+<span class="sd">&quot;&quot;&quot;Wrappers for various units of text.</span>
+
+<span class="sd">This includes the main :class:`TextBlobDE &lt;textblob_de.blob.TextBlobDE&gt;`,</span>
+<span class="sd">:class:`Word &lt;textblob_de.blob.Word&gt;`, and :class:`WordList &lt;textblob_de.blob.WordList&gt;` classes.</span>
+
+<span class="sd">Whenever possible, classes are inherited from the main `TextBlob`_ library, but in many</span>
+<span class="sd">cases, the models for German have to be initialised here in :py:mod:`textblob_de.blob`, resulting </span>
+<span class="sd">in a lot of duplicate code. The main reason being the :class:`Word &lt;textblob_de.blob.Word&gt;` objects. </span>
+<span class="sd">If they are generated from an inherited class, they will use the English models </span>
+<span class="sd">(e.g. for ``pluralize``/``singularize``) used in the main library.</span>
+
+<span class="sd">Example usage: ::</span>
+
+<span class="sd">    &gt;&gt;&gt; from textblob_de import TextBlobDE</span>
+<span class="sd">    &gt;&gt;&gt; b = TextBlobDE(&quot;Einfach ist besser als kompliziert.&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; b.tags</span>
+<span class="sd">    [(&#39;Einfach&#39;, &#39;RB&#39;), (&#39;ist&#39;, &#39;VB&#39;), (&#39;besser&#39;, &#39;RB&#39;), (&#39;als&#39;, &#39;IN&#39;), (&#39;kompliziert&#39;, &#39;JJ&#39;)]</span>
+<span class="sd">    &gt;&gt;&gt; b.noun_phrases</span>
+<span class="sd">    WordList([])</span>
+<span class="sd">    &gt;&gt;&gt; b.words</span>
+<span class="sd">    WordList([&#39;Einfach&#39;, &#39;ist&#39;, &#39;besser&#39;, &#39;als&#39;, &#39;kompliziert&#39;])</span>
+
+<span class="sd">.. _TextBlob: http://textblob.readthedocs.org/</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span><span class="p">,</span> <span class="n">namedtuple</span>
+
+<span class="kn">from</span> <span class="nn">textblob.blob</span> <span class="kn">import</span> <span class="n">_initialize_models</span>
+<span class="kn">from</span> <span class="nn">textblob.decorators</span> <span class="kn">import</span> <span class="n">cached_property</span><span class="p">,</span> <span class="n">requires_nltk_corpus</span>
+<span class="kn">from</span> <span class="nn">textblob.translate</span> <span class="kn">import</span> <span class="n">Translator</span>
+<span class="kn">from</span> <span class="nn">textblob.utils</span> <span class="kn">import</span> <span class="n">lowerstrip</span>
+
+<span class="kn">from</span> <span class="nn">textblob_de.base</span> <span class="kn">import</span> <span class="n">BaseBlob</span> <span class="k">as</span> <span class="n">_BaseBlob</span>
+<span class="kn">from</span> <span class="nn">textblob_de.compat</span> <span class="kn">import</span> <span class="nb">unicode</span><span class="p">,</span> <span class="nb">basestring</span>
+<span class="kn">from</span> <span class="nn">textblob_de.tokenizers</span> <span class="kn">import</span> <span class="n">NLTKPunktTokenizer</span>
+<span class="kn">from</span> <span class="nn">textblob_de.tokenizers</span> <span class="kn">import</span> <span class="n">word_tokenize</span><span class="p">,</span> <span class="n">sent_tokenize</span>
+<span class="kn">from</span> <span class="nn">textblob_de.taggers</span> <span class="kn">import</span> <span class="n">PatternTagger</span>
+<span class="kn">from</span> <span class="nn">textblob_de.packages</span> <span class="kn">import</span> <span class="n">pattern_de</span>
+<span class="kn">from</span> <span class="nn">textblob_de.parsers</span> <span class="kn">import</span> <span class="n">PatternParser</span>
+<span class="kn">from</span> <span class="nn">textblob_de.np_extractors</span> <span class="kn">import</span> <span class="n">PatternParserNPExtractor</span>
+<span class="kn">from</span> <span class="nn">textblob_de.lemmatizers</span> <span class="kn">import</span> <span class="n">PatternParserLemmatizer</span>
+<span class="kn">from</span> <span class="nn">textblob_de.sentiments</span> <span class="kn">import</span> <span class="n">PatternAnalyzer</span>
+
+<span class="n">_singularize</span> <span class="o">=</span> <span class="n">pattern_de</span><span class="o">.</span><span class="n">inflect</span><span class="o">.</span><span class="n">singularize</span>
+<span class="n">_pluralize</span> <span class="o">=</span> <span class="n">pattern_de</span><span class="o">.</span><span class="n">inflect</span><span class="o">.</span><span class="n">pluralize</span>
+
+
+<div class="viewcode-block" id="Word"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Word">[docs]</a><span class="k">class</span> <span class="nc">Word</span><span class="p">(</span><span class="nb">unicode</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;A simple word representation.</span>
+
+<span class="sd">    Includes methods for inflection, translation, and WordNet</span>
+<span class="sd">    integration.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">translator</span> <span class="o">=</span> <span class="n">Translator</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">pos_tag</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a new instance of the class.</span>
+
+<span class="sd">        It is necessary to override this method in order to handle the</span>
+<span class="sd">        extra pos_tag argument in the constructor.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Word</span><span class="p">,</span> <span class="n">cls</span><span class="p">)</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">pos_tag</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pos_tag</span> <span class="o">=</span> <span class="n">pos_tag</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span>
+
+<div class="viewcode-block" id="Word.singularize"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Word.singularize">[docs]</a>    <span class="k">def</span> <span class="nf">singularize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the singular version of the word as a string.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Word</span><span class="p">(</span><span class="n">_singularize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="Word.pluralize"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Word.pluralize">[docs]</a>    <span class="k">def</span> <span class="nf">pluralize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the plural version of the word as a string.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Word</span><span class="p">(</span><span class="n">_pluralize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="Word.translate"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Word.translate">[docs]</a>    <span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_lang</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s">&quot;de&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Translate the word to another language using Google&#39;s Translate API.</span>
+
+<span class="sd">        .. versionadded:: 0.5.0 (``textblob``)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">from_lang</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">from_lang</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">translator</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">translator</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="p">,</span>
+                                         <span class="n">from_lang</span><span class="o">=</span><span class="n">from_lang</span><span class="p">,</span> <span class="n">to_lang</span><span class="o">=</span><span class="n">to</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Word.detect_language"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Word.detect_language">[docs]</a>    <span class="k">def</span> <span class="nf">detect_language</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Detect the word&#39;s language using Google&#39;s Translate API.</span>
+
+<span class="sd">        .. versionadded:: 0.5.0 (``textblob``)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">translator</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Word.spellcheck"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Word.spellcheck">[docs]</a>    <span class="k">def</span> <span class="nf">spellcheck</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of (word, confidence) tuples of spelling corrections.</span>
+
+<span class="sd">        Based on: Peter Norvig, &quot;How to Write a Spelling Corrector&quot;</span>
+<span class="sd">        (http://norvig.com/spell-correct.html) as implemented in the pattern</span>
+<span class="sd">        library.</span>
+
+<span class="sd">        .. versionadded:: 0.6.0 (``textblob``)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># return suggest(self.string)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</div>
+<div class="viewcode-block" id="Word.correct"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Word.correct">[docs]</a>    <span class="k">def</span> <span class="nf">correct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Correct the spelling of the word. Returns the word with the highest</span>
+<span class="sd">        confidence using the spelling corrector.</span>
+
+<span class="sd">        .. versionadded:: 0.6.0 (``textblob``)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># return Word(self.spellcheck()[0][0])</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</div>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="Word.lemma"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Word.lemma">[docs]</a>    <span class="k">def</span> <span class="nf">lemma</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the lemma of this word using Wordnet&#39;s morphy function.&quot;&quot;&quot;</span>
+        <span class="c">#tag = _penn_to_wordnet(self.pos_tag) if (self.pos_tag is not None) else None</span>
+        <span class="c"># return self.lemmatize(pos=tag)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</div>
+    <span class="nd">@requires_nltk_corpus</span>
+<div class="viewcode-block" id="Word.lemmatize"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Word.lemmatize">[docs]</a>    <span class="k">def</span> <span class="nf">lemmatize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the lemma for a word using WordNet&#39;s morphy function.</span>
+
+<span class="sd">        :param pos: Part of speech to filter upon. If `None`, defaults to</span>
+<span class="sd">            ``_wordnet.NOUN``.</span>
+
+<span class="sd">        .. versionadded:: 0.8.1 (``textblob``)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># if pos is None:</span>
+        <span class="c">#pos = _wordnet.NOUN</span>
+        <span class="c">#lemmatizer = nltk.stem.WordNetLemmatizer()</span>
+        <span class="c"># return lemmatizer.lemmatize(self.string, pos)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</div>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="Word.synsets"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Word.synsets">[docs]</a>    <span class="k">def</span> <span class="nf">synsets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The list of Synset objects for this Word.</span>
+
+<span class="sd">        :rtype: list of Synsets</span>
+
+<span class="sd">        .. versionadded:: 0.7.0 (``textblob``)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># return self.get_synsets(pos=None)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</div>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="Word.definitions"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Word.definitions">[docs]</a>    <span class="k">def</span> <span class="nf">definitions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The list of definitions for this word. Each definition corresponds</span>
+<span class="sd">        to a synset.</span>
+
+<span class="sd">        .. versionadded:: 0.7.0 (``textblob``)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># return self.define(pos=None)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</div>
+<div class="viewcode-block" id="Word.get_synsets"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Word.get_synsets">[docs]</a>    <span class="k">def</span> <span class="nf">get_synsets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of Synset objects for this word.</span>
+
+<span class="sd">        :param pos: A part-of-speech tag to filter upon. If ``None``, all</span>
+<span class="sd">            synsets for all parts of speech will be loaded.</span>
+
+<span class="sd">        :rtype: list of Synsets</span>
+
+<span class="sd">        .. versionadded:: 0.7.0 (``textblob``)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># return _wordnet.synsets(self.string, pos)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</div>
+<div class="viewcode-block" id="Word.define"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Word.define">[docs]</a>    <span class="k">def</span> <span class="nf">define</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of definitions for this word. Each definition</span>
+<span class="sd">        corresponds to a synset for this word.</span>
+
+<span class="sd">        :param pos: A part-of-speech tag to filter upon. If ``None``, definitions</span>
+<span class="sd">            for all parts of speech will be loaded.</span>
+<span class="sd">        :rtype: List of strings</span>
+
+<span class="sd">        .. versionadded:: 0.7.0 (``textblob``)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># return [syn.definition for syn in self.get_synsets(pos=pos)]</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+
+<span class="c"># Cannot inherit from textblob.blob.WordList, otherwise the</span>
+<span class="c"># properties of Word() will use the English models</span></div></div>
+<div class="viewcode-block" id="WordList"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.WordList">[docs]</a><span class="k">class</span> <span class="nc">WordList</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;A list-like collection of words.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize a WordList.</span>
+
+<span class="sd">        Takes a collection of strings as its only argument.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span> <span class="o">=</span> <span class="p">[</span><span class="n">Word</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">]</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">WordList</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a string representation for debugging.&quot;&quot;&quot;</span>
+        <span class="n">class_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span>
+        <span class="k">return</span> <span class="s">&#39;{cls}({lst})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">cls</span><span class="o">=</span><span class="n">class_name</span><span class="p">,</span> <span class="n">lst</span><span class="o">=</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a string at the given index.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__getslice__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+        <span class="c"># This is included for Python 2.* compatibility</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="p">)</span>
+
+<div class="viewcode-block" id="WordList.count"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.WordList.count">[docs]</a>    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strg</span><span class="p">,</span> <span class="n">case_sensitive</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the count of a word or phrase `s` within this WordList.</span>
+
+<span class="sd">        :param strg: The string to count.</span>
+<span class="sd">        :param case_sensitive: A boolean, whether or not the search is case-sensitive.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">case_sensitive</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">strg</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                                                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">strg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="WordList.append"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.WordList.append">[docs]</a>    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Append an object to end. If the object is a string, appends a.</span>
+
+<span class="sd">        :class:`Word &lt;Word&gt;` object.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Word</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="WordList.extend"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.WordList.extend">[docs]</a>    <span class="k">def</span> <span class="nf">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iterable</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Extend WordList by appending elements from ``iterable``.</span>
+
+<span class="sd">        If an element</span>
+<span class="sd">        is a string, appends a :class:`Word &lt;Word&gt;` object.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Word</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">)</span> <span class="k">else</span> <span class="n">e</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span>
+</div>
+<div class="viewcode-block" id="WordList.upper"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.WordList.upper">[docs]</a>    <span class="k">def</span> <span class="nf">upper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a new WordList with each word upper-cased.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">([</span><span class="n">word</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">])</span>
+</div>
+<div class="viewcode-block" id="WordList.lower"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.WordList.lower">[docs]</a>    <span class="k">def</span> <span class="nf">lower</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a new WordList with each word lower-cased.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">([</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">])</span>
+</div>
+<div class="viewcode-block" id="WordList.singularize"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.WordList.singularize">[docs]</a>    <span class="k">def</span> <span class="nf">singularize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the single version of each word in this WordList.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">([</span><span class="n">word</span><span class="o">.</span><span class="n">singularize</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">])</span>
+</div>
+<div class="viewcode-block" id="WordList.pluralize"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.WordList.pluralize">[docs]</a>    <span class="k">def</span> <span class="nf">pluralize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the plural version of each word in this WordList.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">([</span><span class="n">word</span><span class="o">.</span><span class="n">pluralize</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">])</span>
+</div>
+<div class="viewcode-block" id="WordList.lemmatize"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.WordList.lemmatize">[docs]</a>    <span class="k">def</span> <span class="nf">lemmatize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the lemma of each word in this WordList.</span>
+
+<span class="sd">        Currently using NLTKPunktTokenizer() for all lemmatization</span>
+<span class="sd">        tasks. This might cause slightly different tokenization results</span>
+<span class="sd">        compared to the TextBlob.words property.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_lemmatizer</span> <span class="o">=</span> <span class="n">PatternParserLemmatizer</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">=</span><span class="n">NLTKPunktTokenizer</span><span class="p">())</span>
+        <span class="c"># WordList object --&gt; Sentence.string</span>
+        <span class="c"># add a period (improves parser accuracy)</span>
+        <span class="n">_raw</span> <span class="o">=</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span>
+        <span class="n">_lemmas</span> <span class="o">=</span> <span class="n">_lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">_raw</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">([</span><span class="n">Word</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">_lemmas</span><span class="p">])</span>
+
+</div></div>
+<div class="viewcode-block" id="BaseBlob"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BaseBlob">[docs]</a><span class="k">class</span> <span class="nc">BaseBlob</span><span class="p">(</span><span class="n">_BaseBlob</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;``BaseBlob`` class initialised with German default models:</span>
+
+
+<span class="sd">    An abstract base class that all textblob classes will inherit from.</span>
+<span class="sd">    Includes words, POS tag, NP, and word count properties. Also includes</span>
+<span class="sd">    basic dunder and string methods for making objects like Python strings.</span>
+
+<span class="sd">    :param str text: A string.</span>
+<span class="sd">    :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to</span>
+<span class="sd">        :class:`NLTKPunktTokenizer() &lt;textblob_de.tokenizers.NLTKPunktTokenizer&gt;`.</span>
+<span class="sd">    :param np_extractor: (optional) An NPExtractor instance. If ``None``,</span>
+<span class="sd">        defaults to :class:`PatternParserNPExtractor()</span>
+<span class="sd">        &lt;textblob_de.np_extractors.PatternParserNPExtractor&gt;`.</span>
+<span class="sd">    :param pos_tagger: (optional) A Tagger instance. If ``None``, defaults to</span>
+<span class="sd">        :class:`PatternTagger &lt;textblob_de.taggers.PatternTagger&gt;`.</span>
+<span class="sd">    :param analyzer: (optional) A sentiment analyzer. If ``None``, defaults to</span>
+<span class="sd">        :class:`PatternAnalyzer &lt;textblob_de.sentiments.PatternAnalyzer&gt;`.</span>
+<span class="sd">    :param classifier: (optional) A classifier.</span>
+
+<span class="sd">    .. versionchanged:: 0.6.0</span>
+<span class="sd">        ``clean_html`` parameter deprecated, as it was in NLTK.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">pos_tagger</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">np_extractor</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">analyzer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">parser</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">classifier</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">clean_html</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">tokenizer</span> <span class="k">if</span> <span class="n">tokenizer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">NLTKPunktTokenizer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pos_tagger</span> <span class="o">=</span> <span class="n">pos_tagger</span> <span class="k">if</span> <span class="n">pos_tagger</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">PatternTagger</span><span class="p">(</span>
+            <span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">np_extractor</span> <span class="o">=</span> <span class="n">np_extractor</span> <span class="k">if</span> <span class="n">np_extractor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> \
+            <span class="k">else</span> <span class="n">PatternParserNPExtractor</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">analyzer</span> <span class="k">if</span> <span class="n">analyzer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> \
+            <span class="k">else</span> <span class="n">PatternAnalyzer</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parser</span> <span class="o">=</span> <span class="n">parser</span> <span class="k">if</span> <span class="n">parser</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> \
+            <span class="k">else</span> <span class="n">PatternParser</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">classifier</span> <span class="k">if</span> <span class="n">classifier</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="bp">None</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&#39;The `text` argument passed to `__init__(text)` &#39;</span>
+                            <span class="s">&#39;must be a string, not {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">text</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">clean_html</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="s">&quot;clean_html has been deprecated. &quot;</span>
+                <span class="s">&quot;To remove HTML markup, use BeautifulSoup&#39;s &quot;</span>
+                <span class="s">&quot;get_text() function&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">text</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stripped</span> <span class="o">=</span> <span class="n">lowerstrip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span> <span class="nb">all</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">_initialize_models</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pos_tagger</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">np_extractor</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">)</span>
+
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="BaseBlob.words"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BaseBlob.words">[docs]</a>    <span class="k">def</span> <span class="nf">words</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of word tokens. This excludes punctuation characters.</span>
+<span class="sd">        If you want to include punctuation characters, access the ``tokens``</span>
+<span class="sd">        property.</span>
+
+<span class="sd">        :returns: A :class:`WordList &lt;WordList&gt;` of word tokens.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">WordList</span><span class="p">(</span>
+            <span class="n">word_tokenize</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span>
+                <span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">,</span>
+                <span class="n">include_punc</span><span class="o">=</span><span class="bp">False</span><span class="p">))</span>
+</div>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="BaseBlob.tokens"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BaseBlob.tokens">[docs]</a>    <span class="k">def</span> <span class="nf">tokens</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Return a list of tokens, using this blob&#39;s tokenizer object</span>
+<span class="sd">        (defaults to :class:`WordTokenizer &lt;textblob.tokenizers.WordTokenizer&gt;`).</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="n">WordList</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="BaseBlob.tokenize"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BaseBlob.tokenize">[docs]</a>    <span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of tokens, using ``tokenizer``.</span>
+
+<span class="sd">        :param tokenizer: (optional) A tokenizer object. If None, defaults to</span>
+<span class="sd">            this blob&#39;s default tokenizer.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">tokenizer</span> <span class="k">if</span> <span class="n">tokenizer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span>
+        <span class="k">return</span> <span class="n">WordList</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">))</span>
+</div>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="BaseBlob.sentiment"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BaseBlob.sentiment">[docs]</a>    <span class="k">def</span> <span class="nf">sentiment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a tuple of form (polarity, subjectivity ) where polarity</span>
+<span class="sd">        is a float within the range [-1.0, 1.0] and subjectivity is a float</span>
+<span class="sd">        within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is</span>
+<span class="sd">        very subjective.</span>
+
+<span class="sd">        :rtype: namedtuple of the form ``Sentiment(polarity, subjectivity)``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span>
+</div>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="BaseBlob.polarity"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BaseBlob.polarity">[docs]</a>    <span class="k">def</span> <span class="nf">polarity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the polarity score as a float within the range [-1.0, 1.0]</span>
+
+<span class="sd">        :rtype: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentiment</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</div>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="BaseBlob.subjectivity"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BaseBlob.subjectivity">[docs]</a>    <span class="k">def</span> <span class="nf">subjectivity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Return the subjectivity score as a float within the range [0.0, 1.0]</span>
+<span class="sd">        where 0.0 is very objective and 1.0 is very subjective.</span>
+
+<span class="sd">        :rtype: float</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentiment</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</div>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="BaseBlob.noun_phrases"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BaseBlob.noun_phrases">[docs]</a>    <span class="k">def</span> <span class="nf">noun_phrases</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list of noun phrases for this blob.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">WordList</span><span class="p">([</span><span class="n">phrase</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                         <span class="k">for</span> <span class="n">phrase</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">np_extractor</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span>
+                         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">phrase</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">])</span>
+</div>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="BaseBlob.pos_tags"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BaseBlob.pos_tags">[docs]</a>    <span class="k">def</span> <span class="nf">pos_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns an list of tuples of the form (word, POS tag).</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            [(&#39;At&#39;, &#39;IN&#39;), (&#39;eight&#39;, &#39;CD&#39;), (&quot;o&#39;clock&quot;, &#39;JJ&#39;), (&#39;on&#39;, &#39;IN&#39;),</span>
+<span class="sd">                    (&#39;Thursday&#39;, &#39;NNP&#39;), (&#39;morning&#39;, &#39;NN&#39;)]</span>
+
+<span class="sd">        :rtype: list of tuples</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[(</span><span class="n">Word</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">pos_tag</span><span class="o">=</span><span class="n">t</span><span class="p">),</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span>
+                <span class="c"># new keyword PatternTagger(include_punc=False)</span>
+                <span class="c"># if not PUNCTUATION_REGEX.match(unicode(t))</span>
+                <span class="p">]</span>
+</div>
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">pos_tags</span>
+
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="BaseBlob.word_counts"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BaseBlob.word_counts">[docs]</a>    <span class="k">def</span> <span class="nf">word_counts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Dictionary of word frequencies in this text.&quot;&quot;&quot;</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">stripped_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">lowerstrip</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">words</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">stripped_words</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">counts</span>
+</div>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="BaseBlob.np_counts"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BaseBlob.np_counts">[docs]</a>    <span class="k">def</span> <span class="nf">np_counts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Dictionary of noun phrase frequencies in this text.&quot;&quot;&quot;</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">phrase</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">noun_phrases</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">phrase</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">counts</span>
+</div>
+<div class="viewcode-block" id="BaseBlob.translate"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BaseBlob.translate">[docs]</a>    <span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_lang</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s">&quot;de&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Translate the blob to another language.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">from_lang</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">from_lang</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">translator</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">translator</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span>
+                <span class="n">from_lang</span><span class="o">=</span><span class="n">from_lang</span><span class="p">,</span>
+                <span class="n">to_lang</span><span class="o">=</span><span class="n">to</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="BaseBlob.correct"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BaseBlob.correct">[docs]</a>    <span class="k">def</span> <span class="nf">correct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Attempt to correct the spelling of a blob.</span>
+
+<span class="sd">        .. versionadded:: 0.6.0 (``textblob``)</span>
+
+<span class="sd">        :rtype: :class:`BaseBlob &lt;BaseBlob&gt;`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># regex matches: contraction or word or punctuation or whitespace</span>
+        <span class="c">#tokens = nltk.tokenize.regexp_tokenize(self.raw, &quot;\w*(&#39;\w*)+|\w+|[^\w\s]|\s&quot;)</span>
+        <span class="c">#corrected = (Word(w).correct() for w in tokens)</span>
+        <span class="c">#ret = &#39;&#39;.join(corrected)</span>
+        <span class="c"># return self.__class__(ret)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</div>
+    <span class="k">def</span> <span class="nf">_cmpkey</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Key used by ComparableMixin to implement all rich comparison</span>
+<span class="sd">        operators.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span>
+
+    <span class="k">def</span> <span class="nf">_strkey</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Key used by StringlikeMixin to implement string methods.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span>
+
+    <span class="k">def</span> <span class="nf">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cmpkey</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Concatenates two text objects the same way Python strings are</span>
+<span class="sd">        concatenated.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">        - `other`: a string or a text object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span> <span class="o">+</span> <span class="n">other</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">BaseBlob</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&#39;Operands must be either strings or {0} objects&#39;</span>
+                            <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
+
+<div class="viewcode-block" id="BaseBlob.split"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BaseBlob.split">[docs]</a>    <span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">maxsize</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Behaves like the built-in str.split() except returns a</span>
+<span class="sd">        WordList.</span>
+
+<span class="sd">        :rtype: :class:`WordList &lt;WordList&gt;`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">WordList</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_strkey</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">sep</span><span class="p">,</span> <span class="n">maxsplit</span><span class="p">))</span>
+
+</div></div>
+<div class="viewcode-block" id="Sentence"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Sentence">[docs]</a><span class="k">class</span> <span class="nc">Sentence</span><span class="p">(</span><span class="n">BaseBlob</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;A sentence within a TextBlob. Inherits from :class:`BaseBlob &lt;BaseBlob&gt;`.</span>
+
+<span class="sd">    :param sentence: A string, the raw sentence.</span>
+<span class="sd">    :param start_index: An int, the index where this sentence begins</span>
+<span class="sd">                        in a TextBlob. If not given, defaults to 0.</span>
+<span class="sd">    :param end_index: An int, the index where this sentence ends in</span>
+<span class="sd">                        a TextBlob. If not given, defaults to the</span>
+<span class="sd">                        length of the sentence - 1.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">,</span> <span class="n">start_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end_index</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Sentence</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">sentence</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c">#: The start index within a TextBlob</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_index</span> <span class="o">=</span> <span class="n">start_index</span>
+        <span class="c">#: The end index within a textBlob</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_index</span> <span class="o">=</span> <span class="n">end_index</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="c">#@cached_property</span>
+    <span class="c"># def sentiment(self):</span>
+        <span class="c">#&quot;&quot;&quot;Return a tuple of form (polarity, subjectivity ) where polarity</span>
+        <span class="c"># is a float within the range [-1.0, 1.0] and subjectivity is a float</span>
+        <span class="c"># within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is</span>
+        <span class="c"># very subjective.</span>
+
+        <span class="c">#:rtype: tuple of the form ``(polarity, subjectivity)``</span>
+        <span class="c">#&quot;&quot;&quot;</span>
+        <span class="c">#_wl = self.words</span>
+        <span class="c">#_lemmas = _wl.lemmatize()</span>
+        <span class="c">#_string = &quot; &quot;.join(_lemmas)</span>
+        <span class="c"># return self.analyzer.analyze(_string)</span>
+
+    <span class="c">#@cached_property</span>
+    <span class="c"># def polarity(self):</span>
+        <span class="c">#&quot;&quot;&quot;Return the polarity score as a float within the range [-1.0, 1.0]</span>
+
+        <span class="c">#:rtype: float</span>
+        <span class="c">#&quot;&quot;&quot;</span>
+        <span class="c"># return self.sentiment[0]</span>
+
+    <span class="c">#@cached_property</span>
+    <span class="c"># def subjectivity(self):</span>
+        <span class="c">#&#39;&#39;&#39;Return the subjectivity score as a float within the range [0.0, 1.0]</span>
+        <span class="c"># where 0.0 is very objective and 1.0 is very subjective.</span>
+
+        <span class="c">#:rtype: float</span>
+        <span class="c">#&#39;&#39;&#39;</span>
+        <span class="c"># return self.sentiment[1]</span>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Sentence.dict"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.Sentence.dict">[docs]</a>    <span class="k">def</span> <span class="nf">dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The dict representation of this sentence.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s">&#39;raw&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span>
+            <span class="s">&#39;start_index&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_index</span><span class="p">,</span>
+            <span class="s">&#39;end_index&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_index</span><span class="p">,</span>
+            <span class="s">&#39;stripped&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">stripped</span><span class="p">,</span>
+            <span class="s">&#39;noun_phrases&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">noun_phrases</span><span class="p">,</span>
+            <span class="s">&#39;polarity&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">polarity</span><span class="p">,</span>
+            <span class="s">&#39;subjectivity&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">subjectivity</span><span class="p">,</span>
+        <span class="p">}</span>
+
+</div></div>
+<div class="viewcode-block" id="TextBlobDE"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.TextBlobDE">[docs]</a><span class="k">class</span> <span class="nc">TextBlobDE</span><span class="p">(</span><span class="n">BaseBlob</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;``TextBlob`` class initialised with German default models:</span>
+
+<span class="sd">    :param str text: A string.</span>
+<span class="sd">    :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to</span>
+<span class="sd">        :class:`NLTKPunktTokenizer() &lt;textblob_de.tokenizers.NLTKPunktTokenizer&gt;`.</span>
+<span class="sd">    :param np_extractor: (optional) An NPExtractor instance. If ``None``,</span>
+<span class="sd">        defaults to :class:`PatternParserNPExtractor()</span>
+<span class="sd">        &lt;textblob_de.np_extractors.PatternParserNPExtractor&gt;`.</span>
+<span class="sd">    :param pos_tagger: (optional) A Tagger instance. If ``None``, defaults to</span>
+<span class="sd">        :class:`PatternTagger &lt;textblob_de.taggers.PatternTagger&gt;`.</span>
+<span class="sd">    :param analyzer: (optional) A sentiment analyzer. If ``None``, defaults to</span>
+<span class="sd">        :class:`PatternAnalyzer &lt;textblob_de.sentiments.PatternAnalyzer&gt;`.</span>
+<span class="sd">    :param classifier: (optional) A classifier.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="TextBlobDE.sentences"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.TextBlobDE.sentences">[docs]</a>    <span class="k">def</span> <span class="nf">sentences</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return list of :class:`Sentence &lt;Sentence&gt;` objects.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_sentence_objects</span><span class="p">()</span>
+</div>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="TextBlobDE.words"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.TextBlobDE.words">[docs]</a>    <span class="k">def</span> <span class="nf">words</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of word tokens. This excludes punctuation characters.</span>
+<span class="sd">        If you want to include punctuation characters, access the ``tokens``</span>
+<span class="sd">        property.</span>
+
+<span class="sd">        :returns: A :class:`WordList &lt;WordList&gt;` of word tokens.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">WordList</span><span class="p">(</span>
+            <span class="n">word_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">include_punc</span><span class="o">=</span><span class="bp">False</span><span class="p">))</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="TextBlobDE.raw_sentences"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.TextBlobDE.raw_sentences">[docs]</a>    <span class="k">def</span> <span class="nf">raw_sentences</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;List of strings, the raw sentences in the blob.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">sentence</span><span class="o">.</span><span class="n">raw</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentences</span><span class="p">]</span>
+</div>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="TextBlobDE.sentiment"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.TextBlobDE.sentiment">[docs]</a>    <span class="k">def</span> <span class="nf">sentiment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a tuple of form (polarity, subjectivity ) where polarity</span>
+<span class="sd">        is a float within the range [-1.0, 1.0] and subjectivity is a float</span>
+<span class="sd">        within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is</span>
+<span class="sd">        very subjective.</span>
+
+<span class="sd">        :rtype: named tuple of the form ``Sentiment(polarity=0.0, subjectivity=0.0)``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># : Enhancement Issue #2</span>
+        <span class="c">#: adapted from &#39;textblob.en.sentiments.py&#39;</span>
+        <span class="c">#: Return type declaration</span>
+        <span class="n">_RETURN_TYPE</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">&#39;Sentiment&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;polarity&#39;</span><span class="p">,</span> <span class="s">&#39;subjectivity&#39;</span><span class="p">])</span>
+        <span class="n">_polarity</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">_subjectivity</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentences</span><span class="p">:</span>
+            <span class="n">_polarity</span> <span class="o">+=</span> <span class="n">s</span><span class="o">.</span><span class="n">polarity</span>
+            <span class="n">_subjectivity</span> <span class="o">+=</span> <span class="n">s</span><span class="o">.</span><span class="n">subjectivity</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">polarity</span> <span class="o">=</span> <span class="n">_polarity</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sentences</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+            <span class="n">polarity</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">subjectivity</span> <span class="o">=</span> <span class="n">_subjectivity</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sentences</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+            <span class="n">subjectivity</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">return</span> <span class="n">_RETURN_TYPE</span><span class="p">(</span><span class="n">polarity</span><span class="p">,</span> <span class="n">subjectivity</span><span class="p">)</span>
+</div>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="TextBlobDE.polarity"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.TextBlobDE.polarity">[docs]</a>    <span class="k">def</span> <span class="nf">polarity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the polarity score as a float within the range [-1.0, 1.0]</span>
+
+<span class="sd">        :rtype: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentiment</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</div>
+    <span class="nd">@cached_property</span>
+<div class="viewcode-block" id="TextBlobDE.subjectivity"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.TextBlobDE.subjectivity">[docs]</a>    <span class="k">def</span> <span class="nf">subjectivity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Return the subjectivity score as a float within the range [0.0, 1.0]</span>
+<span class="sd">        where 0.0 is very objective and 1.0 is very subjective.</span>
+
+<span class="sd">        :rtype: float</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentiment</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="TextBlobDE.serialized"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.TextBlobDE.serialized">[docs]</a>    <span class="k">def</span> <span class="nf">serialized</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list of each sentence&#39;s dict representation.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">sentence</span><span class="o">.</span><span class="n">dict</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentences</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="TextBlobDE.to_json"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.TextBlobDE.to_json">[docs]</a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a json representation (str) of this blob. Takes the same</span>
+<span class="sd">        arguments as json.dumps.</span>
+
+<span class="sd">        .. versionadded:: 0.5.1 (``textblob``)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">serialized</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="TextBlobDE.json"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.TextBlobDE.json">[docs]</a>    <span class="k">def</span> <span class="nf">json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The json representation of this blob.</span>
+
+<span class="sd">        .. versionchanged:: 0.5.1</span>
+<span class="sd">            Made ``json`` a property instead of a method to restore backwards</span>
+<span class="sd">            compatibility that was broken after version 0.4.0.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
+</div>
+    <span class="k">def</span> <span class="nf">_create_sentence_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list of Sentence objects from the raw text.&quot;&quot;&quot;</span>
+        <span class="n">sentence_objects</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">sentences</span> <span class="o">=</span> <span class="n">sent_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">)</span>
+        <span class="n">char_index</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c"># Keeps track of character index within the blob</span>
+        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+            <span class="c"># Compute the start and end indices of the sentence</span>
+            <span class="c"># within the blob. This only works if the sentence splitter</span>
+            <span class="c"># does not perform any character replacements or changes to</span>
+            <span class="c"># white space.</span>
+            <span class="c"># Working: NLTKPunktTokenizer</span>
+            <span class="c"># Not working: PatternTokenizer</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">start_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="n">char_index</span><span class="p">)</span>
+                <span class="n">char_index</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sent</span><span class="p">)</span>
+                <span class="n">end_index</span> <span class="o">=</span> <span class="n">start_index</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">sent</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">start_index</span> <span class="o">=</span> <span class="bp">None</span>
+                <span class="n">end_index</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="c"># Sentences share the same models as their parent blob</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">Sentence</span><span class="p">(</span>
+                <span class="n">sent</span><span class="p">,</span>
+                <span class="n">start_index</span><span class="o">=</span><span class="n">start_index</span><span class="p">,</span>
+                <span class="n">end_index</span><span class="o">=</span><span class="n">end_index</span><span class="p">,</span>
+                <span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">,</span>
+                <span class="n">np_extractor</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">np_extractor</span><span class="p">,</span>
+                <span class="n">pos_tagger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pos_tagger</span><span class="p">,</span>
+                <span class="n">analyzer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="p">,</span>
+                <span class="n">parser</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="p">,</span>
+                <span class="n">classifier</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">)</span>
+            <span class="n">sentence_objects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sentence_objects</span>
+
+</div>
+<div class="viewcode-block" id="BlobberDE"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BlobberDE">[docs]</a><span class="k">class</span> <span class="nc">BlobberDE</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;A factory for TextBlobs that all share the same tagger, tokenizer,</span>
+<span class="sd">    parser, classifier, and np_extractor.</span>
+
+<span class="sd">    Usage:</span>
+
+<span class="sd">        &gt;&gt;&gt; from textblob_de import BlobberDE</span>
+<span class="sd">        &gt;&gt;&gt; from textblob_de.taggers import PatternTagger</span>
+<span class="sd">        &gt;&gt;&gt; from textblob.tokenizers import PatternTokenizer</span>
+<span class="sd">        &gt;&gt;&gt; tb = Blobber(pos_tagger=PatternTagger(), tokenizer=PatternTokenizer())</span>
+<span class="sd">        &gt;&gt;&gt; blob1 = tb(&quot;Das ist ein Blob.&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; blob2 = tb(&quot;Dieser Blob benutzt die selben Tagger und Tokenizer.&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; blob1.pos_tagger is blob2.pos_tagger</span>
+<span class="sd">        True</span>
+
+<span class="sd">    :param str text: A string.</span>
+<span class="sd">    :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to</span>
+<span class="sd">        :class:`NLTKPunktTokenizer() &lt;textblob_de.tokenizers.NLTKPunktTokenizer&gt;`.</span>
+<span class="sd">    :param np_extractor: (optional) An NPExtractor instance. If ``None``,</span>
+<span class="sd">        defaults to :class:`PatternParserNPExtractor()</span>
+<span class="sd">        &lt;textblob_de.np_extractors.PatternParserNPExtractor&gt;`.</span>
+<span class="sd">    :param pos_tagger: (optional) A Tagger instance. If ``None``, defaults to</span>
+<span class="sd">        :class:`PatternTagger &lt;textblob_de.taggers.PatternTagger&gt;`.</span>
+<span class="sd">    :param analyzer: (optional) A sentiment analyzer. If ``None``, defaults to</span>
+<span class="sd">        :class:`PatternAnalyzer &lt;textblob_de.sentiments.PatternAnalyzer&gt;`.</span>
+<span class="sd">    :param classifier: (optional) A classifier.</span>
+
+<span class="sd">    .. versionadded:: 0.4.0 (``textblob``)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">tokenizer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">pos_tagger</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">np_extractor</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">analyzer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">parser</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">classifier</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">tokenizer</span> <span class="k">if</span> <span class="n">tokenizer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">NLTKPunktTokenizer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pos_tagger</span> <span class="o">=</span> <span class="n">pos_tagger</span> <span class="k">if</span> <span class="n">pos_tagger</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> \
+            <span class="k">else</span> <span class="n">PatternTagger</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">np_extractor</span> <span class="o">=</span> <span class="n">np_extractor</span> <span class="k">if</span> <span class="n">np_extractor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> \
+            <span class="k">else</span> <span class="n">PatternParserNPExtractor</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">analyzer</span> <span class="k">if</span> <span class="n">analyzer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> \
+            <span class="k">else</span> <span class="n">PatternAnalyzer</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parser</span> <span class="o">=</span> <span class="n">parser</span> <span class="k">if</span> <span class="n">parser</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> \
+            <span class="k">else</span> <span class="n">PatternParser</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">classifier</span> <span class="k">if</span> <span class="n">classifier</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="bp">None</span>
+
+        <span class="n">_initialize_models</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pos_tagger</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">np_extractor</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BlobberDE.__call__"><a class="viewcode-back" href="../../api_reference.html#textblob_de.blob.BlobberDE.__call__">[docs]</a>    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a new TextBlob object with this Blobber&#39;s ``np_extractor``,</span>
+<span class="sd">        ``pos_tagger``, ``tokenizer``, ``analyzer``, and ``classifier``.</span>
+
+<span class="sd">        :returns: A new :class:`TextBlob &lt;TextBlob&gt;`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">TextBlobDE</span><span class="p">(</span>
+            <span class="n">text</span><span class="p">,</span>
+            <span class="n">tokenizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">,</span>
+            <span class="n">pos_tagger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pos_tagger</span><span class="p">,</span>
+            <span class="n">np_extractor</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">np_extractor</span><span class="p">,</span>
+            <span class="n">analyzer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="p">,</span>
+            <span class="n">parser</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="p">,</span>
+            <span class="n">classifier</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">)</span>
+</div>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">classifier_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span> <span class="o">+</span> \
+            <span class="s">&quot;()&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="k">else</span> <span class="s">&quot;None&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s">&quot;Blobber(tokenizer={0}(), pos_tagger={1}(), &quot;</span>
+                <span class="s">&quot;np_extractor={2}(), analyzer={3}(), parser={4}(), classifier={5})&quot;</span><span class="p">)</span>\
+            <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">pos_tagger</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">np_extractor</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
+                    <span class="n">classifier_name</span><span class="p">)</span>
+
+    <span class="n">__str__</span> <span class="o">=</span> <span class="n">__repr__</span></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Markus Killer (http://langui.ch).
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.3.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

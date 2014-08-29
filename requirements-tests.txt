@@ -1,1 +1,9 @@
+autopep8
+
+flake
 nose>=1.3.0
+pytest
+
+
+
+tox>=1.5.0

@@ -8,14 +8,15 @@
 #
 # :modified: 2014-08-04 <m.killer@langui.ch>
 #
-'''Default taggers for German.
+"""Default taggers for German.
 
 >>> from textblob_de.taggers import PatternTagger
 
 or
 
 >>> from textblob_de import PatternTagger
-'''
+
+"""
 
 from __future__ import absolute_import
 import string
@@ -31,6 +32,7 @@ from textblob_de.tokenizers import PatternTokenizer
 pattern_tag = pattern_de.tag
 PUNCTUATION = string.punctuation
 
+
 class PatternTagger(BaseTagger):
 
     '''Tagger that uses the implementation in
@@ -39,24 +41,27 @@ class PatternTagger(BaseTagger):
 
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`PatternTokenizer() <textblob_de.tokenizers.PatternTokenizer>`.
-    :param include_punc: (optional) whether to include punctuation as separate tokens. Default to ``False``.
+    :param include_punc: (optional) whether to include punctuation as separate tokens.
+        Default to ``False``.
     '''
 
     def __init__(self, tokenizer=None, include_punc=False):
-        self.tokenizer = tokenizer if tokenizer else PatternTokenizer()
-        self.include_punc = include_punc if include_punc else False
+        self.tokenizer = tokenizer if tokenizer is not None else PatternTokenizer()
+        self.include_punc = include_punc
 
     def tag(self, sentence, tokenize=True):
-        '''Tag a string `sentence`.
+        """Tag a string `sentence`.
 
         :param str or list sentence: A string or a list of sentence strings.
-        :param tokenize: (optional) If ``False`` string has to be tokenized before (space separated string).
-        '''
-        #: Do not process empty strings (Issue #3)
+        :param tokenize: (optional) If ``False`` string has to be tokenized before
+            (space separated string).
+
+        """
+        # : Do not process empty strings (Issue #3)
         if sentence.strip() == "":
             return []
-        #: Do not process strings consisting of a single punctuation mark (Issue #4)
-        elif sentence.strip() in PUNCTUATION:         
+        # : Do not process strings consisting of a single punctuation mark (Issue #4)
+        elif sentence.strip() in PUNCTUATION:
             if self.include_punc:
                 _sym = sentence.strip()
                 if _sym in tuple('.?!'):

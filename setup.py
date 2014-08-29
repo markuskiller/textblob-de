@@ -23,9 +23,11 @@ TEST_CMD = 'python run_tests.py'
 
 
 def find_version(fname):
-    '''Attempts to find the version number in the file names fname.
+    """Attempts to find the version number in the file names fname.
+
     Raises RuntimeError if not found.
-    '''
+
+    """
     version = ''
     with open(fname, 'r') as fp:
         reg = re.compile(r'__version__ = [\'"]([^\'"]*)[\'"]')
@@ -78,13 +80,14 @@ setup(
     name='textblob-de',
     version=__version__,
     description='German language support for TextBlob.',
-    long_description=(read("README.rst") + '\n\n' +
-                      read("HISTORY.rst")),
+    long_description=(
+        read("README.rst") + '\n\n' + read("HISTORY.rst")),
     author='Markus Killer',
     author_email='m.killer@langui.ch',
     url='https://github.com/markuskiller/textblob-de',
     packages=packages,
-    package_dir={'textblob_de': 'textblob_de'},
+    package_dir={
+        'textblob_de': 'textblob_de'},
     include_package_data=True,
     package_data={
         "textblob_de": [
@@ -93,12 +96,17 @@ setup(
             "ext/_pattern/*.*",
             "ext/_pattern/text/*.*",
             "ext/_pattern/text/de/*.*",
-        ]
-    },
+        ]},
     install_requires=requires,
     license='\n\n' + read("LICENSE") + '\n\n',
     zip_safe=False,
-    keywords='textblob_de',
+    keywords=[
+        'textblob',
+        'textblob_de',
+        'nlp',
+        'linguistics',
+        'nltk',
+        'pattern'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
