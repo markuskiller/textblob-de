@@ -4,7 +4,7 @@ Makefile in ``project_root_dir``
 
     ::
 
-     generated: 29 August 2014 - 10:33
+     generated: 29 August 2014 - 14:50
 
 	
 	Please use 'make <target>' where where <target> is one of
