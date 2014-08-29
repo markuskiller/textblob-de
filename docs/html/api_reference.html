@@ -2520,7 +2520,7 @@ methods.</p>
 </div>
 <dl class="class">
 <dt id="textblob.classifiers.BaseClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">BaseClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x000000000667A8C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#BaseClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.BaseClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">BaseClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000070E28C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#BaseClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.BaseClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract classifier class from which all classifers inherit. At a
 minimum, descendant classes must implement a <tt class="docutils literal"><span class="pre">classify</span></tt> method and have
 a <tt class="docutils literal"><span class="pre">classifier</span></tt> property.</p>
@@ -2587,7 +2587,7 @@ file format.</li>
 
 <dl class="class">
 <dt id="textblob.classifiers.DecisionTreeClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">DecisionTreeClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x000000000667A8C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#DecisionTreeClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.DecisionTreeClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">DecisionTreeClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000070E28C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#DecisionTreeClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.DecisionTreeClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A classifier based on the decision tree algorithm, as implemented in
 NLTK.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2744,7 +2744,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.MaxEntClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">MaxEntClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x000000000667A8C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#MaxEntClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.MaxEntClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">MaxEntClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000070E28C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#MaxEntClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.MaxEntClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A maximum entropy classifier (also known as a &#8220;conditional
 exponential classifier&#8221;).  This classifier is parameterized by a
 set of &#8220;weights&#8221;, which are used to combine the joint-features
@@ -2893,7 +2893,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.NLTKClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NLTKClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x000000000667A8C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NLTKClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NLTKClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NLTKClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000070E28C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NLTKClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NLTKClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract class that wraps around the nltk.classify module.</p>
 <p>Expects that descendant classes include a class variable <tt class="docutils literal"><span class="pre">nltk_class</span></tt>
 which is the class in the nltk.classify module to be wrapped.</p>
@@ -3010,7 +3010,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.NaiveBayesClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NaiveBayesClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x000000000667A8C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NaiveBayesClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NaiveBayesClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000070E28C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NaiveBayesClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A classifier based on the Naive Bayes algorithm, as implemented in
 NLTK.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -3196,7 +3196,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.PositiveNaiveBayesClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">PositiveNaiveBayesClassifier</tt><big>(</big><em>positive_set</em>, <em>unlabeled_set</em>, <em>feature_extractor=&lt;function contains_extractor at 0x000000000667A950&gt;</em>, <em>positive_prob_prior=0.5</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#PositiveNaiveBayesClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.PositiveNaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">PositiveNaiveBayesClassifier</tt><big>(</big><em>positive_set</em>, <em>unlabeled_set</em>, <em>feature_extractor=&lt;function contains_extractor at 0x00000000070E2950&gt;</em>, <em>positive_prob_prior=0.5</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#PositiveNaiveBayesClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.PositiveNaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A variant of the Naive Bayes Classifier that performs binary
 classification with partially-labeled training sets, i.e. when only
 one class is labeled and the other is not. Assuming a prior distribution
