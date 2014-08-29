@@ -4,7 +4,7 @@
 textblob-de
 ===========
 
-Release |version| . (:ref:`Changelog`)
+Release |version| (:ref:`Changelog`)
 
 `TextBlob`_ is a Python (2 and 3) library for processing textual data. 
 It is being developed by `Steven Loria`_. It provides a simple API for diving into 

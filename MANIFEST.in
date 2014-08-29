@@ -2,3 +2,8 @@ include *.rst LICENSE *.txt
 recursive-include textblob_de/ext *.py *.txt
 recursive-include textblob_de/data *.xml
 recursive-exclude textblob_de/ext __pycache__ *.pyc
+recursive-include tests *
+recursive-include docs *
+exclude docs/src/_build
+recursive-exclude docs __pycache__ *.pyc
+recursive-exclude tests __pycache__ *.pyc

@@ -82,9 +82,9 @@ clean-docs:
 	rm -f docs/src/apidoc/modules.rst
 
 clean-pyc:
-	find . -maxdepth 4 -name '*.pyc' -exec rm -f {} +
-	find . -maxdepth 4 -name '*.pyo' -exec rm -f {} +
-	find . -maxdepth 4 -name '*~' -exec rm -f {} +
+	find . -name '*.pyc' -exec rm -f {} +
+	find . -name '*.pyo' -exec rm -f {} +
+	find . -name '*~' -exec rm -f {} +
 
 clean-test:
 	rm -fr htmlcov/
@@ -151,13 +151,13 @@ docs: clean-docs prepare_dev develop
 	
 docs-pdf: docs
 	make -C ./docs/src latexpdf
-	$(O) ./docs/$(subst _,-,$(N)).pdf &
+	#$(O) ./docs/$(subst _,-,$(N)).pdf &
 
-publish: clean clean-logs docs
+publish: clean clean-logs docs-pdf
 	$(P) setup.py publish
 	$(O) https://pypi.python.org/pypi/$(subst _,-,$(N)) &
 
-sdist: clean clean-logs docs
+sdist: clean clean-logs docs-pdf
 	$(P) setup.py sdist
 	ls -l dist
 
