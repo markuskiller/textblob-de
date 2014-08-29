@@ -4,7 +4,7 @@ Makefile in ``docs_dir``
 
     ::
 
-     generated: 29 August 2014 - 14:50
+     generated: 29 August 2014 - 15:17
 
 	Please use `make <target>' where <target> is one of
 	

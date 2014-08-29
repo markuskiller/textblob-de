@@ -10,6 +10,10 @@ textblob-de README
 .. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=dev
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
+    
+.. image:: https://readthedocs.org/projects/textblob-de/badge/?version=latest
+    :target: https://readthedocs.org/projects/textblob-de/?badge=latest
+    :alt: Documentation Status
 
 .. image:: https://pypip.in/d/textblob-de/badge.png
     :target: https://pypi.python.org/pypi/textblob-de/

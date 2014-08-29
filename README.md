@@ -3,6 +3,7 @@ textblob-de README
 
 [![textblob\_de - latest PyPI version](https://pypip.in/v/textblob-de/badge.png)](https://pypi.python.org/pypi/textblob-de/)
 [![Travis-CI](https://travis-ci.org/markuskiller/textblob-de.png?branch=dev)](https://travis-ci.org/markuskiller/textblob-de)
+[![Documentation Status](https://readthedocs.org/projects/textblob-de/badge/?version=latest)](https://readthedocs.org/projects/textblob-de/?badge=latest)
 [![Number of PyPI downloads](https://pypip.in/d/textblob-de/badge.png)](https://pypi.python.org/pypi/textblob-de/)
 [![Issues in In Progress](https://badge.waffle.io/markuskiller/textblob-de.png?label=In%20Progress&title=In%20Progress)](https://waffle.io/markuskiller/textblob-de)
 [![LICENSE info](https://pypip.in/license/textblob-de/badge.png)](https://pypi.python.org/pypi/textblob-de/)
