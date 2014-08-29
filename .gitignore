@@ -39,3 +39,5 @@ nosetests.xml
 .pydevproject
 *.wpu
 #*.wpr cross-platform WING IDE project file (useful)
+
+docs/src/_build
