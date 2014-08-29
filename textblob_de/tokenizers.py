@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Code adapted from ``textblob`` main package.
+# Code adapted from the main `TextBlob`_ library.
 #
 # :repo: `https://github.com/sloria/TextBlob`_
 # :source: textblob/tokenizers.py
@@ -8,8 +8,7 @@
 #
 # :modified: 2014-08-04 <m.killer@langui.ch>
 #
-'''Various tokenizer implementations.
-'''
+"""Various tokenizer implementations."""
 from __future__ import absolute_import
 
 import string
@@ -32,7 +31,7 @@ ABBREVIATIONS_DE = pattern_de.ABBREVIATIONS
 
 class NLTKPunktTokenizer(BaseTokenizer):
 
-    """Tokenizer included in ``nltk.tokenize.punkt`` package
+    """Tokenizer included in ``nltk.tokenize.punkt`` package.
 
     This is the default tokenizer in ``textblob-de``
 
@@ -54,14 +53,15 @@ class NLTKPunktTokenizer(BaseTokenizer):
         self.word_tok = nltk.tokenize.punkt.PunktWordTokenizer()
 
     def tokenize(self, text, include_punc=True, nested=False):
-        '''Return a list of word tokens.
+        """Return a list of word tokens.
 
         :param text: string of text.
         :param include_punc: (optional) whether to include punctuation as separate
             tokens. Default to True.
         :param nested: (optional) whether to return tokens as nested lists of
             sentences. Default to False.
-        '''
+
+        """
         self.tokens = [
             w for w in (
                 self.word_tokenize(
@@ -74,11 +74,13 @@ class NLTKPunktTokenizer(BaseTokenizer):
 
     @requires_nltk_corpus
     def sent_tokenize(self, text, **kwargs):
-        '''NLTK's sentence tokenizer (currently PunktSentenceTokenizer).
-        Uses an unsupervised algorithm to build a model for abbreviation words,
-        collocations, and words that start sentences, then uses that to find
-        sentence boundaries.
-        '''
+        """NLTK's sentence tokenizer (currently PunktSentenceTokenizer).
+
+        Uses an unsupervised algorithm to build a model for abbreviation
+        words, collocations, and words that start sentences, then uses
+        that to find sentence boundaries.
+
+        """
         sentences = self.sent_tok.tokenize(
             text,
             realign_boundaries=kwargs.get(
@@ -87,10 +89,9 @@ class NLTKPunktTokenizer(BaseTokenizer):
         return sentences
 
     def word_tokenize(self, text, include_punc=True):
-        '''NLTK's PunktWordTokenizer uses a regular expression to divide
-        a text into tokens, leaving all periods attached to words,
-        but separating off other punctuation.
-        '''
+        """NLTK's PunktWordTokenizer uses a regular expression to divide a text
+        into tokens, leaving all periods attached to words, but separating off
+        other punctuation."""
         # : Do not process empty strings (Issue #3)
         if text.strip() == "":
             return []
@@ -126,7 +127,7 @@ class NLTKPunktTokenizer(BaseTokenizer):
 
 class PatternTokenizer(BaseTokenizer):
 
-    """Tokenizer included in ``pattern.de`` package
+    """Tokenizer included in ``pattern.de`` package.
 
     PROs:
     ^^^^^
@@ -146,12 +147,13 @@ class PatternTokenizer(BaseTokenizer):
         self.tokens = []
 
     def tokenize(self, text, include_punc=True, nested=False):
-        '''Return a list of word tokens.
+        """Return a list of word tokens.
 
         :param text: string of text.
         :param include_punc: (optional) whether to include punctuation as separate
             tokens. Default to True.
-        '''
+
+        """
         self.tokens = [
             w for w in (
                 self.word_tokenize(
@@ -163,10 +165,13 @@ class PatternTokenizer(BaseTokenizer):
             return list(chain.from_iterable(self.tokens))
 
     def sent_tokenize(self, text, **kwargs):
-        """Returns a list of sentences. Each sentence is a space-separated string of tokens (words).
+        """Returns a list of sentences.
+
+        Each sentence is a space-separated string of tokens (words).
         Handles common cases of abbreviations (e.g., etc., ...).
         Punctuation marks are split from other words. Periods (or ?!) mark the end of a sentence.
         Headings without an ending period are inferred by line breaks.
+
         """
 
         sentences = find_sentences(text,
@@ -216,7 +221,8 @@ class PatternTokenizer(BaseTokenizer):
 
 class WordTokenizer(BaseTokenizer):
 
-    '''Generic word tokenization class, using tokenizer specified in TextBlobDE() instance.
+    """Generic word tokenization class, using tokenizer specified in
+    TextBlobDE() instance.
 
     You can also submit the tokenizer as keyword argument:
     ``WordTokenizer(tokenizer=NLTKPunktTokenizer())``
@@ -225,11 +231,13 @@ class WordTokenizer(BaseTokenizer):
 
     Default: NLTKPunktTokenizer().word_tokenize(text, include_punc=True)
 
-    Aim: Not to break core API of ``textblob`` main package.
+    Aim: Not to break core API of the main `TextBlob`_ library.
 
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`NLTKPunktTokenizer() <textblob_de.tokenizers.NLTKPunktTokenizer>`.
-    '''
+        
+    .. _TextBlob: http://textblob.readthedocs.org/
+    """
 
     def __init__(self, tokenizer=None, *args, **kwargs):
         # make sure that tokenizer is not referring to this class
@@ -237,12 +245,13 @@ class WordTokenizer(BaseTokenizer):
             not isinstance(tokenizer, WordTokenizer) else NLTKPunktTokenizer()
 
     def tokenize(self, text, include_punc=True, **kwargs):
-        '''Return a list of word tokens.
+        """Return a list of word tokens.
 
         :param text: string of text.
         :param include_punc: (optional) whether to include punctuation as separate
             tokens. Default to True.
-        '''
+
+        """
         return self.tokenizer.word_tokenize(text, include_punc, **kwargs)
 
     def word_tokenize(self, text, include_punc=True):
@@ -252,28 +261,34 @@ class WordTokenizer(BaseTokenizer):
 
 class SentenceTokenizer(BaseTokenizer):
 
-    '''Generic sentence tokenization class, using tokenizer specified in TextBlobDE() instance.
+    """Generic sentence tokenization class, using tokenizer specified in
+    TextBlobDE() instance.
 
     Enables SentenceTokenizer().itokenize generator that would be lost otherwise.
 
-    Aim: Not to break core API of ``textblob`` main package.
+    Aim: Not to break core API of the main `TextBlob`_ library.
 
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`NLTKPunktTokenizer() <textblob_de.tokenizers.NLTKPunktTokenizer>`.
-    '''
+    
+    .. _TextBlob: http://textblob.readthedocs.org/
+
+    """
 
     def __init__(self, tokenizer=None, *args, **kwargs):
         # make sure that tokenizer is not referring to this class
-        self.tokenizer = tokenizer if tokenizer is not None and \
-            not isinstance(tokenizer, SentenceTokenizer) else NLTKPunktTokenizer()
+        self.tokenizer = tokenizer if tokenizer is not None and not isinstance(
+            tokenizer,
+            SentenceTokenizer) else NLTKPunktTokenizer()
 
     def tokenize(self, text, **kwargs):
-        '''Return a list of word tokens.
+        """Return a list of word tokens.
 
         :param text: string of text.
         :param include_punc: (optional) whether to include punctuation as separate
             tokens. Default to True.
-        '''
+
+        """
         return self.tokenizer.sent_tokenize(text, **kwargs)
 
     def sent_tokenize(self, text, **kwargs):
@@ -285,9 +300,12 @@ def sent_tokenize(text, tokenizer=None):
     """Convenience function for tokenizing sentences (not iterable).
 
     If tokenizer is not specified, the default tokenizer NLTKPunktTokenizer()
-    is used (same behaviour as in ``textblob`` main package).
+    is used (same behaviour as in the main `TextBlob`_ library).
 
-    This function returns the sentences as a generator object
+    This function returns the sentences as a generator object.
+    
+    .. _TextBlob: http://textblob.readthedocs.org/
+
     """
     _tokenizer = tokenizer if tokenizer is not None else NLTKPunktTokenizer()
     return SentenceTokenizer(tokenizer=_tokenizer).itokenize(text)
@@ -300,6 +318,7 @@ def word_tokenize(text, tokenizer=None, include_punc=True, *args, **kwargs):
     tokenized to sentences before being tokenized to words.
 
     This function returns an itertools chain object (generator).
+
     """
     _tokenizer = tokenizer if tokenizer is not None else NLTKPunktTokenizer()
     words = chain.from_iterable(

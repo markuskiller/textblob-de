@@ -6,6 +6,9 @@ Changelog
 
 * Improved ``PatternParserNPExtractor`` (less false positives in verb filter)
 * Made sure that all keyword arguments with default ``None`` are checked with ``is not None``
+* Fixed shortcut to ``_pattern.de`` in vendorized library
+* Added ``Makefile`` to facilitate development process
+* Added docs and API reference
 
 0.3.0 (14/08/2014)
 ++++++++++++++++++
@@ -60,7 +63,7 @@ Changelog
 * Option: Include punctuation in ``tags``/``pos_tags`` properties (``b = TextBlobDE(text, tagger=PatternTagger(include_punc=True))``)
 * Added ``BlobberDE()`` class initialized with German models
 * ``TextBlobDE()``, ``Sentence()``, ``WordList()`` and ``Word()`` classes are now all initialized with German models
-* Restored complete API compatibility with ``textblob.tokenizers`` module of ``textblob`` main package
+* Restored complete API compatibility with ``textblob.tokenizers`` module of the main `TextBlob <http://textblob.readthedocs.org/en/dev/>`_ library
 
 0.2.1 (20/07/2014)
 ++++++++++++++++++

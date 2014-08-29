@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-'''Extensions to Abstract base classes in ``textblob.base``
-
-'''
+"""Extensions to Abstract base classes in ``textblob.base``"""
 from __future__ import absolute_import
 
 from abc import ABCMeta, abstractmethod
@@ -23,14 +21,15 @@ from textblob.base import DISCRETE, CONTINUOUS
 
 class BaseLemmatizer(with_metaclass(ABCMeta)):
 
-    '''Abstract base class from which all Lemmatizer classes inherit.
-    Descendant classes must implement a ``lemmatize(text)`` method
-    that returns a WordList of Word object with updated lemma properties.
+    """Abstract base class from which all Lemmatizer classes inherit.
+    Descendant classes must implement a ``lemmatize(text)`` method that returns
+    a WordList of Word object with updated lemma properties.
 
     .. versionadded:: 0.2.3 (``textblob_de``)
-    '''
+
+    """
 
     @abstractmethod
     def lemmatize(self, text):
-        '''Return a list of (lemma, tag) tuples.'''
+        """Return a list of (lemma, tag) tuples."""
         return

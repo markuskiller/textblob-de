@@ -34,6 +34,7 @@ Main resource for ``de-sentiment.xml``:
 
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`PatternTokenizer() <textblob_de.tokenizers.PatternTokenizer>`.
+
 """
 from __future__ import absolute_import
 from collections import namedtuple

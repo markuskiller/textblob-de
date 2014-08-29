@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-'''Various lemmatizer implementations.
+"""Various lemmatizer implementations.
 
- :class:`PatternParserLemmatizer() <textblob_de.lemmatizers.PatternParserLemmatizer>`.
+:class:`PatternParserLemmatizer() <textblob_de.lemmatizers.PatternParserLemmatizer>`.
 
-'''
+"""
 from __future__ import absolute_import
 
 import os
@@ -34,16 +34,18 @@ class PatternParserLemmatizer(BaseLemmatizer):
         :class:`PatternTokenizer() <textblob_de.tokenizers.PatternTokenizer>`.
 
     .. versionadded:: 0.3.0 (``textblob_de``)
+
     """
 
     def __init__(self, tokenizer=None):
         self.tokenizer = tokenizer if tokenizer is not None else PatternTokenizer()
 
     def lemmatize(self, text):
-        '''Return a list of (lemma, tag) tuples.
+        """Return a list of (lemma, tag) tuples.
 
         :param str text: A string.
-        '''
+
+        """
         # : Do not process empty strings (Issue #3)
         if text.strip() == "":
             return []
@@ -85,6 +87,7 @@ class PatternParserLemmatizer(BaseLemmatizer):
         (separated by a forward slash '/')
 
         :param str text: A string.
+
         """
         # Fix for issue #1
         text = text.replace("/", " FORWARDSLASH ")

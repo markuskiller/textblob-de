@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-'''Various noun phrase extractor implementations.
+"""Various noun phrase extractor implementations.
 
 # :class:`PatternParserNPExtractor() <textblob_de.np_extractors.PatternParserNPExtractor>`.
 
-'''
+"""
 from __future__ import absolute_import
 
 import os
@@ -78,6 +78,7 @@ class PatternParserNPExtractor(BaseNPExtractor):
 
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`PatternTokenizer() <textblob_de.tokenizers.PatternTokenizer>`.
+
     """
 
     def __init__(self, tokenizer=None):
@@ -85,13 +86,14 @@ class PatternParserNPExtractor(BaseNPExtractor):
         self.verb_morphology = Verbs()
 
     def extract(self, text):
-        '''Return a list of noun phrases (strings) for a body of text.
+        """Return a list of noun phrases (strings) for a body of text.
 
         :param str text: A string.
-        '''
+
+        """
         _extracted = []
         if text.strip() == "":
-            return _extracted     
+            return _extracted
         parsed_sentences = self._parse_text(text)
         for s in parsed_sentences:
             tokens = s.split()
@@ -151,6 +153,7 @@ class PatternParserNPExtractor(BaseNPExtractor):
         (separated by a forward slash '/')
 
         :param str text: A string.
+
         """
         if isinstance(self.tokenizer, PatternTokenizer):
             parsed_text = pattern_parse(text, tokenize=True, lemmata=False)
@@ -159,15 +162,18 @@ class PatternParserNPExtractor(BaseNPExtractor):
             _sentences = sent_tokenize(text, tokenizer=self.tokenizer)
             for s in _sentences:
                 _tokenized.append(" ".join(self.tokenizer.tokenize(s)))
-            parsed_text = pattern_parse(_tokenized, tokenize=False, lemmata=False)
+            parsed_text = pattern_parse(
+                _tokenized,
+                tokenize=False,
+                lemmata=False)
         return parsed_text.split('\n')
 
     def _is_verb(self, word_form, tag):
-        # Morphological analysis leads to too many false positives for 
+        # Morphological analysis leads to too many false positives for
         # Nouns (e.g. ein schönes Haus, -->hausen<--)
         if word_form[0].isupper():
             return False
-        # Morphological analysis leads to too many false positives for 
+        # Morphological analysis leads to too many false positives for
         # adjectives (e.g. an einem -->steilen<-- Hang)
         if tag in ('JJ'):
             return False

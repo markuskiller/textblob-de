@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-'''
-The main test runner script.
+"""The main test runner script.
 
 Usage: ::
 
@@ -17,7 +16,7 @@ Code imported from ``textblob-fr`` sample extension.
 :source: run_tests.py
 :version: 2013-09-18 (1a8438b5ea)
 
-'''
+"""
 from __future__ import unicode_literals
 import nose
 import sys

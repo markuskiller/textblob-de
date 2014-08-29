@@ -1,0 +1,53 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Guide}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}textblob-de README}{3}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Features}{3}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Installing/Upgrading}{3}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Usage}{4}{subsection.1.1.3}
+\contentsline {subsection}{\numberline {1.1.4}Access to \texttt {pattern} API in Python3}{5}{subsection.1.1.4}
+\contentsline {subsection}{\numberline {1.1.5}Requirements}{5}{subsection.1.1.5}
+\contentsline {subsection}{\numberline {1.1.6}TODO}{5}{subsection.1.1.6}
+\contentsline {subsection}{\numberline {1.1.7}License}{5}{subsection.1.1.7}
+\contentsline {subsection}{\numberline {1.1.8}Thanks}{6}{subsection.1.1.8}
+\contentsline {section}{\numberline {1.2}Extensions}{6}{section.1.2}
+\contentsline {section}{\numberline {1.3}API Reference}{6}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Blob Classes}{6}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Base Classes}{20}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Tokenizers}{21}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}POS Taggers}{23}{subsection.1.3.4}
+\contentsline {subsection}{\numberline {1.3.5}Noun Phrase Extractors}{24}{subsection.1.3.5}
+\contentsline {subsection}{\numberline {1.3.6}Sentiment Analyzers}{24}{subsection.1.3.6}
+\contentsline {subsection}{\numberline {1.3.7}Parsers}{25}{subsection.1.3.7}
+\contentsline {subsection}{\numberline {1.3.8}Classifiers (from TextBlob main package)}{25}{subsection.1.3.8}
+\contentsline {subsection}{\numberline {1.3.9}Blobber}{33}{subsection.1.3.9}
+\contentsline {subsection}{\numberline {1.3.10}File Formats (from TextBlob main package)}{33}{subsection.1.3.10}
+\contentsline {subsection}{\numberline {1.3.11}Exceptions (from TextBlob main package)}{34}{subsection.1.3.11}
+\contentsline {chapter}{\numberline {2}Project info}{35}{chapter.2}
+\contentsline {section}{\numberline {2.1}Changelog}{35}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}0.3.1 (unreleased)}{35}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}0.3.0 (14/08/2014)}{35}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}0.2.9 (14/08/2014)}{35}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}0.2.8 (14/08/2014)}{35}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}0.2.7 (13/08/2014)}{35}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.1.6}0.2.6 (04/08/2014)}{36}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.1.7}0.2.5 (04/08/2014)}{36}{subsection.2.1.7}
+\contentsline {subsection}{\numberline {2.1.8}0.2.3 (26/07/2014)}{36}{subsection.2.1.8}
+\contentsline {subsection}{\numberline {2.1.9}0.2.2 (22/07/2014)}{36}{subsection.2.1.9}
+\contentsline {subsection}{\numberline {2.1.10}0.2.1 (20/07/2014)}{36}{subsection.2.1.10}
+\contentsline {subsection}{\numberline {2.1.11}0.2.0 (18/07/2014)}{37}{subsection.2.1.11}
+\contentsline {subsection}{\numberline {2.1.12}0.1.3 (09/07/2014)}{37}{subsection.2.1.12}
+\contentsline {subsection}{\numberline {2.1.13}0.1.0 - 0.1.2 (09/07/2014)}{37}{subsection.2.1.13}
+\contentsline {section}{\numberline {2.2}Credits}{37}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}TextBlob Development Lead}{37}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}textblob-de Maintainer}{37}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Contributors}{37}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}Contributing guidelines}{37}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}In General}{37}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}In Particular}{38}{subsection.2.3.2}
+\contentsline {subsubsection}{Questions, Feature Requests, Bug Reports, and Feedback. . .}{38}{subsubsection*.295}
+\contentsline {subsubsection}{Setting Up for Local Development}{38}{subsubsection*.296}
+\contentsline {subsection}{\numberline {2.3.3}\texttt {make} command}{38}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Project \texttt {Makefile}}{39}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.5}Documentation \texttt {Makefile}}{39}{subsection.2.3.5}
+\contentsline {chapter}{Python Module Index}{41}{section*.297}
+\contentsline {chapter}{Index}{43}{section*.298}

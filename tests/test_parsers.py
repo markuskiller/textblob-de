@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
-'''Code imported from ``textblob`` main package.
-
-:repo: `https://github.com/sloria/TextBlob`_
-:source: tests/test_parsers.py
-:version: 2013-10-21 (a88e86a76a)
-
-:modified: July 2014 <m.killer@langui.ch>
-
-'''
+# Code adapted from the main `TextBlob`_ library.
+#
+# :repo: `https://github.com/sloria/TextBlob`_
+# :source: tests/test_parsers.py
+# :version: 2013-10-21 (a88e86a76a)
+#
+# :modified: 2014-08-29 <m.killer@langui.ch>
+#
+"""Test cases for parsers.
+"""
 from __future__ import unicode_literals
 
 import unittest

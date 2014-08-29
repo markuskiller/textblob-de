@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Code imported from ``textblob`` main package.
+# Code imported from the main `TextBlob`_ library.
 #
 # :repo: `https://github.com/sloria/TextBlob`_
 # :source: textblob/en/parsers.py
@@ -8,7 +8,7 @@
 #
 # :modified: 2014-08-04 <m.killer@langui.ch>
 #
-'''Default parsers for German.
+"""Default parsers for German.
 
 >>> from textblob_de.parsers import PatternParser
 
@@ -16,7 +16,7 @@ or
 
 >>> from textblob_de import PatternParser
 
-'''
+"""
 from __future__ import absolute_import
 import string
 
@@ -75,13 +75,14 @@ class PatternParser(BaseParser):
         self.tagset = tagset if tagset is not None else None
 
     def parse(self, text):
-        '''Parses the text.
+        """Parses the text.
 
         PatternParser.parse(**kwargs) can be passed to the parser instance and
         are documented in the class docstring.
 
         :param str text: A string.
-        '''
+
+        """
         # : Do not process empty strings (Issue #3)
         if text.strip() == "":
             return ""
@@ -133,7 +134,7 @@ class PatternParser(BaseParser):
             _tokenized = " ".join(self.tokenizer.tokenize(text))
         else:
             _tokenized = text
-            
+
         print(_tokenized)
 
         _parsed = pattern_parsetree(_tokenized,

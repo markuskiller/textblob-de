@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-'''Test cases for np extractors.
-'''
+"""Test cases for np extractors."""
 from __future__ import unicode_literals
 import unittest
 from nose.tools import *  # PEP8 asserts

@@ -1,13 +1,13 @@
-#!/usr/bin/env
 # -*- coding: utf-8 -*-
-'''Code imported from ``textblob-fr`` sample extension.
-
-:repo: `https://github.com/sloria/textblob-fr`_
-:source: tests/test_sentiments.py
-:version: 2013-09-18 (1a8438b5ea)
-
-:modified: July 2014 <m.killer@langui.ch>
-
+# Code adapted from the main `TextBlob`_ library.
+#
+# :repo: `https://github.com/sloria/TextBlob`_
+# :source: tests/test_sentiments.py
+# :version: 2013-09-18 (1a8438b5ea)
+#
+# :modified: 2014-08-29 <m.killer@langui.ch>
+#
+'''Test cases for sentiment analyzers.
 '''
 from __future__ import unicode_literals
 import unittest

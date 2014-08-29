@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Code adapted from ``textblob`` main package.
+# Code adapted from the main `TextBlob`_ library.
 #
 # :repo: `https://github.com/sloria/TextBlob`_
 # :source: textblob/blob.py
@@ -7,15 +7,16 @@
 #
 # :modified: 2014-08-04 <m.killer@langui.ch>
 #
-'''Wrappers for various units of text.
+"""Wrappers for various units of text.
 
 This includes the main :class:`TextBlobDE <textblob_de.blob.TextBlobDE>`,
 :class:`Word <textblob_de.blob.Word>`, and :class:`WordList <textblob_de.blob.WordList>` classes.
 
-Whenever possible, classes are inherited from ``textblob`` main package, but in many
-cases, the models for German have to be initialised here. The main reason is that if a
-word object is generated from an inherited class, it will use the English models,
-used in ``textblob`` main package.
+Whenever possible, classes are inherited from the main `TextBlob`_ library, but in many
+cases, the models for German have to be initialised here in :py:mod:`textblob_de.blob`, resulting 
+in a lot of duplicate code. The main reason being the :class:`Word <textblob_de.blob.Word>` objects. 
+If they are generated from an inherited class, they will use the English models 
+(e.g. for ``pluralize``/``singularize``) used in the main library.
 
 Example usage: ::
 
@@ -28,7 +29,8 @@ Example usage: ::
     >>> b.words
     WordList(['Einfach', 'ist', 'besser', 'als', 'kompliziert'])
 
-'''
+.. _TextBlob: http://textblob.readthedocs.org/
+"""
 from __future__ import absolute_import
 
 import json
@@ -58,16 +60,21 @@ _pluralize = pattern_de.inflect.pluralize
 
 class Word(unicode):
 
-    """A simple word representation. Includes methods for inflection,
-    translation, and WordNet integration.
+    """A simple word representation.
+
+    Includes methods for inflection, translation, and WordNet
+    integration.
+
     """
 
     translator = Translator()
 
     def __new__(cls, string, pos_tag=None):
-        """Return a new instance of the class. It is necessary to override
-        this method in order to handle the extra pos_tag argument in the
-        constructor.
+        """Return a new instance of the class.
+
+        It is necessary to override this method in order to handle the
+        extra pos_tag argument in the constructor.
+
         """
         return super(Word, cls).__new__(cls, string)
 
@@ -86,52 +93,54 @@ class Word(unicode):
         return Word(_singularize(self.string))
 
     def pluralize(self):
-        '''Return the plural version of the word as a string.'''
+        """Return the plural version of the word as a string."""
         return Word(_pluralize(self.string))
 
     def translate(self, from_lang=None, to="de"):
-        '''Translate the word to another language using Google's
-        Translate API.
+        """Translate the word to another language using Google's Translate API.
 
         .. versionadded:: 0.5.0 (``textblob``)
-        '''
+
+        """
         if from_lang is None:
             from_lang = self.translator.detect(self.string)
         return self.translator.translate(self.string,
                                          from_lang=from_lang, to_lang=to)
 
     def detect_language(self):
-        '''Detect the word's language using Google's Translate API.
+        """Detect the word's language using Google's Translate API.
 
         .. versionadded:: 0.5.0 (``textblob``)
-        '''
+
+        """
         return self.translator.detect(self.string)
 
     def spellcheck(self):
-        '''Return a list of (word, confidence) tuples of spelling corrections.
+        """Return a list of (word, confidence) tuples of spelling corrections.
 
         Based on: Peter Norvig, "How to Write a Spelling Corrector"
         (http://norvig.com/spell-correct.html) as implemented in the pattern
         library.
 
         .. versionadded:: 0.6.0 (``textblob``)
-        '''
+
+        """
         # return suggest(self.string)
         raise NotImplementedError
 
     def correct(self):
-        '''Correct the spelling of the word. Returns the word with the highest
+        """Correct the spelling of the word. Returns the word with the highest
         confidence using the spelling corrector.
 
         .. versionadded:: 0.6.0 (``textblob``)
-        '''
+
+        """
         # return Word(self.spellcheck()[0][0])
         raise NotImplementedError
 
     @cached_property
     def lemma(self):
-        """Return the lemma of this word using Wordnet's morphy function.
-        """
+        """Return the lemma of this word using Wordnet's morphy function."""
         #tag = _penn_to_wordnet(self.pos_tag) if (self.pos_tag is not None) else None
         # return self.lemmatize(pos=tag)
         raise NotImplementedError
@@ -144,6 +153,7 @@ class Word(unicode):
             ``_wordnet.NOUN``.
 
         .. versionadded:: 0.8.1 (``textblob``)
+
         """
         # if pos is None:
         #pos = _wordnet.NOUN
@@ -158,6 +168,7 @@ class Word(unicode):
         :rtype: list of Synsets
 
         .. versionadded:: 0.7.0 (``textblob``)
+
         """
         # return self.get_synsets(pos=None)
         raise NotImplementedError
@@ -168,12 +179,13 @@ class Word(unicode):
         to a synset.
 
         .. versionadded:: 0.7.0 (``textblob``)
+
         """
         # return self.define(pos=None)
         raise NotImplementedError
 
     def get_synsets(self, pos=None):
-        '''Return a list of Synset objects for this word.
+        """Return a list of Synset objects for this word.
 
         :param pos: A part-of-speech tag to filter upon. If ``None``, all
             synsets for all parts of speech will be loaded.
@@ -181,12 +193,13 @@ class Word(unicode):
         :rtype: list of Synsets
 
         .. versionadded:: 0.7.0 (``textblob``)
-        '''
+
+        """
         # return _wordnet.synsets(self.string, pos)
         raise NotImplementedError
 
     def define(self, pos=None):
-        '''Return a list of definitions for this word. Each definition
+        """Return a list of definitions for this word. Each definition
         corresponds to a synset for this word.
 
         :param pos: A part-of-speech tag to filter upon. If ``None``, definitions
@@ -194,7 +207,8 @@ class Word(unicode):
         :rtype: List of strings
 
         .. versionadded:: 0.7.0 (``textblob``)
-        '''
+
+        """
         # return [syn.definition for syn in self.get_synsets(pos=pos)]
         raise NotImplementedError
 
@@ -206,8 +220,10 @@ class WordList(list):
     """A list-like collection of words."""
 
     def __init__(self, collection):
-        """Initialize a WordList. Takes a collection of strings as
-        its only argument.
+        """Initialize a WordList.
+
+        Takes a collection of strings as its only argument.
+
         """
         self._collection = [Word(w) for w in collection]
         super(WordList, self).__init__(self._collection)
@@ -240,6 +256,7 @@ class WordList(list):
 
         :param strg: The string to count.
         :param case_sensitive: A boolean, whether or not the search is case-sensitive.
+
         """
         if not case_sensitive:
             return [word.lower() for word in self].count(strg.lower(), *args,
@@ -247,8 +264,10 @@ class WordList(list):
         return self._collection.count(strg, *args, **kwargs)
 
     def append(self, obj):
-        """Append an object to end. If the object is a string, appends a
+        """Append an object to end. If the object is a string, appends a.
+
         :class:`Word <Word>` object.
+
         """
         if isinstance(obj, basestring):
             return self._collection.append(Word(obj))
@@ -256,8 +275,11 @@ class WordList(list):
             return self._collection.append(obj)
 
     def extend(self, iterable):
-        """Extend WordList by appending elements from ``iterable``. If an element
+        """Extend WordList by appending elements from ``iterable``.
+
+        If an element
         is a string, appends a :class:`Word <Word>` object.
+
         """
         [self._collection.append(Word(e) if isinstance(e, basestring) else e)
             for e in iterable]
@@ -285,6 +307,7 @@ class WordList(list):
         Currently using NLTKPunktTokenizer() for all lemmatization
         tasks. This might cause slightly different tokenization results
         compared to the TextBlob.words property.
+
         """
         _lemmatizer = PatternParserLemmatizer(tokenizer=NLTKPunktTokenizer())
         # WordList object --> Sentence.string
@@ -358,12 +381,13 @@ class BaseBlob(_BaseBlob):
 
     @cached_property
     def words(self):
-        '''Return a list of word tokens. This excludes punctuation characters.
+        """Return a list of word tokens. This excludes punctuation characters.
         If you want to include punctuation characters, access the ``tokens``
         property.
 
         :returns: A :class:`WordList <WordList>` of word tokens.
-        '''
+
+        """
         return WordList(
             word_tokenize(
                 self.raw,
@@ -378,11 +402,12 @@ class BaseBlob(_BaseBlob):
         return WordList(self.tokenizer.tokenize(self.raw))
 
     def tokenize(self, tokenizer=None):
-        '''Return a list of tokens, using ``tokenizer``.
+        """Return a list of tokens, using ``tokenizer``.
 
         :param tokenizer: (optional) A tokenizer object. If None, defaults to
             this blob's default tokenizer.
-        '''
+
+        """
         t = tokenizer if tokenizer is not None else self.tokenizer
         return WordList(t.tokenize(self.raw))
 
@@ -416,14 +441,14 @@ class BaseBlob(_BaseBlob):
 
     @cached_property
     def noun_phrases(self):
-        '''Returns a list of noun phrases for this blob.'''
+        """Returns a list of noun phrases for this blob."""
         return WordList([phrase.strip()
                          for phrase in self.np_extractor.extract(self.raw)
                          if len(phrase.split()) > 1])
 
     @cached_property
     def pos_tags(self):
-        '''Returns an list of tuples of the form (word, POS tag).
+        """Returns an list of tuples of the form (word, POS tag).
 
         Example:
         ::
@@ -432,7 +457,8 @@ class BaseBlob(_BaseBlob):
                     ('Thursday', 'NNP'), ('morning', 'NN')]
 
         :rtype: list of tuples
-        '''
+
+        """
         return [(Word(word, pos_tag=t), unicode(t))
                 for word, t in self.pos_tagger.tag(self.raw)
                 # new keyword PatternTagger(include_punc=False)
@@ -443,8 +469,7 @@ class BaseBlob(_BaseBlob):
 
     @cached_property
     def word_counts(self):
-        '''Dictionary of word frequencies in this text.
-        '''
+        """Dictionary of word frequencies in this text."""
         counts = defaultdict(int)
         stripped_words = [lowerstrip(word) for word in self.words]
         for word in stripped_words:
@@ -453,16 +478,14 @@ class BaseBlob(_BaseBlob):
 
     @cached_property
     def np_counts(self):
-        '''Dictionary of noun phrase frequencies in this text.
-        '''
+        """Dictionary of noun phrase frequencies in this text."""
         counts = defaultdict(int)
         for phrase in self.noun_phrases:
             counts[phrase] += 1
         return counts
 
     def translate(self, from_lang=None, to="de"):
-        """Translate the blob to another language.
-        """
+        """Translate the blob to another language."""
         if from_lang is None:
             from_lang = self.translator.detect(self.string)
         return self.__class__(
@@ -477,6 +500,7 @@ class BaseBlob(_BaseBlob):
         .. versionadded:: 0.6.0 (``textblob``)
 
         :rtype: :class:`BaseBlob <BaseBlob>`
+
         """
         # regex matches: contraction or word or punctuation or whitespace
         #tokens = nltk.tokenize.regexp_tokenize(self.raw, "\w*('\w*)+|\w+|[^\w\s]|\s")
@@ -487,8 +511,7 @@ class BaseBlob(_BaseBlob):
 
     def _cmpkey(self):
         """Key used by ComparableMixin to implement all rich comparison
-        operators.
-        """
+        operators."""
         return self.raw
 
     def _strkey(self):
@@ -499,12 +522,13 @@ class BaseBlob(_BaseBlob):
         return hash(self._cmpkey())
 
     def __add__(self, other):
-        '''Concatenates two text objects the same way Python strings are
+        """Concatenates two text objects the same way Python strings are
         concatenated.
 
         Arguments:
         - `other`: a string or a text object
-        '''
+
+        """
         if isinstance(other, basestring):
             return self.__class__(self.raw + other)
         elif isinstance(other, BaseBlob):
@@ -575,7 +599,7 @@ class Sentence(BaseBlob):
 
     @property
     def dict(self):
-        '''The dict representation of this sentence.'''
+        """The dict representation of this sentence."""
         return {
             'raw': self.raw,
             'start_index': self.start_index,
@@ -616,6 +640,7 @@ class TextBlobDE(BaseBlob):
         property.
 
         :returns: A :class:`WordList <WordList>` of word tokens.
+
         """
         return WordList(
             word_tokenize(self.raw, self.tokenizer, include_punc=False))
@@ -676,26 +701,27 @@ class TextBlobDE(BaseBlob):
         return [sentence.dict for sentence in self.sentences]
 
     def to_json(self, *args, **kwargs):
-        '''Return a json representation (str) of this blob.
-        Takes the same arguments as json.dumps.
+        """Return a json representation (str) of this blob. Takes the same
+        arguments as json.dumps.
 
         .. versionadded:: 0.5.1 (``textblob``)
-        '''
+
+        """
         return json.dumps(self.serialized, *args, **kwargs)
 
     @property
     def json(self):
-        '''The json representation of this blob.
+        """The json representation of this blob.
 
         .. versionchanged:: 0.5.1
             Made ``json`` a property instead of a method to restore backwards
             compatibility that was broken after version 0.4.0.
-        '''
+
+        """
         return self.to_json()
 
     def _create_sentence_objects(self):
-        '''Returns a list of Sentence objects from the raw text.
-        '''
+        """Returns a list of Sentence objects from the raw text."""
         sentence_objects = []
         sentences = sent_tokenize(self.raw, tokenizer=self.tokenizer)
         char_index = 0  # Keeps track of character index within the blob
@@ -730,8 +756,8 @@ class TextBlobDE(BaseBlob):
 
 class BlobberDE(object):
 
-    '''A factory for TextBlobs that all share the same tagger,
-    tokenizer, parser, classifier, and np_extractor.
+    """A factory for TextBlobs that all share the same tagger, tokenizer,
+    parser, classifier, and np_extractor.
 
     Usage:
 
@@ -757,7 +783,8 @@ class BlobberDE(object):
     :param classifier: (optional) A classifier.
 
     .. versionadded:: 0.4.0 (``textblob``)
-    '''
+
+    """
 
     def __init__(self,
                  tokenizer=None,
@@ -788,11 +815,12 @@ class BlobberDE(object):
             self.classifier)
 
     def __call__(self, text):
-        '''Return a new TextBlob object with this Blobber's ``np_extractor``,
+        """Return a new TextBlob object with this Blobber's ``np_extractor``,
         ``pos_tagger``, ``tokenizer``, ``analyzer``, and ``classifier``.
 
         :returns: A new :class:`TextBlob <TextBlob>`.
-        '''
+
+        """
         return TextBlobDE(
             text,
             tokenizer=self.tokenizer,

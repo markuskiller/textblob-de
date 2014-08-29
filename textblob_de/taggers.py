@@ -8,14 +8,15 @@
 #
 # :modified: 2014-08-04 <m.killer@langui.ch>
 #
-'''Default taggers for German.
+"""Default taggers for German.
 
 >>> from textblob_de.taggers import PatternTagger
 
 or
 
 >>> from textblob_de import PatternTagger
-'''
+
+"""
 
 from __future__ import absolute_import
 import string
@@ -49,12 +50,13 @@ class PatternTagger(BaseTagger):
         self.include_punc = include_punc
 
     def tag(self, sentence, tokenize=True):
-        '''Tag a string `sentence`.
+        """Tag a string `sentence`.
 
         :param str or list sentence: A string or a list of sentence strings.
         :param tokenize: (optional) If ``False`` string has to be tokenized before
             (space separated string).
-        '''
+
+        """
         # : Do not process empty strings (Issue #3)
         if sentence.strip() == "":
             return []

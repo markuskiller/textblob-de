@@ -1,19 +1,27 @@
-===========
-textblob-de
-===========
+==================
+textblob-de README
+==================
 
-.. image:: https://badge.fury.io/py/textblob-de.png
-    :target: http://badge.fury.io/py/textblob-de
-    :alt: Latest version
+
+.. image:: https://pypip.in/v/textblob-de/badge.png
+    :target: https://pypi.python.org/pypi/textblob-de/
+    :alt: textblob_de - latest PyPI version
 
 .. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=dev
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
 
+.. image:: https://pypip.in/d/textblob-de/badge.png
+    :target: https://pypi.python.org/pypi/textblob-de/
+    :alt: Number of PyPI downloads
+
 .. image:: https://badge.waffle.io/markuskiller/textblob-de.png?label=In%20Progress&title=In%20Progress
-     :target: https://waffle.io/markuskiller/textblob-de
-     :alt: Issues in In Progress
-     
+    :target: https://waffle.io/markuskiller/textblob-de
+    :alt: Issues in In Progress
+
+.. image:: https://pypip.in/license/textblob-de/badge.png
+    :target: https://pypi.python.org/pypi/textblob-de/
+    :alt: LICENSE info
 
 German language support for `TextBlob <https://textblob.readthedocs.org/>`_ by Steven Loria.
 
@@ -122,7 +130,7 @@ Usage
     forms and there are no subjectivity scores yet. As of version 0.2.3, lemmatized
     word forms are submitted to the ``PatternAnalyzer``, increasing the accuracy
     of polarity values. New in version 0.2.7: return type of ``.sentiment`` is now
-    adapted to ``textblob`` main package (``:rtype: namedtuple``).
+    adapted to the main `TextBlob <http://textblob.readthedocs.org/en/dev/>`_ library (``:rtype: namedtuple``).
 
 
 .. code-block:: python
@@ -178,7 +186,7 @@ TODO
 - Improve noun phrase extraction (e.g. based on ``RFTagger`` output)
 - Improve sentiment analysis (find suitable subjectivity scores)
 - Improve functionality of ``Sentence()`` and ``Word()`` objects
-- Adapt more tests from ``textblob`` main package (esp. for ``TextBlobDE()`` in ``test_blob.py``)
+- Adapt more tests from the main `TextBlob <http://textblob.readthedocs.org/en/dev/>`_ library (esp. for ``TextBlobDE()`` in ``test_blob.py``)
 
 
 License
@@ -195,3 +203,4 @@ Coded with Wing IDE 5.0 (free open source developer license)
 .. image:: https://wingware.com/images/wingware-logo-180x58.png
     :target: https://wingware.com/store/free
     :alt: Python IDE for Python - wingware.com
+

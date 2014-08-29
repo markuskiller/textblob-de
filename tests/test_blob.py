@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-#
-# Code imported from ``textblob`` main package.
+# Code imported from the main `TextBlob`_ library.
 #
 # :repo: `https://github.com/sloria/TextBlob`_
 # :source: tests/test_blob.py
@@ -8,8 +7,7 @@
 #
 # :modified: 2014-08-03 <m.killer@langui.ch>
 #
-'''Tests for the text processor
-'''
+"""Tests for the text processor."""
 from __future__ import unicode_literals
 
 import functools
@@ -36,11 +34,12 @@ import textblob.wordnet as wn
 
 
 def expected_failure(test):
-    '''Decorator for expected failures in nose tests.
+    """Decorator for expected failures in nose tests.
 
     Source [accessed: 21/07/2014]:
     http://stackoverflow.com/questions/9613932/nose-plugin-for-expected-failures
-    '''
+
+    """
     @functools.wraps(test)
     def inner(*args, **kwargs):
         try:
@@ -968,7 +967,8 @@ class WordTest(TestCase):
 
     @attr('requires_internet')
     def test_translate_without_from_lang(self):
-        valid_translations = (tb.Word('Hallo'), tb.Word('Hallo zusammen'))
+        valid_translations = (tb.Word('Hallo'), tb.Word('hallo'),
+                              tb.Word('Hallo zusammen'))
         assert_true(tb.Word('Hello').translate() in valid_translations)
 
     @attr('requires_internet')
