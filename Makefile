@@ -68,7 +68,7 @@ help:
 	@echo "P='path/to/python' specify python executable (optional)"
 	@echo ""
 
-clean: clean-build clean-docs clean-pyc clean-test clean-logs
+clean: clean-build clean-pyc clean-test clean-logs
 	find . -name '.DS_Store' -exec rm -f {} +
 
 clean-build:
@@ -142,7 +142,7 @@ coverage: prepare_tests
 	$(O) ./htmlcov/index.html &
 
 
-docs: clean-docs prepare_dev develop
+docs: clean clean-docs prepare_dev develop
 	$(P) prepare_docs.py
 	#sphinx-apidoc -P -f -o docs/src/apidoc $(N) # use api_reference.rst
 	make -C ./docs/src html
