@@ -17,7 +17,9 @@ import sys, os
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 docs_dir = os.path.dirname(__file__)
-sys.path.insert(1, os.path.abspath(os.path.join(docs_dir, '..')))
+package_dir = os.path.abspath(os.path.join(docs_dir, '..'))
+print(package_dir)
+sys.path.insert(1, package_dir)
 import textblob_de
 sys.path.pop(1)
 sys.path.append(os.path.abspath("_themes"))
