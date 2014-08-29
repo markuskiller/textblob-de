@@ -7,7 +7,7 @@ textblob-de README
     :target: https://pypi.python.org/pypi/textblob-de/
     :alt: textblob_de - latest PyPI version
 
-.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=dev
+.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=master
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
     
@@ -27,7 +27,7 @@ textblob-de README
     :target: http://choosealicense.com/licenses/mit/
     :alt: LICENSE info
 
-German language support for `TextBlob <https://textblob.readthedocs.org/>`_ by Steven Loria.
+German language support for `TextBlob <http://textblob.readthedocs.org/en/dev/>`_ by Steven Loria.
 
 This python package is being developed as a ``TextBlob`` **Language Extension**.
 See `Extension Guidelines <https://textblob.readthedocs.org/en/dev/contributing.html>`_ for details.
@@ -47,7 +47,7 @@ Features
 * Polarity detection (``PatternAnalyzer``) - Still **EXPERIMENTAL**, does not yet have information on subjectivity
 * **NEW:** Full ``pattern.text.de`` API support on Python3
 * Supports Python 2 and 3
-* See `working features overview <http://langui.ch/nlp/python/textblob-de-dev/>`_ for details
+* See `working features overview <http://langui.ch/nlp/python/textblob-de/>`_ for details
 
 
 Installing/Upgrading
@@ -175,7 +175,7 @@ Access to ``pattern`` API in Python3
 Documentation and API Reference
 -------------------------------
 
-* http://textblob-de.readthedocs.org/en/latest
+- http://textblob-de.readthedocs.org/en/latest
 
 
 Requirements

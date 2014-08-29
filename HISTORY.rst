@@ -1,7 +1,7 @@
 Changelog
 ---------
 
-0.3.1 (unreleased)
+0.3.1 (29/08/2014)
 ++++++++++++++++++
 
 * Improved ``PatternParserNPExtractor`` (less false positives in verb filter)
