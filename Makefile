@@ -1,4 +1,4 @@
-.PHONY: clean-pyc clean-build docs
+.PHONY: clean-pyc clean-build clean-docs docs docs-pdf
 
 # You can set these variables from the command line.
 
@@ -130,7 +130,7 @@ lint: prepare_tests autopep8
 	flake8
 
 test: prepare_tests develop
-	py.test --ignore="$(N)/ext" .
+	$(P) run_tests.py
 
 test-all: prepare_tests
 	tox
