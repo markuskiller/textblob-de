@@ -16,6 +16,7 @@ Contributors
 ------------
 
 * Hocdoc (Issues #1 - #5)
+* ups1974 (Issue #7)
 
 .. _TextBlob: https://textblob.readthedocs.org/
 .. _textblob-de: https://github.com/markuskiller/textblob-de
