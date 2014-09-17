@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; textblob-de 0.3.2a1 documentation</title>
+  <title>API Reference &mdash; textblob-de 0.4.0 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   
 
   
-    <link rel="top" title="textblob-de 0.3.2a1 documentation" href="index.html"/>
+    <link rel="top" title="textblob-de 0.4.0 documentation" href="index.html"/>
         <link rel="next" title="Changelog" href="changelog.html"/>
         <link rel="prev" title="Extensions" href="extensions.html"/> 
 
@@ -90,20 +90,20 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#unreleased">0.3.2 (unreleased)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.3.1 (29/08/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.3.0 (14/08/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.2.9 (14/08/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.2.8 (14/08/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.2.7 (13/08/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.2.6 (04/08/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.2.5 (04/08/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.2.3 (26/07/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.2.2 (22/07/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id11">0.2.1 (20/07/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id12">0.2.0 (18/07/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id13">0.1.3 (09/07/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id14">0.1.0 - 0.1.2 (09/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.4.0 (17/09/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.3.1 (29/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.3.0 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.2.9 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.2.8 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.2.7 (13/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.2.6 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.2.5 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.2.3 (26/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id11">0.2.2 (22/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id12">0.2.1 (20/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id13">0.2.0 (18/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id14">0.1.3 (09/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id15">0.1.0 - 0.1.2 (09/07/2014)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
@@ -316,6 +316,14 @@ in the iterable.</p>
 <tt class="descname">ngrams</tt><big>(</big><em>n=3</em><big>)</big><a class="headerlink" href="#textblob_de.blob.BaseBlob.ngrams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of n-grams (tuples of n successive words) for this
 blob.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List of <a class="reference internal" href="#textblob_de.blob.WordList" title="textblob_de.blob.WordList"><tt class="xref py py-class docutils literal"><span class="pre">WordLists</span></tt></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -736,6 +744,14 @@ in the iterable.</p>
 <tt class="descname">ngrams</tt><big>(</big><em>n=3</em><big>)</big><a class="headerlink" href="#textblob_de.blob.Sentence.ngrams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of n-grams (tuples of n successive words) for this
 blob.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List of <a class="reference internal" href="#textblob_de.blob.WordList" title="textblob_de.blob.WordList"><tt class="xref py py-class docutils literal"><span class="pre">WordLists</span></tt></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -1123,6 +1139,14 @@ compatibility that was broken after version 0.4.0.</p>
 <tt class="descname">ngrams</tt><big>(</big><em>n=3</em><big>)</big><a class="headerlink" href="#textblob_de.blob.TextBlobDE.ngrams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of n-grams (tuples of n successive words) for this
 blob.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List of <a class="reference internal" href="#textblob_de.blob.WordList" title="textblob_de.blob.WordList"><tt class="xref py py-class docutils literal"><span class="pre">WordLists</span></tt></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -1395,21 +1419,15 @@ property.</p>
 integration.</p>
 <dl class="method">
 <dt id="textblob_de.blob.Word.capitalize">
-<tt class="descname">capitalize</tt><big>(</big><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.capitalize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">capitalize</tt><big>(</big><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.capitalize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a capitalized version of S, i.e. make the first character
 have upper case and the rest lower case.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="textblob_de.blob.Word.casefold">
-<tt class="descname">casefold</tt><big>(</big><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.casefold" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a version of S suitable for caseless comparisons.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="textblob_de.blob.Word.center">
-<tt class="descname">center</tt><big>(</big><em>width</em><span class="optional">[</span>, <em>fillchar</em><span class="optional">]</span><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.center" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return S centered in a string of length width. Padding is
+<tt class="descname">center</tt><big>(</big><em>width</em><span class="optional">[</span>, <em>fillchar</em><span class="optional">]</span><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return S centered in a Unicode string of length width. Padding is
 done using the specified fill character (default is a space)</p>
 </dd></dl>
 
@@ -1427,8 +1445,19 @@ confidence using the spelling corrector.</p>
 <dt id="textblob_de.blob.Word.count">
 <tt class="descname">count</tt><big>(</big><em>sub</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><big>)</big> &rarr; int<a class="headerlink" href="#textblob_de.blob.Word.count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the number of non-overlapping occurrences of substring sub in
-string S[start:end].  Optional arguments start and end are
+Unicode string S[start:end].  Optional arguments start and end are
 interpreted as in slice notation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="textblob_de.blob.Word.decode">
+<tt class="descname">decode</tt><big>(</big><span class="optional">[</span><em>encoding</em><span class="optional">[</span>, <em>errors</em><span class="optional">]</span><span class="optional">]</span><big>)</big> &rarr; string or unicode<a class="headerlink" href="#textblob_de.blob.Word.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes S using the codec registered for encoding. encoding defaults
+to the default encoding. errors may be given to set a different error
+handling scheme. Default is &#8216;strict&#8217; meaning that encoding errors raise
+a UnicodeDecodeError. Other possible values are &#8216;ignore&#8217; and &#8216;replace&#8217;
+as well as any other name registered with codecs.register_error that is
+able to handle UnicodeDecodeErrors.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1473,9 +1502,9 @@ to a synset.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.encode">
-<tt class="descname">encode</tt><big>(</big><em>encoding='utf-8'</em>, <em>errors='strict'</em><big>)</big> &rarr; bytes<a class="headerlink" href="#textblob_de.blob.Word.encode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encode S using the codec registered for encoding. Default encoding
-is &#8216;utf-8&#8217;. errors may be given to set a different error
+<tt class="descname">encode</tt><big>(</big><span class="optional">[</span><em>encoding</em><span class="optional">[</span>, <em>errors</em><span class="optional">]</span><span class="optional">]</span><big>)</big> &rarr; string or unicode<a class="headerlink" href="#textblob_de.blob.Word.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encodes S using the codec registered for encoding. encoding defaults
+to the default encoding. errors may be given to set a different error
 handling scheme. Default is &#8216;strict&#8217; meaning that encoding errors raise
 a UnicodeEncodeError. Other possible values are &#8216;ignore&#8217;, &#8216;replace&#8217; and
 &#8216;xmlcharrefreplace&#8217; as well as any other name registered with
@@ -1493,7 +1522,7 @@ suffix can also be a tuple of strings to try.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.expandtabs">
-<tt class="descname">expandtabs</tt><big>(</big><em>tabsize=8</em><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.expandtabs" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">expandtabs</tt><big>(</big><span class="optional">[</span><em>tabsize</em><span class="optional">]</span><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.expandtabs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a copy of S where all tab characters are expanded using spaces.
 If tabsize is not given, a tab size of 8 characters is assumed.</p>
 </dd></dl>
@@ -1509,15 +1538,8 @@ arguments start and end are interpreted as in slice notation.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.format">
-<tt class="descname">format</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.format" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">format</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a formatted version of S, using substitutions from args and kwargs.
-The substitutions are identified by braces (&#8216;{&#8216; and &#8216;}&#8217;).</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="textblob_de.blob.Word.format_map">
-<tt class="descname">format_map</tt><big>(</big><em>mapping</em><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.format_map" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a formatted version of S, using substitutions from mapping.
 The substitutions are identified by braces (&#8216;{&#8216; and &#8216;}&#8217;).</p>
 </dd></dl>
 
@@ -1576,15 +1598,6 @@ and there is at least one character in S, False otherwise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="textblob_de.blob.Word.isidentifier">
-<tt class="descname">isidentifier</tt><big>(</big><big>)</big> &rarr; bool<a class="headerlink" href="#textblob_de.blob.Word.isidentifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if S is a valid identifier according
-to the language definition.</p>
-<p>Use keyword.iskeyword() to test for reserved identifiers
-such as &#8220;def&#8221; and &#8220;class&#8221;.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="textblob_de.blob.Word.islower">
 <tt class="descname">islower</tt><big>(</big><big>)</big> &rarr; bool<a class="headerlink" href="#textblob_de.blob.Word.islower" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return True if all cased characters in S are lowercase and there is
@@ -1596,13 +1609,6 @@ at least one cased character in S, False otherwise.</p>
 <tt class="descname">isnumeric</tt><big>(</big><big>)</big> &rarr; bool<a class="headerlink" href="#textblob_de.blob.Word.isnumeric" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return True if there are only numeric characters in S,
 False otherwise.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="textblob_de.blob.Word.isprintable">
-<tt class="descname">isprintable</tt><big>(</big><big>)</big> &rarr; bool<a class="headerlink" href="#textblob_de.blob.Word.isprintable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if all characters in S are considered
-printable in repr() or S is empty, False otherwise.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1630,7 +1636,7 @@ at least one cased character in S, False otherwise.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.join">
-<tt class="descname">join</tt><big>(</big><em>iterable</em><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.join" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">join</tt><big>(</big><em>iterable</em><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.join" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a string which is the concatenation of the strings in the
 iterable.  The separator between elements is S.</p>
 </dd></dl>
@@ -1643,7 +1649,7 @@ iterable.  The separator between elements is S.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.lemmatize">
-<tt class="descname">lemmatize</tt><big>(</big><em>pos=None</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#Word.lemmatize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word.lemmatize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">lemmatize</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob_de/blob.html#Word.lemmatize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.blob.Word.lemmatize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the lemma for a word using WordNet&#8217;s morphy function.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1661,35 +1667,23 @@ iterable.  The separator between elements is S.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.ljust">
-<tt class="descname">ljust</tt><big>(</big><em>width</em><span class="optional">[</span>, <em>fillchar</em><span class="optional">]</span><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.ljust" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ljust</tt><big>(</big><em>width</em><span class="optional">[</span>, <em>fillchar</em><span class="optional">]</span><big>)</big> &rarr; int<a class="headerlink" href="#textblob_de.blob.Word.ljust" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return S left-justified in a Unicode string of length width. Padding is
 done using the specified fill character (default is a space).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.lower">
-<tt class="descname">lower</tt><big>(</big><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.lower" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">lower</tt><big>(</big><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.lower" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a copy of the string S converted to lowercase.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.lstrip">
-<tt class="descname">lstrip</tt><big>(</big><span class="optional">[</span><em>chars</em><span class="optional">]</span><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.lstrip" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">lstrip</tt><big>(</big><span class="optional">[</span><em>chars</em><span class="optional">]</span><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.lstrip" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a copy of the string S with leading whitespace removed.
-If chars is given and not None, remove characters in chars instead.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="textblob_de.blob.Word.maketrans">
-<tt class="descname">maketrans</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob_de.blob.Word.maketrans" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a translation table usable for str.translate().</p>
-<p>If there is only one argument, it must be a dictionary mapping Unicode
-ordinals (integers) or characters to Unicode ordinals, strings or None.
-Character keys will be then converted to ordinals.
-If there are two arguments, they must be strings of equal length, and
-in the resulting dictionary, each character in x will be mapped to the
-character at the same position in y. If there is a third argument, it
-must be a string, whose characters will be mapped to None in the result.</p>
+If chars is given and not None, remove characters in chars instead.
+If chars is a str, it will be converted to unicode before stripping</p>
 </dd></dl>
 
 <dl class="method">
@@ -1708,7 +1702,7 @@ found, return S and two empty strings.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.replace">
-<tt class="descname">replace</tt><big>(</big><em>old</em>, <em>new</em><span class="optional">[</span>, <em>count</em><span class="optional">]</span><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.replace" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">replace</tt><big>(</big><em>old</em>, <em>new</em><span class="optional">[</span>, <em>count</em><span class="optional">]</span><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.replace" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a copy of S with all occurrences of substring
 old replaced by new.  If the optional argument count is
 given, only the first count occurrences are replaced.</p>
@@ -1731,8 +1725,8 @@ arguments start and end are interpreted as in slice notation.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.rjust">
-<tt class="descname">rjust</tt><big>(</big><em>width</em><span class="optional">[</span>, <em>fillchar</em><span class="optional">]</span><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.rjust" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return S right-justified in a string of length width. Padding is
+<tt class="descname">rjust</tt><big>(</big><em>width</em><span class="optional">[</span>, <em>fillchar</em><span class="optional">]</span><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.rjust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return S right-justified in a Unicode string of length width. Padding is
 done using the specified fill character (default is a space).</p>
 </dd></dl>
 
@@ -1746,7 +1740,7 @@ separator is not found, return two empty strings and S.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.rsplit">
-<tt class="descname">rsplit</tt><big>(</big><em>sep=None</em>, <em>maxsplit=-1</em><big>)</big> &rarr; list of strings<a class="headerlink" href="#textblob_de.blob.Word.rsplit" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">rsplit</tt><big>(</big><span class="optional">[</span><em>sep</em><span class="optional">[</span>, <em>maxsplit</em><span class="optional">]</span><span class="optional">]</span><big>)</big> &rarr; list of strings<a class="headerlink" href="#textblob_de.blob.Word.rsplit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of the words in S, using sep as the
 delimiter string, starting at the end of the string and
 working to the front.  If maxsplit is given, at most maxsplit
@@ -1756,9 +1750,10 @@ is a separator.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.rstrip">
-<tt class="descname">rstrip</tt><big>(</big><span class="optional">[</span><em>chars</em><span class="optional">]</span><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.rstrip" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">rstrip</tt><big>(</big><span class="optional">[</span><em>chars</em><span class="optional">]</span><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.rstrip" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a copy of the string S with trailing whitespace removed.
-If chars is given and not None, remove characters in chars instead.</p>
+If chars is given and not None, remove characters in chars instead.
+If chars is a str, it will be converted to unicode before stripping</p>
 </dd></dl>
 
 <dl class="method">
@@ -1781,7 +1776,7 @@ library.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.split">
-<tt class="descname">split</tt><big>(</big><em>sep=None</em>, <em>maxsplit=-1</em><big>)</big> &rarr; list of strings<a class="headerlink" href="#textblob_de.blob.Word.split" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">split</tt><big>(</big><span class="optional">[</span><em>sep</em><span class="optional">[</span>, <em>maxsplit</em><span class="optional">]</span><span class="optional">]</span><big>)</big> &rarr; list of strings<a class="headerlink" href="#textblob_de.blob.Word.split" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of the words in S, using sep as the
 delimiter string.  If maxsplit is given, at most maxsplit
 splits are done. If sep is not specified or is None, any
@@ -1791,7 +1786,7 @@ removed from the result.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.splitlines">
-<tt class="descname">splitlines</tt><big>(</big><span class="optional">[</span><em>keepends</em><span class="optional">]</span><big>)</big> &rarr; list of strings<a class="headerlink" href="#textblob_de.blob.Word.splitlines" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">splitlines</tt><big>(</big><em>keepends=False</em><big>)</big> &rarr; list of strings<a class="headerlink" href="#textblob_de.blob.Word.splitlines" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of the lines in S, breaking at line boundaries.
 Line breaks are not included in the resulting list unless keepends
 is given and true.</p>
@@ -1808,15 +1803,16 @@ prefix can also be a tuple of strings to try.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.strip">
-<tt class="descname">strip</tt><big>(</big><span class="optional">[</span><em>chars</em><span class="optional">]</span><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.strip" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">strip</tt><big>(</big><span class="optional">[</span><em>chars</em><span class="optional">]</span><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.strip" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a copy of the string S with leading and trailing
 whitespace removed.
-If chars is given and not None, remove characters in chars instead.</p>
+If chars is given and not None, remove characters in chars instead.
+If chars is a str, it will be converted to unicode before stripping</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.swapcase">
-<tt class="descname">swapcase</tt><big>(</big><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.swapcase" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">swapcase</tt><big>(</big><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.swapcase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a copy of S with uppercase characters converted to lowercase
 and vice versa.</p>
 </dd></dl>
@@ -1840,7 +1836,7 @@ and vice versa.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.title">
-<tt class="descname">title</tt><big>(</big><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.title" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">title</tt><big>(</big><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.title" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a titlecased version of S, i.e. words start with title case
 characters, all remaining cased characters have lower case.</p>
 </dd></dl>
@@ -1856,13 +1852,13 @@ characters, all remaining cased characters have lower case.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.upper">
-<tt class="descname">upper</tt><big>(</big><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.upper" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">upper</tt><big>(</big><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.upper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a copy of S converted to uppercase.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="textblob_de.blob.Word.zfill">
-<tt class="descname">zfill</tt><big>(</big><em>width</em><big>)</big> &rarr; str<a class="headerlink" href="#textblob_de.blob.Word.zfill" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">zfill</tt><big>(</big><em>width</em><big>)</big> &rarr; unicode<a class="headerlink" href="#textblob_de.blob.Word.zfill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pad a numeric string S with zeros on the left, to fill a field
 of the specified width. The string S is never truncated.</p>
 </dd></dl>
@@ -1879,16 +1875,6 @@ of the specified width. The string S is never truncated.</p>
 <dd><p>Append an object to end. If the object is a string, appends a.</p>
 <p><a class="reference internal" href="#textblob_de.blob.Word" title="textblob_de.blob.Word"><tt class="xref py py-class docutils literal"><span class="pre">Word</span></tt></a> object.</p>
 </dd></dl>
-
-<dl class="method">
-<dt id="textblob_de.blob.WordList.clear">
-<tt class="descname">clear</tt><big>(</big><big>)</big> &rarr; None -- remove all items from L<a class="headerlink" href="#textblob_de.blob.WordList.clear" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="textblob_de.blob.WordList.copy">
-<tt class="descname">copy</tt><big>(</big><big>)</big> &rarr; list -- a shallow copy of L<a class="headerlink" href="#textblob_de.blob.WordList.copy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="method">
 <dt id="textblob_de.blob.WordList.count">
@@ -1957,8 +1943,9 @@ compared to the TextBlob.words property.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.WordList.remove">
-<tt class="descname">remove</tt><big>(</big><em>value</em><big>)</big> &rarr; None -- remove first occurrence of value.<a class="headerlink" href="#textblob_de.blob.WordList.remove" title="Permalink to this definition">¶</a></dt>
-<dd><p>Raises ValueError if the value is not present.</p>
+<tt class="descname">remove</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob_de.blob.WordList.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>L.remove(value) &#8211; remove first occurrence of value.
+Raises ValueError if the value is not present.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1975,8 +1962,10 @@ compared to the TextBlob.words property.</p>
 
 <dl class="method">
 <dt id="textblob_de.blob.WordList.sort">
-<tt class="descname">sort</tt><big>(</big><em>key=None</em>, <em>reverse=False</em><big>)</big> &rarr; None -- stable sort *IN PLACE*<a class="headerlink" href="#textblob_de.blob.WordList.sort" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descname">sort</tt><big>(</big><big>)</big><a class="headerlink" href="#textblob_de.blob.WordList.sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>L.sort(cmp=None, key=None, reverse=False) &#8211; stable sort <em>IN PLACE</em>;
+cmp(x, y) -&gt; -1, 0, 1</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="textblob_de.blob.WordList.upper">
@@ -2044,7 +2033,7 @@ a WordList of Word object with updated lemma properties.</p>
 
 <dl class="method">
 <dt id="textblob_de.tokenizers.NLTKPunktTokenizer.sent_tokenize">
-<tt class="descname">sent_tokenize</tt><big>(</big><em>text</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#NLTKPunktTokenizer.sent_tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.NLTKPunktTokenizer.sent_tokenize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">sent_tokenize</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#NLTKPunktTokenizer.sent_tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.NLTKPunktTokenizer.sent_tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>NLTK&#8217;s sentence tokenizer (currently PunktSentenceTokenizer).</p>
 <p>Uses an unsupervised algorithm to build a model for abbreviation
 words, collocations, and words that start sentences, then uses
@@ -2521,7 +2510,7 @@ methods.</p>
 </div>
 <dl class="class">
 <dt id="textblob.classifiers.BaseClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">BaseClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000066B28C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#BaseClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.BaseClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">BaseClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x2b5aa56c7230&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#BaseClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.BaseClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract classifier class from which all classifers inherit. At a
 minimum, descendant classes must implement a <tt class="docutils literal"><span class="pre">classify</span></tt> method and have
 a <tt class="docutils literal"><span class="pre">classifier</span></tt> property.</p>
@@ -2531,13 +2520,17 @@ a <tt class="docutils literal"><span class="pre">classifier</span></tt> property
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>train_set</strong> &#8211; The training set, either a list of tuples of the form
-<tt class="docutils literal"><span class="pre">(text,</span> <span class="pre">classification)</span></tt> or a filename. <tt class="docutils literal"><span class="pre">text</span></tt> may be either
+<tt class="docutils literal"><span class="pre">(text,</span> <span class="pre">classification)</span></tt> or a file-like object. <tt class="docutils literal"><span class="pre">text</span></tt> may be either
 a string or an iterable.</li>
-<li><strong>feature_extractor</strong> (<em>function</em>) &#8211; A feature extractor function that takes one or
+<li><strong>feature_extractor</strong> (<em>callable</em>) &#8211; A feature extractor function that takes one or
 two arguments: <tt class="docutils literal"><span class="pre">document</span></tt> and <tt class="docutils literal"><span class="pre">train_set</span></tt>.</li>
 <li><strong>format</strong> (<em>str</em>) &#8211; If <tt class="docutils literal"><span class="pre">train_set</span></tt> is a filename, the file format, e.g.
 <tt class="docutils literal"><span class="pre">&quot;csv&quot;</span></tt> or <tt class="docutils literal"><span class="pre">&quot;json&quot;</span></tt>. If <tt class="docutils literal"><span class="pre">None</span></tt>, will attempt to detect the
 file format.</li>
+<li><strong>kwargs</strong> &#8211; Additional keyword arguments are passed to the constructor
+of the <a class="reference internal" href="#textblob.formats.BaseFormat" title="textblob.formats.BaseFormat"><tt class="xref py py-class docutils literal"><span class="pre">Format</span></tt></a> class used to
+read the data. Only applies when a file-like object is passed as
+<tt class="docutils literal"><span class="pre">train_set</span></tt>.</li>
 </ul>
 </td>
 </tr>
@@ -2588,7 +2581,7 @@ file format.</li>
 
 <dl class="class">
 <dt id="textblob.classifiers.DecisionTreeClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">DecisionTreeClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000066B28C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#DecisionTreeClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.DecisionTreeClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">DecisionTreeClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x2b5aa56c7230&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#DecisionTreeClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.DecisionTreeClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A classifier based on the decision tree algorithm, as implemented in
 NLTK.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2622,7 +2615,7 @@ file format.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>test_set</strong> &#8211; A list of tuples of the form <tt class="docutils literal"><span class="pre">(text,</span> <span class="pre">label)</span></tt>, or a
-filename.</li>
+file pointer.</li>
 <li><strong>format</strong> &#8211; If <tt class="docutils literal"><span class="pre">test_set</span></tt> is a filename, the file format, e.g.
 <tt class="docutils literal"><span class="pre">&quot;csv&quot;</span></tt> or <tt class="docutils literal"><span class="pre">&quot;json&quot;</span></tt>. If <tt class="docutils literal"><span class="pre">None</span></tt>, will attempt to detect the
 file format.</li>
@@ -2745,7 +2738,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.MaxEntClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">MaxEntClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000066B28C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#MaxEntClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.MaxEntClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">MaxEntClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x2b5aa56c7230&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#MaxEntClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.MaxEntClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A maximum entropy classifier (also known as a &#8220;conditional
 exponential classifier&#8221;).  This classifier is parameterized by a
 set of &#8220;weights&#8221;, which are used to combine the joint-features
@@ -2772,7 +2765,7 @@ prob(fs|label) = ---------------------------------------------------
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>test_set</strong> &#8211; A list of tuples of the form <tt class="docutils literal"><span class="pre">(text,</span> <span class="pre">label)</span></tt>, or a
-filename.</li>
+file pointer.</li>
 <li><strong>format</strong> &#8211; If <tt class="docutils literal"><span class="pre">test_set</span></tt> is a filename, the file format, e.g.
 <tt class="docutils literal"><span class="pre">&quot;csv&quot;</span></tt> or <tt class="docutils literal"><span class="pre">&quot;json&quot;</span></tt>. If <tt class="docutils literal"><span class="pre">None</span></tt>, will attempt to detect the
 file format.</li>
@@ -2894,7 +2887,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.NLTKClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NLTKClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000066B28C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NLTKClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NLTKClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NLTKClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x2b5aa56c7230&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NLTKClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NLTKClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract class that wraps around the nltk.classify module.</p>
 <p>Expects that descendant classes include a class variable <tt class="docutils literal"><span class="pre">nltk_class</span></tt>
 which is the class in the nltk.classify module to be wrapped.</p>
@@ -2913,7 +2906,7 @@ which is the class in the nltk.classify module to be wrapped.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>test_set</strong> &#8211; A list of tuples of the form <tt class="docutils literal"><span class="pre">(text,</span> <span class="pre">label)</span></tt>, or a
-filename.</li>
+file pointer.</li>
 <li><strong>format</strong> &#8211; If <tt class="docutils literal"><span class="pre">test_set</span></tt> is a filename, the file format, e.g.
 <tt class="docutils literal"><span class="pre">&quot;csv&quot;</span></tt> or <tt class="docutils literal"><span class="pre">&quot;json&quot;</span></tt>. If <tt class="docutils literal"><span class="pre">None</span></tt>, will attempt to detect the
 file format.</li>
@@ -3011,7 +3004,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.NaiveBayesClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NaiveBayesClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000066B28C8&gt;</em>, <em>format=None</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NaiveBayesClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NaiveBayesClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x2b5aa56c7230&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NaiveBayesClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A classifier based on the Naive Bayes algorithm, as implemented in
 NLTK.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -3045,7 +3038,7 @@ file format.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>test_set</strong> &#8211; A list of tuples of the form <tt class="docutils literal"><span class="pre">(text,</span> <span class="pre">label)</span></tt>, or a
-filename.</li>
+file pointer.</li>
 <li><strong>format</strong> &#8211; If <tt class="docutils literal"><span class="pre">test_set</span></tt> is a filename, the file format, e.g.
 <tt class="docutils literal"><span class="pre">&quot;csv&quot;</span></tt> or <tt class="docutils literal"><span class="pre">&quot;json&quot;</span></tt>. If <tt class="docutils literal"><span class="pre">None</span></tt>, will attempt to detect the
 file format.</li>
@@ -3197,7 +3190,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.PositiveNaiveBayesClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">PositiveNaiveBayesClassifier</tt><big>(</big><em>positive_set</em>, <em>unlabeled_set</em>, <em>feature_extractor=&lt;function contains_extractor at 0x00000000066B2950&gt;</em>, <em>positive_prob_prior=0.5</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#PositiveNaiveBayesClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.PositiveNaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">PositiveNaiveBayesClassifier</tt><big>(</big><em>positive_set</em>, <em>unlabeled_set</em>, <em>feature_extractor=&lt;function contains_extractor at 0x2b5aa56c72a8&gt;</em>, <em>positive_prob_prior=0.5</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#PositiveNaiveBayesClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.PositiveNaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A variant of the Naive Bayes Classifier that performs binary
 classification with partially-labeled training sets, i.e. when only
 one class is labeled and the other is not. Assuming a prior distribution
@@ -3253,7 +3246,7 @@ label <tt class="docutils literal"><span class="pre">True</span></tt>.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>test_set</strong> &#8211; A list of tuples of the form <tt class="docutils literal"><span class="pre">(text,</span> <span class="pre">label)</span></tt>, or a
-filename.</li>
+file pointer.</li>
 <li><strong>format</strong> &#8211; If <tt class="docutils literal"><span class="pre">test_set</span></tt> is a filename, the file format, e.g.
 <tt class="docutils literal"><span class="pre">&quot;csv&quot;</span></tt> or <tt class="docutils literal"><span class="pre">&quot;json&quot;</span></tt>. If <tt class="docutils literal"><span class="pre">None</span></tt>, will attempt to detect the
 file format.</li>
@@ -3354,7 +3347,7 @@ what words in <tt class="docutils literal"><span class="pre">train_set</span></t
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>document</strong> &#8211; The text to extract features from. Can be a string or an iterable.</li>
-<li><strong>train_set</strong> &#8211; Training data set, a list of tuples of the form
+<li><strong>train_set</strong> (<em>list</em>) &#8211; Training data set, a list of tuples of the form
 <tt class="docutils literal"><span class="pre">(words,</span> <span class="pre">label)</span></tt>.</li>
 </ul>
 </td>
@@ -3433,23 +3426,48 @@ defaults to <a class="reference internal" href="#textblob_de.np_extractors.Patte
 <div class="section" id="module-textblob.formats">
 <span id="file-formats-from-textblob-main-package"></span><h2>File Formats (from <a class="reference external" href="http://textblob.readthedocs.org/">TextBlob</a> main package)<a class="headerlink" href="#module-textblob.formats" title="Permalink to this headline">¶</a></h2>
 <p>File formats for training and testing data.</p>
+<p>Includes a registry of valid file formats. New file formats can be added to the
+registry like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">formats</span>
+
+<span class="k">class</span> <span class="nc">PipeDelimitedFormat</span><span class="p">(</span><span class="n">formats</span><span class="o">.</span><span class="n">DelimitedFormat</span><span class="p">):</span>
+    <span class="n">delimiter</span> <span class="o">=</span> <span class="s">&#39;|&#39;</span>
+
+<span class="n">formats</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s">&#39;psv&#39;</span><span class="p">,</span> <span class="n">PipeDelimitedFormat</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once a format has been registered, classifiers will be able to read data files with
+that format.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">textblob.classifiers</span> <span class="kn">import</span> <span class="n">NaiveBayesAnalyzer</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;training_data.psv&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">cl</span> <span class="o">=</span> <span class="n">NaiveBayesAnalyzer</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;psv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="class">
 <dt id="textblob.formats.BaseFormat">
-<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">BaseFormat</tt><big>(</big><em>fname</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#BaseFormat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.BaseFormat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Interface for format classes.</p>
+<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">BaseFormat</tt><big>(</big><em>fp</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#BaseFormat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.BaseFormat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface for format classes. Individual formats can decide on the
+composition and meaning of <tt class="docutils literal"><span class="pre">**kwargs</span></tt>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f</strong> &#8211; A filename.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fp</strong> (<em>File</em>) &#8211; A file-like object.</td>
 </tr>
 </tbody>
 </table>
-<dl class="staticmethod">
+<div class="versionchanged">
+<p><span class="versionmodified">Changed in version 0.9.0: </span>Constructor receives a file pointer rather than a file path.</p>
+</div>
+<dl class="classmethod">
 <dt id="textblob.formats.BaseFormat.detect">
-<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#BaseFormat.detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.BaseFormat.detect" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#BaseFormat.detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.BaseFormat.detect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detect the file format given a filename.
 Return True if a stream is this file format.</p>
+<div class="versionchanged">
+<p><span class="versionmodified">Changed in version 0.9.0: </span>Changed from a static method to a class method.</p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -3462,16 +3480,16 @@ Return True if a stream is this file format.</p>
 
 <dl class="class">
 <dt id="textblob.formats.CSV">
-<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">CSV</tt><big>(</big><em>fname</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#CSV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.CSV" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">CSV</tt><big>(</big><em>fp</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#CSV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.CSV" title="Permalink to this definition">¶</a></dt>
 <dd><p>CSV format. Assumes each row is of the form <tt class="docutils literal"><span class="pre">text,label</span></tt>.</p>
 <div class="highlight-python"><div class="highlight"><pre>Today is a good day,pos
 I hate this car.,pos
 </pre></div>
 </div>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="textblob.formats.CSV.detect">
-<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#CSV.detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.CSV.detect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if stream is valid CSV.</p>
+<em class="property">classmethod </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="headerlink" href="#textblob.formats.CSV.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if stream is valid.</p>
 </dd></dl>
 
 <dl class="method">
@@ -3484,11 +3502,11 @@ I hate this car.,pos
 
 <dl class="class">
 <dt id="textblob.formats.DelimitedFormat">
-<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">DelimitedFormat</tt><big>(</big><em>fname</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#DelimitedFormat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.DelimitedFormat" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">DelimitedFormat</tt><big>(</big><em>fp</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#DelimitedFormat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.DelimitedFormat" title="Permalink to this definition">¶</a></dt>
 <dd><p>A general character-delimited format.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="textblob.formats.DelimitedFormat.detect">
-<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#DelimitedFormat.detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.DelimitedFormat.detect" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#DelimitedFormat.detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.DelimitedFormat.detect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return True if stream is valid.</p>
 </dd></dl>
 
@@ -3502,7 +3520,7 @@ I hate this car.,pos
 
 <dl class="class">
 <dt id="textblob.formats.JSON">
-<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">JSON</tt><big>(</big><em>fname</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#JSON"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.JSON" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">JSON</tt><big>(</big><em>fp</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#JSON"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.JSON" title="Permalink to this definition">¶</a></dt>
 <dd><p>JSON format.</p>
 <p>Assumes that JSON is formatted as an array of objects with <tt class="docutils literal"><span class="pre">text</span></tt> and
 <tt class="docutils literal"><span class="pre">label</span></tt> properties.</p>
@@ -3512,9 +3530,9 @@ I hate this car.,pos
 <span class="p">]</span>
 </pre></div>
 </div>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="textblob.formats.JSON.detect">
-<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#JSON.detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.JSON.detect" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#JSON.detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.JSON.detect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return True if stream is valid JSON.</p>
 </dd></dl>
 
@@ -3528,12 +3546,12 @@ I hate this car.,pos
 
 <dl class="class">
 <dt id="textblob.formats.TSV">
-<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">TSV</tt><big>(</big><em>fname</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#TSV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.TSV" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.formats.</tt><tt class="descname">TSV</tt><big>(</big><em>fp</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#TSV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.TSV" title="Permalink to this definition">¶</a></dt>
 <dd><p>TSV format. Assumes each row is of the form <tt class="docutils literal"><span class="pre">text</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="pre">label</span></tt>.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="textblob.formats.TSV.detect">
-<em class="property">static </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#TSV.detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.TSV.detect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if stream is valid CSV.</p>
+<em class="property">classmethod </em><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="headerlink" href="#textblob.formats.TSV.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if stream is valid.</p>
 </dd></dl>
 
 <dl class="method">
@@ -3546,20 +3564,43 @@ I hate this car.,pos
 
 <dl class="function">
 <dt id="textblob.formats.detect">
-<tt class="descclassname">textblob.formats.</tt><tt class="descname">detect</tt><big>(</big><em>filename</em>, <em>max_read=1024</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.detect" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">textblob.formats.</tt><tt class="descname">detect</tt><big>(</big><em>fp</em>, <em>max_read=1024</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#detect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.detect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attempt to detect a file&#8217;s format, trying each of the supported
 formats. Return the format class that was detected. If no format is
 detected, return <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
 </dd></dl>
 
+<dl class="function">
+<dt id="textblob.formats.get_registry">
+<tt class="descclassname">textblob.formats.</tt><tt class="descname">get_registry</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#get_registry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.get_registry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary of registered formats.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="textblob.formats.register">
+<tt class="descclassname">textblob.formats.</tt><tt class="descname">register</tt><big>(</big><em>name</em>, <em>format_class</em><big>)</big><a class="reference internal" href="_modules/textblob/formats.html#register"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.formats.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a new format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>str</em>) &#8211; The name that will be used to refer to the format, e.g. &#8216;csv&#8217;</li>
+<li><strong>format_class</strong> (<em>type</em>) &#8211; The format class to register.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 <div class="section" id="module-textblob.exceptions">
 <span id="exceptions-from-textblob-main-package"></span><h2>Exceptions (from <a class="reference external" href="http://textblob.readthedocs.org/">TextBlob</a> main package)<a class="headerlink" href="#module-textblob.exceptions" title="Permalink to this headline">¶</a></h2>
-<dl class="exception">
+<dl class="attribute">
 <dt id="textblob.exceptions.MissingCorpusException">
-<em class="property">exception </em><tt class="descclassname">textblob.exceptions.</tt><tt class="descname">MissingCorpusException</tt><big>(</big><em>message=&quot;nLooks like you are missing some required data for this feature.nnTo download the necessary data</em>, <em>simply runnn    curl https://raw.github.com/sloria/TextBlob/master/download_corpora.py | pythonnnOr use the NLTK downloader to download the missing data: http://nltk.org/data.htmlnIf this doesn't fix the problem</em>, <em>file an issue at https://github.com/sloria/TextBlob/issues.n&quot;</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/exceptions.html#MissingCorpusException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.exceptions.MissingCorpusException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Exception thrown when a user tries to use a feature that requires a
-dataset or model that the user does not have on their system.</p>
+<tt class="descclassname">textblob.exceptions.</tt><tt class="descname">MissingCorpusException</tt><a class="headerlink" href="#textblob.exceptions.MissingCorpusException" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">MissingCorpusError</span></tt></p>
 </dd></dl>
 
 </div>
@@ -3603,7 +3644,7 @@ dataset or model that the user does not have on their system.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.3.2a1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

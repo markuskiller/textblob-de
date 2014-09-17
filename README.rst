@@ -7,7 +7,7 @@ textblob-de README
     :target: https://pypi.python.org/pypi/textblob-de/
     :alt: textblob_de - latest PyPI version
 
-.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=dev
+.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=master
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
     
@@ -41,9 +41,9 @@ Features
 * Noun Phrase Extraction (``PatternParserNPExtractor``)
 * Lemmatization (``PatternParserLemmatizer``)
 * Polarity detection (``PatternAnalyzer``) - Still **EXPERIMENTAL**, does not yet have information on subjectivity
-* **NEW:** Full ``pattern.text.de`` API support on Python3
+* Full ``pattern.text.de`` API support on Python3
 * Supports Python 2 and 3
-* See `working features overview <http://langui.ch/nlp/python/textblob-de-dev/>`_ for details
+* See `working features overview <http://langui.ch/nlp/python/textblob-de/>`_ for details
 
 
 Installing/Upgrading

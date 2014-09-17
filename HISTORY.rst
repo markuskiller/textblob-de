@@ -1,7 +1,7 @@
 Changelog
 ---------
 
-0.4.0 (unreleased)
+0.4.0 (17/09/2014)
 ++++++++++++++++++
 
 * Fixed `Issue #7 <https://github.com/markuskiller/textblob-de/issues/7>`_ (restore ``textblob>=0.9.0`` compatibility)
