@@ -19,10 +19,6 @@ textblob-de README
     :target: https://pypi.python.org/pypi/textblob-de/
     :alt: Number of PyPI downloads
 
-.. image:: https://badge.waffle.io/markuskiller/textblob-de.png?label=In%20Progress&title=In%20Progress
-    :target: https://waffle.io/markuskiller/textblob-de
-    :alt: Issues in In Progress
-
 .. image:: https://pypip.in/license/textblob-de/badge.png
     :target: http://choosealicense.com/licenses/mit/
     :alt: LICENSE info
