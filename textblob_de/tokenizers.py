@@ -129,7 +129,7 @@ class PatternTokenizer(BaseTokenizer):
     """Tokenizer included in ``pattern.de`` package.
 
     **PROs:**
-    
+
     * handling of emoticons
     * flexible implementations of abbreviations
     * can be adapted very easily
@@ -233,8 +233,9 @@ class WordTokenizer(BaseTokenizer):
 
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`NLTKPunktTokenizer() <textblob_de.tokenizers.NLTKPunktTokenizer>`.
-        
+
     .. _TextBlob: http://textblob.readthedocs.org/
+
     """
 
     def __init__(self, tokenizer=None, *args, **kwargs):
@@ -268,7 +269,7 @@ class SentenceTokenizer(BaseTokenizer):
 
     :param tokenizer: (optional) A tokenizer instance. If ``None``, defaults to
         :class:`NLTKPunktTokenizer() <textblob_de.tokenizers.NLTKPunktTokenizer>`.
-    
+
     .. _TextBlob: http://textblob.readthedocs.org/
 
     """
@@ -301,7 +302,7 @@ def sent_tokenize(text, tokenizer=None):
     is used (same behaviour as in the main `TextBlob`_ library).
 
     This function returns the sentences as a generator object.
-    
+
     .. _TextBlob: http://textblob.readthedocs.org/
 
     """

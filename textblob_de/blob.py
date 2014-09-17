@@ -5,7 +5,7 @@
 # :source: textblob/blob.py
 # :version: 2013-10-21 (a88e86a76a)
 #
-# :modified: 2014-08-04 <m.killer@langui.ch>
+# :modified: 2014-09-17 <m.killer@langui.ch>
 #
 """Wrappers for various units of text.
 
@@ -13,9 +13,9 @@ This includes the main :class:`TextBlobDE <textblob_de.blob.TextBlobDE>`,
 :class:`Word <textblob_de.blob.Word>`, and :class:`WordList <textblob_de.blob.WordList>` classes.
 
 Whenever possible, classes are inherited from the main `TextBlob`_ library, but in many
-cases, the models for German have to be initialised here in :py:mod:`textblob_de.blob`, resulting 
-in a lot of duplicate code. The main reason being the :class:`Word <textblob_de.blob.Word>` objects. 
-If they are generated from an inherited class, they will use the English models 
+cases, the models for German have to be initialised here in :py:mod:`textblob_de.blob`, resulting
+in a lot of duplicate code. The main reason are the :class:`Word <textblob_de.blob.Word>` objects.
+If they are generated from an inherited class, they will use the English models
 (e.g. for ``pluralize``/``singularize``) used in the main library.
 
 Example usage: ::
@@ -30,6 +30,7 @@ Example usage: ::
     WordList(['Einfach', 'ist', 'besser', 'als', 'kompliziert'])
 
 .. _TextBlob: http://textblob.readthedocs.org/
+
 """
 from __future__ import absolute_import
 

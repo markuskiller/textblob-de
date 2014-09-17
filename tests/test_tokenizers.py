@@ -7,8 +7,7 @@
 #
 # :modified: 2014-08-29 <m.killer@langui.ch>
 #
-"""Test cases for tokenziers.
-"""
+"""Test cases for tokenziers."""
 from __future__ import unicode_literals
 import unittest
 from nose.tools import *  # PEP8 asserts

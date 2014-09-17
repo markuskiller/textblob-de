@@ -7,8 +7,7 @@
 #
 # :modified: 2014-08-29 <m.killer@langui.ch>
 #
-"""Test cases for parsers.
-"""
+"""Test cases for parsers."""
 from __future__ import unicode_literals
 
 import unittest

@@ -6,9 +6,10 @@
 # :source: packages.py
 # :version: 2014-10-21 (a88e86a76)
 #
-# :modified: 2014-08-03 <m.killer@langui.ch>
+# :modified: 2014-09-17 <m.killer@langui.ch>
 #
-"""Module to provide import context for vendorized packages such as ``pattern``."""
+"""Module to provide import context for vendorized packages such as
+``pattern``."""
 from __future__ import absolute_import
 import sys
 import os

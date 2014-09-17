@@ -71,8 +71,8 @@ def rst2markdown_github(path_to_rst, path_to_md, pandoc="pandoc"):
                 continue
             else:
                 _md.write(line)
-                _md.write("\n")           
-            
+                _md.write("\n")
+
     if _stderr:
         print("pandoc.exe STDERR: ", _stderr)
     if os.path.isfile(path_to_md) and os.stat(path_to_md).st_size > 0:

@@ -5,7 +5,7 @@
 # :source: textblob/compat.py
 # :version: 2013-12-16 (e7f9cf9)
 #
-# :modified: 2014-08-24 <m.killer@langui.ch>
+# :modified: 2014-09-17 <m.killer@langui.ch>
 #
 '''Compatibility module for shared code base on Python2 and Python3.
 '''
