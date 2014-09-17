@@ -1,10 +1,12 @@
 Changelog
 ---------
 
-0.3.2 (unreleased)
+0.4.0 (unreleased)
 ++++++++++++++++++
 
-* 
+* Fixed `Issue #7 <https://github.com/markuskiller/textblob-de/issues/7>`_ (restore ``textblob>=0.9.0`` compatibility)
+* Depend on ``nltk3``. Vendorized ``nltk`` was removed in ``textblob>=0.9.0``
+
 
 0.3.1 (29/08/2014)
 ++++++++++++++++++
