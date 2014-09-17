@@ -32,7 +32,12 @@ if PY2:
     basestring = basestring
     imap = imap
     izip = izip
-    import unicodecsv as csv
+    # not quite sure why this ImportError did not
+    # seem to occur earlier ...
+    try:
+        import unicodecsv as csv
+    except ImportError:
+        import csv
 
     def implements_to_string(cls):
         '''Class decorator that renames __str__ to __unicode__ and
@@ -51,7 +56,11 @@ else:  # PY3
         from shutil import which as _which
     except ImportError:
         _which = "compat"
-    _FileNotFoundError = FileNotFoundError
+    # add pypy3 compatibilty
+    try:
+        _FileNotFoundError = FileNotFoundError
+    except NameError:
+        _FileNotFoundError = IOError
     text_type = str
     binary_type = bytes
     string_types = (str,)
