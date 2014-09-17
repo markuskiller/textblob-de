@@ -43,7 +43,7 @@ Example Usage:
 from __future__ import absolute_import
 from itertools import chain
 
-from textblob.packages import nltk
+import nltk
 import textblob.formats as formats
 from textblob.utils import strip_punc
 from textblob.decorators import cached_property
