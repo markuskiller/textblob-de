@@ -45,7 +45,7 @@ Or the latest development release (apparently this does not always work on Windo
 Usage
 -----
 
-~~~~ {.sourceCode .python}
+``` python
 >>> from textblob_de import TextBlobDE as TextBlob
 >>> text = '''Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 43. Geburtstag. 
 Ich muss unbedingt daran denken, Mehl, usw. für einen Kuchen einzukaufen. Aber leider 
@@ -65,9 +65,9 @@ WordList(['Heute', 'ist', 'der', '3.', 'Mai', ...]
 >>> blob.noun_phrases
 WordList(['Mai 2014', 'Dr. Meier', 'seinen 43. Geburtstag', 'Kuchen einzukaufen', 
 'meiner Brieftasche'])
-~~~~
+```
 
-~~~~ {.sourceCode .python}
+``` python
 >>> blob = TextBlob("Das Auto ist sehr schön.")
 >>> blob.parse()
 'Das/DT/B-NP/O Auto/NN/I-NP/O ist/VB/B-VP/O sehr/RB/B-ADJP/O schön/JJ/I-ADJP/O'
@@ -85,29 +85,29 @@ WordList(['Mai 2014', 'Dr. Meier', 'seinen 43. Geburtstag', 'Kuchen einzukaufen'
 >>> from textblob_de import PatternTagger
 >>> blob = TextBlob(text, pos_tagger=PatternTagger(include_punc=True))
 [('Das', 'DT'), ('Auto', 'NN'), ('ist', 'VB'), ('sehr', 'RB'), ('schön', 'JJ'), ('.', '.')]
-~~~~
+```
 
-~~~~ {.sourceCode .python}
+``` python
 >>> blob = TextBlob("Das Auto ist sehr schön.")
 >>> blob.sentiment
 Sentiment(polarity=1.0, subjectivity=0.0)
 >>> blob = TextBlob("Das ist ein hässliches Auto.")     
 >>> blob.sentiment
 Sentiment(polarity=-1.0, subjectivity=0.0)
-~~~~
+```
 
 > **warning**
 >
 > **WORK IN PROGRESS:** The German polarity lexicon contains only uninflected forms and there are no subjectivity scores yet. As of version 0.2.3, lemmatized word forms are submitted to the `PatternAnalyzer`, increasing the accuracy of polarity values. New in version 0.2.7: return type of `.sentiment` is now adapted to the main [TextBlob](http://textblob.readthedocs.org/en/dev/) library (`:rtype: namedtuple`).
 
-~~~~ {.sourceCode .python}
+``` python
 >>> blob.words.lemmatize()
 WordList(['das', 'sein', 'ein', 'hässlich', 'Auto'])
 >>> from textblob_de.lemmatizers import PatternParserLemmatizer
 >>> _lemmatizer = PatternParserLemmatizer()
 >>> _lemmatizer.lemmatize("Das ist ein hässliches Auto.")
 [('das', 'DT'), ('sein', 'VB'), ('ein', 'DT'), ('hässlich', 'JJ'), ('Auto', 'NN')]
-~~~~
+```
 
 > **note**
 >
@@ -116,11 +116,11 @@ WordList(['das', 'sein', 'ein', 'hässlich', 'Auto'])
 Access to `pattern` API in Python3
 ----------------------------------
 
-~~~~ {.sourceCode .python}
+``` python
 >>> from textblob_de.packages import pattern_de as pd
 >>> print(pd.attributive("neugierig", gender=pd.FEMALE, role=pd.INDIRECT, article="die"))
 neugierigen
-~~~~
+```
 
 > **note**
 >
@@ -156,5 +156,5 @@ Thanks
 
 Coded with Wing IDE 5.0 (free open source developer license)
 
-![image](https://wingware.com/images/wingware-logo-180x58.png%0A%20:target:%20https://wingware.com/store/free%0A%20:alt:%20Python%20IDE%20for%20Python%20-%20wingware.com)
+[![Python IDE for Python - wingware.com](https://wingware.com/images/wingware-logo-180x58.png)](https://wingware.com/store/free)
 

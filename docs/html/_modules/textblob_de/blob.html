@@ -165,7 +165,7 @@
 <span class="c"># :source: textblob/blob.py</span>
 <span class="c"># :version: 2013-10-21 (a88e86a76a)</span>
 <span class="c">#</span>
-<span class="c"># :modified: 2014-08-04 &lt;m.killer@langui.ch&gt;</span>
+<span class="c"># :modified: 2014-09-17 &lt;m.killer@langui.ch&gt;</span>
 <span class="c">#</span>
 <span class="sd">&quot;&quot;&quot;Wrappers for various units of text.</span>
 
@@ -173,9 +173,9 @@
 <span class="sd">:class:`Word &lt;textblob_de.blob.Word&gt;`, and :class:`WordList &lt;textblob_de.blob.WordList&gt;` classes.</span>
 
 <span class="sd">Whenever possible, classes are inherited from the main `TextBlob`_ library, but in many</span>
-<span class="sd">cases, the models for German have to be initialised here in :py:mod:`textblob_de.blob`, resulting </span>
-<span class="sd">in a lot of duplicate code. The main reason being the :class:`Word &lt;textblob_de.blob.Word&gt;` objects. </span>
-<span class="sd">If they are generated from an inherited class, they will use the English models </span>
+<span class="sd">cases, the models for German have to be initialised here in :py:mod:`textblob_de.blob`, resulting</span>
+<span class="sd">in a lot of duplicate code. The main reason are the :class:`Word &lt;textblob_de.blob.Word&gt;` objects.</span>
+<span class="sd">If they are generated from an inherited class, they will use the English models</span>
 <span class="sd">(e.g. for ``pluralize``/``singularize``) used in the main library.</span>
 
 <span class="sd">Example usage: ::</span>
@@ -190,6 +190,7 @@
 <span class="sd">    WordList([&#39;Einfach&#39;, &#39;ist&#39;, &#39;besser&#39;, &#39;als&#39;, &#39;kompliziert&#39;])</span>
 
 <span class="sd">.. _TextBlob: http://textblob.readthedocs.org/</span>
+
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
 
