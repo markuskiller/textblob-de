@@ -19,6 +19,7 @@ from datetime import datetime
 from nose.tools import *  # PEP8 asserts
 from nose.plugins.attrib import attr
 
+import nltk
 import textblob_de as tb
 
 from textblob_de.compat import PY2, unicode, basestring, binary_type
@@ -26,7 +27,6 @@ from textblob_de.np_extractors import PatternParserNPExtractor
 from textblob_de.taggers import PatternTagger
 from textblob_de.tokenizers import WordTokenizer, SentenceTokenizer, NLTKPunktTokenizer
 from textblob_de.sentiments import PatternAnalyzer
-from textblob_de.packages import nltk
 from textblob_de.parsers import PatternParser
 from textblob_de.classifiers import NaiveBayesClassifier
 

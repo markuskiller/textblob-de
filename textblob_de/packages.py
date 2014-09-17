@@ -8,18 +8,15 @@
 #
 # :modified: 2014-08-03 <m.killer@langui.ch>
 #
-"""Module to provide import context for vendorized packages such as ``nltk`` or
-``pattern``."""
+"""Module to provide import context for vendorized packages such as ``pattern``."""
 from __future__ import absolute_import
 import sys
 import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-try:
-    import nltk
-except ImportError:
-    from textblob.packages import nltk
+import nltk
+
 
 try:
     import pattern.de as pattern_de

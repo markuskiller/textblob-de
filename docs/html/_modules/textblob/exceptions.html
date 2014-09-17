@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>textblob.exceptions &mdash; textblob-de 0.3.1 documentation</title>
+  <title>textblob.exceptions &mdash; textblob-de 0.4.0 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   
 
   
-    <link rel="top" title="textblob-de 0.3.1 documentation" href="../../index.html"/>
+    <link rel="top" title="textblob-de 0.4.0 documentation" href="../../index.html"/>
         <link rel="up" title="Module code" href="../index.html"/> 
 
   
@@ -89,19 +89,20 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id2">0.3.1 (29/08/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id3">0.3.0 (14/08/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id4">0.2.9 (14/08/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id5">0.2.8 (14/08/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id6">0.2.7 (13/08/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id7">0.2.6 (04/08/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id8">0.2.5 (04/08/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id9">0.2.3 (26/07/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id10">0.2.2 (22/07/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id11">0.2.1 (20/07/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id12">0.2.0 (18/07/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id13">0.1.3 (09/07/2014)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id14">0.1.0 - 0.1.2 (09/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id2">0.4.0 (17/09/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id3">0.3.1 (29/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id4">0.3.0 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id5">0.2.9 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id6">0.2.8 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id7">0.2.7 (13/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id8">0.2.6 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id9">0.2.5 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id10">0.2.3 (26/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id11">0.2.2 (22/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id12">0.2.1 (20/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id13">0.2.0 (18/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id14">0.1.3 (09/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id15">0.1.0 - 0.1.2 (09/07/2014)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a><ul>
@@ -164,26 +165,38 @@
 
 <span class="s">To download the necessary data, simply run</span>
 
-<span class="s">    curl https://raw.github.com/sloria/TextBlob/master/download_corpora.py | python</span>
+<span class="s">    python -m textblob.download_corpora</span>
 
-<span class="s">Or use the NLTK downloader to download the missing data: http://nltk.org/data.html</span>
+<span class="s">or use the NLTK downloader to download the missing data: http://nltk.org/data.html</span>
 <span class="s">If this doesn&#39;t fix the problem, file an issue at https://github.com/sloria/TextBlob/issues.</span>
 <span class="s">&quot;&quot;&quot;</span>
 
-<span class="k">class</span> <span class="nc">TextBlobException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;A TextBlob-related exception.&#39;&#39;&#39;</span>
+<span class="k">class</span> <span class="nc">TextBlobError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A TextBlob-related error.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
 
-<div class="viewcode-block" id="MissingCorpusException"><a class="viewcode-back" href="../../api_reference.html#textblob.exceptions.MissingCorpusException">[docs]</a><span class="k">class</span> <span class="nc">MissingCorpusException</span><span class="p">(</span><span class="n">TextBlobException</span><span class="p">):</span>
+<span class="n">TextBlobException</span> <span class="o">=</span> <span class="n">TextBlobError</span>  <span class="c"># Backwards compat</span>
 
-    <span class="sd">&#39;&#39;&#39;Exception thrown when a user tries to use a feature that requires a</span>
+<span class="k">class</span> <span class="nc">MissingCorpusError</span><span class="p">(</span><span class="n">TextBlobError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exception thrown when a user tries to use a feature that requires a</span>
 <span class="sd">    dataset or model that the user does not have on their system.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">MISSING_CORPUS_MESSAGE</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">MissingCorpusException</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</div>
-<span class="k">class</span> <span class="nc">DeprecationError</span><span class="p">(</span><span class="n">TextBlobException</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Raised when user uses a deprecated feature.&#39;&#39;&#39;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MissingCorpusError</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">MissingCorpusException</span> <span class="o">=</span> <span class="n">MissingCorpusError</span>  <span class="c"># Backwards compat</span>
+
+<span class="k">class</span> <span class="nc">DeprecationError</span><span class="p">(</span><span class="n">TextBlobError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Raised when user uses a deprecated feature.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">TranslatorError</span><span class="p">(</span><span class="n">TextBlobError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Raised when an error occurs during language translation or detection.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">FormatError</span><span class="p">(</span><span class="n">TextBlobError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Raised if a data file with an unsupported format is passed to a classifier.&quot;&quot;&quot;</span>
     <span class="k">pass</span>
 </pre></div>
 
@@ -215,7 +228,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

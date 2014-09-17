@@ -15,7 +15,7 @@ import string
 
 from itertools import chain
 
-from textblob.packages import nltk
+import nltk
 from textblob.utils import strip_punc
 from textblob.base import BaseTokenizer
 from textblob.decorators import requires_nltk_corpus

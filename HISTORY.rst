@@ -1,6 +1,14 @@
 Changelog
 ---------
 
+0.4.0 (17/09/2014)
+++++++++++++++++++
+
+* Fixed `Issue #7 <https://github.com/markuskiller/textblob-de/issues/7>`_ (restore ``textblob>=0.9.0`` compatibility)
+* Depend on ``nltk3``. Vendorized ``nltk`` was removed in ``textblob>=0.9.0``
+* Fixed ``ImportError`` on Python2 (``unicodecsv``)
+
+
 0.3.1 (29/08/2014)
 ++++++++++++++++++
 

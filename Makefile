@@ -1,4 +1,4 @@
-.PHONY: clean-pyc clean-build docs
+.PHONY: clean-pyc clean-build clean-docs docs docs-pdf
 
 # You can set these variables from the command line.
 
@@ -68,7 +68,7 @@ help:
 	@echo "P='path/to/python' specify python executable (optional)"
 	@echo ""
 
-clean: clean-build clean-docs clean-pyc clean-test clean-logs
+clean: clean-build clean-pyc clean-test clean-logs
 	find . -name '.DS_Store' -exec rm -f {} +
 
 clean-build:
@@ -130,7 +130,7 @@ lint: prepare_tests autopep8
 	flake8
 
 test: prepare_tests develop
-	py.test --ignore="$(N)/ext" .
+	$(P) run_tests.py
 
 test-all: prepare_tests
 	tox
@@ -142,7 +142,7 @@ coverage: prepare_tests
 	$(O) ./htmlcov/index.html &
 
 
-docs: clean-docs prepare_dev develop
+docs: clean clean-docs prepare_dev develop
 	$(P) prepare_docs.py
 	#sphinx-apidoc -P -f -o docs/src/apidoc $(N) # use api_reference.rst
 	make -C ./docs/src html
