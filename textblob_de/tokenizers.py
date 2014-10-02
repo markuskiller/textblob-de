@@ -49,7 +49,7 @@ class NLTKPunktTokenizer(BaseTokenizer):
     def __init__(self):
         self.tokens = []
         self.sent_tok = nltk.tokenize.load('tokenizers/punkt/german.pickle')
-        self.word_tok = nltk.tokenize.punkt.PunktWordTokenizer()
+        self.word_tok = nltk.tokenize.TreebankWordTokenizer()
 
     def tokenize(self, text, include_punc=True, nested=False):
         """Return a list of word tokens.
@@ -103,11 +103,6 @@ class NLTKPunktTokenizer(BaseTokenizer):
                 else:
                     return []
         if include_punc:
-            last_word = _tokens[-1]
-            # Make sure that you do not separate '.' tokens into ['', '.']
-            # (Issue #5)
-            if last_word.endswith('.') and len(last_word) > 1:
-                _tokens = _tokens[:-1] + [last_word[:-1], '.']
             return _tokens
         else:
             # Return each word token
