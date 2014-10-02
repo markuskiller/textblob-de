@@ -2,7 +2,7 @@ textblob-de README
 ==================
 
 [![textblob\_de - latest PyPI version](https://pypip.in/v/textblob-de/badge.png)](https://pypi.python.org/pypi/textblob-de/)
-[![Travis-CI](https://travis-ci.org/markuskiller/textblob-de.png?branch=master)](https://travis-ci.org/markuskiller/textblob-de)
+[![Travis-CI](https://travis-ci.org/markuskiller/textblob-de.png?branch=dev)](https://travis-ci.org/markuskiller/textblob-de)
 [![Documentation Status](https://readthedocs.org/projects/textblob-de/badge/?version=latest)](http://textblob-de.readthedocs.org/en/latest/)
 [![Number of PyPI downloads](https://pypip.in/d/textblob-de/badge.png)](https://pypi.python.org/pypi/textblob-de/)
 [![LICENSE info](https://pypip.in/license/textblob-de/badge.png)](http://choosealicense.com/licenses/mit/)
@@ -25,7 +25,7 @@ Features
 -   Polarity detection (`PatternAnalyzer`) - Still **EXPERIMENTAL**, does not yet have information on subjectivity
 -   Full `pattern.text.de` API support on Python3
 -   Supports Python 2 and 3
--   See [working features overview](http://langui.ch/nlp/python/textblob-de/) for details
+-   See [working features overview](http://langui.ch/nlp/python/textblob-de-dev/) for details
 
 Installing/Upgrading
 --------------------

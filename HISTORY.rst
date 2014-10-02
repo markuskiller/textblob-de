@@ -1,6 +1,11 @@
 Changelog
 ---------
 
+0.4.1 (unreleased)
+++++++++++++++++++
+
+* Removed dependency on nltk's depricated ``PunktWordTokenizer`` and replaced it with ``TreebankWordTokenizer`` see  `nltk/nltk#746 (comment) <https://github.com/nltk/nltk/pull/746#issuecomment-57625756>`_ for details
+
 0.4.0 (17/09/2014)
 ++++++++++++++++++
 
