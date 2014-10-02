@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; textblob-de 0.4.1a1 documentation</title>
+  <title>API Reference &mdash; textblob-de 0.4.1a3 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   
 
   
-    <link rel="top" title="textblob-de 0.4.1a1 documentation" href="index.html"/>
+    <link rel="top" title="textblob-de 0.4.1a3 documentation" href="index.html"/>
         <link rel="next" title="Changelog" href="changelog.html"/>
         <link rel="prev" title="Extensions" href="extensions.html"/> 
 
@@ -2100,9 +2100,17 @@ sentences. Default to False.</li>
 <dl class="method">
 <dt id="textblob_de.tokenizers.NLTKPunktTokenizer.word_tokenize">
 <tt class="descname">word_tokenize</tt><big>(</big><em>text</em>, <em>include_punc=True</em><big>)</big><a class="reference internal" href="_modules/textblob_de/tokenizers.html#NLTKPunktTokenizer.word_tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob_de.tokenizers.NLTKPunktTokenizer.word_tokenize" title="Permalink to this definition">¶</a></dt>
-<dd><p>NLTK&#8217;s PunktWordTokenizer uses a regular expression to divide a text
-into tokens, leaving all periods attached to words, but separating off
-other punctuation.</p>
+<dd><p>The Treebank tokenizer uses regular expressions to tokenize text as in Penn Treebank.</p>
+<p>It assumes that the text has already been segmented into sentences, 
+e.g. using <tt class="docutils literal"><span class="pre">self.sent_tokenize()</span></tt>.</p>
+<p>This tokenizer performs the following steps:</p>
+<ul class="simple">
+<li>split standard contractions, e.g. <tt class="docutils literal"><span class="pre">don't</span></tt> -&gt; <tt class="docutils literal"><span class="pre">do</span> <span class="pre">n't</span></tt> and <tt class="docutils literal"><span class="pre">they'll</span></tt> -&gt; <tt class="docutils literal"><span class="pre">they</span> <span class="pre">'ll</span></tt></li>
+<li>treat most punctuation characters as separate tokens</li>
+<li>split off commas and single quotes, when followed by whitespace</li>
+<li>separate periods that appear at the end of line</li>
+</ul>
+<p>Source: NLTK&#8217;s docstring of <tt class="docutils literal"><span class="pre">TreebankWordTokenizer</span></tt> (accessed: 02/10/2014)</p>
 </dd></dl>
 
 </dd></dl>
@@ -2546,7 +2554,7 @@ methods.</p>
 </div>
 <dl class="class">
 <dt id="textblob.classifiers.BaseClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">BaseClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000070DF730&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#BaseClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.BaseClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">BaseClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x2ac235ea27b8&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#BaseClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.BaseClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract classifier class from which all classifers inherit. At a
 minimum, descendant classes must implement a <tt class="docutils literal"><span class="pre">classify</span></tt> method and have
 a <tt class="docutils literal"><span class="pre">classifier</span></tt> property.</p>
@@ -2617,7 +2625,7 @@ read the data. Only applies when a file-like object is passed as
 
 <dl class="class">
 <dt id="textblob.classifiers.DecisionTreeClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">DecisionTreeClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000070DF730&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#DecisionTreeClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.DecisionTreeClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">DecisionTreeClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x2ac235ea27b8&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#DecisionTreeClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.DecisionTreeClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A classifier based on the decision tree algorithm, as implemented in
 NLTK.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2774,7 +2782,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.MaxEntClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">MaxEntClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000070DF730&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#MaxEntClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.MaxEntClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">MaxEntClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x2ac235ea27b8&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#MaxEntClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.MaxEntClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A maximum entropy classifier (also known as a &#8220;conditional
 exponential classifier&#8221;).  This classifier is parameterized by a
 set of &#8220;weights&#8221;, which are used to combine the joint-features
@@ -2923,7 +2931,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.NLTKClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NLTKClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000070DF730&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NLTKClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NLTKClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NLTKClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x2ac235ea27b8&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NLTKClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NLTKClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract class that wraps around the nltk.classify module.</p>
 <p>Expects that descendant classes include a class variable <tt class="docutils literal"><span class="pre">nltk_class</span></tt>
 which is the class in the nltk.classify module to be wrapped.</p>
@@ -3040,7 +3048,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.NaiveBayesClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NaiveBayesClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x00000000070DF730&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NaiveBayesClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">NaiveBayesClassifier</tt><big>(</big><em>train_set</em>, <em>feature_extractor=&lt;function basic_extractor at 0x2ac235ea27b8&gt;</em>, <em>format=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#NaiveBayesClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.NaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A classifier based on the Naive Bayes algorithm, as implemented in
 NLTK.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -3226,7 +3234,7 @@ classifier.</p>
 
 <dl class="class">
 <dt id="textblob.classifiers.PositiveNaiveBayesClassifier">
-<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">PositiveNaiveBayesClassifier</tt><big>(</big><em>positive_set</em>, <em>unlabeled_set</em>, <em>feature_extractor=&lt;function contains_extractor at 0x00000000070DF7B8&gt;</em>, <em>positive_prob_prior=0.5</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#PositiveNaiveBayesClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.PositiveNaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">textblob.classifiers.</tt><tt class="descname">PositiveNaiveBayesClassifier</tt><big>(</big><em>positive_set</em>, <em>unlabeled_set</em>, <em>feature_extractor=&lt;function contains_extractor at 0x2ac235ea2840&gt;</em>, <em>positive_prob_prior=0.5</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/textblob/classifiers.html#PositiveNaiveBayesClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#textblob.classifiers.PositiveNaiveBayesClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A variant of the Naive Bayes Classifier that performs binary
 classification with partially-labeled training sets, i.e. when only
 one class is labeled and the other is not. Assuming a prior distribution
@@ -3680,7 +3688,7 @@ detected, return <tt class="docutils literal"><span class="pre">None</span></tt>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.4.1a1',
+            VERSION:'0.4.1a3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

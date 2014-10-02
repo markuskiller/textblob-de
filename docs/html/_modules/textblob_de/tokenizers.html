@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>textblob_de.tokenizers &mdash; textblob-de 0.4.1a1 documentation</title>
+  <title>textblob_de.tokenizers &mdash; textblob-de 0.4.1a3 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   
 
   
-    <link rel="top" title="textblob-de 0.4.1a1 documentation" href="../../index.html"/>
+    <link rel="top" title="textblob-de 0.4.1a3 documentation" href="../../index.html"/>
         <link rel="up" title="Module code" href="../index.html"/> 
 
   
@@ -167,7 +167,7 @@
 <span class="c"># :source: textblob/tokenizers.py</span>
 <span class="c"># :version: 2013-12-27 (fbdcaf2709)</span>
 <span class="c">#</span>
-<span class="c"># :modified: 2014-08-04 &lt;m.killer@langui.ch&gt;</span>
+<span class="c"># :modified: 2014-10-02 &lt;m.killer@langui.ch&gt;</span>
 <span class="c">#</span>
 <span class="sd">&quot;&quot;&quot;Various tokenizer implementations.&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
@@ -210,7 +210,7 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tokens</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sent_tok</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#39;tokenizers/punkt/german.pickle&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">word_tok</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">punkt</span><span class="o">.</span><span class="n">PunktWordTokenizer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">word_tok</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">TreebankWordTokenizer</span><span class="p">()</span>
 
 <div class="viewcode-block" id="NLTKPunktTokenizer.tokenize"><a class="viewcode-back" href="../../api_reference.html#textblob_de.tokenizers.NLTKPunktTokenizer.tokenize">[docs]</a>    <span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">include_punc</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">nested</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return a list of word tokens.</span>
@@ -249,9 +249,20 @@
         <span class="k">return</span> <span class="n">sentences</span>
 </div>
 <div class="viewcode-block" id="NLTKPunktTokenizer.word_tokenize"><a class="viewcode-back" href="../../api_reference.html#textblob_de.tokenizers.NLTKPunktTokenizer.word_tokenize">[docs]</a>    <span class="k">def</span> <span class="nf">word_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">include_punc</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;NLTK&#39;s PunktWordTokenizer uses a regular expression to divide a text</span>
-<span class="sd">        into tokens, leaving all periods attached to words, but separating off</span>
-<span class="sd">        other punctuation.&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;The Treebank tokenizer uses regular expressions to tokenize text as in Penn Treebank.</span>
+<span class="sd">        </span>
+<span class="sd">        It assumes that the text has already been segmented into sentences, </span>
+<span class="sd">        e.g. using ``self.sent_tokenize()``.</span>
+
+<span class="sd">        This tokenizer performs the following steps:</span>
+<span class="sd">        </span>
+<span class="sd">        - split standard contractions, e.g. ``don&#39;t`` -&gt; ``do n&#39;t`` and ``they&#39;ll`` -&gt; ``they &#39;ll``</span>
+<span class="sd">        - treat most punctuation characters as separate tokens</span>
+<span class="sd">        - split off commas and single quotes, when followed by whitespace</span>
+<span class="sd">        - separate periods that appear at the end of line</span>
+<span class="sd">        </span>
+<span class="sd">        Source: NLTK&#39;s docstring of ``TreebankWordTokenizer`` (accessed: 02/10/2014)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c"># : Do not process empty strings (Issue #3)</span>
         <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[]</span>
@@ -264,11 +275,6 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">return</span> <span class="p">[]</span>
         <span class="k">if</span> <span class="n">include_punc</span><span class="p">:</span>
-            <span class="n">last_word</span> <span class="o">=</span> <span class="n">_tokens</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-            <span class="c"># Make sure that you do not separate &#39;.&#39; tokens into [&#39;&#39;, &#39;.&#39;]</span>
-            <span class="c"># (Issue #5)</span>
-            <span class="k">if</span> <span class="n">last_word</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">last_word</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">_tokens</span> <span class="o">=</span> <span class="n">_tokens</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">last_word</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#39;.&#39;</span><span class="p">]</span>
             <span class="k">return</span> <span class="n">_tokens</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c"># Return each word token</span>
@@ -516,7 +522,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.1a1',
+            VERSION:'0.4.1a3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
