@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>textblob_de.tokenizers &mdash; textblob-de 0.4.1 documentation</title>
+  <title>textblob_de.tokenizers &mdash; textblob-de 0.4.2a1 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   
 
   
-    <link rel="top" title="textblob-de 0.4.1 documentation" href="../../index.html"/>
+    <link rel="top" title="textblob-de 0.4.2a1 documentation" href="../../index.html"/>
         <link rel="up" title="Module code" href="../index.html"/> 
 
   
@@ -89,6 +89,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#unreleased">0.4.2 (unreleased)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id2">0.4.1 (03/10/2014)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id3">0.4.0 (17/09/2014)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id4">0.3.1 (29/08/2014)</a></li>
@@ -249,19 +250,21 @@
         <span class="k">return</span> <span class="n">sentences</span>
 </div>
 <div class="viewcode-block" id="NLTKPunktTokenizer.word_tokenize"><a class="viewcode-back" href="../../api_reference.html#textblob_de.tokenizers.NLTKPunktTokenizer.word_tokenize">[docs]</a>    <span class="k">def</span> <span class="nf">word_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">include_punc</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The Treebank tokenizer uses regular expressions to tokenize text as in Penn Treebank.</span>
-<span class="sd">        </span>
-<span class="sd">        It assumes that the text has already been segmented into sentences, </span>
+        <span class="sd">&quot;&quot;&quot;The Treebank tokenizer uses regular expressions to tokenize text as</span>
+<span class="sd">        in Penn Treebank.</span>
+
+<span class="sd">        It assumes that the text has already been segmented into sentences,</span>
 <span class="sd">        e.g. using ``self.sent_tokenize()``.</span>
 
 <span class="sd">        This tokenizer performs the following steps:</span>
-<span class="sd">        </span>
+
 <span class="sd">        - split standard contractions, e.g. ``don&#39;t`` -&gt; ``do n&#39;t`` and ``they&#39;ll`` -&gt; ``they &#39;ll``</span>
 <span class="sd">        - treat most punctuation characters as separate tokens</span>
 <span class="sd">        - split off commas and single quotes, when followed by whitespace</span>
 <span class="sd">        - separate periods that appear at the end of line</span>
-<span class="sd">        </span>
+
 <span class="sd">        Source: NLTK&#39;s docstring of ``TreebankWordTokenizer`` (accessed: 02/10/2014)</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c"># : Do not process empty strings (Issue #3)</span>
         <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">:</span>
@@ -522,7 +525,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.1',
+            VERSION:'0.4.2a1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
