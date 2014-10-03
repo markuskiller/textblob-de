@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+"""German language support for TextBlob.
+
+`RTD - Documentation URL <http://textblob-de.readthedocs.org>`_
+
+"""
 from __future__ import absolute_import
 
 from textblob_de.blob import TextBlobDE, BlobberDE, Word, WordList, Sentence
