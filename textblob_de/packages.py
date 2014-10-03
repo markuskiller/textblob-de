@@ -4,7 +4,7 @@
 #
 # :repo: `https://github.com/sloria/TextBlob`_
 # :source: packages.py
-# :version: 2014-10-21 (a88e86a76)
+# :version: 2013-10-21 (a88e86a76)
 #
 # :modified: 2014-09-17 <m.killer@langui.ch>
 #
