@@ -17,9 +17,8 @@ In Particular
 Questions, Feature Requests, Bug Reports, and Feedback. . .
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-. . .should all be reported on the `Github Issue Tracker`_ . For a nicer interface, check out the `textblob-de waffle.io board`_.
+. . .should all be reported on the `Github Issue Tracker`_.
 
-.. _textblob-de waffle.io board: https://waffle.io/markuskiller/textblob-de
 .. _`Github Issue Tracker`: https://github.com/markuskiller/textblob-de/issues?state=open
 
 
