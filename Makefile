@@ -82,6 +82,7 @@ clean-docs:
 	rm -f docs/src/apidoc/modules.rst
 
 clean-pyc:
+	find . -name '__pycache__' -exec rm -fr {} +
 	find . -name '*.pyc' -exec rm -f {} +
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
