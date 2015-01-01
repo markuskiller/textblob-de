@@ -33,6 +33,10 @@ Installing/Upgrading
     $ pip install -U textblob-de
     $ python -m textblob.download_corpora
 
+> **note**
+>
+> If install of `nltk` fails, make sure that your version of `setuptools` is `<10.0`. Type: `pip install setuptools==9.1` **before** the lines above. See [NLTK issue \#824](https://github.com/nltk/nltk/issues/824) for details.
+
 Or the latest development release (apparently this does not always work on Windows see [issues \#1744/5](https://github.com/pypa/pip/pull/1745) for details):
 
     $ pip install -U git+https://github.com/markuskiller/textblob-de.git@dev
@@ -157,4 +161,3 @@ Thanks
 Coded with Wing IDE 5.0 (free open source developer license)
 
 [![Python IDE for Python - wingware.com](https://wingware.com/images/wingware-logo-180x58.png)](https://wingware.com/store/free)
-

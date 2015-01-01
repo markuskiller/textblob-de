@@ -4,11 +4,12 @@ Changelog
 0.4.2 (unreleased)
 ++++++++++++++++++
 
-* 
+* Temporary workaround for `NLTK Issue #824 <https://github.com/nltk/nltk/issues/824>`_ for tox/Travis-CI
 
 0.4.1 (03/10/2014)
 ++++++++++++++++++
 
+* Docs hosted on `RTD <http://textblob-de.readthedocs.org>`_
 * Removed dependency on nltk's depricated ``PunktWordTokenizer`` and replaced it with ``TreebankWordTokenizer`` see  `nltk/nltk#746 (comment) <https://github.com/nltk/nltk/pull/746#issuecomment-57625756>`_ for details
 
 0.4.0 (17/09/2014)

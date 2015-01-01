@@ -68,7 +68,7 @@ help:
 	@echo "P='path/to/python' specify python executable (optional)"
 	@echo ""
 
-clean: clean-build clean-pyc clean-test clean-logs
+clean: clean-build clean-pyc clean-test clean-logs clean-docs
 	find . -name '.DS_Store' -exec rm -f {} +
 
 clean-build:
