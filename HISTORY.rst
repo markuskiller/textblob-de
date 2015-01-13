@@ -4,7 +4,7 @@ Changelog
 0.4.2 (unreleased)
 ++++++++++++++++++
 
-* Removed dependency on `NLTK<https://github.com/nltk/nltk/>`_ , as it already is a `TextBlob <http://textblob.readthedocs.org/en/dev/>`_ dependency
+* Removed dependency on `NLTK, <https://github.com/nltk/nltk/>`_ as it already is a `TextBlob <http://textblob.readthedocs.org/en/dev/>`_ dependency
 * (update 13/01/2015) `NLTK Issue #824 <https://github.com/nltk/nltk/issues/824>`_ fixed, workaround removed
 * Temporary workaround for `NLTK Issue #824 <https://github.com/nltk/nltk/issues/824>`_ for tox/Travis-CI
 
