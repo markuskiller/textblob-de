@@ -52,12 +52,7 @@ Installing/Upgrading
 
     $ pip install -U textblob-de
     $ python -m textblob.download_corpora
-    
-.. note::
-    
-    If install of ``nltk`` fails, make sure that your version of ``setuptools`` is ``<10.0``.
-    Type: ``pip install setuptools==9.1`` **before** the lines above. See
-    `NLTK issue #824 <https://github.com/nltk/nltk/issues/824>`_ for details.
+
     
 Or the latest development release (apparently this does not always work on Windows see 
 `issues #1744/5 <https://github.com/pypa/pip/pull/1745>`_ for details)::
