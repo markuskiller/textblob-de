@@ -7,7 +7,8 @@ Changelog
 * Removed dependency on `NLTK, <https://github.com/nltk/nltk/>`_ as it already is a `TextBlob <http://textblob.readthedocs.org/en/dev/>`_ dependency
 * (update 13/01/2015) `NLTK Issue #824 <https://github.com/nltk/nltk/issues/824>`_ fixed, workaround removed
 * Temporary workaround for `NLTK Issue #824 <https://github.com/nltk/nltk/issues/824>`_ for tox/Travis-CI
-* Enable ``pattern`` tagset conversion (``'penn'|'universal'|'stts'``) for ``PatternTagger``.
+* Enabled ``pattern`` tagset conversion (``'penn'|'universal'|'stts'``) for ``PatternTagger``
++ Added tests for tagset conversion
 
 0.4.1 (03/10/2014)
 ++++++++++++++++++
@@ -68,7 +69,7 @@ Changelog
 * ``sdist`` is non-functional as important files are missing due to a misconfiguration in ``MANIFEST.in`` - does not affect ``wheels``
 * Major internal refactoring (but no backwards-incompatible API changes) with the aim of restoring complete compatibility to original ``pattern>=2.6`` library on Python2
 * Separation of ``textblob`` and ``pattern`` code
-* On Python2 the vendorized version of ``pattern.text.de`` is only used, if original is not installed (same as ``nltk``)
+* On Python2 the vendorized version of ``pattern.text.de`` is only used if original is not installed (same as ``nltk``)
 * Made ``pattern.de.pprint`` function and all parser keywords accessible to customise parser output
 * Access to complete ``pattern.text.de`` API on Python2 and Python3 ``from textblob_de.packages import pattern_de as pd``
 * ``tox`` passed on all major platforms (Win/Linux/OSX)
