@@ -77,9 +77,7 @@ class Sentiment(_Sentiment):
                     for pos, (p, s, i) in pos.items():
                         self.annotate(w, pos, p, s, i)
 
-
-def pattern_sentiment(text):
-    s = Sentiment(
+s = Sentiment(
         path=os.path.join(MODULE, "data", "de-sentiment.xml"),
         synset=None,
         negations=(
@@ -96,6 +94,8 @@ def pattern_sentiment(text):
         #tokenizer = _tokenizer,
         language = "de"
     )
+def pattern_sentiment(text):
+    
     return s(text)
 
 #################### END SENTIMENT DETECTION ##################################
