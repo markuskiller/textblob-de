@@ -3,7 +3,7 @@ textblob-de README
 ==================
 
 
-.. image:: https://pypip.in/v/textblob-de/badge.png
+.. image:: https://img.shields.io/pypi/v/textblob-de.svg
     :target: https://pypi.python.org/pypi/textblob-de/
     :alt: textblob_de - latest PyPI version
 
@@ -15,11 +15,11 @@ textblob-de README
     :target: http://textblob-de.readthedocs.org/en/latest/
     :alt: Documentation Status
 
-.. image:: https://pypip.in/d/textblob-de/badge.png
+.. image:: https://img.shields.io/pypi/dm/textblob-de.svg
     :target: https://pypi.python.org/pypi/textblob-de/
     :alt: Number of PyPI downloads
 
-.. image:: https://pypip.in/license/textblob-de/badge.png
+.. image:: https://img.shields.io/github/license/markuskiller/textblob-de.svg
     :target: http://choosealicense.com/licenses/mit/
     :alt: LICENSE info
 
