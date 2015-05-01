@@ -10,6 +10,7 @@ Changelog
 * Enabled ``pattern`` tagset conversion (``'penn'|'universal'|'stts'``) for ``PatternTagger``
 * Added tests for tagset conversion
 * Fixed test for Arabic translation example (Google translation has changed)
+* Added tests for lemmatizer
 
 0.4.1 (03/10/2014)
 ++++++++++++++++++
