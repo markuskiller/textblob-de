@@ -119,7 +119,7 @@ prepare_dev:
 prepare_tests:
 	pip install -U -r requirements-tests.txt
 
-autopep8: prepare_tests
+autopep8: develop
 	autopep8 -v -i -a -a *.py
 	autopep8 -v -i -a -a tests/*.py
 	autopep8 -v -i -a -a $(N)/*.py
@@ -127,23 +127,23 @@ autopep8: prepare_tests
 	docformatter -i tests/*.py
 	docformatter -i $(N)/*.py
 
-lint: prepare_tests autopep8
+lint: autopep8
 	flake8
 
-test: prepare_tests develop
+test: develop
 	$(P) run_tests.py
 
-test-all: prepare_tests
+test-all: develop
 	tox
 
-coverage: prepare_tests
+coverage: develop
 	coverage run --source $(N) run_tests.py
 	coverage report -m
 	coverage html
 	$(O) ./htmlcov/index.html &
 
 
-docs: clean clean-docs prepare_dev develop
+docs: clean develop
 	$(P) prepare_docs.py
 	#sphinx-apidoc -P -f -o docs/src/apidoc $(N) # use api_reference.rst
 	make -C ./docs/src html
@@ -154,11 +154,11 @@ docs-pdf: docs
 	make -C ./docs/src latexpdf
 	#$(O) ./docs/$(subst _,-,$(N)).pdf &
 
-publish: clean clean-logs docs-pdf
+publish: clean docs-pdf
 	$(P) setup.py publish
 	$(O) https://pypi.python.org/pypi/$(subst _,-,$(N)) &
 
-sdist: clean clean-logs docs-pdf
+sdist: clean docs-pdf
 	$(P) setup.py sdist
 	ls -l dist
 
@@ -166,13 +166,13 @@ register:
 	$(P) setup.py register
 	$(O) https://pypi.python.org/pypi/$(subst _,-,$(N)) &
 
-push-bitbucket: clean clean-logs
+push-bitbucket: clean
 	git add --all
 	git commit -a -m "$(M)"
 	git push -u origin --all
 	$(O) https://bitbucket.org/mki5600/$(subst _,-,$(N)) &
 	
-push-github: clean clean-logs
+push-github: clean
 	git add --all
 	git commit -a -m "$(M)"
 	git push -u origin --all
