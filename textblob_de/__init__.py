@@ -13,7 +13,7 @@ from textblob_de.tokenizers import NLTKPunktTokenizer, PatternTokenizer
 from textblob_de.parsers import PatternParser
 from textblob_de.sentiments import PatternAnalyzer
 
-__version__ = '0.4.2a3'
+__version__ = '0.4.2a4'
 
 __author__ = 'Markus Killer'
 __license__ = "MIT"

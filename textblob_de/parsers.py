@@ -84,10 +84,10 @@ class PatternParser(BaseParser):
         :param str text: A string.
 
         """
-        # : Do not process empty strings (Issue #3)
+        #: Do not process empty strings (Issue #3)
         if text.strip() == "":
             return ""
-        # : Do not process strings consisting of a single punctuation mark (Issue #4)
+        #: Do not process strings consisting of a single punctuation mark (Issue #4)
         elif text.strip() in PUNCTUATION:
             _sym = text.strip()
             if _sym in tuple('.?!'):
@@ -117,10 +117,10 @@ class PatternParser(BaseParser):
 
     def parsetree(self, text):
         """Returns a parsed ``pattern`` Text object from the given string."""
-        # : Do not process empty strings (Issue #3)
+        #: Do not process empty strings (Issue #3)
         if text.strip() == "":
             return ""
-        # : Do not process strings consisting of a single punctuation mark (Issue #4)
+        #: Do not process strings consisting of a single punctuation mark (Issue #4)
         elif text.strip() in PUNCTUATION:
             _sym = text.strip()
             if _sym in tuple('.?!'):

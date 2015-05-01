@@ -660,7 +660,7 @@ class TextBlobDE(BaseBlob):
 
         :rtype: named tuple of the form ``Sentiment(polarity=0.0, subjectivity=0.0)``
         """
-        # : Enhancement Issue #2
+        #: Enhancement Issue #2
         #: adapted from 'textblob.en.sentiments.py'
         #: Return type declaration
         _RETURN_TYPE = namedtuple('Sentiment', ['polarity', 'subjectivity'])
@@ -834,13 +834,14 @@ class BlobberDE(object):
     def __repr__(self):
         classifier_name = self.classifier.__class__.__name__ + \
             "()" if self.classifier else "None"
-        return ("Blobber(tokenizer={0}(), pos_tagger={1}(), "
-                "np_extractor={2}(), analyzer={3}(), parser={4}(), classifier={5})")\
-            .format(self.tokenizer.__class__.__name__,
-                    self.pos_tagger.__class__.__name__,
-                    self.np_extractor.__class__.__name__,
-                    self.analyzer.__class__.__name__,
-                    self.parser.__class__.__name__,
-                    classifier_name)
+        return (
+            "Blobber(tokenizer={0}(), pos_tagger={1}(), "
+            "np_extractor={2}(), analyzer={3}(), parser={4}(), classifier={5})") .format(
+            self.tokenizer.__class__.__name__,
+            self.pos_tagger.__class__.__name__,
+            self.np_extractor.__class__.__name__,
+            self.analyzer.__class__.__name__,
+            self.parser.__class__.__name__,
+            classifier_name)
 
     __str__ = __repr__

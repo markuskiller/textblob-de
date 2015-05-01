@@ -310,7 +310,7 @@ class SentenceTest(TestCase):
         blob = tb.TextBlobDE(unicode("ذات سيادة كاملة"))
         assert_true(blob.translate() in ("Vollständig souveränen",
                                          "Mit voller Souveränität",
-										 "Mit vollen Souveränität"))
+                                         "Mit vollen Souveränität"))
 
 
 # class TextBlobTest(TestCase):

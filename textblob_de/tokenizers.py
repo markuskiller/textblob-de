@@ -104,11 +104,11 @@ class NLTKPunktTokenizer(BaseTokenizer):
         Source: NLTK's docstring of ``TreebankWordTokenizer`` (accessed: 02/10/2014)
 
         """
-        # : Do not process empty strings (Issue #3)
+        #: Do not process empty strings (Issue #3)
         if text.strip() == "":
             return []
         _tokens = self.word_tok.tokenize(text)
-        # : Handle strings consisting of a single punctuation mark seperately (Issue #4)
+        #: Handle strings consisting of a single punctuation mark seperately (Issue #4)
         if len(_tokens) == 1:
             if _tokens[0] in PUNCTUATION:
                 if include_punc:
@@ -192,11 +192,11 @@ class PatternTokenizer(BaseTokenizer):
         return sentences
 
     def word_tokenize(self, sentences, include_punc=True):
-        # : Do not process empty strings (Issue #3)
+        #: Do not process empty strings (Issue #3)
         if sentences.strip() == "":
             return []
         _tokens = sentences.split(" ")
-        # : Handle strings consisting of a single punctuation mark seperately (Issue #4)
+        #: Handle strings consisting of a single punctuation mark seperately (Issue #4)
         if len(_tokens) == 1:
             if _tokens[0] in PUNCTUATION:
                 if include_punc:

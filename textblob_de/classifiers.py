@@ -444,9 +444,10 @@ class PositiveNaiveBayesClassifier(NLTKClassifier):
 
     def __repr__(self):
         class_name = self.__class__.__name__
-        return "<{cls} trained on {n_pos} labeled and {n_unlabeled} unlabeled instances>"\
-            .format(cls=class_name, n_pos=len(self.positive_set),
-                    n_unlabeled=len(self.unlabeled_set))
+        return "<{cls} trained on {n_pos} labeled and {n_unlabeled} unlabeled instances>" .format(
+            cls=class_name, n_pos=len(
+                self.positive_set), n_unlabeled=len(
+                self.unlabeled_set))
 
     # Override
     def train(self, *args, **kwargs):

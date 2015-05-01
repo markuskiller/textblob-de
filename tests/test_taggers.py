@@ -78,10 +78,13 @@ class TestPatternTagger(unittest.TestCase):
         for i, word_tag in enumerate(tags):
             assert_equal(word_tag[0], words[i])
 
-
     def test_tag_blob_nltk_tok_include_punc_stts(self):
-        blob = TextBlob(self.text, tokenizer=NLTKPunktTokenizer(),
-                        pos_tagger=PatternTagger(include_punc=True, tagset='stts'))
+        blob = TextBlob(
+            self.text,
+            tokenizer=NLTKPunktTokenizer(),
+            pos_tagger=PatternTagger(
+                include_punc=True,
+                tagset='stts'))
         tags = blob.tags
         logging.debug("tags: {0}".format(tags))
         words = ["Das", "ist", "ein", "schönes", "Auto", "."]

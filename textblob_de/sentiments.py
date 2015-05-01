@@ -91,10 +91,10 @@ def pattern_sentiment(text):
             "keiner",
             "keine",
             "nichts"),
-        modifiers = ("RB", "JJ"),
-        modifier = lambda w: w.endswith("lich"),
+        modifiers=("RB", "JJ"),
+        modifier=lambda w: w.endswith("lich"),
         #tokenizer = _tokenizer,
-        language = "de"
+        language="de"
     )
     return s(text)
 
@@ -108,7 +108,7 @@ class PatternAnalyzer(BaseSentimentAnalyzer):
 
     ``(polarity, subjectivity)``
     '''
-    # : Enhancement Issue #2
+    #: Enhancement Issue #2
     #: adapted from 'textblob.en.sentiments.py'
     kind = CONTINUOUS
     #: Return type declaration
