@@ -1,7 +1,7 @@
 Changelog
 ---------
 
-0.4.2 (unreleased)
+0.4.2 (02/05/2015)
 ++++++++++++++++++
 
 * Removed dependency on `NLTK, <https://github.com/nltk/nltk/>`_ as it already is a `TextBlob <http://textblob.readthedocs.org/en/dev/>`_ dependency
