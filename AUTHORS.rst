@@ -20,6 +20,7 @@ Contributors
 * caspar2d (Issue #8)
 * CJAnti (Issue #9)
 * retresco (Feature Request: enable tagset conversion in ``PatternTagger``)
+* Arttii (Pull Request #11)
 
 .. _TextBlob: https://textblob.readthedocs.org/
 .. _textblob-de: https://github.com/markuskiller/textblob-de

@@ -5,7 +5,7 @@
 # :source: tests/test_sentiments.py
 # :version: 2013-09-18 (1a8438b5ea)
 #
-# :modified: 2014-08-29 <m.killer@langui.ch>
+# :modified: 2015-05-02 <m.killer@langui.ch>
 #
 """Test cases for sentiment analyzers."""
 from __future__ import unicode_literals
@@ -23,8 +23,11 @@ class TestPatternAnalyzer(unittest.TestCase):
         self.neg1 = "Das ist ein hässliches Auto."
         self.pos1 = "Dieses Auto ist schön."
         # Make sure lemmatizer does not break on ``/`` (Issue #1)
-        self.pos2 = "Die ist keine böse Katze/Raubkatze."
-        self.neg2 = "Dieser Hund ist nicht nett."
+        self.pos2 = "Das ist keine böse Katze/Raubkatze."
+        # Make sure that ``PatternAnalyzer`` does not break on 
+        # subsequent ocurrences of the same (word, tag) pair
+        # here: ("schön", None). See comments to Pull Request #11.
+        self.neg2 = "Dieses Auto ist nicht schön."
 
     def test_analyze_nltk_tok(self):
         _analyzer = DeAnalyzer(tokenizer=NLTKPunktTokenizer())

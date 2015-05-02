@@ -11,6 +11,8 @@ Changelog
 * Added tests for tagset conversion
 * Fixed test for Arabic translation example (Google translation has changed)
 * Added tests for lemmatizer
+* Bugfix: ``PatternAnalyzer`` no longer breaks on subsequent ocurrences of the same ``(word, tag)`` pairs on Python3 see comments to `Pull Request #11 <https://github.com/markuskiller/textblob-de/pull/11>`_
+* Bugfix/performance enhancement: Sentiment dictionary in ``PatternAnalyzer`` no longer reloaded for every sentence `Pull Request #11 <https://github.com/markuskiller/textblob-de/pull/11>`_ (tanks @Arttii)
 
 0.4.1 (03/10/2014)
 ++++++++++++++++++

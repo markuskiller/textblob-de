@@ -77,26 +77,26 @@ class Sentiment(_Sentiment):
                     for pos, (p, s, i) in pos.items():
                         self.annotate(w, pos, p, s, i)
 
+sentiment = Sentiment(
+            path=os.path.join(MODULE, "data", "de-sentiment.xml"),
+            synset=None,
+            negations=(
+                "nicht",
+                "ohne",
+                "nie",
+                "nein",
+                "kein",
+                "keiner",
+                "keine",
+                "nichts"),
+            modifiers=("RB", "JJ"),
+            modifier=lambda w: w.endswith("lich"),
+            #tokenizer = _tokenizer,
+            language="de"
+        )
 
 def pattern_sentiment(text):
-    s = Sentiment(
-        path=os.path.join(MODULE, "data", "de-sentiment.xml"),
-        synset=None,
-        negations=(
-            "nicht",
-            "ohne",
-            "nie",
-            "nein",
-            "kein",
-            "keiner",
-            "keine",
-            "nichts"),
-        modifiers=("RB", "JJ"),
-        modifier=lambda w: w.endswith("lich"),
-        #tokenizer = _tokenizer,
-        language="de"
-    )
-    return s(text)
+    return sentiment(text)
 
 #################### END SENTIMENT DETECTION ##################################
 
