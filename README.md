@@ -1,11 +1,11 @@
 textblob-de README
 ==================
 
-[![textblob\_de - latest PyPI version](https://pypip.in/v/textblob-de/badge.png)](https://pypi.python.org/pypi/textblob-de/)
+[![textblob\_de - latest PyPI version](https://img.shields.io/pypi/v/textblob-de.svg)](https://pypi.python.org/pypi/textblob-de/)
 [![Travis-CI](https://travis-ci.org/markuskiller/textblob-de.png?branch=master)](https://travis-ci.org/markuskiller/textblob-de)
 [![Documentation Status](https://readthedocs.org/projects/textblob-de/badge/?version=latest)](http://textblob-de.readthedocs.org/en/latest/)
-[![Number of PyPI downloads](https://pypip.in/d/textblob-de/badge.png)](https://pypi.python.org/pypi/textblob-de/)
-[![LICENSE info](https://pypip.in/license/textblob-de/badge.png)](http://choosealicense.com/licenses/mit/)
+[![Number of PyPI downloads](https://img.shields.io/pypi/dm/textblob-de.svg)](https://pypi.python.org/pypi/textblob-de/)
+[![LICENSE info](https://img.shields.io/github/license/markuskiller/textblob-de.svg)](http://choosealicense.com/licenses/mit/)
 
 German language support for [TextBlob](http://textblob.readthedocs.org/en/dev/) by Steven Loria.
 
@@ -19,6 +19,7 @@ Features
 -   German sentence boundary detection and tokenization (`NLTKPunktTokenizer`)
 -   Consistent use of specified tokenizer for all tools (`NLTKPunktTokenizer` or `PatternTokenizer`)
 -   Part-of-speech tagging (`PatternTagger`) with keyword `include_punc=True` (defaults to `False`)
+-   **NEW:** Tagset conversion in `PatternTagger` with keyword `tagset='penn'|'universal'|'stts'` (defaults to `penn`)
 -   Parsing (`PatternParser`) with all `pattern` keywords, plus `pprint=True` (defaults to `False`)
 -   Noun Phrase Extraction (`PatternParserNPExtractor`)
 -   Lemmatization (`PatternParserLemmatizer`)
@@ -157,4 +158,3 @@ Thanks
 Coded with Wing IDE 5.0 (free open source developer license)
 
 [![Python IDE for Python - wingware.com](https://wingware.com/images/wingware-logo-180x58.png)](https://wingware.com/store/free)
-

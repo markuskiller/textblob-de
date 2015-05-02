@@ -40,4 +40,10 @@ nosetests.xml
 *.wpu
 #*.wpr cross-platform WING IDE project file (useful)
 
+# built docs (available on textblob-de.readthedocs.org)
+docs/html
+docs/textblob-de.pdf
 docs/src/_build
+
+# penv version file (platform dependent)
+.python-version

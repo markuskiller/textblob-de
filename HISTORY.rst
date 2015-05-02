@@ -1,9 +1,23 @@
 Changelog
 ---------
 
+0.4.2 (02/05/2015)
+++++++++++++++++++
+
+* Removed dependency on `NLTK, <https://github.com/nltk/nltk/>`_ as it already is a `TextBlob <http://textblob.readthedocs.org/en/dev/>`_ dependency
+* Temporary workaround for `NLTK Issue #824 <https://github.com/nltk/nltk/issues/824>`_ for tox/Travis-CI
+* (update 13/01/2015) `NLTK Issue #824 <https://github.com/nltk/nltk/issues/824>`_ fixed, workaround removed
+* Enabled ``pattern`` tagset conversion (``'penn'|'universal'|'stts'``) for ``PatternTagger``
+* Added tests for tagset conversion
+* Fixed test for Arabic translation example (Google translation has changed)
+* Added tests for lemmatizer
+* Bugfix: ``PatternAnalyzer`` no longer breaks on subsequent ocurrences of the same ``(word, tag)`` pairs on Python3 see comments to `Pull Request #11 <https://github.com/markuskiller/textblob-de/pull/11>`_
+* Bugfix/performance enhancement: Sentiment dictionary in ``PatternAnalyzer`` no longer reloaded for every sentence `Pull Request #11 <https://github.com/markuskiller/textblob-de/pull/11>`_ (tanks @Arttii)
+
 0.4.1 (03/10/2014)
 ++++++++++++++++++
 
+* Docs hosted on `RTD <http://textblob-de.readthedocs.org>`_
 * Removed dependency on nltk's depricated ``PunktWordTokenizer`` and replaced it with ``TreebankWordTokenizer`` see  `nltk/nltk#746 (comment) <https://github.com/nltk/nltk/pull/746#issuecomment-57625756>`_ for details
 
 0.4.0 (17/09/2014)
@@ -59,7 +73,7 @@ Changelog
 * ``sdist`` is non-functional as important files are missing due to a misconfiguration in ``MANIFEST.in`` - does not affect ``wheels``
 * Major internal refactoring (but no backwards-incompatible API changes) with the aim of restoring complete compatibility to original ``pattern>=2.6`` library on Python2
 * Separation of ``textblob`` and ``pattern`` code
-* On Python2 the vendorized version of ``pattern.text.de`` is only used, if original is not installed (same as ``nltk``)
+* On Python2 the vendorized version of ``pattern.text.de`` is only used if original is not installed (same as ``nltk``)
 * Made ``pattern.de.pprint`` function and all parser keywords accessible to customise parser output
 * Access to complete ``pattern.text.de`` API on Python2 and Python3 ``from textblob_de.packages import pattern_de as pd``
 * ``tox`` passed on all major platforms (Win/Linux/OSX)

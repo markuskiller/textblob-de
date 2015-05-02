@@ -3,7 +3,7 @@ textblob-de README
 ==================
 
 
-.. image:: https://pypip.in/v/textblob-de/badge.png
+.. image:: https://img.shields.io/pypi/v/textblob-de.svg
     :target: https://pypi.python.org/pypi/textblob-de/
     :alt: textblob_de - latest PyPI version
 
@@ -15,11 +15,11 @@ textblob-de README
     :target: http://textblob-de.readthedocs.org/en/latest/
     :alt: Documentation Status
 
-.. image:: https://pypip.in/d/textblob-de/badge.png
+.. image:: https://img.shields.io/pypi/dm/textblob-de.svg
     :target: https://pypi.python.org/pypi/textblob-de/
     :alt: Number of PyPI downloads
 
-.. image:: https://pypip.in/license/textblob-de/badge.png
+.. image:: https://img.shields.io/github/license/markuskiller/textblob-de.svg
     :target: http://choosealicense.com/licenses/mit/
     :alt: LICENSE info
 
@@ -37,6 +37,7 @@ Features
 * German sentence boundary detection and tokenization (``NLTKPunktTokenizer``)
 * Consistent use of specified tokenizer for all tools (``NLTKPunktTokenizer`` or ``PatternTokenizer``)
 * Part-of-speech tagging (``PatternTagger``) with keyword ``include_punc=True`` (defaults to ``False``)
+* **NEW:** Tagset conversion in ``PatternTagger`` with keyword ``tagset='penn'|'universal'|'stts'`` (defaults to ``penn``)
 * Parsing (``PatternParser``) with all ``pattern`` keywords, plus ``pprint=True`` (defaults to ``False``)
 * Noun Phrase Extraction (``PatternParserNPExtractor``)
 * Lemmatization (``PatternParserLemmatizer``)
@@ -52,6 +53,7 @@ Installing/Upgrading
 
     $ pip install -U textblob-de
     $ python -m textblob.download_corpora
+
     
 Or the latest development release (apparently this does not always work on Windows see 
 `issues #1744/5 <https://github.com/pypa/pip/pull/1745>`_ for details)::

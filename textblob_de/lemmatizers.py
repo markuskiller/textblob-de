@@ -46,7 +46,7 @@ class PatternParserLemmatizer(BaseLemmatizer):
         :param str text: A string.
 
         """
-        # : Do not process empty strings (Issue #3)
+        #: Do not process empty strings (Issue #3)
         if text.strip() == "":
             return []
         parsed_sentences = self._parse_text(text)
@@ -54,7 +54,7 @@ class PatternParserLemmatizer(BaseLemmatizer):
         for s in parsed_sentences:
             tokens = s.split()
             for i, t in enumerate(tokens):
-                # : Filter empty tokens from the parser output (Issue #5)
+                #: Filter empty tokens from the parser output (Issue #5)
                 #: This only happens if parser input is improperly tokenized
                 #: e.g. if there are empty strings in the list of tokens ['A', '', '.']
                 if t.startswith('/'):

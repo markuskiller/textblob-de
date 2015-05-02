@@ -8,7 +8,7 @@
 # Source: https://github.com/clips/pattern/pattern/text/__init__.py
 # git-commit: 2014-05-10 (2f944cb)
 
-# Modified: 2014-08-04 Markus Killer <m.killer@langui.ch>
+# Modified: 2015-05-02 Markus Killer <m.killer@langui.ch>
 
 ####################################################################################################
 from __future__ import unicode_literals, absolute_import
@@ -1910,13 +1910,13 @@ class Sentiment(lazydict):
         self._language = xml.attrib.get("language", self._language)
         # Average scores of all word senses per part-of-speech tag.
         for w in words:
-            words[w] = dict((pos, map(avg, zip(*psi))) for pos, psi in words[w].items())
+            words[w] = dict((pos, [avg(each) for each in zip(*psi)]) for pos, psi in words[w].items())
         # Average scores of all part-of-speech tags.
-        for w, pos in words.items():
-            words[w][None] = map(avg, zip(*pos.values()))
+        for w, pos in list(words.items()):
+            words[w][None] = [avg(each) for each in zip(*pos.values())]
         # Average scores of all synonyms per synset.
         for id, psi in synsets.items():
-            synsets[id] = map(avg, zip(*psi))
+            synsets[id] = [avg(each) for each in zip(*psi)]
         dict.update(self, words)
         dict.update(self.labeler, labels)
         dict.update(self._synsets, synsets)
