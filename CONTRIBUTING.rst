@@ -36,7 +36,7 @@ Setting Up for Local Development
     $ virtualenv tb-de
     $ <activate virtual environment>
 
-3. Install development requirements and run ``setupy.py develop``.
+3. Install development requirements and run ``setup.py develop``.
    (see `Makefile help <project_makefile.html>`_ for overview of available 
    ``make`` targets)::
 
