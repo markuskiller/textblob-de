@@ -22,6 +22,7 @@ before_install:
     - "tar -xzvf nltk_data.tar.gz -C ~"
 
 install:
+  - pip install -r requirements-tests.txt
   - pip install -U .
 
 script: python run_tests.py
