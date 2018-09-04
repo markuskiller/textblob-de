@@ -291,7 +291,9 @@ class SentenceTest(TestCase):
         # it does not (not entirely sure if this is Google or TextBlob)
         # Further tests needed.
         assert_true(translated in ["This is a sentence.",
-                                   "This is a sentence ."])
+                                   "This is a sentence .",
+                                   "That's a sentence.",
+                                   "That's a sentence ."])
 
     @expected_failure
     def test_correct(self):
@@ -310,6 +312,7 @@ class SentenceTest(TestCase):
     def test_translate_detects_language_by_default(self):
         blob = tb.TextBlobDE(unicode("ذات سيادة كاملة"))
         assert_true(blob.translate() in ("Vollständig souveränen",
+                                         "Völlig souverän",
                                          "Mit voller Souveränität",
                                          "Mit vollen Souveränität"))
 
