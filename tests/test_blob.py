@@ -314,7 +314,9 @@ class SentenceTest(TestCase):
         assert_true(blob.translate() in ("Vollständig souveränen",
                                          "Völlig souverän",
                                          "Mit voller Souveränität",
-                                         "Mit vollen Souveränität"))
+                                         "Mit vollen Souveränität",
+                                         "Volle Souveränität",
+                                         "Voll souverän"))
 
 
 # class TextBlobTest(TestCase):
