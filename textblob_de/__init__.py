@@ -14,7 +14,7 @@ from textblob_de.tokenizers import NLTKPunktTokenizer, PatternTokenizer
 from textblob_de.parsers import PatternParser
 from textblob_de.sentiments import PatternAnalyzer
 
-__version__ = '0.4.3a1'
+__version__ = '0.4.3a2'
 
 __author__ = 'Markus Killer'
 __license__ = "MIT"
