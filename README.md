@@ -7,26 +7,39 @@ textblob-de README
 [![Number of PyPI downloads](https://img.shields.io/pypi/dm/textblob-de.svg)](https://pypi.python.org/pypi/textblob-de/)
 [![LICENSE info](https://img.shields.io/github/license/markuskiller/textblob-de.svg)](http://choosealicense.com/licenses/mit/)
 
-German language support for [TextBlob](http://textblob.readthedocs.org/en/dev/) by Steven Loria.
+German language support for
+[TextBlob](http://textblob.readthedocs.org/en/dev/) by Steven Loria.
 
-This python package is being developed as a `TextBlob` **Language Extension**. See [Extension Guidelines](https://textblob.readthedocs.org/en/dev/contributing.html) for details.
+This python package is being developed as a `TextBlob` **Language
+Extension**. See [Extension
+Guidelines](https://textblob.readthedocs.org/en/dev/contributing.html)
+for details.
 
 Features
 --------
 
--   All directly accessible `textblob_de` classes (e.g. `Sentence()` or `Word()`) are initialized with default models for German
--   Properties or methods that do not yet work for German raise a `NotImplementedError`
--   German sentence boundary detection and tokenization (`NLTKPunktTokenizer`)
--   Consistent use of specified tokenizer for all tools (`NLTKPunktTokenizer` or `PatternTokenizer`)
--   Part-of-speech tagging (`PatternTagger`) with keyword `include_punc=True` (defaults to `False`)
--   **NEW:** Tagset conversion in `PatternTagger` with keyword `tagset='penn'|'universal'|'stts'` (defaults to `penn`)
--   Parsing (`PatternParser`) with all `pattern` keywords, plus `pprint=True` (defaults to `False`)
+-   All directly accessible `textblob_de` classes (e.g. `Sentence()` or
+    `Word()`) are initialized with default models for German
+-   Properties or methods that do not yet work for German raise a
+    `NotImplementedError`
+-   German sentence boundary detection and tokenization
+    (`NLTKPunktTokenizer`)
+-   Consistent use of specified tokenizer for all tools
+    (`NLTKPunktTokenizer` or `PatternTokenizer`)
+-   Part-of-speech tagging (`PatternTagger`) with keyword
+    `include_punc=True` (defaults to `False`)
+-   **NEW:** Tagset conversion in `PatternTagger` with keyword
+    `tagset='penn'|'universal'|'stts'` (defaults to `penn`)
+-   Parsing (`PatternParser`) with all `pattern` keywords, plus
+    `pprint=True` (defaults to `False`)
 -   Noun Phrase Extraction (`PatternParserNPExtractor`)
 -   Lemmatization (`PatternParserLemmatizer`)
--   Polarity detection (`PatternAnalyzer`) - Still **EXPERIMENTAL**, does not yet have information on subjectivity
+-   Polarity detection (`PatternAnalyzer`) - Still **EXPERIMENTAL**,
+    does not yet have information on subjectivity
 -   Full `pattern.text.de` API support on Python3
 -   Supports Python 2 and 3
--   See [working features overview](http://langui.ch/nlp/python/textblob-de-dev/) for details
+-   See [working features
+    overview](http://langui.ch/nlp/python/textblob-de-dev/) for details
 
 Installing/Upgrading
 --------------------
@@ -34,14 +47,18 @@ Installing/Upgrading
     $ pip install -U textblob-de
     $ python -m textblob.download_corpora
 
-Or the latest development release (apparently this does not always work on Windows see [issues \#1744/5](https://github.com/pypa/pip/pull/1745) for details):
+Or the latest development release (apparently this does not always work
+on Windows see [issues \#1744/5](https://github.com/pypa/pip/pull/1745)
+for details):
 
     $ pip install -U git+https://github.com/markuskiller/textblob-de.git@dev
     $ python -m textblob.download_corpora
 
-> **note**
->
-> `TextBlob` will be installed/upgraded automatically when running `pip install`. The second line (`python -m textblob.download_corpora`) downloads/updates nltk corpora and language models used in `TextBlob`.
+Note
+
+`TextBlob` will be installed/upgraded automatically when running
+`pip install`. The second line (`python -m textblob.download_corpora`)
+downloads/updates nltk corpora and language models used in `TextBlob`.
 
 Usage
 -----
@@ -97,9 +114,15 @@ Sentiment(polarity=1.0, subjectivity=0.0)
 Sentiment(polarity=-1.0, subjectivity=0.0)
 ```
 
-> **warning**
->
-> **WORK IN PROGRESS:** The German polarity lexicon contains only uninflected forms and there are no subjectivity scores yet. As of version 0.2.3, lemmatized word forms are submitted to the `PatternAnalyzer`, increasing the accuracy of polarity values. New in version 0.2.7: return type of `.sentiment` is now adapted to the main [TextBlob](http://textblob.readthedocs.org/en/dev/) library (`:rtype: namedtuple`).
+Warning
+
+**WORK IN PROGRESS:** The German polarity lexicon contains only
+uninflected forms and there are no subjectivity scores yet. As of
+version 0.2.3, lemmatized word forms are submitted to the
+`PatternAnalyzer`, increasing the accuracy of polarity values. New in
+version 0.2.7: return type of `.sentiment` is now adapted to the main
+[TextBlob](http://textblob.readthedocs.org/en/dev/) library
+(`:rtype: namedtuple`).
 
 ``` python
 >>> blob.words.lemmatize()
@@ -110,9 +133,10 @@ WordList(['das', 'sein', 'ein', 'hässlich', 'Auto'])
 [('das', 'DT'), ('sein', 'VB'), ('ein', 'DT'), ('hässlich', 'JJ'), ('Auto', 'NN')]
 ```
 
-> **note**
->
-> Make sure that you use unicode strings on Python2 if your input contains non-ascii characters (e.g. `word = u"schön"`).
+Note
+
+Make sure that you use unicode strings on Python2 if your input contains
+non-ascii characters (e.g. `word = u"schön"`).
 
 Access to `pattern` API in Python3
 ----------------------------------
@@ -123,9 +147,15 @@ Access to `pattern` API in Python3
 neugierigen
 ```
 
-> **note**
->
-> Alternatively, the path to `textblob_de/ext` can be added to the `PYTHONPATH`, which allows the use of `pattern.de` in almost the same way as described in its [Documentation](http://www.clips.ua.ac.be/pages/pattern-de). The only difference is that you will have to prepend an underscore: `from _pattern.de import ...`. This is a precautionary measure in case the `pattern` library gets native Python3 support in the future.
+Note
+
+Alternatively, the path to `textblob_de/ext` can be added to the
+`PYTHONPATH`, which allows the use of `pattern.de` in almost the same
+way as described in its
+[Documentation](http://www.clips.ua.ac.be/pages/pattern-de). The only
+difference is that you will have to prepend an underscore:
+`from _pattern.de import ...`. This is a precautionary measure in case
+the `pattern` library gets native Python3 support in the future.
 
 Documentation and API Reference
 -------------------------------
@@ -135,22 +165,26 @@ Documentation and API Reference
 Requirements
 ------------
 
--   Python \>= 2.6 or \>= 3.3
+-   Python &gt;= 2.6 or &gt;= 3.3
 
 TODO
 ----
 
--   [Planned Extensions](http://textblob-de.readthedocs.org/en/latest/extensions.html)
+-   [Planned
+    Extensions](http://textblob-de.readthedocs.org/en/latest/extensions.html)
 -   Additional PoS tagging options, e.g. NLTK tagging (`NLTKTagger`)
 -   Improve noun phrase extraction (e.g. based on `RFTagger` output)
 -   Improve sentiment analysis (find suitable subjectivity scores)
 -   Improve functionality of `Sentence()` and `Word()` objects
--   Adapt more tests from the main [TextBlob](http://textblob.readthedocs.org/en/dev/) library (esp. for `TextBlobDE()` in `test_blob.py`)
+-   Adapt more tests from the main
+    [TextBlob](http://textblob.readthedocs.org/en/dev/) library (esp.
+    for `TextBlobDE()` in `test_blob.py`)
 
 License
 -------
 
-[MIT licensed](http://choosealicense.com/licenses/mit/). See the bundled `LICENSE` file for more details.
+[MIT licensed](http://choosealicense.com/licenses/mit/). See the bundled
+`LICENSE` file for more details.
 
 Thanks
 ------

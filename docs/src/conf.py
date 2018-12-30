@@ -54,7 +54,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'textblob-de'
-copyright = u'2014, Markus Killer (http://langui.ch)'
+copyright = u'2014-2018, Markus Killer (http://langui.ch)'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
