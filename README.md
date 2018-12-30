@@ -18,6 +18,7 @@ for details.
 Features
 --------
 
+-   **NEW:** Works with Python3.7
 -   All directly accessible `textblob_de` classes (e.g. `Sentence()` or
     `Word()`) are initialized with default models for German
 -   Properties or methods that do not yet work for German raise a
@@ -28,7 +29,7 @@ Features
     (`NLTKPunktTokenizer` or `PatternTokenizer`)
 -   Part-of-speech tagging (`PatternTagger`) with keyword
     `include_punc=True` (defaults to `False`)
--   **NEW:** Tagset conversion in `PatternTagger` with keyword
+-   Tagset conversion in `PatternTagger` with keyword
     `tagset='penn'|'universal'|'stts'` (defaults to `penn`)
 -   Parsing (`PatternParser`) with all `pattern` keywords, plus
     `pprint=True` (defaults to `False`)
