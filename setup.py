@@ -17,7 +17,8 @@ packages = ['textblob_de']
 requires = ["textblob>=0.9.0"]
 
 
-PUBLISH_CMD = "python setup.py register sdist bdist_wheel upload"
+BUILD_CMD = "python setup.py sdist bdist_wheel"
+PUBLISH_CMD = "twine check register upload dist/*"
 TEST_PUBLISH_CMD = 'python setup.py register -r test sdist bdist_wheel upload -r test'
 TEST_CMD = 'python run_tests.py'
 
@@ -48,6 +49,7 @@ if 'publish' in sys.argv:
     except ImportError:
         print("wheel required. Run `pip install wheel`.")
         sys.exit(1)
+    build = subprocess.call(BUILD_CMD, shell=True)
     status = subprocess.call(PUBLISH_CMD, shell=True)
     sys.exit(status)
 
@@ -58,7 +60,7 @@ if 'publish_test' in sys.argv:
         print("wheel required. Run `pip install wheel`.")
         sys.exit(1)
     status = subprocess.call(TEST_PUBLISH_CMD, shell=True)
-    sys.exit()
+    sys.exit(status)
 
 if 'run_tests' in sys.argv:
     try:
