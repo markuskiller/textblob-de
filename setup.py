@@ -49,6 +49,11 @@ if 'publish' in sys.argv:
     except ImportError:
         print("wheel required. Run `pip install wheel`.")
         sys.exit(1)
+    try:
+        __import__('twine')
+    except ImportError:
+        print("twine required. Run `pip install twine`.")
+        sys.exit(1)
     build = subprocess.call(BUILD_CMD, shell=True)
     status = subprocess.call(PUBLISH_CMD, shell=True)
     sys.exit(status)
