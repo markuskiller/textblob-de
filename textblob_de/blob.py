@@ -424,6 +424,18 @@ class BaseBlob(_BaseBlob):
         return self.analyzer.analyze(self.raw)
 
     @cached_property
+    def sentiment_assessments(self):
+        """Return a tuple of form (polarity, subjectivity, assessments ) where
+        polarity is a float within the range [-1.0, 1.0], subjectivity is a
+        float within the range [0.0, 1.0] where 0.0 is very objective and 1.0
+        is very subjective, and assessments is a list of polarity and
+        subjectivity scores for the assessed tokens.
+        
+        :rtype: namedtuple of the form ``Sentiment(polarity, subjectivity, assessments)``
+        """
+        raise NotImplementedError
+
+    @cached_property
     def polarity(self):
         """Return the polarity score as a float within the range [-1.0, 1.0]
 
@@ -678,6 +690,18 @@ class TextBlobDE(BaseBlob):
         except ZeroDivisionError:
             subjectivity = 0.0
         return _RETURN_TYPE(polarity, subjectivity)
+
+    @cached_property
+    def sentiment_assessments(self):
+        """Return a tuple of form (polarity, subjectivity, assessments ) where
+        polarity is a float within the range [-1.0, 1.0], subjectivity is a
+        float within the range [0.0, 1.0] where 0.0 is very objective and 1.0
+        is very subjective, and assessments is a list of polarity and
+        subjectivity scores for the assessed tokens.
+        
+        :rtype: namedtuple of the form ``Sentiment(polarity, subjectivity, assessments)``
+        """
+        raise NotImplementedError
 
     @cached_property
     def polarity(self):

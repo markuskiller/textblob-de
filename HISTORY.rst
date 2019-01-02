@@ -1,6 +1,14 @@
 Changelog
 ---------
 
+0.4.3 (02/01/2019)
+++++++++++++++++++
+
+* Added support for Python3.7 (``StopIteration --> return``) `Pull Request #18 <https://github.com/markuskiller/textblob-de/pull/18>`_ (thanks @andrewmfiorillo)
+* Fixed tests for Google translation examples
+* Updated tox/Travis-CI config files to include latest Python & pypy versions
+* Updated sphinx_rtd_theme to version 0.4.2 to fix rendering problems on `RTD <http://textblob-de.readthedocs.org>`_
+
 0.4.2 (02/05/2015)
 ++++++++++++++++++
 

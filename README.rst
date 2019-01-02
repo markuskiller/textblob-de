@@ -7,7 +7,7 @@ textblob-de README
     :target: https://pypi.python.org/pypi/textblob-de/
     :alt: textblob_de - latest PyPI version
 
-.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=master
+.. image:: https://travis-ci.org/markuskiller/textblob-de.png?branch=dev
     :target: https://travis-ci.org/markuskiller/textblob-de
     :alt: Travis-CI
     
@@ -32,19 +32,20 @@ See `Extension Guidelines <https://textblob.readthedocs.org/en/dev/contributing.
 Features
 --------
 
+* **NEW:** Works with Python3.7
 * All directly accessible ``textblob_de`` classes (e.g. ``Sentence()`` or ``Word()``) are initialized with default models for German
 * Properties or methods that do not yet work for German raise a ``NotImplementedError``
 * German sentence boundary detection and tokenization (``NLTKPunktTokenizer``)
 * Consistent use of specified tokenizer for all tools (``NLTKPunktTokenizer`` or ``PatternTokenizer``)
 * Part-of-speech tagging (``PatternTagger``) with keyword ``include_punc=True`` (defaults to ``False``)
-* **NEW:** Tagset conversion in ``PatternTagger`` with keyword ``tagset='penn'|'universal'|'stts'`` (defaults to ``penn``)
+* Tagset conversion in ``PatternTagger`` with keyword ``tagset='penn'|'universal'|'stts'`` (defaults to ``penn``)
 * Parsing (``PatternParser``) with all ``pattern`` keywords, plus ``pprint=True`` (defaults to ``False``)
 * Noun Phrase Extraction (``PatternParserNPExtractor``)
 * Lemmatization (``PatternParserLemmatizer``)
 * Polarity detection (``PatternAnalyzer``) - Still **EXPERIMENTAL**, does not yet have information on subjectivity
 * Full ``pattern.text.de`` API support on Python3
 * Supports Python 2 and 3
-* See `working features overview <http://langui.ch/nlp/python/textblob-de/>`_ for details
+* See `working features overview <http://langui.ch/nlp/python/textblob-de-dev/>`_ for details
 
 
 Installing/Upgrading

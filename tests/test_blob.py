@@ -290,7 +290,10 @@ class SentenceTest(TestCase):
         # For some languages punctuation gets separated for others
         # it does not (not entirely sure if this is Google or TextBlob)
         # Further tests needed.
-        assert_equal(translated, "This is a sentence .")
+        assert_true(translated in ["This is a sentence.",
+                                   "This is a sentence .",
+                                   "That's a sentence.",
+                                   "That's a sentence ."])
 
     @expected_failure
     def test_correct(self):
@@ -309,8 +312,11 @@ class SentenceTest(TestCase):
     def test_translate_detects_language_by_default(self):
         blob = tb.TextBlobDE(unicode("ذات سيادة كاملة"))
         assert_true(blob.translate() in ("Vollständig souveränen",
+                                         "Völlig souverän",
                                          "Mit voller Souveränität",
-                                         "Mit vollen Souveränität"))
+                                         "Mit vollen Souveränität",
+                                         "Volle Souveränität",
+                                         "Voll souverän"))
 
 
 # class TextBlobTest(TestCase):
@@ -960,11 +966,10 @@ class WordTest(TestCase):
 
     @attr('requires_internet')
     def test_translate(self):
-        assert_equal(
+        assert_true(
             tb.Word("Katze").translate(
                 from_lang="de",
-                to="en"),
-            "cat")
+                to="en") in ["cat", "Cat"])
 
     @attr('requires_internet')
     def test_translate_without_from_lang(self):
