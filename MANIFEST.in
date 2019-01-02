@@ -4,6 +4,8 @@ recursive-include textblob_de/data *.xml
 recursive-exclude textblob_de/ext __pycache__ *.pyc
 recursive-include tests *
 recursive-include docs *
-exclude docs/src/_build
+prune docs/src/_build
+prune docs/src/_themes
+prune docs/html/_static/fonts
 recursive-exclude docs __pycache__ *.pyc
 recursive-exclude tests __pycache__ *.pyc

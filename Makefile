@@ -15,8 +15,8 @@ P = python
 # Linux 'open' or 'xdg-open' / OSX: 'open' / Win: 'start'
 
 #O = start
-O = xdg-open
-#O = open
+#O = xdg-open
+O = open
 
 
 help:
@@ -53,6 +53,7 @@ help:
 	@echo "docs-pdf           generate Sphinx HTML and PDF documentation, including API docs"
 	@echo "sdist              package"
 	@echo "publish            package and upload sdist and universal wheel to PyPI"
+	@echo "publish-test       package and upload sdist and universal wheel to PyPI"
 	@echo "register           update README.rst on PyPI"
 	@echo "push-github        push all changes to git repository on github.com"
 	@echo "push-bitbucket     push all changes to git repository on bitbucket.org"
@@ -151,12 +152,17 @@ docs: clean develop
 	
 	
 docs-pdf: docs
-	make -C ./docs/src latexpdf
+	#make -C ./docs/src latexpdf
 	#$(O) ./docs/$(subst _,-,$(N)).pdf &
+	curl https://media.readthedocs.org/pdf/textblob-de/stable/textblob-de.pdf --output docs/textblob-de.pdf
 
 publish: clean docs-pdf
 	$(P) setup.py publish
 	$(O) https://pypi.python.org/pypi/$(subst _,-,$(N)) &
+	
+publish-test: clean docs-pdf
+	$(P) setup.py publish_test
+	$(O) https://test.pypi.org/project/$(subst _,-,$(N)) &
 
 sdist: clean docs-pdf
 	$(P) setup.py sdist

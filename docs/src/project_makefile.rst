@@ -4,7 +4,7 @@ Project ``Makefile``
 
     ::
 
-     generated: 02 January 2019 - 15:56
+     generated: 03 January 2019 - 00:50
 
 	
 	Please use 'make <target>' where where <target> is one of
@@ -39,6 +39,7 @@ Project ``Makefile``
 	docs-pdf           generate Sphinx HTML and PDF documentation, including API docs
 	sdist              package
 	publish            package and upload sdist and universal wheel to PyPI
+	publish-test       package and upload sdist and universal wheel to PyPI
 	register           update README.rst on PyPI
 	push-github        push all changes to git repository on github.com
 	push-bitbucket     push all changes to git repository on bitbucket.org
