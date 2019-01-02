@@ -1,7 +1,7 @@
 Changelog
 ---------
 
-0.4.3 (unreleased)
+0.4.3 (02/01/2019)
 ++++++++++++++++++
 
 * Added support for Python3.7 (``StopIteration --> return``) `Pull Request #18 <https://github.com/markuskiller/textblob-de/pull/18>`_ (thanks @andrewmfiorillo)
