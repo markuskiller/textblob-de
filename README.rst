@@ -196,13 +196,13 @@ TODO
 License
 -------
 
-`MIT licensed <http://choosealicense.com/licenses/mit/>`_. See the bundled ``LICENSE``  file for more details.
+MIT licensed. See the bundled `LICENSE <https://github.com/markuskiller/textblob-de/blob/master/LICENSE>`_ file for more details.
 
 
 Thanks
 ------
 
-Coded with Wing IDE 5.0 (free open source developer license)
+Coded with Wing IDE (free open source developer license)
 
 .. image:: https://wingware.com/images/wingware-logo-180x58.png
     :target: https://wingware.com/store/free

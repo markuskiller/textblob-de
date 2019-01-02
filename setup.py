@@ -18,8 +18,10 @@ requires = ["textblob>=0.9.0"]
 
 
 BUILD_CMD = "python setup.py sdist bdist_wheel"
-PUBLISH_CMD = "twine check register upload dist/*"
-TEST_PUBLISH_CMD = 'python setup.py register -r test sdist bdist_wheel upload -r test'
+CHECK_DIST_CMD = "twine check dist/*"
+PUBLISH_CMD = "twine upload dist/*"
+REGISTER_CMD = "twine register textblob-de"
+TEST_PUBLISH_CMD = 'twine upload --repository-url https://test.pypi.org/legacy/ dist/*'
 TEST_CMD = 'python run_tests.py'
 
 
@@ -55,6 +57,7 @@ if 'publish' in sys.argv:
         print("twine required. Run `pip install twine`.")
         sys.exit(1)
     build = subprocess.call(BUILD_CMD, shell=True)
+    check_dist = subprocess.call(CHECK_DIST_CMD, shell=True)
     status = subprocess.call(PUBLISH_CMD, shell=True)
     sys.exit(status)
 
@@ -64,7 +67,23 @@ if 'publish_test' in sys.argv:
     except ImportError:
         print("wheel required. Run `pip install wheel`.")
         sys.exit(1)
+    try:
+        __import__('twine')
+    except ImportError:
+        print("twine required. Run `pip install twine`.")
+        sys.exit(1)
+    build = subprocess.call(BUILD_CMD, shell=True)
+    check_dist = subprocess.call(CHECK_DIST_CMD, shell=True)
     status = subprocess.call(TEST_PUBLISH_CMD, shell=True)
+    sys.exit(status)
+    
+if 'register' in sys.argv:
+    try:
+        __import__('twine')
+    except ImportError:
+        print("twine required. Run `pip install twine`.")
+        sys.exit(1)
+    status = subprocess.call(REGISTER_CMD, shell=True)
     sys.exit(status)
 
 if 'run_tests' in sys.argv:
@@ -87,7 +106,7 @@ setup(
     name='textblob-de',
     version=__version__,
     description='German language support for TextBlob.',
-    long_description=(
+    long_description=('\n' +
         read("README.rst") + '\n\n' + read("HISTORY.rst")),
     author='Markus Killer',
     author_email='m.killer@langui.ch',
@@ -105,7 +124,7 @@ setup(
             "ext/_pattern/text/de/*.*",
         ]},
     install_requires=requires,
-    license='\n\n' + read("LICENSE") + '\n\n',
+    license='MIT',
     zip_safe=False,
     keywords=[
         'textblob',
