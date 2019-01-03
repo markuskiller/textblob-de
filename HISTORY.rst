@@ -8,7 +8,7 @@ Changelog
 * Fixed tests for Google translation examples
 * Updated tox/Travis-CI config files to include latest Python & pypy versions
 * Updated sphinx_rtd_theme to version 0.4.2 to fix rendering problems on `RTD <http://textblob-de.readthedocs.org>`_
-* Updated ``setup.py publish`` commands, ``Makefile`` & ``Manifest.in`` to new PiPy (using ``twine``)
+* Updated ``setup.py publish`` commands, ``Makefile`` & ``Manifest.in`` to new PyPI (using ``twine``)
 
 0.4.2 (02/05/2015)
 ++++++++++++++++++

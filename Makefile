@@ -53,7 +53,7 @@ help:
 	@echo "docs-pdf           generate Sphinx HTML and PDF documentation, including API docs"
 	@echo "sdist              package"
 	@echo "publish            package and upload sdist and universal wheel to PyPI"
-	@echo "publish-test       package and upload sdist and universal wheel to PyPI"
+	@echo "publish-test       package and upload sdist and universal wheel to TestPyPI"
 	@echo "register           update README.rst on PyPI"
 	@echo "push-github        push all changes to git repository on github.com"
 	@echo "push-bitbucket     push all changes to git repository on bitbucket.org"
