@@ -172,7 +172,7 @@ def stts2universal(token, tag):
     return penntreebank2universal(*stts2penntreebank(token, tag))
 
 #let's add some legal abbreviations, too
-#let's also completely rule out ordinals
+#let's also completely rule out at least simple ordinals
 ABBREVIATIONS = set((
     "Abs.", "Abt.", "Ass.", "Br.", "Ch.", "Chr.", "Cie.", "Co.", "Dept.", "Diff.", 
     "Dr.", "Eidg.", "Exp.", "Fam.", "Fr.", "Hrsg.", "Inc.", "Inv.", "Jh.", "Jt.", "Kt.", 
@@ -185,7 +185,8 @@ ABBREVIATIONS = set((
     "d.h.", "h.c.", u"o.ä.", "u.a.", "z.B.", "z.T.", "z.Zt.", "z. B.", "d. h.", "h. c.", 
     u"o. ä.", "u. a.", "z. B.", "z. T.", "z. Zt.",
     "BGBl.", "ABl.", "Bundesgesetzbl.",
-    "0.", "1.", "2.", "3.", "4.", "5.", "6.", "7.", "8.", "9."
+    "0.", "1.", "2.", "3.", "4.", "5.", "6.", "7.", "8.", "9.",
+    "0 .", "1 .", "2 .", "3 .", "4 .", "5 .", "6 .", "7 .", "8 .", "9 ."
 ))
 
 def find_lemmata(tokens):

@@ -202,8 +202,7 @@ class TestPatternTokenizer(unittest.TestCase):
                      ['Heute',
                       'ist',
                       'der',
-                      '3',
-                      '.',
+                      '3.',
                       'Mai',
                       '2014',
                       'und',
@@ -258,8 +257,8 @@ class TestPatternTokenizer(unittest.TestCase):
 
     def test_tokenize_nested(self):
         assert_equal(self.tokenizer.tokenize(self.text, nested=True),
-                     [['Heute', 'ist', 'der', '3', '.'],
-                      ['Mai',
+                     [['Heute', 'ist', 'der', '3.',
+                      'Mai',
                        '2014',
                        'und',
                        'Dr.',
@@ -280,8 +279,7 @@ class TestPatternTokenizer(unittest.TestCase):
 
     def test_sent_tokenize(self):
         sents = self.tokenizer.sent_tokenize(self.text)
-        assert_equal(sents, ['Heute ist der 3 .',
-                             'Mai 2014 und Dr. Meier feiert seinen 43 .',
+        assert_equal(sents, ['Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 43 .',
                              'Geburtstag .',
                              'Er wünscht sich z. B. einen Pullover von Frau v. Stein .'
                              ])
