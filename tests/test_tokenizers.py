@@ -191,7 +191,7 @@ class TestPatternTokenizer(unittest.TestCase):
     def setUp(self):
         self.tokenizer = PatternTokenizer()
         self.text = "Heute ist der 3. Mai 2014 und Dr. Meier feiert seinen 43. " \
-            "Geburtstag."
+            "Geburtstag. Er wünscht sich z. B. einen Pullover von Frau v. Stein."
         self.snt1 = "Heute ist der 3 ."
 
     def tearDown(self):
@@ -214,6 +214,18 @@ class TestPatternTokenizer(unittest.TestCase):
                       '43',
                       '.',
                       'Geburtstag',
+                      '.',
+                      'Er',
+                      'wünscht',
+                      'sich',
+                      'z.',
+                      'B.',
+                      'einen',
+                      'Pullover',
+                      'von',
+                      'Frau',
+                      'v.',
+                      'Stein',
                       '.'])
 
     def test_exclude_punc(self):
@@ -231,7 +243,18 @@ class TestPatternTokenizer(unittest.TestCase):
                       'feiert',
                       'seinen',
                       '43',
-                      'Geburtstag'])
+                      'Geburtstag',
+                      'Er',
+                      'wünscht',
+                      'sich',
+                      'z',
+                      'B',
+                      'einen',
+                      'Pullover',
+                      'von',
+                      'Frau',
+                      'v',
+                      'Stein'])
 
     def test_tokenize_nested(self):
         assert_equal(self.tokenizer.tokenize(self.text, nested=True),
@@ -245,7 +268,9 @@ class TestPatternTokenizer(unittest.TestCase):
                        'seinen',
                        '43',
                        '.'],
-                      ['Geburtstag', '.']])
+                      ['Geburtstag', '.'],
+                      ['Er', 'wünscht', 'sich', 'z.', 'B.', 'einen', 'Pullover', 'von', 'Frau', 'v.', 'Stein', '.']
+                      ])
 
     def test_itokenize(self):
         gen = self.tokenizer.itokenize(self.text)
@@ -257,7 +282,9 @@ class TestPatternTokenizer(unittest.TestCase):
         sents = self.tokenizer.sent_tokenize(self.text)
         assert_equal(sents, ['Heute ist der 3 .',
                              'Mai 2014 und Dr. Meier feiert seinen 43 .',
-                             'Geburtstag .'])
+                             'Geburtstag .',
+                             'Er wünscht sich z. B. einen Pullover von Frau v. Stein .'
+                             ])
 
     def test_word_tokenize(self):
         tokens = self.tokenizer.word_tokenize(self.snt1)
