@@ -293,6 +293,7 @@ class SentenceTest(TestCase):
         assert_true(translated in ["This is a sentence.",
                                    "This is a sentence .",
                                    "That's a sentence.",
+                                   "That is a sentence.",
                                    "That's a sentence ."])
 
     @expected_failure

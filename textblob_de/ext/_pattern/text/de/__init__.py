@@ -171,16 +171,25 @@ def stts2universal(token, tag):
         return (token, PRON)
     return penntreebank2universal(*stts2penntreebank(token, tag))
 
+#let's add some legal abbreviations, too
+#let's also completely rule out at least simple ordinals
+#let's also rule out anything that could be a date
 ABBREVIATIONS = set((
     "Abs.", "Abt.", "Ass.", "Br.", "Ch.", "Chr.", "Cie.", "Co.", "Dept.", "Diff.", 
     "Dr.", "Eidg.", "Exp.", "Fam.", "Fr.", "Hrsg.", "Inc.", "Inv.", "Jh.", "Jt.", "Kt.", 
     "Mio.", "Mrd.", "Mt.", "Mte.", "Nr.", "Nrn.", "Ord.", "Ph.", "Phil.", "Pkt.", 
     "Prof.", "Pt.", " S.", "St.", "Stv.", "Tit.", "VII.", "al.", "begr.","bzw.", 
-    "chem.", "dent.", "dipl.", "e.g.", "ehem.", "etc.", "excl.", "exkl.", "hum.", 
+    "chem.", "dent.", "dipl.", "e.g.", "ehem.", "etc.", "excl.", "exkl.", "gem.", "hum.", 
     "i.e.", "incl.", "ing.", "inkl.", "int.", "iur.", "lic.", "med.", "no.", "oec.", 
     "phil.", "phys.", "pp.", "psych.", "publ.", "rer.", "sc.", "soz.", "spez.", "stud.", 
-    "theol.", "usw.", "vet.", "vgl.", "vol.", "wiss.",
-    "d.h.", "h.c.", u"o.ä.", "u.a.", "z.B.", "z.T.", "z.Zt."
+    "theol.", "usw.", "v.", "vet.", "vgl.", "vol.", "wiss.",
+    "d.h.", "h.c.", u"o.ä.", "u.a.", "z.B.", "z.T.", "z.Zt.", "z. B.", "d. h.", "h. c.", 
+    u"o. ä.", "u. a.", "z. B.", "z. T.", "z. Zt.",
+    "BGBl.", "ABl.", "Bundesgesetzbl.",
+    "0.", "1.", "2.", "3.", "4.", "5.", "6.", "7.", "8.", "9.", "10.", "11.", "12.", "13.",
+    "14.", "15.", "16.", "17.", "18.", "19.", "20.", "21.", "22.", "23.", "24.", "25.", "26.",
+    "27.", "28.", "29.", "30.", "31."
+    
 ))
 
 def find_lemmata(tokens):
