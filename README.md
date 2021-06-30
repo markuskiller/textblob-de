@@ -14,7 +14,6 @@ This python package is being developed as a `TextBlob` **Language
 Extension**. See [Extension
 Guidelines](https://textblob.readthedocs.org/en/dev/contributing.html)
 for details.
-This repo is my personal fork. It contains German-language adaptations that I consider useful. For the main textblob-de repo, visit [Markus Killer's repo](https://github.com/markuskiller/textblob-de).
 
 Features
 --------
@@ -55,10 +54,6 @@ for details):
 
     $ pip install -U git+https://github.com/markuskiller/textblob-de.git@dev
     $ python -m textblob.download_corpora
-
-To install this fork, just change the repo URL:
-
-    $ pip install -U git+https://github.com/anetschka/textblob-de.git@dev
 
 Note
 
