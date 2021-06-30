@@ -22,6 +22,7 @@ Contributors
 * retresco (Feature Request: enable tagset conversion in ``PatternTagger``)
 * Arttii (Pull Request #11)
 * andrewmfiorillo (Pull Request #18, Support for Python 3.7)
+* anetschka (Pull Request #21, extended list of abbreviations, fixed tests)
 
 .. _TextBlob: https://textblob.readthedocs.org/
 .. _textblob-de: https://github.com/markuskiller/textblob-de
