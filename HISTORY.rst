@@ -4,7 +4,9 @@ Changelog
 0.4.4 (unreleased)
 ++++++++++++++++++
 
-* 
+* Merged `Pull Request #21 <https://github.com/markuskiller/textblob-de/pull/21>`_ (thanks @anetschka)
+* Fixed tests
+* Extended list of abbreviations
 
 
 0.4.3 (03/01/2019)
