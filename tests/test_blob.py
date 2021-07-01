@@ -313,6 +313,7 @@ class SentenceTest(TestCase):
     def test_translate_detects_language_by_default(self):
         blob = tb.TextBlobDE(unicode("ذات سيادة كاملة"))
         assert_true(blob.translate() in ("Vollständig souveränen",
+                                         "völlig souverän"
                                          "Völlig souverän",
                                          "Mit voller Souveränität",
                                          "Mit vollen Souveränität",
