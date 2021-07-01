@@ -18,7 +18,7 @@ for details.
 Features
 --------
 
--   **NEW:** Works with Python3.7
+-   Works with Python3.9
 -   All directly accessible `textblob_de` classes (e.g. `Sentence()` or
     `Word()`) are initialized with default models for German
 -   Properties or methods that do not yet work for German raise a
