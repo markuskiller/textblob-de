@@ -18,7 +18,6 @@ for details.
 Features
 --------
 
--   Works with Python3.9
 -   All directly accessible `textblob_de` classes (e.g. `Sentence()` or
     `Word()`) are initialized with default models for German
 -   Properties or methods that do not yet work for German raise a
@@ -38,7 +37,6 @@ Features
 -   Polarity detection (`PatternAnalyzer`) - Still **EXPERIMENTAL**,
     does not yet have information on subjectivity
 -   Full `pattern.text.de` API support on Python3
--   Supports Python 2 and 3
 -   See [working features
     overview](http://langui.ch/nlp/python/textblob-de-dev/) for details
 
@@ -134,11 +132,6 @@ WordList(['das', 'sein', 'ein', 'hässlich', 'Auto'])
 [('das', 'DT'), ('sein', 'VB'), ('ein', 'DT'), ('hässlich', 'JJ'), ('Auto', 'NN')]
 ```
 
-Note
-
-Make sure that you use unicode strings on Python2 if your input contains
-non-ascii characters (e.g. `word = u"schön"`).
-
 Access to `pattern` API in Python3
 ----------------------------------
 
@@ -166,7 +159,7 @@ Documentation and API Reference
 Requirements
 ------------
 
--   Python &gt;= 2.6 or &gt;= 3.3
+-   Python &gt;= 3.6
 
 TODO
 ----

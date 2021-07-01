@@ -1,4 +1,4 @@
-setuptools==39.2.0
+setuptools
 pep8==1.5.7
 autopep8
 flake8
