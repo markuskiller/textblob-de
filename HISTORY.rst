@@ -4,6 +4,7 @@ Changelog
 0.4.4 (unreleased)
 ++++++++++++++++++
 
+* TODO: fix docs build on RTD
 * adapted setup.py to reflect only python versions on which the tests are run
 * Updated tox/Travis-CI config files to test only on python3 versions that are still supported (>=3.6) and on python2.7 / pypy for legacy support
 * Merged `Pull Request #21 <https://github.com/markuskiller/textblob-de/pull/21>`_ (thanks @anetschka)
