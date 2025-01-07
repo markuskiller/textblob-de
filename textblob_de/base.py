@@ -4,8 +4,6 @@ from __future__ import absolute_import
 
 from abc import ABCMeta, abstractmethod
 
-from textblob.compat import with_metaclass
-
 # provide all base classes for ``textblob_de``
 from textblob.blob import BaseBlob
 from textblob.base import BaseNPExtractor, BaseParser
@@ -19,7 +17,7 @@ from textblob.base import DISCRETE, CONTINUOUS
 
 ##### LEMMATIZER #####
 
-class BaseLemmatizer(with_metaclass(ABCMeta)):
+class BaseLemmatizer(metaclass=ABCMeta):
 
     """Abstract base class from which all Lemmatizer classes inherit.
     Descendant classes must implement a ``lemmatize(text)`` method that returns
