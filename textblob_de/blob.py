@@ -41,7 +41,6 @@ from collections import defaultdict, namedtuple
 
 from textblob.blob import _initialize_models
 from textblob.decorators import cached_property, requires_nltk_corpus
-from textblob.translate import Translator
 from textblob.utils import lowerstrip
 
 from textblob_de.base import BaseBlob as _BaseBlob
@@ -63,12 +62,10 @@ class Word(unicode):
 
     """A simple word representation.
 
-    Includes methods for inflection, translation, and WordNet
+    Includes methods for inflection and WordNet
     integration.
 
     """
-
-    translator = Translator()
 
     def __new__(cls, string, pos_tag=None):
         """Return a new instance of the class.
@@ -96,25 +93,6 @@ class Word(unicode):
     def pluralize(self):
         """Return the plural version of the word as a string."""
         return Word(_pluralize(self.string))
-
-    def translate(self, from_lang=None, to="de"):
-        """Translate the word to another language using Google's Translate API.
-
-        .. versionadded:: 0.5.0 (``textblob``)
-
-        """
-        if from_lang is None:
-            from_lang = self.translator.detect(self.string)
-        return self.translator.translate(self.string,
-                                         from_lang=from_lang, to_lang=to)
-
-    def detect_language(self):
-        """Detect the word's language using Google's Translate API.
-
-        .. versionadded:: 0.5.0 (``textblob``)
-
-        """
-        return self.translator.detect(self.string)
 
     def spellcheck(self):
         """Return a list of (word, confidence) tuples of spelling corrections.
@@ -496,16 +474,6 @@ class BaseBlob(_BaseBlob):
         for phrase in self.noun_phrases:
             counts[phrase] += 1
         return counts
-
-    def translate(self, from_lang=None, to="de"):
-        """Translate the blob to another language."""
-        if from_lang is None:
-            from_lang = self.translator.detect(self.string)
-        return self.__class__(
-            self.translator.translate(
-                self.raw,
-                from_lang=from_lang,
-                to_lang=to))
 
     def correct(self):
         """Attempt to correct the spelling of a blob.
